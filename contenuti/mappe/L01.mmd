@@ -1,0 +1,67 @@
+graph TD
+    PSI["PSICOLOGIA<br/>studio scientifico della mente<br/>e del comportamento<br/>nel rapporto con l'ambiente"]
+
+    PSI --> MENTE["MENTE<br/>esperienza interiore<br/>flusso di coscienza"]
+    PSI --> COMP["COMPORTAMENTO<br/>azioni osservabili"]
+
+    PSI --> EMANC{"EMANCIPAZIONE<br/>da altre discipline"}
+    EMANC --> FIL["dalla FILOSOFIA<br/>mente sul piano filosofico<br/>→ relazione mente-corpo<br/>sul piano naturalistico"]
+    EMANC --> MED["dalla MEDICINA/FISIOLOGIA<br/>cervello come organo<br/>→ unità cervello-mente<br/>e ambiente"]
+
+    FIL -.-> PRE["PRECURSORI NON SCIENTIFICI<br/>trapanazione · Ippocrate<br/>Cartesio: res cogitans/res extensa<br/>Gall: frenologia"]
+
+    EMANC --> CTX["CONTESTO 1800<br/>POSITIVISMO — Comte<br/>scienze naturali = unica fonte<br/>attendibile di conoscenza"]
+
+    CTX --> PSIFIS["PSICOFISICA<br/>sensazioni ← proprietà fisiche<br/>dello stimolo"]
+    PSIFIS --> FECH["FECHNER<br/>sensazione misurabile<br/>legge di Weber-Fechner"]
+    PSIFIS --> HELM["von HELMHOLTZ<br/>inferenza inconscia:<br/>percezione = processo costruttivo"]
+
+    PSIFIS ==> WUNDT["★ WUNDT — 1879, Lipsia<br/>primo laboratorio<br/>NASCITA DELLA<br/>PSICOLOGIA SCIENTIFICA"]
+
+    WUNDT --> WOGG["OGGETTO: esperienza diretta<br/>e immediata scomposta in<br/>elementi irriducibili<br/>('atomi della mente')"]
+    WUNDT --> WMET["METODO: INTROSPEZIONE<br/>+ tempi di reazione"]
+
+    WUNDT ==> STR["STRUTTURALISMO<br/>1892, USA — TITCHENER<br/>Cornell University"]
+    STR --> SOGG["OGGETTO: STRUTTURA<br/>della mente/coscienza<br/>percezioni, emozioni, idee"]
+    STR --> SMET["METODO: introspezione<br/>ancor più sistematizzata<br/>44.000 unità sensoriali"]
+    STR --> SLIM["LIMITE FATALE<br/>introspezione = retrospezione<br/>descrizioni incoerenti<br/>→ tramonta con Titchener"]
+
+    SLIM ==>|"reazione:<br/>oltre la struttura"| FUN["FUNZIONALISMO<br/>1896, USA<br/>fenomeni mentali = FUNZIONI"]
+
+    DARW["DARWIN<br/>selezione naturale<br/>ADATTAMENTO ALL'AMBIENTE"] -.->|precursore| FUN
+    JAMES["WILLIAM JAMES — Harvard<br/>stream of consciousness<br/>mente = effetto dell'adattamento<br/>rifiuto dell'introspezione"] -.->|precursore| FUN
+
+    FUN --> CHIC["SCUOLA DI CHICAGO<br/>Dewey · Angell · Carr<br/>manifesto funzionalista"]
+    CHIC --> FOGG["OGGETTO: attività mentali<br/>nella guida del comportamento"]
+    CHIC --> FMET["METODO: eclettico<br/>laboratorio + osservazione"]
+
+    FUN --> THOR["THORNDIKE — Columbia<br/>connessionismo<br/>LEGGE DELL'EFFETTO"]
+
+    RUS["SCUOLE RUSSE<br/>fine 800 / inizio 900"] --> RIFL["RIFLESSOLOGICA<br/>prima del 1917<br/>processi psichici = riflessi<br/>spinali o cerebrali"]
+    RIFL --> PAV["PAVLOV — Nobel 1904<br/>RIFLESSI CONDIZIONATI 1902<br/>forma elementare<br/>di apprendimento"]
+
+    RUS -->|"1917<br/>rivoluzione"| STOR["STORICO-CULTURALE<br/>dopo il 1917<br/>marxismo e materialismo"]
+    STOR --> VYG["VYGOTSKIJ<br/>dimensione sociale<br/>psiche ← sviluppo socio-economico<br/>linguaggio = base della coscienza"]
+
+    DIN["PSICOLOGIA DINAMICA<br/>fine 800 / inizio 900, Austria<br/>NON accademica:<br/>nasce dalla pratica clinica"] --> FREUD["FREUD<br/>oggetto: istanze psichiche<br/>e relazioni dinamiche<br/>metodo psicoanalitico"]
+
+    FREUD --> LIV["3 LIVELLI<br/>inconscio · preconscio · conscio<br/>(poi Es · Io · Super-Io)"]
+    FREUD --> CONF["CONFLITTO<br/>principio di piacere<br/>⟷ principio di realtà"]
+    FREUD --> ASS["2 ASSUNTI<br/>continuità normalità/patologia<br/>ruolo centrale dell'inconscio"]
+
+    THOR ==>|precursore| COMPORT["COMPORTAMENTISMO<br/>1913, USA"]
+    PAV ==>|precursore| COMPORT
+    VYG ==>|precursore| COGN["COGNITIVISMO<br/>1967, USA"]
+    STR -.-> GEST["GESTALT<br/>1912, Germania"]
+
+    classDef nascita fill:#1f4e79,stroke:#0d2d4d,color:#ffffff,stroke-width:2px
+    classDef scuola fill:#2e75b6,stroke:#1f4e79,color:#ffffff,stroke-width:2px
+    classDef collaterale fill:#7030a0,stroke:#4a1f6b,color:#ffffff,stroke-width:2px
+    classDef futuro fill:#a6a6a6,stroke:#7f7f7f,color:#ffffff,stroke-dasharray: 4 3
+    classDef limite fill:#c00000,stroke:#7f0000,color:#ffffff
+
+    class WUNDT nascita
+    class STR,FUN,CHIC scuola
+    class RUS,RIFL,STOR,DIN,FREUD collaterale
+    class COMPORT,COGN,GEST futuro
+    class SLIM limite

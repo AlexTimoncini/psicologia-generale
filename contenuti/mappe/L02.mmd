@@ -1,0 +1,65 @@
+graph TD
+    WUNDT["WUNDT 1879<br/>strutturalismo:<br/>scomporre la coscienza<br/>con l'introspezione"]
+
+    WUNDT ==>|"OPPOSIZIONE 1:<br/>sbaglia a SCOMPORRE"| GEST["GESTALT — 1912<br/>Germania → USA (nazismo)<br/>'il tutto è più della<br/>somma delle parti'"]
+    WUNDT ==>|"OPPOSIZIONE 2:<br/>sbaglia a studiare<br/>l'INOSSERVABILE"| COMP["COMPORTAMENTISMO — 1913<br/>USA<br/>psicologia integralmente<br/>obiettiva"]
+
+    KANT["KANT — filosofia INNATISTA<br/>sintesi a priori<br/>idee a priori = schemi innati"] -.->|radice| GEST
+    BREN["BRENTANO — Graz<br/>psicologia dell'atto<br/>intenzionalità<br/>fenomeno ≠ oggetto fisico"] -.->|radice| GEST
+
+    GEST --> GOGG["OGGETTO<br/>l'atto unitario della percezione<br/>e le regole che lo governano"]
+    GEST --> GMET["METODO FENOMENOLOGICO<br/>SPERIMENTALE<br/>studiare il fenomeno<br/>SENZA scomporlo"]
+    GEST --> GLEG["LEGGI INNATE<br/>specie-specifiche<br/>qualità gestaltiche →<br/>invarianza percettiva<br/>GESTALTEN"]
+
+    GEST --> WERT["WERTHEIMER — caposcuola<br/>Francoforte<br/>ILLUSIONI"]
+    WERT --> PHI["FENOMENO PHI<br/>due luci alternate<br/>intervallo breve → un unico<br/>stimolo IN MOVIMENTO<br/>= movimento stroboscopico"]
+
+    GEST --> KOHL["KÖHLER — allievo<br/>scimpanzé"]
+    KOHL --> INS["APPRENDIMENTO PER INSIGHT<br/>improvvisa illuminazione unitaria<br/>ristruttura il campo fenomenico<br/>NON per prove ed errori"]
+
+    GEST --> KOFF["KOFFKA — allievo"]
+    GEST --> LEW["LEWIN → USA<br/>TEORIA DI CAMPO (topologia)<br/>campo di vita = campo di forze<br/>equilibrio / squilibrio<br/>→ PSICOLOGIA SOCIALE"]
+
+    LOCKE["LOCKE — filosofia EMPIRISTA<br/>tabula rasa<br/>nulla è innato"] -.->|radice| COMP
+    THOR["THORNDIKE<br/>legge dell'effetto"] -.->|precursore| COMP
+    PAV["PAVLOV<br/>condizionamento classico<br/>riflessi automatici"] -.->|precursore| COMP
+    THOR -.-> COMU["minimo comune denominatore:<br/>APPRENDIMENTO<br/>+ PSICOLOGIA COMPARATA<br/>(metodo elettivo)"]
+    PAV -.-> COMU
+
+    COMP --> COGG["OGGETTO<br/>comportamento manifesto<br/>associazioni STIMOLO-RISPOSTA<br/>solo input e output"]
+    COMP --> BOX["BLACK BOX<br/>l'organismo è una scatola nera<br/>critica all'introspezione:<br/>osservatore = osservato"]
+
+    COMP ==> F1["FASE 1 — CLASSICO<br/>WATSON"]
+    F1 --> WPOS["molecolarismo<br/>perifericalismo<br/>ambientalismo"]
+    F1 --> ALB["piccolo ALBERT<br/>condizionamento della paura<br/>rumore + ratto → fobia"]
+
+    F1 ==> F2["FASE 2 — NEOCOMPORTAMENTISMO<br/>S — O — R<br/>variabile interveniente"]
+    F2 --> HULL["HULL — caposcuola<br/>PULSIONI<br/>bisogno → tensione → risposta"]
+    F2 --> TOLM["TOLMAN<br/>rappresentazioni mentali interne<br/>APPRENDIMENTO LATENTE<br/>MAPPE COGNITIVE"]
+
+    F2 -.->|"VOCE FUORI DAL CORO<br/>passo indietro"| SKIN["SKINNER — Harvard<br/>ritorno all'ortodossia watsoniana<br/>CONDIZIONAMENTO OPERANTE<br/>il soggetto OPERA sull'ambiente"]
+    SKIN --> SBOX["SKINNER BOX<br/>leve + dispenser<br/>RINFORZO = conseguenza<br/>del comportamento<br/>sull'ambiente"]
+    SKIN --> SAPP["applicazioni<br/>addestramento animali<br/>macchine per apprendere<br/>terapia comportamentale"]
+    SKIN --> SEST["derive finali<br/>libero arbitrio = illusione<br/>società utopistica"]
+
+    F2 ==> F3["FASE 3 — CENOCOMPORTAMENTISMO<br/>anni '50<br/>'comportamentismo cognitivista'"]
+    F3 --> HEBB["DONALD HEBB<br/>primo MODELLO PSICOFISIOLOGICO<br/>variabili interne = attività del SNC<br/>★ UNITÀ MENTE-CERVELLO"]
+    HEBB --> LEGGE["LEGGE DI HEBB<br/>due neuroni che scaricano insieme<br/>si potenziano reciprocamente"]
+    HEBB --> ASS["ASSEMBLEE CELLULARI<br/>configurazioni globali di attivazione<br/>che si rafforzano<br/>= base dell'apprendimento"]
+
+    F3 ==> COGN["COGNITIVISMO 1967<br/>(lezione successiva)"]
+    TOLM -.->|precursore| COGN
+
+    classDef bersaglio fill:#7f7f7f,stroke:#404040,color:#ffffff
+    classDef gestalt fill:#2e75b6,stroke:#1f4e79,color:#ffffff,stroke-width:2px
+    classDef comport fill:#c55a11,stroke:#833c0c,color:#ffffff,stroke-width:2px
+    classDef radice fill:#7030a0,stroke:#4a1f6b,color:#ffffff
+    classDef svolta fill:#1f7a3d,stroke:#0d4020,color:#ffffff,stroke-width:2px
+    classDef futuro fill:#a6a6a6,stroke:#7f7f7f,color:#ffffff,stroke-dasharray: 4 3
+
+    class WUNDT bersaglio
+    class GEST,WERT,KOHL,KOFF,LEW gestalt
+    class COMP,F1,F2,F3,SKIN,HULL,TOLM comport
+    class KANT,BREN,LOCKE,THOR,PAV radice
+    class HEBB svolta
+    class COGN futuro
