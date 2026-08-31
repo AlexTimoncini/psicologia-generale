@@ -1,0 +1,62 @@
+graph TD
+    CENO["CENOCOMPORTAMENTISMO<br/>Hebb — anni '50<br/>variabili interne =<br/>attività del SNC"]
+
+    CENO ==>|"EVOLUZIONE NATURALE<br/>non reazione"| COGN["COGNITIVISMO<br/>psicologia<br/>TOTALMENTE MENTALISTICA"]
+
+    PIA["PIAGET — psic. evolutiva<br/>errori percettivi nei bambini<br/>costanza della quantità<br/>si acquisisce più tardi"] -.->|contributo| COGN
+    CHOM["CHOMSKY — psicolinguistica<br/>contro SKINNER:<br/>predisposizione INNATA<br/>regole mentali"] -.->|contributo| COGN
+    INFO["INFORMATICA · CIBERNETICA<br/>INTELLIGENZA ARTIFICIALE<br/>avvento del COMPUTER"] -.->|contributo| COGN
+    BART["BARTLETT — memoria<br/>schemi cognitivi<br/>memoria COSTRUTTIVA"] -.-> INFO
+    BROAD["BROADBENT — attenzione<br/>teoria del FILTRO<br/>collo di bottiglia"] -.-> INFO
+
+    INFO --> META["METAFORA MENTE-COMPUTER<br/>la mente come<br/>elaboratore di informazioni"]
+
+    COGN --> SIMP["SIMPOSIO 1956<br/>teoria dell'informazione"]
+    SIMP --> MIL["MILLER<br/>memoria a breve termine<br/>SPAN"]
+    SIMP --> NS["NEWELL e SIMON<br/>PROBLEM SOLVING<br/>spazio problematico"]
+    SIMP --> CH2["CHOMSKY<br/>teoria del linguaggio"]
+
+    MIL --> TOTE["UNITÀ TOTE<br/>Miller · Galanter · Pribram<br/>Test-Operate-Test-Exit<br/>feedback retroattivo"]
+
+    COGN ==> NEIS["NEISSER 1967<br/>'Cognitive Psychology'<br/>MANIFESTO<br/>(un collage di cose già in essere)"]
+
+    NEIS --> HIP["HUMAN INFORMATION<br/>PROCESSING<br/>oggetto: processi cognitivi<br/>METODO SIMULATIVO<br/>ipotesi validata dal computer"]
+    HIP --> PRO["PREGIO<br/>controllo assoluto<br/>di tutte le variabili"]
+
+    NEIS -.->|"lo STESSO Neisser<br/>critica il proprio manifesto"| ECO["CRITICA ECOLOGICA<br/>la ricerca si è allontanata<br/>dalla realtà quotidiana<br/>→ funzione adattativa<br/>e interazione con l'ambiente"]
+    HIP ==> ECO
+
+    ECO --> SCI["SCIENZA COGNITIVA<br/>rivista 'Cognitive Science'<br/>come le conoscenze sono<br/>codificate dalla mente<br/>ARCHITETTURA FUNZIONALE<br/>(senza base materiale)"]
+
+    SCI --> MOD["MODULARISMO — Fodor<br/>trasduttori → rappresentazioni<br/>MODULI (capsule, in parallelo)<br/>→ SISTEMI CENTRALI<br/>che integrano"]
+    SCI --> CONN["CONNESSIONISMO<br/>prima apertura al SUBSTRATO<br/>rete di unità di elaborazione<br/>input · nascoste · output<br/>≠ connessionismo di Thorndike"]
+
+    MOD ==> EMB["MENTE EMBODIED<br/>incarnata"]
+    CONN ==> EMB
+
+    EMB --> C1["1. la mente HA UN CORPO<br/>incarnata in una<br/>struttura cerebrale"]
+    EMB --> C2["2. competenze cognitive<br/>solo IN AZIONE e<br/>IN INTERAZIONE<br/>con l'ambiente"]
+    EMB --> C3["3. MENTE RELAZIONALE<br/>non macchina di pensiero"]
+
+    EMB ==> BPS["APPROCCIO<br/>BIOPSICOSOCIALE"]
+    BPS --> BIO["BIOLOGICA<br/>selezione naturale<br/>predisposizioni genetiche<br/>meccanismi cerebrali<br/>influenze ormonali"]
+    BPS --> PSI["PSICOLOGICA<br/>paure apprese, aspettative<br/>emozioni<br/>elaborazione cognitiva"]
+    BPS --> SOC["SOCIOCULTURALE<br/>pari, aspettative<br/>gruppi, modelli persuasivi"]
+
+    BIO ==> NEURO["NEUROSCIENZE COMPORTAMENTALI<br/>= psicologia fisiologica<br/>processi cerebrali e funzioni<br/>fisiologiche ALL'ORIGINE<br/>del comportamento"]
+
+    LASH["LASHLEY<br/>labirinti nei ratti<br/>asportazione chirurgica<br/>NON trova la zona precisa<br/>invasivo, non usabile nell'uomo"] -.->|precursore| NEURO
+    HEBB2["HEBB<br/>la connessione si rafforza<br/>con l'esperienza<br/>→ plasticità neuronale"] -.->|precursore| NEURO
+
+    TECH["RIVOLUZIONE TECNOLOGICA<br/>microscopia · onde cerebrali<br/>NEUROIMMAGINE STRUTTURALE<br/>TAC · RM<br/>NEUROIMMAGINE FUNZIONALE<br/>PET · fMRI"] ==> NEURO
+
+    NEURO --> NC["neuroscienze COGNITIVE<br/>funzioni superiori"]
+    NEURO --> NA["neuroscienze AFFETTIVE<br/>processi emotivi"]
+    NEURO --> NR["neuroscienze RELAZIONALI<br/>processi con gli altri"]
+
+    NEURO -.->|affiancate da| COLL["DISCIPLINE COLLATERALI"]
+    COLL --> GEN["GENETICA DEL COMPORTAMENTO<br/>studio sui GEMELLI<br/>omozigoti vs eterozigoti<br/>→ dibattito natura/cultura"]
+    GEN --> EPI["EPIGENETICA<br/>cambiamenti nel GENOTIPO<br/>dovuti all'ambiente<br/>dirime natura/cultura"]
+    COLL --> EVO["PSICOLOGIA EVOLUZIONISTICA<br/>selezione naturale (Darwin)<br/>mente = insieme di<br/>MODULI SPECIALIZZATI"]
+    COLL --> UMA["PSICOLOGIA UMANISTICA<br/>Maslow · Rogers<br/>potenzialità POSITIVE<br/>→ psicologia della salute"]
+    COLL --> SCU["PSICOLOGIA SOCIOCULTURALE<br/>sociale + culturale<br/>cultura trasmessa senza<br/>base genetica<br/>≠ storico-culturale di Vygotskij"]

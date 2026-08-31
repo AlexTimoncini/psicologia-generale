@@ -7,13 +7,16 @@ Nessun database, nessuna dipendenza da installare.
 
 | Sezione | Contenuto |
 |---|---|
-| **Manuale** | 12 capitoli + 2 appendici (~25.500 parole) in forma di manuale: prosa espositiva, riquadri, tabelle, «In sintesi» e domande di verifica per ogni capitolo |
+| **Manuale** | 15 capitoli + 2 appendici (~34.000 parole) in forma di manuale: prosa espositiva, riquadri, tabelle, «In sintesi» e domande di verifica per ogni capitolo |
+| **Argomenti** | 15 esposizioni orali (~21.000 parole, 64 minuti di parlato) organizzate in sei cartelle: ogni argomento scritto **come si direbbe a voce**, con indicazioni di regìa nascondibili |
 | **Excursus storico** | Le scuole raggruppate in quattro fasi, con filtri, tavola sinottica e la terna oggetto–metodo–validità per ciascuna |
-| **Quiz a crocette** | 104 domande a quattro opzioni con spiegazione; ripasso automatico delle sbagliate |
-| **Flashcard** | 141 carte a tre scatole (Leitner), con avanzamento salvato nel browser |
-| **Scrivere i nomi** | 46 nomi e luoghi, confronto lettera per lettera e nota sulla trappola ortografica |
+| **Quiz a crocette** | 145 domande a quattro opzioni con spiegazione; ripasso automatico delle sbagliate |
+| **Flashcard** | 189 carte a tre scatole (Leitner), con avanzamento salvato nel browser |
+| **Scrivere i nomi** | 59 nomi e luoghi, confronto lettera per lettera e nota sulla trappola ortografica |
 | **Esame** | Simulazione cronometrata, allenamento libero, archivio delle prove |
 | **Lezioni** | Trascrizioni rielaborate, appunti e mappe concettuali |
+
+Le lezioni 1, 2 e 3 sono complete: trascrizione rielaborata, appunti e mappa concettuale.
 
 Il progresso di lettura, le flashcard e gli esiti dei quiz sono salvati in `localStorage`:
 restano nel browser che li ha prodotti e non vengono inviati da nessuna parte.
@@ -33,7 +36,8 @@ Il file `.nojekyll` serve a impedire che GitHub processi la cartella con Jekyll:
 
 | Cosa aggiungere | Dove |
 |---|---|
-| Un capitolo del manuale | `contenuti/manuale/C13.md` + una voce in `data/manuale.js` |
+| Un capitolo del manuale | `contenuti/manuale/C16.md` + una voce in `data/manuale.js` |
+| Un'esposizione orale | `contenuti/argomenti/D16.md` + una voce in `data/argomenti.js` |
 | Domande del quiz | `data/quiz.js` — la **prima** opzione è sempre quella corretta, vengono mescolate a runtime |
 | Flashcard | `data/flashcard.js` |
 | Nomi da allenare | `data/nomi.js` |
@@ -71,17 +75,19 @@ assets/studio.js        manuale, quiz, flashcard, allenamento sui nomi
 data/corso.js           lezioni, scuole, periodi, definizione, sintagmi, errori
 data/esami.js           banca domande aperte e archivio prove
 data/manuale.js         indice dei capitoli del manuale
+data/argomenti.js       indice delle esposizioni orali, per cartella
 data/quiz.js            banca delle domande a scelta multipla
 data/flashcard.js       mazzo delle flashcard
 data/nomi.js            nomi, indizi e trappole ortografiche
 contenuti/              trascrizioni e appunti in Markdown
 contenuti/manuale/      i capitoli del manuale in Markdown
+contenuti/argomenti/    le esposizioni orali in Markdown, una per file
 contenuti/mappe/        mappe concettuali in Mermaid
 ```
 
 ## Il file autonomo
 
-`standalone.html` contiene tutto — CSS, script e testi — in un unico file da 611 KB.
+`standalone.html` contiene tutto — CSS, script e testi — in un unico file da circa 960 KB.
 Si apre con un doppio clic, senza server e senza connessione (tranne i font, che
 ripiegano su quelli di sistema). Va rigenerato dopo ogni modifica:
 
@@ -97,5 +103,6 @@ Caricate da CDN al momento della visita, non serve installarle:
 ## Nota sui contenuti
 
 Le trascrizioni in `contenuti/L0*_trascrizione.md` derivano dall'audio delle lezioni
-del corso, materiale didattico prodotto da Unimarconi. Gli appunti, il manuale, i quiz,
-le flashcard e gli esercizi sui nomi sono rielaborazioni per uso di studio personale.
+del corso, materiale didattico prodotto da Unimarconi. Gli appunti, il manuale, gli
+argomenti, i quiz, le flashcard e gli esercizi sui nomi sono rielaborazioni per uso
+di studio personale.

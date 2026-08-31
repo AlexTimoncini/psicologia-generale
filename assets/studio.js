@@ -670,3 +670,143 @@ function chiudiQuiz() {
   });
   $('#qzNuovo').addEventListener('click', () => vistaQuiz());
 }
+
+/* =========================================================
+   ARGOMENTI — le esposizioni orali
+   ========================================================= */
+function vistaArgomenti() {
+  const a = PGE.argomenti;
+  const letti = MEM.get('argomenti.letti', []);
+  const totMin = a.voci.reduce((s, v) => s + v.minuti, 0);
+
+  main.innerHTML = `
+    <p class="occhiello">Argomenti</p>
+    <h1>${a.sottotitolo}</h1>
+    <p class="sommario">${a.intro}</p>
+
+    <div class="griglia tre" style="margin:1.6rem 0">
+      <div class="dato"><div class="dato-cifra">${a.voci.length}</div><div class="dato-eti">esposizioni</div></div>
+      <div class="dato"><div class="dato-cifra">${totMin}′</div><div class="dato-eti">di parlato</div></div>
+      <div class="dato"><div class="dato-cifra">${letti.length}</div><div class="dato-eti">già ripassate</div></div>
+    </div>
+    ${barretta(letti.length, a.voci.length, 'Argomenti ripassati')}
+
+    ${a.cartelle.map(k => {
+      const vs = a.voci.filter(v => v.cartella === k.id);
+      if (!vs.length) return '';
+      const fatti = vs.filter(v => letti.includes(v.id)).length;
+      return `<div class="cartella">
+        <div class="cartella-testa">
+          <h2>${k.nome}</h2>
+          <span class="cartella-conta">${fatti}/${vs.length}</span>
+        </div>
+        <p class="cartella-occhiello">${k.occhiello}</p>
+        <div class="arg-elenco">
+          ${vs.map(v => `
+            <a class="arg-riga${letti.includes(v.id) ? ' letto' : ''}" href="#/argomenti/${v.id}">
+              <span class="arg-durata">${v.minuti}′</span>
+              <span class="arg-corpo">
+                <span class="arg-tit">${v.titolo}</span>
+                <span class="arg-dom">${esc(v.domanda)}</span>
+                <span class="arg-perni">${v.perni.slice(0, 5).map(p => `<em>${esc(p)}</em>`).join('')}</span>
+              </span>
+              <span class="arg-meta">${v.lezione}</span>
+            </a>`).join('')}
+        </div>
+      </div>`;
+    }).join('')}
+
+    ${letti.length ? `<div class="azioni"><button class="bottone vuoto" id="azzeraArg">Azzera l'avanzamento</button></div>` : ''}`;
+
+  const az = $('#azzeraArg');
+  if (az) az.addEventListener('click', () => { MEM.del('argomenti.letti'); vistaArgomenti(); });
+}
+
+function vistaArgomento(id) {
+  const a = PGE.argomenti;
+  const i = a.voci.findIndex(v => v.id === id);
+  if (i < 0) return vistaAssente('/argomenti/' + id);
+  const v = a.voci[i], prec = a.voci[i - 1], succ = a.voci[i + 1];
+  const k = a.cartelle.find(c => c.id === v.cartella);
+  const letti = MEM.get('argomenti.letti', []);
+  const regiaVisibile = MEM.get('argomenti.regia', true);
+  const corpoGrande = MEM.get('argomenti.grande', false);
+
+  main.innerHTML = `
+    <p class="occhiello"><a href="#/argomenti" style="text-decoration:none">Argomenti</a> · ${esc(k ? k.nome : '')}</p>
+    <div class="cap-testata">
+      <div>
+        <h1 style="margin-bottom:.3rem">${v.titolo}</h1>
+        <p class="arg-domanda-testata">${esc(v.domanda)}</p>
+      </div>
+      <div class="cap-testata-meta">${v.minuti}′ · ${v.lezione}</div>
+    </div>
+
+    <div class="arg-barra">
+      <div class="arg-perni-testata">${v.perni.map(p => `<em>${esc(p)}</em>`).join('')}</div>
+      <div class="arg-comandi">
+        <button class="chip${regiaVisibile ? ' attivo' : ''}" id="argRegia">Regìa</button>
+        <button class="chip${corpoGrande ? ' attivo' : ''}" id="argGrande">Testo grande</button>
+        ${v.capitoli.map(c => `<a class="chip" href="#/manuale/${c}">cap. ${c}</a>`).join('')}
+      </div>
+    </div>
+
+    <div class="prosa discorso${corpoGrande ? ' grande' : ''}${regiaVisibile ? '' : ' senza-regia'}" id="argTesto">
+      <p style="color:var(--grafite)">Carico l'esposizione…</p>
+    </div>
+
+    <div class="cap-piede">
+      <button class="bottone${letti.includes(id) ? ' vuoto' : ''}" id="segnaArg">${letti.includes(id) ? '✓ Ripassato' : 'Segna come ripassato'}</button>
+      <div class="cap-salti">
+        ${prec ? `<a class="bottone vuoto" href="#/argomenti/${prec.id}">← ${prec.titolo.slice(0, 32)}${prec.titolo.length > 32 ? '…' : ''}</a>` : '<span></span>'}
+        ${succ ? `<a class="bottone vuoto" href="#/argomenti/${succ.id}">${succ.titolo.slice(0, 32)}${succ.titolo.length > 32 ? '…' : ''} →</a>` : '<span></span>'}
+      </div>
+    </div>`;
+
+  $('#segnaArg').addEventListener('click', () => {
+    const l = MEM.get('argomenti.letti', []);
+    const j = l.indexOf(id);
+    if (j < 0) l.push(id); else l.splice(j, 1);
+    MEM.set('argomenti.letti', l);
+    const b = $('#segnaArg');
+    b.textContent = j < 0 ? '✓ Ripassato' : 'Segna come ripassato';
+    b.classList.toggle('vuoto', j < 0);
+  });
+
+  $('#argRegia').addEventListener('click', () => {
+    const on = !$('#argTesto').classList.contains('senza-regia');
+    $('#argTesto').classList.toggle('senza-regia', on);
+    $('#argRegia').classList.toggle('attivo', !on);
+    MEM.set('argomenti.regia', !on);
+  });
+
+  $('#argGrande').addEventListener('click', () => {
+    const on = $('#argTesto').classList.toggle('grande');
+    $('#argGrande').classList.toggle('attivo', on);
+    MEM.set('argomenti.grande', on);
+  });
+
+  leggiContenuto(`contenuti/argomenti/${id}.md`, 'argomenti/' + id)
+    .then(t => {
+      const el = $('#argTesto');
+      /* titolo, domanda e durata sono già nella testata: si tolgono dal corpo */
+      const corpo = String(t)
+        .replace(/^#\s+.*\n/, '')
+        .replace(/^\s*(?:>[^\n]*\n)+/, '');
+      el.innerHTML = md(corpo);
+      avvolgiTabelle(el);
+      marcaRegia(el);
+    })
+    .catch(() => { $('#argTesto').innerHTML = messaggioFile(); });
+}
+
+/* i paragrafi di sola regìa vengono isolati, così da poterli nascondere */
+function marcaRegia(el) {
+  $$('p', el).forEach(p => {
+    const t = p.textContent.trim();
+    if (/^\[\s*Regia\s*:/i.test(t) && /\]$/.test(t)) p.classList.add('regia');
+  });
+  /* il primo paragrafo in corsivo è la nota d'uso: la si rende meno invadente */
+  const primo = $('p', el);
+  if (primo && primo.querySelector('em') && primo.textContent.length < 260) primo.classList.add('nota-uso');
+}

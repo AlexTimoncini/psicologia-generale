@@ -614,3 +614,65 @@ textarea {
 .fase-testa h3 { margin:0; font-size:1.18rem; }
 .fase-arco { font-family:var(--dati); font-size:.72rem; color:var(--accento); margin-left:auto; }
 .fase-testo { font-size:.92rem; color:var(--grafite); line-height:1.6; margin:0 0 1.2rem; max-width:60ch; }
+
+/* =========================================================
+   ARGOMENTI — le esposizioni orali
+   ========================================================= */
+.cartella { margin-bottom:2.6rem; }
+.cartella-testa { display:flex; align-items:baseline; gap:.8rem;
+  border-bottom:1px solid var(--linea); padding-bottom:.4rem; margin-bottom:.4rem; }
+.cartella-testa h2 { margin:0; }
+.cartella-conta { margin-left:auto; font-family:var(--dati); font-size:.72rem; color:var(--accento); }
+.cartella-occhiello { font-size:.9rem; color:var(--grafite); margin:0 0 1rem; max-width:62ch; }
+
+.arg-elenco { display:flex; flex-direction:column; }
+.arg-riga { display:grid; grid-template-columns:3rem 1fr auto; gap:1rem; align-items:start;
+  padding:1rem .8rem; border-bottom:1px solid var(--linea-fine); text-decoration:none;
+  color:inherit; transition:background .15s; }
+.arg-riga:hover { background:var(--accento-tenue); }
+.arg-riga.letto .arg-durata::after { content:"✓"; display:block; font-size:.75rem; color:var(--accento); margin-top:.15rem; }
+.arg-durata { font-family:var(--dati); font-size:1.05rem; color:var(--accento); line-height:1.2; padding-top:.15rem; }
+.arg-corpo { display:block; min-width:0; }
+.arg-tit { display:block; font-family:var(--display); font-size:1.12rem; font-weight:500; margin-bottom:.25rem; }
+.arg-dom { display:block; font-size:.85rem; color:var(--grafite); font-style:italic; line-height:1.45; margin-bottom:.45rem; }
+.arg-perni { display:flex; flex-wrap:wrap; gap:.3rem; }
+.arg-perni em { font-family:var(--dati); font-style:normal; font-size:.65rem; color:var(--grafite);
+  background:var(--carta-alta); border:1px solid var(--linea-fine); border-radius:2px; padding:.12rem .4rem; }
+.arg-meta { font-family:var(--dati); font-size:.72rem; color:var(--accento); white-space:nowrap; }
+
+.arg-domanda-testata { font-size:.95rem; color:var(--grafite); font-style:italic;
+  line-height:1.5; margin:0; max-width:62ch; }
+.arg-barra { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; justify-content:space-between;
+  margin:1.2rem 0 1.8rem; padding-bottom:1rem; border-bottom:1px solid var(--linea-fine); }
+.arg-perni-testata { display:flex; flex-wrap:wrap; gap:.3rem; max-width:38rem; }
+.arg-perni-testata em { font-family:var(--dati); font-style:normal; font-size:.65rem; color:var(--grafite);
+  background:var(--carta-alta); border:1px solid var(--linea-fine); border-radius:2px; padding:.15rem .45rem; }
+.arg-comandi { display:flex; gap:.4rem; flex-wrap:wrap; margin-left:auto; }
+.arg-comandi .chip { text-decoration:none; }
+
+/* il discorso: misura comoda, respiro fra i paragrafi */
+.prosa.discorso { max-width:64ch; }
+.prosa.discorso p { font-size:1.04rem; line-height:1.82; margin:0 0 1.15rem; }
+.prosa.discorso.grande p { font-size:1.22rem; line-height:1.85; }
+.prosa.discorso.grande { max-width:58ch; }
+.prosa.discorso h2 { font-size:1.15rem; margin-top:2.6rem; }
+.prosa.discorso hr { margin:2.4rem 0; }
+.prosa.discorso blockquote { font-size:.94rem; }
+.prosa.discorso li { line-height:1.7; margin-bottom:.3rem; }
+
+.prosa.discorso p.regia { font-size:.92rem; line-height:1.65; color:var(--grafite);
+  background:var(--carta-alta); border-left:2px solid var(--accento);
+  padding:.7rem .95rem; margin:1.3rem 0 1.5rem; border-radius:0 3px 3px 0; }
+.prosa.discorso p.regia em { font-style:normal; }
+.prosa.discorso.senza-regia p.regia,
+.prosa.discorso.senza-regia p.nota-uso { display:none; }
+.prosa.discorso p.nota-uso { font-size:.86rem; color:var(--grafite); border-bottom:1px solid var(--linea-fine);
+  padding-bottom:1rem; margin-bottom:1.8rem; }
+
+@media (max-width: 640px) {
+  .arg-riga { grid-template-columns:2.6rem 1fr; }
+  .arg-meta { grid-column:2; }
+  .arg-barra { flex-direction:column; align-items:stretch; }
+  .arg-comandi { margin-left:0; }
+  .prosa.discorso p { font-size:1rem; line-height:1.75; }
+}

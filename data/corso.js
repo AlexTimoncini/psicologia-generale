@@ -23,7 +23,7 @@ PGE.lezioni = [
     letture:["Darley & Latané, 1968"] },
   { id:"L02", modulo:"M1", titolo:"Introduzione alla psicologia generale (II)", sottotitolo:"Una prospettiva storica", stato:"pronta",
     argomenti:["La Gestalt","Il comportamentismo"], letture:[] },
-  { id:"L03", modulo:"M1", titolo:"Introduzione alla psicologia generale (III)", sottotitolo:"Una prospettiva storica", stato:"attesa",
+  { id:"L03", modulo:"M1", titolo:"Introduzione alla psicologia generale (III)", sottotitolo:"Dal cognitivismo alla psicologia contemporanea", stato:"pronta",
     argomenti:["Il cognitivismo","La mente embodied e l'approccio bio-psico-sociale","Le neuroscienze","La genetica del comportamento","La psicologia socioculturale"], letture:[] },
   { id:"L04", modulo:"M1", titolo:"Metodologia della ricerca (I)", sottotitolo:"Il metodo scientifico", stato:"attesa",
     argomenti:["Il metodo scientifico","La premessa epistemologica","Gli assunti del metodo scientifico","Il processo di ricerca"], letture:["Darley & Latané, 1968"] },
@@ -123,7 +123,9 @@ PGE.periodi = [
   { id:"reazioni", nome:"Le due reazioni a Wundt", arco:"1912 — 1913",
     testo:"A un anno di distanza, due scuole nascono contro lo stesso bersaglio da direzioni opposte: la Gestalt gli rimprovera di <strong>scomporre</strong> l'interiorità, il comportamentismo di <strong>studiarla</strong>. Alla radice, innatismo (Kant) contro empirismo (Locke)." },
   { id:"soglia", nome:"Verso il cognitivismo", arco:"anni '30 — 1967",
-    testo:"Il comportamentismo produce il proprio superamento per via interna: prima una variabile interveniente, poi una rappresentazione, infine un circuito neuronale. Con Hebb arriva l'unità mente-cervello, e la strada al cognitivismo è aperta." }
+    testo:"Il comportamentismo produce il proprio superamento per via interna: prima una variabile interveniente, poi una rappresentazione, infine un circuito neuronale. Con Hebb arriva l'unità mente-cervello, e la strada al cognitivismo è aperta." },
+  { id:"contemporanea", nome:"La psicologia contemporanea", arco:"1967 — oggi",
+    testo:"Qui l'excursus smette di essere una successione di scuole. Il cognitivismo non viene superato: si <strong>allarga</strong> — la mente torna dentro un corpo e dentro un ambiente, le tre prospettive dell'approccio biopsicosociale si affiancano, e la rivoluzione tecnologica consegna alle neuroscienze il rapporto mente-cervello che era il nodo irrisolto della L01." }
 ];
 
 /* Le scuole, ordinate per data. Ogni voce ha la terna oggetto/metodo/validità. */
@@ -273,12 +275,54 @@ PGE.scuole = [
     chiavi:["unità mente-cervello","legge di Hebb","assemblee cellulari"]
   },
   {
-    id:"cognitivismo", periodo:"soglia", anno:1967, etichetta:"1967", nome:"Cognitivismo", luogo:"USA", futura:true, lezione:"L03",
-    autori:["— in arrivo con la L03"],
-    precursori:[{nome:"Vygotskij", cosa:"funzioni complesse"},{nome:"Tolman", cosa:"rappresentazioni interne"},{nome:"Hebb", cosa:"modello psicofisiologico"}],
-    precorre:[{nome:"Psicologia contemporanea", cosa:"ultima scuola a sé stante"}],
-    oggetto:"—", metodo:"—", validita:"Ultima scuola di pensiero veramente a sé stante; da qui si apre il panorama attuale.",
-    chiavi:[]
+    id:"cognitivismo", periodo:"soglia", anno:1967, etichetta:"1967", nome:"Cognitivismo", luogo:"USA", svolta:true, lezione:"L03",
+    autori:["Ulric Neisser (1928-2012)"],
+    precursori:[{nome:"Cenocomportamentismo", cosa:"ne è la filiazione diretta, per evoluzione e non per reazione"},{nome:"Vygotskij", cosa:"funzioni complesse e linguaggio"},{nome:"Tolman", cosa:"rappresentazioni interne, mappe cognitive"},{nome:"Hebb", cosa:"modello psicofisiologico"},{nome:"Piaget", cosa:"sviluppo dei processi mentali nei bambini"},{nome:"Chomsky", cosa:"predisposizione innata al linguaggio, contro Skinner"},{nome:"Informatica e IA", cosa:"l'avvento del computer e la metafora mente-elaboratore"}],
+    precorre:[{nome:"Mente embodied", cosa:"non lo supera: lo allarga"},{nome:"Neuroscienze", cosa:"attraverso l'approccio biopsicosociale"}],
+    oggetto:"I <strong>processi cognitivi</strong>: tutti i processi interni alla mente che portano all'emissione di un comportamento. È una psicologia <strong>totalmente mentalistica</strong>. Nella scienza cognitiva l'oggetto si precisa come <strong>architettura funzionale</strong>: la struttura astratta che permette le funzioni intellettive, <em>prescindendo dalla sua base materiale</em>.",
+    metodo:"<strong>Metodo simulativo</strong>: si formula un'ipotesi di funzionamento di una funzione cognitiva, se ne costruisce un modello, lo si <strong>implementa nel computer</strong> e si verifica se produce i risultati attesi. Se li produce, l'ipotesi è validata.",
+    validita:"Metodologicamente <strong>ineccepibile</strong> — controllo assoluto delle variabili — ma allontana la ricerca dalla vita quotidiana. È <strong>lo stesso Neisser</strong> a criticarlo e a proporre l'<strong>approccio ecologico</strong>. Il cognitivismo non tramonta: è tuttora in essere, allargato.",
+    extra:{ titolo:"I due avvenimenti che segnano la nascita", html:"<strong>1. Il simposio sulla teoria dell'informazione (1956)</strong> — tre interventi restano nella storia: <strong>Miller</strong> (memoria a breve termine e <strong>span</strong>), <strong>Newell e Simon</strong> (<strong>problem solving</strong> e spazio problematico), <strong>Chomsky</strong> (teoria del linguaggio).<br><br><strong>2. L'unità TOTE</strong> — Miller, <strong>Galanter</strong> e <strong>Pribram</strong>: <strong>T</strong>est → <strong>O</strong>perate → <strong>T</strong>est → <strong>E</strong>xit, uno schema a feedback retroattivo modellato sul computer.<br><br>Il <strong>manifesto</strong> è <em>Cognitive Psychology</em> di <strong>Neisser</strong> (1967) — che però, come dice la docente, «non fece altro che un\'opera di collage» di cose già in essere." },
+    focus:{ nome:"I due filoni della scienza cognitiva", html:"<strong>Modularismo (Fodor)</strong>: dei <strong>trasduttori</strong> convertono gli stimoli in rappresentazioni interne; queste sono i <strong>moduli</strong>, capsule di input che lavorano in modo automatico e parallelo; i loro output confluiscono nei <strong>sistemi centrali</strong>, che li integrano.<br><br><strong>Connessionismo</strong>: primo tentativo di considerare la <strong>base materiale</strong>. L\'architettura mentale è una <strong>rete di unità di elaborazione omogenee</strong> che ricalcano i neuroni — unità di <em>input</em>, <em>nascoste</em>, di <em>output</em>.<br><br><strong>Da non confondere</strong> con il connessionismo di <strong>Thorndike</strong> (L01), che riguardava connessioni situazione-risposta." },
+    chiavi:["psicologia totalmente mentalistica","metafora mente-computer","metodo simulativo","approccio ecologico","architettura funzionale"]
+  },
+  {
+    id:"embodied", periodo:"contemporanea", anno:1980, etichetta:"oggi", nome:"La mente embodied e l'approccio biopsicosociale",
+    luogo:"—", lezione:"L03",
+    autori:["Sviluppo collettivo, non una scuola con un caposcuola"],
+    precursori:[{nome:"Cognitivismo", cosa:"non viene superato: si allarga"},{nome:"Neisser", cosa:"l\'approccio ecologico"},{nome:"Darwin", cosa:"l\'adattamento, per la prospettiva biologica"}],
+    precorre:[{nome:"Neuroscienze", cosa:"ne sono la prospettiva biologica realizzata"}],
+    oggetto:"La mente <strong>incarnata</strong>: i processi cognitivi si svolgono in una mente basata su un <strong>cervello</strong>, che è un organo, che fa parte di un <strong>corpo</strong>. Tre corollari: <strong>1.</strong> la mente ha un corpo; <strong>2.</strong> le competenze cognitive sono descrivibili solo <strong>in azione e in interazione</strong> con l\'ambiente; <strong>3.</strong> la mente è <strong>relazionale</strong>, non una macchina di pensiero.",
+    metodo:"<strong>Approccio biopsicosociale</strong>: la questione psicologica è indagata attraverso <strong>tre prospettive</strong> — <strong>biologica</strong> (selezione naturale di tratti adattivi, predisposizioni genetiche, meccanismi cerebrali, influenze ormonali), <strong>psicologica</strong> (paure apprese, aspettative, emozioni, elaborazione cognitiva), <strong>socioculturale</strong> (pari, aspettative sociali e familiari, gruppi, modelli persuasivi).",
+    validita:"È l\'assetto attuale della disciplina. Lo studio basato sulla sola intelligenza artificiale non ha più molto senso: va integrato.",
+    nodo:"Qui si chiude davvero il cerchio della <strong>L01</strong>: la definizione moderna parlava di «essere vivente nel suo rapporto con l\'ambiente, mentre lo esperisce, vi agisce e lo rappresenta». I tre corollari della mente embodied sono quella definizione, vista dall\'altro capo di centoquarant\'anni.",
+    chiavi:["mente incarnata","mente relazionale","biopsicosociale","tre prospettive"]
+  },
+  {
+    id:"neuroscienze", periodo:"contemporanea", anno:1990, etichetta:"oggi", nome:"Le neuroscienze comportamentali",
+    luogo:"—", lezione:"L03", cardine:true,
+    autori:["Precursori: Karl Lashley (1890-1958), Donald Hebb (1904-1985)"],
+    precursori:[{nome:"Hebb", cosa:"plasticità neuronale in forma ancora acerba"},{nome:"Lashley", cosa:"labirinti e asportazione chirurgica; non trova la zona precisa"},{nome:"Approccio biopsicosociale", cosa:"ne sono la prospettiva biologica"}],
+    precorre:[],
+    oggetto:"I <strong>processi cerebrali</strong> e le altre <strong>funzioni fisiologiche all\'origine del comportamento</strong> — dai comportamenti semplici (esperienze sensoriali, fame, sete, riproduzione) a quelli complessi mediati dalle funzioni superiori (intelligenza, ragionamento, linguaggio). Analizzano <strong>direttamente il rapporto mente-cervello</strong>. Dette anche <strong>psicologia fisiologica</strong> o <strong>psicofisiologia</strong>.",
+    metodo:"Reso possibile dalla <strong>rivoluzione tecnologica</strong>: microscopia avanzata fino ai <strong>processi molecolari nelle sinapsi</strong>; registrazione delle <strong>onde cerebrali</strong>; <strong>neuroimmagine strutturale</strong> (TAC, risonanza magnetica) e <strong>funzionale</strong> (PET, fMRI), che permette di studiare l\'attività cerebrale <em>in vivo, mentre il soggetto esegue compiti cognitivi</em>.",
+    validita:"È l\'<strong>approccio dominante</strong> nella psicologia attuale. Ha dato molte risposte e posto altrettante domande nuove: «una scienza in fermento».",
+    extra:{ titolo:"Le tre espansioni", html:"Le neuroscienze comportamentali sono il contenitore più ampio e contengono oggi:<br><br><strong>Neuroscienze cognitive</strong> — i processi cerebrali in relazione alle <strong>funzioni superiori</strong>.<br><strong>Neuroscienze affettive</strong> — in relazione a ciò che è <strong>emotivo</strong>.<br><strong>Neuroscienze relazionali</strong> — in relazione ai <strong>processi con le altre persone</strong>." },
+    nodo:"È qui che l\'<strong>unità mente-cervello</strong> — negata da Cartesio, abbozzata da Gall, mancante nell\'emancipazione dalla medicina, rifiutata dal perifericalismo, postulata da Hebb — diventa finalmente il <strong>principale oggetto di studio</strong> della disciplina.",
+    chiavi:["psicofisiologia","neuroimmagine funzionale","in vivo","plasticità neuronale"]
+  },
+  {
+    id:"collaterali-oggi", periodo:"contemporanea", anno:1995, etichetta:"oggi", nome:"Le discipline collaterali",
+    luogo:"—", lezione:"L03", collaterale:true,
+    autori:["Maslow e Rogers per la psicologia umanistica"],
+    precursori:[{nome:"Approccio biopsicosociale", cosa:"ne definisce le tre prospettive"},{nome:"Darwin", cosa:"per la psicologia evoluzionistica"}],
+    precorre:[],
+    oggetto:"Quattro discipline che affiancano le neuroscienze, perché oggi la psicologia <strong>non è settoriale</strong>: <strong>genetica del comportamento</strong> (come i fattori genetici influenzano le tendenze comportamentali), <strong>psicologia evoluzionistica</strong> (la mente come insieme di moduli specializzati, selezionati su problemi antichi), <strong>psicologia umanistica</strong> (le potenzialità positive della persona), <strong>psicologia socioculturale</strong> (come ambiente sociale e apprendimento culturale influenzano comportamento, cognizione ed emozioni).",
+    metodo:"Ciascuna ha il proprio. Il più caratteristico è lo <strong>studio sui gemelli</strong> della genetica del comportamento: gli <strong>omozigoti</strong> condividono la maggior parte del patrimonio genetico e mostrano similarità <em>anche se allevati in ambienti diversi</em>; negli <strong>eterozigoti</strong>, che ne condividono meno, alcune di quelle similarità non si osservano.",
+    validita:"Contribuiscono a rispondere al dibattito <strong>natura/cultura</strong>, che l\'<strong>epigenetica</strong> — lo studio dei cambiamenti nel genotipo dovuti all\'interazione con l\'ambiente — arriva a dirimere.",
+    focus:{ nome:"Il rovesciamento della psicologia umanistica", html:"<strong>Maslow</strong> e <strong>Rogers</strong> mettono al centro le <strong>aspirazioni più elevate</strong> della persona: per funzionare al meglio, le persone vanno collocate in un ambiente <strong>stimolante e positivo</strong>.<br><br>È il rovesciamento esatto della psicodinamica di Freud, che indagava la patologia. Da qui la <strong>psicologia della salute</strong>: <strong>promozione del benessere</strong>, non solo correzione di ciò che non va." },
+    nodo:"<strong>Attenzione all\'omonimia</strong>: la <strong>psicologia socioculturale</strong> contemporanea non è la <strong>scuola storico-culturale</strong> di Vygotskij (L01). Epoca, luogo e impianto teorico sono diversi.",
+    chiavi:["studio sui gemelli","epigenetica","moduli specializzati","psicologia della salute","cultura senza base genetica"]
   }
 ];
 
@@ -287,7 +331,9 @@ PGE.frontiera = [
   { nome:"Thorndike", da:"Funzionalismo", a:"Comportamentismo" },
   { nome:"Lewin", da:"Gestalt", a:"Psicologia sociale" },
   { nome:"Tolman", da:"Neocomportamentismo", a:"Cognitivismo" },
-  { nome:"Hebb", da:"Cenocomportamentismo", a:"Neuroscienze" }
+  { nome:"Hebb", da:"Cenocomportamentismo", a:"Neuroscienze" },
+  { nome:"Chomsky", da:"Psicolinguistica", a:"Cognitivismo" },
+  { nome:"Neisser", da:"Cognitivismo (manifesto)", a:"Approccio ecologico — critica il proprio manifesto" }
 ];
 
 /* ---------- GLOSSARIO DEI SINTAGMI ---------- */
@@ -308,6 +354,14 @@ PGE.sintagmi = [
   { t:"variabile interveniente fra stimolo e risposta", d:"La svolta del neocomportamentismo: S-O-R.", l:"L02" },
   { t:"come il comportamento è forgiato dalle conseguenze che produce sull'ambiente", d:"L'oggetto di Skinner.", l:"L02" },
   { t:"due neuroni che scaricano insieme si potenziano reciprocamente", d:"La legge di Hebb.", l:"L02" }
+,
+  { t:"psicologia totalmente mentalistica", d:"La definizione del cognitivismo. Attenzione: nasce per <strong>evoluzione</strong>, non per reazione.", l:"L03" },
+  { t:"biologicamente preprogrammati per apprendere il linguaggio", d:"La tesi di Chomsky contro Skinner.", l:"L03" },
+  { t:"architettura funzionale, prescindendo dalla sua base materiale", d:"L'oggetto della scienza cognitiva nella prima fase. È ciò che il connessionismo comincerà a correggere.", l:"L03" },
+  { t:"la ricerca psicologica si è allontanata dalla realtà", d:"La critica ecologica di Neisser al proprio manifesto.", l:"L03" },
+  { t:"processi cerebrali e altre funzioni fisiologiche all'origine del comportamento", d:"L'oggetto delle neuroscienze comportamentali.", l:"L03" },
+  { t:"insieme di moduli specializzati atti a risolvere i problemi dei nostri antenati", d:"La mente secondo la psicologia evoluzionistica.", l:"L03" },
+  { t:"valori, credenze, comportamenti e tradizioni durevoli nel tempo", d:"La definizione di cultura. Il punto: non ha base genetica, eppure viene trasmessa.", l:"L03" }
 ];
 
 /* ---------- ERRORI DA NON FARE ---------- */
@@ -327,4 +381,13 @@ PGE.errori = [
   { no:"«Skinner appartiene al neocomportamentismo»", si:"Cronologicamente sì, <strong>teoricamente no</strong>: torna all'ortodossia watsoniana e la estremizza", l:"L02" },
   { no:"«rinforzo negativo = punizione»", si:"Il <strong>rinforzo aumenta sempre</strong> la risposta; ciò che la riduce è la <strong>punizione</strong>", l:"L02" },
   { no:"«l'insight procede per prove ed errori»", si:"<strong>No</strong>: è ristrutturazione improvvisa e unitaria del campo fenomenico", l:"L02" }
+,
+  { no:"«il cognitivismo nasce come reazione al comportamentismo»", si:"È la <strong>filiazione</strong> del cenocomportamentismo: <strong>evoluzione naturale</strong>, non reazione. È l'unica scuola del corso che non nasce contro qualcuno", l:"L03" },
+  { no:"«il connessionismo è quello di Thorndike»", si:"Sono <strong>due cose diverse</strong>: Thorndike (L01) parla di connessioni <strong>situazione-risposta</strong>; il connessionismo della scienza cognitiva (L03) è una <strong>rete di unità di elaborazione</strong>", l:"L03" },
+  { no:"«la psicologia socioculturale è la scuola di Vygotskij»", si:"No: quella è la scuola <strong>storico-culturale</strong> (Russia, dopo il 1917). La socioculturale è un approccio <strong>contemporaneo</strong>", l:"L03" },
+  { no:"«Neisser ha fondato il cognitivismo»", si:"Ne ha scritto il <strong>manifesto</strong> (1967), ma «non fece altro che un'opera di collage» di cose già in essere — ed è poi lui stesso a criticarlo", l:"L03" },
+  { no:"«il metodo simulativo era metodologicamente debole»", si:"Al contrario: era <strong>ineccepibile</strong>, con controllo assoluto delle variabili. Il limite è di <strong>validità ecologica</strong>: si allontana dalla vita quotidiana", l:"L03" },
+  { no:"«le neuroscienze hanno superato il cognitivismo»", si:"Il cognitivismo è <strong>tuttora in essere</strong>: si è allargato. Le neuroscienze ne realizzano la <strong>prospettiva biologica</strong>", l:"L03" },
+  { no:"«la TAC serve a studiare la funzione cerebrale»", si:"TAC e risonanza magnetica sono <strong>strutturali</strong>; la funzione si studia con PET e <strong>risonanza magnetica funzionale</strong>", l:"L03" },
+  { no:"«i gemelli eterozigoti condividono tutto il patrimonio genetico»", si:"Sono gli <strong>omozigoti</strong> a condividerne la maggior parte; è per questo che la similarità fra loro, <strong>anche in ambienti diversi</strong>, fa dedurre una base biologica", l:"L03" }
 ];

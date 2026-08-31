@@ -51,6 +51,7 @@ const rotte = {
   '/excursus':          vistaExcursus,
   '/filiazioni':        vistaFiliazioni,
   '/manuale':           vistaManuale,
+  '/argomenti':         vistaArgomenti,
   '/nomi':              vistaNomi,
   '/flashcard':         vistaFlashcard,
   '/quiz':              vistaQuiz,
@@ -70,8 +71,10 @@ function instrada() {
 
   const lez = percorso.match(/^\/lezioni\/(L\d+)$/);
   const cap = percorso.match(/^\/manuale\/([CA]\d+)$/);
+  const arg = percorso.match(/^\/argomenti\/(D\d+)$/);
   if (lez) vistaLezione(lez[1]);
   else if (cap) vistaCapitolo(cap[1]);
+  else if (arg) vistaArgomento(arg[1]);
   else if (rotte[percorso]) rotte[percorso]();
   else vistaAssente(percorso);
 
@@ -850,6 +853,7 @@ function costruisciIndice() {
   PGE.definizione.passaggi.forEach(p => indice.push({ t: p.t, c: p.c.replace(/<[^>]+>/g, '').slice(0, 90), ct: 'Definizione', h: '#/definizione' }));
   PGE.preScientifica.voci.forEach(v => indice.push({ t: v.nome, c: v.contributo.replace(/<[^>]+>/g, '').slice(0, 90), ct: 'Pre-scientifica', h: '#/excursus' }));
   (PGE.manuale && PGE.manuale.capitoli || []).forEach(c => indice.push({ t: c.n + '. ' + c.titolo, c: c.sommario, ct: 'Manuale', h: '#/manuale/' + c.id }));
+  (PGE.argomenti && PGE.argomenti.voci || []).forEach(v => indice.push({ t: v.titolo, c: 'Esposizione orale · ' + v.minuti + ' min · ' + v.perni.slice(0, 4).join(', '), ct: 'Argomento', h: '#/argomenti/' + v.id }));
   (PGE.nomi || []).forEach(n => indice.push({ t: n.n, c: n.scuola + ' — ' + n.indizio, ct: 'Nome', h: '#/nomi' }));
   (PGE.flashcard || []).forEach(c => indice.push({ t: c.f.replace(/<[^>]+>/g, ''), c: c.b.replace(/<[^>]+>/g, '').slice(0, 90), ct: 'Flashcard', h: '#/flashcard' }));
   (PGE.quiz || []).forEach(q => indice.push({ t: q.q.slice(0, 80) + (q.q.length > 80 ? '…' : ''), c: q.o[0].slice(0, 90), ct: 'Quiz', h: '#/quiz' }));

@@ -20,6 +20,8 @@ fs.readdirSync('contenuti/mappe').filter(f => f.endsWith('.mmd'))
   .forEach(f => contenuti['mappe/' + f.replace(/\.mmd$/, '')] = leggi(path.join('contenuti/mappe', f)));
 fs.readdirSync('contenuti/manuale').filter(f => f.endsWith('.md'))
   .forEach(f => contenuti['manuale/' + f.replace(/\.md$/, '')] = leggi(path.join('contenuti/manuale', f)));
+fs.readdirSync('contenuti/argomenti').filter(f => f.endsWith('.md'))
+  .forEach(f => contenuti['argomenti/' + f.replace(/\.md$/, '')] = leggi(path.join('contenuti/argomenti', f)));
 
 const bloccoContenuti =
   '<script>\nvar PGE = window.PGE = window.PGE || {};\nPGE.contenuti = ' +
@@ -40,3 +42,4 @@ console.log('standalone.html generato — ' + kb(Buffer.byteLength(html)));
 console.log('  script incorporati : ' + locali.length);
 console.log('  contenuti          : ' + Object.keys(contenuti).length + ' file');
 console.log('  capitoli manuale   : ' + Object.keys(contenuti).filter(k => k.startsWith('manuale/')).length);
+console.log('  argomenti          : ' + Object.keys(contenuti).filter(k => k.startsWith('argomenti/')).length);

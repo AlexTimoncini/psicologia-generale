@@ -5,13 +5,14 @@ var PGE = window.PGE = window.PGE || {};
 
 PGE.manuale = {
   titolo: "Manuale di Psicologia Generale",
-  sottotitolo: "Parte prima — L'excursus storico",
-  intro: "Dodici capitoli e due appendici che ricompongono i contenuti delle lezioni nella forma di un manuale: prosa espositiva, apparato didattico, sintesi e domande di verifica al termine di ogni capitolo. Le note editoriali segnalate come <strong>[N.d.R.]</strong> correggono le imprecisioni della registrazione; i riquadri <em>Oltre la lezione</em> aggiungono contesto manualistico non richiesto all'esame.",
+  sottotitolo: "L'excursus storico completo — lezioni 1, 2 e 3",
+  intro: "Quindici capitoli e due appendici che ricompongono i contenuti delle lezioni nella forma di un manuale: prosa espositiva, apparato didattico, sintesi e domande di verifica al termine di ogni capitolo. Le note editoriali segnalate come <strong>[N.d.R.]</strong> correggono le imprecisioni della registrazione; i riquadri <em>Oltre la lezione</em> aggiungono contesto manualistico non richiesto all'esame.",
   parti: [
     { id:"P1", nome:"Parte I — L'oggetto", occhiello:"Che cos'è la psicologia e perché nasce tardi" },
     { id:"P2", nome:"Parte II — Le premesse", occhiello:"Prima della scienza, e il contesto della svolta" },
     { id:"P3", nome:"Parte III — Le scuole", occhiello:"Dalla fondazione alla soglia del cognitivismo" },
-    { id:"P4", nome:"Appendici", occhiello:"Strumenti di ripasso" }
+    { id:"P4", nome:"Parte IV — Il presente", occhiello:"Il cognitivismo e la psicologia di oggi" },
+    { id:"P5", nome:"Appendici", occhiello:"Strumenti di ripasso" }
   ],
   capitoli: [
     { id:"C01", parte:"P1", n:"1",  titolo:"L'oggetto: che cos'è la psicologia",
@@ -62,12 +63,24 @@ PGE.manuale = {
       sommario:"La catena delle esigenze, le due reazioni a Wundt, le figure di frontiera, i tre nodi del corso.",
       lezione:"L01-L02", minuti:12,
       chiavi:["catena delle esigenze","figure di frontiera","precursori","cinque mosse"] },
-    { id:"A1", parte:"P4", n:"A", titolo:"Glossario ragionato",
-      sommario:"Ottanta voci con l'indicazione di a chi appartiene il termine e con che cosa non va confuso.",
+    { id:"C13", parte:"P4", n:"13", titolo:"Il cognitivismo",
+      sommario:"Una filiazione e non una reazione: Piaget, Chomsky, il computer, il simposio del 1956, il TOTE, Neisser e la critica ecologica.",
+      lezione:"L03", minuti:20,
+      chiavi:["psicologia mentalistica","metafora mente-computer","unità TOTE","metodo simulativo","modularismo","connessionismo"] },
+    { id:"C14", parte:"P4", n:"14", titolo:"La psicologia contemporanea",
+      sommario:"La mente embodied e i suoi tre corollari, l'approccio biopsicosociale, le neuroscienze comportamentali e la rivoluzione tecnologica.",
+      lezione:"L03", minuti:16,
+      chiavi:["mente incarnata","biopsicosociale","psicofisiologia","Lashley","neuroimmagine funzionale"] },
+    { id:"C15", parte:"P4", n:"15", titolo:"Le discipline collaterali",
+      sommario:"Genetica del comportamento, epigenetica, psicologia evoluzionistica, umanistica e socioculturale.",
+      lezione:"L03", minuti:15,
+      chiavi:["studio sui gemelli","epigenetica","moduli specializzati","Maslow e Rogers","cultura"] },
+    { id:"A1", parte:"P5", n:"A", titolo:"Glossario ragionato",
+      sommario:"Oltre cento voci con l'indicazione di a chi appartiene il termine e con che cosa non va confuso.",
       lezione:"L01-L02", minuti:20,
       chiavi:["glossario","definizioni"] },
-    { id:"A2", parte:"P4", n:"B", titolo:"Cronologia, luoghi, tavole",
-      sommario:"Date, geografia, elenchi numerati, coppie da non confondere, le 22 formule alla lettera, errori frequenti.",
+    { id:"A2", parte:"P5", n:"B", titolo:"Cronologia, luoghi, tavole",
+      sommario:"Date, geografia, elenchi numerati, coppie da non confondere, le formule alla lettera, errori frequenti.",
       lezione:"L01-L02", minuti:16,
       chiavi:["cronologia","elenchi numerati","formule","errori"] }
   ]
