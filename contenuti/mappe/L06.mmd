@@ -1,0 +1,45 @@
+graph TD
+    DESCR["METODI DESCRITTIVI<br/>intravedono relazioni"] ==>|"un passo in più"| CORR["METODO CORRELAZIONALE<br/>misura QUANTITATIVAMENTE<br/>l'associazione fra variabili<br/>ma NESSUN controllo<br/>né manipolazione"]
+
+    CORR --> NOCAU["PERCHÉ NON È CAUSALITÀ"]
+    NOCAU --> B1["1. BIDIREZIONALITÀ<br/>x→y oppure y→x?<br/>es. programmi aggressivi<br/>e aggressività"]
+    NOCAU --> B2["2. TERZA VARIABILE<br/>una variabile non osservata<br/>può spiegarle entrambe<br/>es. livello di energia"]
+
+    CORR ==> R["COEFFICIENTE r<br/>due informazioni"]
+    R --> DIR["DIREZIONE = il SEGNO<br/>+ POSITIVA: alti con alti<br/>direttamente proporzionale<br/>− NEGATIVA: alti con bassi<br/>indirettamente proporzionale"]
+    R --> FOR["FORZA = il VALORE<br/>da perfetta a<br/>prossima a ZERO"]
+    R --> GRA["GRAFICI DI DISPERSIONE<br/>ore di studio → positiva<br/>mele consumate → nessuna<br/>ore di TV → negativa"]
+
+    CORR -.->|"consente"| PRE["PREVISIONI<br/>non spiegazioni"]
+
+    SPER["METODO SPERIMENTALE<br/>IL METODO SCIENTIFICO<br/>PER ECCELLENZA<br/>l'unico che rispetta<br/>tutti e 4 gli assunti"]
+    CORR ==>|"il limite che supera"| SPER
+
+    SPER --> MANIP["MANIPOLAZIONE SPERIMENTALE<br/>elimina la bidirezionalità"]
+    SPER --> CTRL["CONTROLLO DELLE ALTRE VARIABILI<br/>elimina la terza variabile"]
+
+    SPER ==> V["LE 3 VARIABILI"]
+    V --> VI["INDIPENDENTE x<br/>manipolata = la CAUSA<br/>ha LIVELLI = le condizioni"]
+    V --> VD["DIPENDENTE y<br/>misurata = l'EFFETTO<br/>deve essere QUANTITATIVA"]
+    V --> VZ["DI CONFUSIONE z<br/>tutto ciò che interferisce<br/>va CONOSCIUTA per<br/>essere controllata"]
+
+    SPER ==> SOG["I SOGGETTI"]
+    SOG --> CAMPS["CAMPIONE SPERIMENTALE<br/>SCELTA CASUALE<br/>≠ scelta a caso"]
+    SOG --> GRU["GRUPPI SPERIMENTALI<br/>+ GRUPPO DI CONTROLLO<br/>assegnazione RANDOMIZZATA"]
+
+    SPER ==> DIS["I 2 DISEGNI"]
+    DIS --> TRA["TRA I SOGGETTI<br/>soggetti diversi, una condizione<br/>+ pulito sullo strumento<br/>− serve campione ampio<br/>es. disegno TRASVERSALE"]
+    DIS --> ENTRO["ENTRO I SOGGETTI<br/>un gruppo, tutte le condizioni<br/>+ più misurazioni<br/>− sensibilizzazione, abituazione<br/>es. disegno LONGITUDINALE"]
+
+    SPER ==> LAB["LABORATORIO<br/>ambiente controllato<br/>e quindi ARTIFICIALE"]
+    LAB --> VINT["VALIDITÀ INTERNA<br/>MASSIMA<br/>la relazione causale è quella"]
+    LAB --> VECO["VALIDITÀ ECOLOGICA<br/>BASSA<br/>il vero limite del metodo"]
+    LAB -.->|"se la VI non è manipolabile"| QUASI["QUASI ESPERIMENTO<br/>manca il controllo assoluto<br/>es. differenze di genere"]
+
+    SPER ==> IP["VERIFICA DELLE IPOTESI"]
+    IP --> IPA["ALTERNATIVA<br/>x e y hanno nesso causale"]
+    IP --> IPN["NULLA<br/>x e y non hanno nesso"]
+    IPN --> INF["STATISTICA INFERENZIALE<br/>es. ANALISI DELLA VARIANZA<br/>significativo = generalizzabile<br/>non significativo = caso"]
+    INF --> ERRT["ERRORE I TIPO α<br/>nulla falsa quando è vera<br/>ERRORE II TIPO β<br/>nulla vera quando è falsa<br/>β diminuisce se α aumenta"]
+
+    SPER -.->|"esempi"| EX["RUMORE e apprendimento (uomo)<br/>PROPRANOLOLO e stress (scimmie)<br/>ARRICCHIMENTO AMBIENTALE<br/>e neuroplasticità (ratti)"]

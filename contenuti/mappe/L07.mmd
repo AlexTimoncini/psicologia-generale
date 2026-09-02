@@ -1,0 +1,33 @@
+graph TD
+    F4["FASE 4 DEL PROCESSO<br/>COMUNICAZIONE DEI RISULTATI<br/>(chiude il cerchio della L04)"] ==> PUB["LA PUBBLICAZIONE SCIENTIFICA<br/>principale e UFFICIALE forma<br/>di divulgazione della conoscenza"]
+
+    PUB -.->|"che cosa la rende scientifica"| PR["REVISIONE TRA PARI<br/>peer review<br/>valutazione EX ANTE<br/>(nelle non scientifiche è EX POST)"]
+
+    PUB ==> ATTI["ATTI DI CONGRESSO<br/>orale (simposi, talk)<br/>o POSTER<br/>NON vera peer review:<br/>controllo del comitato scientifico<br/>sugli abstract"]
+    PUB ==> ART["ARTICOLO SCIENTIFICO / paper<br/>la forma principale<br/>lingua ufficiale: INGLESE"]
+
+    ART --> TIPI["5 TIPOLOGIE<br/>ricerca originale<br/>revisione della letteratura<br/>case report<br/>trial clinico<br/>commento"]
+
+    PR --> FLUSSO["IL FLUSSO<br/>manoscritto → rivista<br/>→ EDITORE (forma, documenti,<br/>grafica, permessi etici)<br/>→ 2-4 REVISORI ANONIMI<br/>→ rifiuto / accettazione / revisioni"]
+    FLUSSO --> EDI["EDITORE<br/>può rifiutare un lavoro VALIDO<br/>se la rivista è satura<br/>non fa l'analisi scientifica"]
+    FLUSSO --> REVI["REVISORI<br/>ricercatori come gli autori<br/>lavoro NON retribuito<br/>ma è un onore<br/>valutano soprattutto i METODI:<br/>si può REPLICARE lo studio?"]
+
+    ART ==> STR["LA STRUTTURA<br/>sempre la stessa<br/>a prescindere dalla rivista"]
+    STR --> S1["TITOLO — la parte più letta<br/>specifico, non vago<br/>+ running title"]
+    STR --> S2["AUTORI<br/>PRIMO = disegno sperimentale<br/>ULTIMO = supervisore / fondi<br/>CORRESPONDING = rapporti con<br/>l'editore (di solito il primo o l'ultimo)"]
+    STR --> S3["AFFILIAZIONI + EMAIL<br/>ogni gruppo identificabile"]
+    STR --> S4["PAROLE CHIAVE<br/>servono all'INDICIZZAZIONE"]
+    STR --> S5["ABSTRACT — 2ª parte più letta<br/>libero su PubMed<br/>background · metodi<br/>risultati · conclusioni"]
+    STR --> S6["INTRODUZIONE<br/>contestualizza e chiude<br/>con il RAZIONALE"]
+    STR --> S7["METODI<br/>dettagli sufficienti a RIPETERE<br/>soggetti · strumenti<br/>procedura · analisi statistica"]
+    STR --> S8["RISULTATI — stile DESCRITTIVO<br/>inferenziali: ANOVA, correlazione<br/>descrittive: media, dev. standard<br/>grafici e tabelle con didascalia"]
+    STR --> S9["DISCUSSIONE — stile ARGOMENTATIVO<br/>riassume · problemi metodologici<br/>confronta · implicazioni<br/>ricerche future · conclusione"]
+    STR --> S10["BIBLIOGRAFIA<br/>stile APA (psicologia)<br/>o Vancouver<br/>cambia la forma, non l'informazione"]
+
+    ART ==> RIV["SCEGLIERE LA RIVISTA"]
+    RIV --> IF["IMPACT FACTOR<br/>indice dinamico<br/>= citazioni dei lavori<br/>dei 2 anni precedenti<br/>(per i ricercatori: INDICE H)"]
+    RIV --> ACC["ACCESSO<br/>CHIUSO: paga il lettore<br/>APERTO: paga chi pubblica<br/>→ più visibilità"]
+
+    ART ==> BD["BANCHE DATI"]
+    BD --> PM["PUBMED — gratuita<br/>National Institute of Health<br/>SOLO lavori scientifici<br/>riferimenti, titoli, abstract<br/>+ link al full text"]
+    BD --> GS["GOOGLE SCHOLAR — gratuito<br/>ma contiene anche<br/>LETTERATURA GRIGIA<br/>non sottoposta a peer review"]

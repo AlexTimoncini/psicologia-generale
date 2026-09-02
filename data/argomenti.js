@@ -12,7 +12,8 @@ PGE.argomenti = {
     { id:"K3", nome:"Le realtà collaterali", occhiello:"Fuori dall'asse Germania-America, e fuori dall'accademia" },
     { id:"K4", nome:"Le due reazioni a Wundt", occhiello:"Gestalt e comportamentismo, e l'evoluzione fino a Hebb" },
     { id:"K5", nome:"Il presente", occhiello:"Cognitivismo, mente embodied, neuroscienze e discipline collaterali" },
-    { id:"K6", nome:"Le domande di sintesi", occhiello:"I confronti e la ricostruzione d'insieme: valgono di più e si sbaglia di più" }
+    { id:"K6", nome:"Le domande di sintesi", occhiello:"I confronti e la ricostruzione d'insieme: valgono di più e si sbaglia di più" },
+    { id:"K7", nome:"La metodologia della ricerca", occhiello:"Il metodo scientifico, il processo, i metodi e la pubblicazione" }
   ],
   voci: [
     { id:"D01", cartella:"K1", titolo:"Che cos'è la psicologia",
@@ -80,5 +81,26 @@ PGE.argomenti = {
       domanda:"«Ricostruisca il percorso dalla nascita della psicologia scientifica alla psicologia contemporanea, spiegando per ciascuna scuola quale esigenza ne determini la nascita.»",
       minuti:6, lezione:"L01-L03", capitoli:["C12"],
       perni:["dichiarare il criterio","la catena delle esigenze","i due sensi di collaterale","le tre fasi","filiazione","il filo mente-cervello","la definizione come sintesi"] }
+    ,
+    { id:"D16", cartella:"K7", titolo:"Il metodo scientifico e i suoi assunti",
+      domanda:"«Che cosa si intende per metodo scientifico in psicologia? Quali sono le sue premesse epistemologiche e i suoi assunti di base?»",
+      minuti:4, lezione:"L04", capitoli:["C16"],
+      perni:["psicologia ingenua","le tre fonti di errore","Goranson","Einstein e Heisenberg","i quattro assunti","approssimazione al vero"] },
+    { id:"D17", cartella:"K7", titolo:"Il processo di ricerca",
+      domanda:"«Illustri il processo di ricerca in psicologia, spiegando perché sia un processo circolare e quali siano le sue fasi.»",
+      minuti:5, lezione:"L04", capitoli:["C17"],
+      perni:["base e applicata","le quattro fasi","il problema","teoria e ipotesi","i cigni di Popper","il consenso informato"] },
+    { id:"D18", cartella:"K7", titolo:"Le variabili e i metodi descrittivi",
+      domanda:"«Che cosa si intende per variabile e quali sono le scale di misura? Quali sono i principali metodi descrittivi?»",
+      minuti:5, lezione:"L05", capitoli:["C18","C19"],
+      perni:["gerarchia cumulativa","zero arbitrario","albero decisionale","studio dei casi","le tre coppie","campionamento"] },
+    { id:"D19", cartella:"K7", titolo:"Il metodo correlazionale e il metodo sperimentale",
+      domanda:"«Illustri i due metodi, spiegando perché soltanto il secondo consenta di stabilire nessi causali.»",
+      minuti:6, lezione:"L06", capitoli:["C20"],
+      perni:["bidirezionalità","terza variabile","coefficiente r","le tre variabili","i due disegni","le due validità","i due errori"] },
+    { id:"D20", cartella:"K7", titolo:"La pubblicazione scientifica",
+      domanda:"«Che cos'è una pubblicazione scientifica e che cosa la rende tale? In che cosa consiste la revisione tra pari?»",
+      minuti:5, lezione:"L07", capitoli:["C21"],
+      perni:["ex ante vs ex post","atti e articolo","il flusso della peer review","la struttura","impact factor","PubMed"] }
   ]
 };

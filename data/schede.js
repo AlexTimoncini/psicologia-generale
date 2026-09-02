@@ -1202,3 +1202,458 @@ PGE.schede.fascicoli[2].schede.push({
     { no:"«La psicologia socioculturale è la scuola di Vygotskij»", si:"Quella è la <strong>storico-culturale</strong> (Russia, dopo il 1917); questa è un approccio <strong>contemporaneo</strong> che affianca le neuroscienze" }
   ]
 });
+
+/* =========================================================
+   FASCICOLO 4 — LA METODOLOGIA DELLA RICERCA
+   ========================================================= */
+PGE.schede.fascicoli.push({
+  id: "F4",
+  n: "IV",
+  titolo: "La metodologia della ricerca",
+  sottotitolo: "Il metodo scientifico, il processo di ricerca, i metodi e la pubblicazione",
+  lezione: "Lezioni 4-7",
+  schede: [
+
+/* ---------- F4.1 ---------- */
+{
+  id:"S401", tipo:"scuola", nome:"Il metodo scientifico",
+  identificazione:{ anno:"—", luogo:"—", lezione:"L04", capitolo:"C16",
+    unaRiga:"Che cosa distingue la psicologia dalla psicologia ingenua: non l'oggetto, ma quattro assunti — e il quarto esiste per rendere praticabili gli altri tre su un oggetto astratto." },
+  nasceDa:{ problema:"Il senso comune produce spiegazioni <strong>coerenti</strong> dei comportamenti, ma non ha modo di accorgersi quando sono sbagliate. E l'oggetto della psicologia — la mente — <strong>non è né osservabile né quantificabile</strong>.",
+    formula:"Il metodo scientifico serve a <strong>salvaguardare la psicologia dalla psicologia ingenua</strong>: la coerenza non è verità." },
+  radici:[
+    { nome:"Le tre fonti di errore del senso comune", tipo:"evidenza empirica", tesi:"<strong>Giudizio retrospettivo</strong>: bravi a spiegare l'accaduto, non a prevedere. <strong>Eccessiva fiducia in sé</strong>: ci crediamo migliori di quanto siamo (esperimento di Goranson). <strong>Schemi ricorrenti</strong>: individuiamo nessi causali anche in eventi casuali." },
+    { nome:"La critica all'oggettività dalle scienze esatte", tipo:"epistemologia", tesi:"<strong>Einstein</strong>: le osservazioni sono sempre relative a un osservatore. <strong>Heisenberg</strong>: la misura di due variabili coniugate ha un'<strong>incertezza ineliminabile</strong>. Più i fenomeni non direttamente osservabili — atomi, buchi neri." }
+  ],
+  precursori:[
+    { nome:"Wundt e il 1879", provenienza:"Excursus storico", apporto:"L'adozione di un metodo paragonabile a quello delle scienze esatte; poi affinato dall'evoluzione tecnologica" }
+  ],
+  oggetto:{ formula:"Gli stessi fenomeni di cui si occupa il senso comune — comportamento e processi mentali — ma <strong>spiegati in modo più esatto</strong>, con un processo guidato da <strong>principi oggettivi</strong>.",
+    glossa:"Pur possedendo lo <strong>status di scienza</strong>, il campo della psicologia è molto diverso da quello delle scienze esatte: da qui il <strong>ritardo</strong> storico e le <strong>riserve</strong> che ancora l'accompagnano.<br><strong>Il riavvicinamento non dipende da un progresso della psicologia</strong>: dipende dal fatto che le scienze esatte hanno ammorbidito la propria immagine di sé. Tanto che <strong>gli assunti della psicologia sono del tutto uguali a quelli delle altre scienze</strong>." },
+  metodo:{ formula:"<strong>Quattro assunti</strong>, che valgono per la psicologia come per ogni altra scienza.",
+    glossa:"Solo <strong>personale formato</strong> può usarli: non è un atteggiamento mentale, è una competenza tecnica.",
+    vincoli:[
+      "<strong>1. Determinismo</strong> — assunto <em>epistemologico di base</em>: gli effetti <strong>non sono dovuti al caso</strong> ma sempre riconducibili a una <strong>causa</strong>. Ogni risposta è l'esito di una <strong>catena causale</strong>. Da regole circoscritte si sale a <strong>leggi generali</strong>.",
+      "<strong>2. Empirismo</strong> — non ci si basa su <strong>logica e coerenza</strong> di un modello, ma su <strong>verifica empirica, concreta e materiale</strong>. <em>Clausola che si dimentica</em>: l'ipotesi <strong>non è precostituita</strong>, origina da osservazioni empiriche o da teorie già dimostrate empiricamente.",
+      "<strong>3. Invarianza</strong> — <strong>a parità di tutte le condizioni</strong> la combinazione degli stessi fattori produce <strong>sempre lo stesso evento</strong>. È ciò che consente <strong>induzioni prospettiche e previsioni</strong>.",
+      "<strong>4. Operazionalizzazione</strong> — <em>il più importante per la scienza psicologica</em>: ogni concetto va <strong>tradotto in un formato replicabile e misurabile</strong>. Comprende la <strong>definizione operativa</strong> e gli <strong>step operativi</strong> per osservarlo."
+    ] },
+  teorie:[
+    { nome:"Le due proprietà della definizione operativa", enunciato:"Dev'essere <strong>valida</strong> — misura solo ciò che dichiara di misurare — e <strong>univoca</strong> — si riferisce a <strong>processi unici e non plurimi</strong>.",
+      glossa:"<strong>Il controesempio</strong>: misurare il <em>pensiero riflessivo</em> contando il tempo con gli <strong>occhi chiusi</strong> non è valido, perché gli occhi chiusi possono indicare che il soggetto <strong>sta dormendo</strong>. La misura esprimerebbe un processo plurimo." },
+    { nome:"L'approssimazione al vero", enunciato:"Una definizione <strong>totalmente valida è virtualmente impossibile</strong>: è <strong>matematicamente impossibile escludere</strong> che una misura colga anche altri fattori. Ogni definizione operativa è quindi un'<strong>approssimazione al vero</strong> e <strong>non indica mai una verità assoluta</strong>.",
+      glossa:"Non è un'ammissione di debolezza: è la <strong>condizione strutturale</strong> della disciplina, e giustifica la forma <strong>circolare</strong> del processo di ricerca. Se ogni misura è approssimata, nessun ciclo può chiudere definitivamente una questione." },
+    { nome:"Validità, fidabilità, sensibilità", enunciato:"<strong>Validità</strong> → riguarda la <strong>definizione operativa</strong>: la misura in cui un evento concreto definisce quella proprietà. <strong>Fidabilità</strong> → riguarda lo <strong>strumento</strong>: produce lo stesso risultato ogni volta. <strong>Sensibilità</strong> → riguarda lo <strong>strumento</strong>: rileva anche piccolissime quantità.",
+      glossa:"Attribuire la proprietà all'oggetto sbagliato è un errore d'esame frequente." }
+  ],
+  esponenti:[
+    { nome:"Goranson", anni:"—", ruolo:"Ricercatore", luogo:"—",
+      chiE:"Autore dell'esperimento che documenta l'<strong>eccessiva fiducia in sé</strong> come fonte di errore del senso comune.",
+      haFatto:["Somministra tre <strong>anagrammi con la soluzione accanto</strong> e chiede quanto tempo si sarebbe impiegato a risolverli: i soggetti rispondono <strong>una decina di secondi</strong>.","Somministra poi un anagramma <strong>senza</strong> soluzione — la parola <em>Jackie</em>: una persona media impiega <strong>circa tre minuti</strong>."],
+      teorie:[{ nome:"Eccessiva fiducia in sé", enunciato:"Avere la soluzione sotto gli occhi rende il problema <strong>retrospettivamente facile</strong> e porta a sopravvalutare la propria capacità di giudizio." }],
+      esperimenti:[] },
+    { nome:"Albert Einstein", anni:"1879-1955", ruolo:"Fisico · critica all'oggettività", luogo:"—",
+      chiE:"Con la teoria della relatività contribuisce a riaprire il dibattito sul ruolo dell'osservatore nella ricerca scientifica.",
+      haFatto:["Afferma che le osservazioni <strong>non possono essere assolute</strong> ma sono sempre <strong>relative al punto di vista di un osservatore</strong>."],
+      teorie:[], esperimenti:[] },
+    { nome:"Werner Heisenberg", anni:"1901-1976", ruolo:"Fisico · critica all'oggettività", luogo:"—",
+      chiE:"Introduce un limite di principio alla misurazione, non un limite tecnico.",
+      haFatto:["Sostiene che la misura simultanea di <strong>due variabili coniugate</strong> non può essere compiuta senza un'<strong>incertezza ineliminabile</strong>."],
+      teorie:[], esperimenti:[] }
+  ],
+  esperimenti:[],
+  validita:{
+    merito:"Fornisce alla psicologia gli <strong>stessi assunti</strong> delle altre scienze e la separa dal sapere di senso comune, che pur avendo valore pragmatico produce errori sistematici.",
+    limite:"L'oggetto resta <strong>non direttamente osservabile né quantificabile</strong>, e ogni operazionalizzazione è un'<strong>approssimazione</strong>. Il metodo può essere usato solo da <strong>personale formato</strong>.",
+    esito:"Da questi quattro assunti discende l'intera architettura del processo di ricerca e dei metodi." },
+  precorre:[
+    { nome:"Il processo di ricerca", come:"la sua forma <strong>circolare</strong> discende dall'approssimazione al vero" },
+    { nome:"Le variabili", come:"sono l'esito operativo dell'<strong>operazionalizzazione</strong>" },
+    { nome:"Il metodo sperimentale", come:"è l'<strong>unico</strong> che rispetta tutti e quattro gli assunti" }
+  ],
+  formule:[
+    "Gli effetti non sono dovuti al caso ma sempre riconducibili a una causa.",
+    "Tradurre ogni concetto contenuto in una teoria in un formato replicabile e misurabile.",
+    "Ogni definizione operativa si presenta come un'approssimazione al vero."
+  ],
+  errori:[
+    { no:"«Il metodo scientifico sostituisce il senso comune»", si:"Lo <strong>salvaguarda da</strong>: la psicologia ingenua resta una <strong>forma imprescindibile di sapere</strong>, con valore pragmatico" },
+    { no:"«L'empirismo dice solo che bisogna verificare»", si:"Dice anche che <strong>l'ipotesi non è precostituita</strong>: deve <em>originare</em> da osservazioni empiriche" },
+    { no:"«Fidabilità e validità sono sinonimi»", si:"La <strong>validità</strong> riguarda la <strong>definizione operativa</strong>; <strong>fidabilità e sensibilità</strong> riguardano lo <strong>strumento</strong>" },
+    { no:"«Una buona operazionalizzazione dà una misura vera»", si:"Ogni definizione operativa è un'<strong>approssimazione al vero</strong>: la validità totale è <strong>virtualmente impossibile</strong>" }
+  ]
+},
+
+/* ---------- F4.2 ---------- */
+{
+  id:"S402", tipo:"scuola", nome:"Il processo di ricerca",
+  identificazione:{ anno:"—", luogo:"—", lezione:"L04", capitolo:"C17",
+    unaRiga:"Quattro fasi disposte in cerchio: la quarta riporta alla prima, ma a un livello più profondo. Identico per la ricerca di base e per quella applicata." },
+  nasceDa:{ problema:"Se ogni misura è un'<strong>approssimazione al vero</strong>, nessun ciclo di ricerca può chiudere definitivamente una questione.",
+    formula:"Il processo di ricerca è un <strong>percorso circolare</strong>: quando finisce si ritorna alla tappa iniziale — ma <strong>a un livello più profondo</strong> di quello di partenza." },
+  radici:[
+    { nome:"I quattro assunti", tipo:"metodo", tesi:"Determinismo, empirismo, invarianza, operazionalizzazione governano ogni fase del processo." },
+    { nome:"Il falsificazionismo di Popper", tipo:"epistemologia", tesi:"È scientifica ogni teoria <strong>confutabile</strong>: il compito dello scienziato non è accumulare conferme ma <strong>falsificare</strong>." }
+  ],
+  precursori:[
+    { nome:"Karl Popper", provenienza:"Filosofia della scienza", apporto:"«Tutti i processi di ricerca cominciano dai <strong>problemi</strong>»; il criterio di <strong>falsificabilità</strong>" }
+  ],
+  oggetto:{ formula:"Le <strong>quattro fasi</strong>: <strong>1.</strong> identificazione del problema · <strong>2.</strong> formulazione di una spiegazione teorica · <strong>3.</strong> dimostrazione tramite ricerca empirica · <strong>4.</strong> comunicazione dei risultati.",
+    glossa:"<strong>Ricerca di base</strong> (problema teorico, costituisce i fondamenti conoscitivi) e <strong>ricerca applicata</strong> (problema pratico, cerca una soluzione concreta) differiscono per il <strong>problema di partenza</strong>, ma <strong>il processo è totalmente identico</strong>. La distinzione riguarda la motivazione, non lo statuto epistemologico." },
+  metodo:{ formula:"Ogni fase ha regole precise; la sequenza è vincolante e la chiusura riapre il ciclo.",
+    glossa:"È qui che gli assunti diventano procedura: l'operazionalizzazione entra nella fase 3, l'invarianza nella fase 4 come requisito di replicabilità.",
+    vincoli:[
+      "<strong>Fase 1 — Il problema</strong> è una <strong>contraddizione fra affermazioni</strong> contenute in una teoria o in determinati fatti. Genera un'<strong>idea anticipatoria</strong>. Dev'essere <strong>rilevante e non banale</strong>. Fonte principale: <strong>le teorie e le ricerche esistenti</strong>, per via <strong>euristica</strong> (una teoria attira studi) o <strong>sistematica</strong> (una teoria fa affermazioni direttamente verificabili).",
+      "<strong>Fase 2 — La teoria</strong> è un <strong>insieme organizzato di frasi</strong> che spiegano un fenomeno; l'<strong>ipotesi</strong> è una <strong>predizione testabile</strong> in forma <strong>se-allora</strong>. Una teoria non si testa direttamente: si testano le ipotesi che se ne derivano.",
+      "<strong>Fase 3 — Si opera</strong>: si operazionalizza l'ipotesi, si sceglie lo strumento di misura, si progetta il disegno, si raccolgono e si analizzano i dati, si interpretano i risultati.",
+      "<strong>Fase 4 — Si comunica</strong>: convegni, <strong>articoli su riviste</strong> (la via più ortodossa), libri. Requisito comune: consentire la <strong>replica</strong>."
+    ] },
+  teorie:[
+    { nome:"La falsificabilità", enunciato:"<strong>Ogni ipotesi deve poter essere falsificata per essere scientifica.</strong> Nessun numero di conferme rende vera un'affermazione: è vera <strong>finché non si dimostra che è falsa</strong>.",
+      glossa:"<strong>L'argomento dei cigni</strong>: un solo cigno nero abbatte «tutti i cigni sono bianchi»; nessuna quantità di cigni bianchi la dimostra. Conseguenza operativa: il disegno prevede <strong>ipotesi alternativa</strong> e <strong>ipotesi nulla</strong>." },
+    { nome:"Le cinque caratteristiche del ricercatore", enunciato:"<strong>Curioso</strong> · <strong>creativo</strong> (collega fattori apparentemente sconnessi) · <strong>intuitivo</strong> · <strong>aperto mentalmente</strong> · <strong>scettico</strong>." },
+    { nome:"Le tre caratteristiche difficili dell'oggetto", enunciato:"<strong>Complessità</strong> — i fenomeni sono <strong>multideterminati</strong>. <strong>Variabilità</strong> — sia <strong>interindividuale</strong> sia <strong>entro lo stesso individuo</strong>. <strong>Reattività</strong>.",
+      glossa:"È per questo che le strategie di ricerca in psicologia sono fra le più sofisticate, e che serve una <strong>tassonomia</strong> su tre dimensioni: <strong>metodo</strong> (sperimentale &gt; correlazionale &gt; descrittivi), <strong>tecnica di raccolta</strong> (oggettiva / soggettiva), <strong>ambiente</strong> (laboratorio / campo)." },
+    { nome:"Statistica descrittiva e inferenziale", enunciato:"La <strong>descrittiva</strong> non consente inferenze: descrive l'andamento dei dati. L'<strong>inferenziale</strong> consente <strong>generalizzazioni</strong> dal campione ristretto alla popolazione." },
+    { nome:"L'etica della ricerca", enunciato:"Standard fissati a livello <strong>governativo</strong> e dalle <strong>associazioni internazionali</strong>, condivisi in tutto il mondo. I <strong>comitati etici</strong> esaminano le proposte; uno studio eticamente discutibile va <strong>modificato e ripassato al vaglio</strong>.",
+      glossa:"<strong>Il consenso informato</strong> — documento consegnato <em>prima</em> dell'adesione — contiene <strong>cinque</strong> elementi: scopo e procedure <em>(laddove comunicabile)</em> · potenziali benefici · potenziali rischi · <strong>diritto di rifiuto o ritiro in qualsiasi momento</strong> · tutela dei dati sensibili.<br>La clausola «laddove comunicabile» ammette che in certi disegni rivelare lo scopo <strong>distruggerebbe il dato</strong>: l'etica è un <strong>bilanciamento</strong>, non un elenco di divieti." }
+  ],
+  esponenti:[
+    { nome:"Karl Raimund Popper", anni:"1902-1994", ruolo:"Filosofo della scienza", luogo:"Austria, poi Regno Unito",
+      chiE:"Fornisce alla metodologia della ricerca due contributi: la definizione del <strong>problema</strong> come punto di partenza e il criterio di <strong>falsificabilità</strong>.",
+      haFatto:["Afferma che <strong>tutti i processi di ricerca cominciano dai problemi</strong>, intesi come contraddizioni fra affermazioni.","Formula il criterio di <strong>falsificabilità</strong>: è scientifica ogni teoria confutabile.","Rovescia il compito dello scienziato: non accumulare conferme ma <strong>falsificare le teorie esistenti</strong>, perché individuare l'errore avvicina alla verità.","<strong>Critica la psicoanalisi</strong>: dal punto di vista logico «non fa una piega», ma non consente alcuna falsificazione — e quindi non è scientifica."],
+      teorie:[{ nome:"Falsificazionismo", enunciato:"Teorie incerte, vaghe o troppo astratte non sono concretamente verificabili, quindi non falsificabili, quindi non scientifiche." }],
+      esperimenti:[],
+      nota:"La sua critica alla psicoanalisi è la stessa anomalia della <strong>L01</strong> vista da un altro angolo. Là il difetto era l'origine extra-accademica e l'assenza di verifica empirica; qui è <strong>logico</strong>: una teoria che spiega qualunque esito non è confermata da nessun esito." }
+  ],
+  esperimenti:[],
+  validita:{
+    merito:"Fornisce una procedura <strong>identica per ogni tipo di ricerca</strong> e un criterio di demarcazione — la falsificabilità — che consente di distinguere ciò che è scientifico da ciò che non lo è.",
+    limite:"È un processo che <strong>non conclude mai</strong>: la ricerca è una continua approssimazione al vero e nessuna teoria potrà mai essere certa.",
+    esito:"La fase 4 riporta alla fase 1: il rapporto fra teoria e ricerca è <strong>continuo e ricorsivo</strong>." },
+  precorre:[
+    { nome:"I metodi di ricerca", come:"la fase 3 si articola nella tassonomia dei metodi (Schede 3-7)" },
+    { nome:"La pubblicazione scientifica", come:"la fase 4 è trattata per intero nella Scheda 8" }
+  ],
+  formule:[
+    "Tutti i processi di ricerca cominciano dai problemi.",
+    "È scientifica ogni teoria confutabile.",
+    "Processo circolare di approssimazione al vero."
+  ],
+  errori:[
+    { no:"«La ricerca applicata ha un metodo più semplice»", si:"Il <strong>processo è totalmente identico</strong>: cambia il problema di partenza, non lo statuto epistemologico" },
+    { no:"«Una teoria confermata molte volte è vera»", si:"<strong>Nessun numero di conferme</strong> la rende vera: è vera <strong>finché non si dimostra falsa</strong>" },
+    { no:"Confondere teoria e ipotesi", si:"La <strong>teoria spiega</strong>; l'<strong>ipotesi predice</strong> ed è <strong>testabile</strong>. Una teoria non si testa direttamente" },
+    { no:"«Il consenso informato dichiara sempre lo scopo»", si:"«<strong>Laddove questo si possa comunicare</strong>»: in certi disegni rivelarlo distruggerebbe il dato" }
+  ]
+}
+
+]});
+
+/* ---------- F4.3 — VARIABILI E REVISIONE ---------- */
+PGE.schede.fascicoli[3].schede.push({
+  id:"S403", tipo:"scuola", nome:"Le variabili e la revisione della letteratura",
+  identificazione:{ anno:"—", luogo:"—", lezione:"L05", capitolo:"C18",
+    unaRiga:"I mattoncini del disegno: quattro scale di misura in gerarchia cumulativa, e tre livelli di revisione della letteratura in insiemi concentrici." },
+  nasceDa:{ problema:"L'operazionalizzazione produce entità misurabili, ma non tutte si misurano allo stesso modo: da come sono fatti i livelli di una variabile dipende che cosa se ne può dire.",
+    formula:"Dalla <strong>scala di misura</strong> dipende la <strong>scelta dei test statistici</strong>: sbagliarla produce <strong>risultati non interpretabili</strong> e invalida lo studio." },
+  radici:[
+    { nome:"Operazionalizzazione", tipo:"assunto", tesi:"Ogni concetto teorico va tradotto in formato replicabile e misurabile: le proprietà così definite sono le <strong>variabili</strong>." }
+  ],
+  precursori:[],
+  oggetto:{ formula:"La <strong>variabile</strong>: un'entità che <strong>varia</strong>. Virtualmente <strong>tutto ciò che può variare</strong> — quantitativamente o anche solo come <strong>presente/assente</strong> — può essere definito variabile.",
+    glossa:"La lista degli esempi mescola deliberatamente il banale e l'astratto — genere, altezza, colore dei capelli, ma anche attenzione, memoria, empatia — perché è il punto: <strong>l'operazionalizzazione mette sullo stesso piano operativo cose di natura molto diversa</strong>." },
+  metodo:{ formula:"Classificare la variabile con l'<strong>albero decisionale</strong>: tre domande, quattro esiti.",
+    glossa:"Il principio che rende memorizzabili le quattro scale: <strong>ogni categoria più complessa contiene le informazioni delle precedenti e ne aggiunge una</strong>. È una gerarchia <strong>cumulativa</strong>, non quattro casi indipendenti.",
+    vincoli:[
+      "<strong>I livelli sono ordinabili?</strong> Se <strong>no</strong> → scala <strong>NOMINALE</strong> (categoriale): solo <strong>diversità</strong>; categorie discrete; solo etichette, mai numeri né ordine. <em>Genere, colore degli occhi, squadra tifata, religione.</em>",
+      "Se <strong>sì</strong> → <strong>gli intervalli fra i livelli sono equivalenti?</strong> Se <strong>no</strong> → scala <strong>ORDINALE</strong>: diversità <strong>+ ordine</strong>; valori ordinali, mai numerici; i livelli sono <strong>ranghi</strong>. <em>Classe sociale, titolo di studio, giorni della settimana.</em>",
+      "Se <strong>sì</strong> → <strong>lo zero indica assenza della quantità misurata?</strong> Se <strong>no</strong> → scala a <strong>INTERVALLI EQUIVALENTI</strong>: numerica, ma con <strong>zero arbitrario</strong>. <em>Celsius, Fahrenheit, QI, scale di atteggiamento.</em>",
+      "Se <strong>sì</strong> → scala a <strong>RAPPORTI EQUIVALENTI</strong>: <strong>zero naturale</strong>; il rapporto <strong>non dipende dall'unità di misura</strong>. <em>Peso, altezza, età, numero di figli, numero di errori, tempo di latenza, Kelvin.</em>"
+    ] },
+  teorie:[
+    { nome:"Zero arbitrario e zero naturale", enunciato:"Nella scala <strong>Celsius</strong> lo zero è la temperatura di congelamento dell'acqua, non l'assenza di temperatura: è <strong>arbitrario</strong>. Nella scala <strong>Kelvin</strong> lo zero è l'<strong>assenza di movimento fra le molecole</strong>: è <strong>naturale</strong>.",
+      glossa:"<strong>La prova pratica</strong>: 20 °C non è «il doppio caldo» di 10 °C — convertendo in Fahrenheit il rapporto sparisce. Un rapporto che dipende dall'unità non è un rapporto reale." },
+    { nome:"Qualitative e quantitative", enunciato:"<strong>Nominale + ordinale</strong> = variabili <strong>qualitative</strong>: producono <strong>frequenze</strong> (quanti individui in ciascun livello). <strong>Intervalli + rapporti</strong> = variabili <strong>quantitative</strong> o <strong>metriche</strong>: producono un <strong>punteggio</strong> che informa sull'<strong>intensità</strong>." },
+    { nome:"Variabile indipendente e dipendente", enunciato:"<strong>Indipendente (x)</strong>: gli stimoli o eventi comportamentali che si presuppone siano la <strong>causa</strong> di cambiamenti. <strong>Dipendente (y)</strong>: gli eventi che <strong>risentono dell'effetto</strong> della VI, cioè gli <strong>effetti</strong>.",
+      glossa:"Supporre una connessione fra variabili costituisce già l'<strong>ipotesi sperimentale</strong>. Esempio: livello di caffeina nel sangue (VI) → numero di battiti cardiaci (VD)." },
+    { nome:"VI manipolabili e non manipolabili", enunciato:"<strong>Manipolabili</strong>: se ne possono controllare e modificare i livelli — caffeina, dose di un farmaco, intensità della luce. <strong>Non manipolabili</strong>: esistono in natura e il ricercatore non può agirvi — QI, appartenenza religiosa, età, affiliazione politica.",
+      glossa:"È qui che la distinzione produce le sue conseguenze: se la VI <strong>non è manipolabile</strong> non si ha un vero esperimento ma un <strong>quasi esperimento</strong> (Scheda 7)." },
+    { nome:"I tre livelli di revisione della letteratura", enunciato:"<strong>Narrativa</strong>: sintesi di un certo numero di articoli; domande <strong>ampie e generiche</strong>; conoscenza <strong>basilare</strong>. <strong>Sistematica</strong>: vero progetto di ricerca su <strong>aspetti specifici</strong>, con <strong>pochi quesiti ben definiti</strong>. <strong>Meta-analisi</strong>: revisione sistematica <strong>+ tecniche statistiche</strong>.",
+      glossa:"Da immaginare come <strong>insiemi concentrici</strong>: più si stringe, più si è precisi.<br><strong>Il limite della narrativa</strong>: la selezione delle fonti risponde a <strong>criteri soggettivi</strong> — esempio, i capitoli di un manuale.<br><strong>Che cosa rende sistematica la sistematica</strong>: criteri <strong>rigorosi e stabiliti a priori</strong> in uno <strong>specifico protocollo</strong>, che minimizzano le distorsioni e la rendono <strong>replicabile</strong> da altri. Si riconosce la forma dell'<strong>invarianza</strong>.<br><strong>Quando la meta-analisi non si fa</strong>: con <strong>eterogeneità dei risultati molto ampia</strong> sarebbe fuorviante. Non serve a <em>decidere</em> fra risultati discordanti, serve a <strong>quantificare</strong> un effetto su cui c'è già convergenza." }
+  ],
+  esponenti:[],
+  esperimenti:[],
+  validita:{
+    merito:"Fornisce lo strumento di classificazione senza il quale nessun dato è analizzabile correttamente, e distingue tre gradi di rigore nella revisione della letteratura.",
+    limite:"La classificazione è un prerequisito, non un metodo: da sola non produce conoscenza.",
+    esito:"Le variabili entrano in tutti i metodi successivi; la revisione della letteratura è propedeutica a ogni disegno — e nel metodo sperimentale diventa una <strong>condizione di validità</strong>, perché serve a individuare le variabili di confusione." },
+  precorre:[
+    { nome:"I metodi descrittivi", come:"il campionamento e la codifica presuppongono la classificazione delle variabili" },
+    { nome:"Il metodo correlazionale", come:"richiede variabili <strong>quantitative</strong> per il calcolo del coefficiente" },
+    { nome:"Il metodo sperimentale", come:"VI, VD e variabili di confusione ne sono l'ossatura" }
+  ],
+  formule:[
+    "Virtualmente tutto ciò che può variare può essere definito variabile.",
+    "Criteri rigorosi e stabiliti a priori in uno specifico protocollo."
+  ],
+  errori:[
+    { no:"«La scala Celsius ha uno zero naturale»", si:"È <strong>arbitrario</strong>: lo zero naturale ce l'ha la scala <strong>Kelvin</strong>" },
+    { no:"«Le variabili ordinali si possono numerare»", si:"Ammettono solo <strong>ranghi</strong>: non si può dire nulla sull'<strong>intervallo</strong> né sul <strong>rapporto</strong>" },
+    { no:"«Sbagliare la scala è un dettaglio»", si:"Determina la <strong>scelta dei test statistici</strong>: produce risultati <strong>non interpretabili</strong> e invalida lo studio" },
+    { no:"«La meta-analisi risolve i risultati discordanti»", si:"Con troppa <strong>eterogeneità</strong> è <strong>fuorviante</strong>: quantifica un effetto su cui c'è già convergenza" }
+  ]
+});
+
+/* ---------- F4.4 — METODI DESCRITTIVI ---------- */
+PGE.schede.fascicoli[3].schede.push({
+  id:"S404", tipo:"scuola", nome:"I metodi descrittivi",
+  identificazione:{ anno:"—", luogo:"—", lezione:"L05", capitolo:"C19",
+    unaRiga:"Il primo gradino della scala del controllo: studio dei casi, metodo osservativo, inchiesta. Descrivono e non spiegano — ma senza descrizione non si sa che cosa si sta alterando." },
+  nasceDa:{ problema:"Prima di analizzare i nessi causali di un comportamento bisogna sapere <strong>com'è fatto</strong>, e in particolare come funziona nel suo <strong>ambiente naturale</strong> — altrimenti non si saprebbe che cosa si sta alterando trasportandolo in laboratorio.",
+    formula:"La <strong>descrizione è il punto di partenza di qualsiasi scienza</strong>." },
+  radici:[
+    { nome:"La tassonomia per livelli di costrizione", tipo:"metodo", tesi:"I metodi si ordinano per quanto lo sperimentatore può controllare: <strong>descrittivi &lt; correlazionale &lt; sperimentale</strong>. Questi occupano il primo gradino." }
+  ],
+  precursori:[],
+  oggetto:{ formula:"<strong>In che modo si comportano gli uomini o altri animali</strong>, particolarmente <strong>nel loro ambiente naturale</strong>.",
+    glossa:"Possono servire a <strong>verificare ipotesi</strong> quando le variabili non consentono metodi più raffinati, oppure a fornire <strong>indicazioni su possibili rapporti causali</strong> da testare in seguito." },
+  metodo:{ formula:"Tre metodi distinti: <strong>studio dei casi</strong>, <strong>metodo osservativo</strong>, <strong>inchiesta</strong>.",
+    glossa:"Nessuno dei tre consente di stabilire <strong>nessi causali</strong>: al massimo di ipotizzarli.",
+    vincoli:[
+      "<strong>Studio dei casi</strong> — analisi approfondita di un <strong>individuo</strong> (caso singolo), di un gruppo o di un evento. <em>Non è elettivo per la psicologia generale</em>, che mira a leggi valide per tutti. Dati raccolti con osservazione, interviste, test, rilevazioni fisiologiche, esecuzione di compiti.",
+      "<strong>Metodo osservativo</strong> — osservare, registrare, descrivere, trascrivere e <strong>codificare</strong> il comportamento. Il verbo che conta è l'ultimo: è ciò che separa l'osservazione scientifica dal guardare.",
+      "<strong>Inchiesta</strong> (sondaggio, <em>survey</em>) — chiede ai soggetti di <strong>riferire</strong> sui propri comportamenti, atteggiamenti o opinioni, con <strong>interviste</strong> (domande aperte) o <strong>questionari</strong> (domande chiuse). Si sceglie spesso per <strong>necessità</strong>: fenomeni ampi o eticamente non studiabili in laboratorio."
+    ] },
+  teorie:[
+    { nome:"Il paradosso dello studio dei casi", enunciato:"Ha il <strong>minimo potere probatorio</strong> e il <strong>massimo potere confutatorio</strong>: <strong>basta un caso</strong> per falsificare una legge generale, mentre nessun numero di casi la dimostra.",
+      glossa:"È la <strong>falsificazione di Popper</strong> applicata al metodo più debole di tutti. Se un caso singolo falsifica una teoria, altri ricercatori dovranno verificarlo con disegni appropriati." },
+    { nome:"Le tre coppie del metodo osservativo", enunciato:"<strong>Ambiente</strong>: controllata (laboratorio) / naturalistica (ecologica). <strong>Tempo</strong>: diretta (in sincrono) / indiretta (registrazioni). <strong>Codifica</strong>: qualitativa (si descrive) / sistematica (categorie e regole prestabilite).",
+      glossa:"Le tre coppie sono <strong>indipendenti</strong> e si combinano: un'osservazione può essere naturalistica, indiretta e sistematica." },
+    { nome:"I due problemi dell'osservazione", enunciato:"<strong>1. L'interferenza dell'osservatore</strong>: la presenza del ricercatore altera il comportamento, perché è un elemento estraneo — e il problema <strong>non si risolve</strong> passando all'indiretta, perché i soggetti consapevoli della telecamera possono esserne influenzati. <strong>2. La soggettività del ricercatore</strong> nell'interpretare ciò che osserva.",
+      glossa:"<strong>La soluzione al secondo</strong>: la <strong>sistematizzazione</strong> — schemi di <strong>categorie comportamentali prefissate</strong> e <strong>regole di corrispondenza</strong> descritte in <strong>manuali di codifica</strong>.<br>È la stessa mossa del <strong>vocabolario di Titchener</strong> (L01), ma applicata a un comportamento <strong>osservabile da terzi</strong> anziché a un contenuto di coscienza accessibile a uno solo — ed è ciò che la rende praticabile dove quella falliva." },
+    { nome:"L'esposizione preventiva allo sperimentatore", enunciato:"Lo sperimentatore resta a lungo nel contesto naturalistico; si instaura un processo di <strong>abituazione</strong> e i membri della popolazione lo considerano <strong>parte del contesto</strong>. Neutralizza l'effetto dell'osservatore.",
+      glossa:"È la tecnica dell'<strong>osservazione diretta partecipante</strong> di Jane Goodall." },
+    { nome:"Popolazione, campione, campionamento", enunciato:"<strong>Popolazione</strong>: <strong>tutti</strong> gli individui rispetto ai quali si è interessati. <strong>Campione</strong>: un <strong>sottoinsieme</strong>. <strong>Campionamento casuale</strong>: ogni membro ha <strong>le stesse probabilità</strong> di essere scelto. <strong>Stratificato</strong>: si suddivide in sottogruppi (genere, etnia) e poi si campiona casualmente.",
+      glossa:"<strong>La regola</strong>: <strong>meglio un campione piccolo ma rappresentativo che grande e non rappresentativo</strong>. La numerosità aiuta la validità statistica, ma la <strong>rappresentatività conta di più</strong>.<br><strong>Gli exit poll</strong> sono l'illustrazione della regola: campioni enormi e inutili, perché chi esce dal seggio in un certo orario non rappresenta l'elettorato." },
+    { nome:"Gli altri due problemi dell'inchiesta", enunciato:"<strong>La formulazione delle domande</strong>: anche sottili cambiamenti di parole producono effetti diversi — si approva più volentieri un «<strong>aumento del gettito fiscale</strong>» che un «<strong>aumento delle tasse</strong>». <strong>I partecipanti</strong>: possono essere <strong>riluttanti</strong> su domande personali o risentire della <strong>desiderabilità sociale</strong>." }
+  ],
+  esponenti:[
+    { nome:"Jane Goodall", anni:"1934-2025", ruolo:"Etologa · osservazione diretta partecipante", luogo:"Africa",
+      chiE:"Entra a far parte del contesto in cui il comportamento viene agito, invece di osservarlo dall'esterno.",
+      haFatto:["Conduce <strong>osservazioni dirette partecipanti</strong> sugli scimpanzé africani.","Applica l'<strong>esposizione preventiva allo sperimentatore</strong> per neutralizzare l'effetto dell'osservatore.","Scopre che gli scimpanzé sono in grado di <strong>realizzare e utilizzare strumenti finalizzati a uno scopo</strong> — ritenuto fino ad allora appannaggio della specie umana."],
+      teorie:[], esperimenti:[],
+      nota:"<strong>Un confronto che vale la pena fare.</strong> Nella L02 <strong>Köhler</strong> studiava gli scimpanzé in laboratorio, con banane appese e casse, per dimostrare l'<strong>insight</strong>. Goodall li studia nel loro ambiente, senza manipolare nulla, e trova comportamenti strumentali complessi. Stessa specie, stesso tema, <strong>metodi opposti</strong> — e i due risultati si sostengono a vicenda." },
+    { nome:"Phineas Gage", anni:"1823-1860", ruolo:"Caso singolo", luogo:"Stati Uniti",
+      chiE:"Il caso da cui parte molta conoscenza neuropsicologica: una sbarra di ferro gli attraversò il cranio da parte a parte, e a posteriori si ricostruì che le lesioni riportate potevano provocare i comportamenti sintomatici osservati.",
+      haFatto:["È l'esempio della lezione per lo <strong>studio di caso singolo</strong> in neuropsicologia."],
+      teorie:[], esperimenti:[],
+      nota:"<strong>[N.d.R.]</strong> Nella registrazione la lesione è descritta come «resezione del corpo calloso». In realtà la sbarra attraversò il <strong>lobo frontale sinistro</strong>, e il caso è ricordato per le alterazioni di personalità e condotta conseguenti a danno <strong>prefrontale</strong>. La sostanza del ragionamento non cambia." }
+  ],
+  esperimenti:[
+    { nome:"Lo specchio unidirezionale", disegno:["Una stanza di laboratorio che riproduce un ambiente domestico.","Lo sperimentatore osserva attraverso uno specchio che dall'altra parte appare opaco."],
+      risultato:"Si osservano comportamenti in un ambiente controllato senza che i soggetti vedano l'osservatore.",
+      significato:"Esempio di osservazione <strong>controllata</strong> e <strong>indiretta</strong>. Usato prevalentemente per bambini e <strong>diadi madre-bambino</strong>." },
+    { nome:"EAR — Electronically Activated Recorder", disegno:["Un registratore digitale che si attiva elettronicamente.","Cattura <strong>registrazioni campionate nel tempo</strong> durante la vita quotidiana del soggetto."],
+      risultato:"Si ottiene un campione temporale del comportamento reale, analizzabile a posteriori.",
+      significato:"Esempio di osservazione <strong>indiretta</strong> che si avvale di strumentazione tecnologica. Inizialmente usato su studenti universitari." }
+  ],
+  validita:{
+    merito:"Consentono di studiare <strong>fenomeni rari</strong> e <strong>comportamenti spontanei</strong>, di raccogliere informazioni da soggetti che non parlano né eseguono compiti a richiesta (bambini piccoli, animali), e di seguire l'<strong>evoluzione nel tempo</strong>. L'inchiesta raccoglie molte informazioni su popolazioni ampie.",
+    limite:"<strong>Nessuno fornisce nessi causali.</strong> Lo studio dei casi non è generalizzabile e con casi atipici è fuorviante; l'osservazione non permette di controllare tutti i fattori né di replicare a richiesta; l'inchiesta si basa su <strong>resoconti personali</strong> ed è esposta a campioni non rappresentativi e domande mal poste.",
+    esito:"Forniscono la base descrittiva su cui i metodi quantitativi lavorano; l'inchiesta, se codificata su scale numeriche, apre direttamente al metodo correlazionale." },
+  precorre:[
+    { nome:"Metodo correlazionale", come:"quando i dati dell'inchiesta vengono <strong>codificati su scale numeriche</strong> si possono calcolare correlazioni" },
+    { nome:"Metodo sperimentale", come:"la descrizione fornisce le <strong>ipotesi</strong> da testare e la conoscenza del comportamento naturale" }
+  ],
+  formule:[
+    "Meglio un campione piccolo ma rappresentativo che grande e non rappresentativo.",
+    "Osservare, registrare, descrivere, trascrivere e codificare il comportamento."
+  ],
+  errori:[
+    { no:"«Lo studio dei casi non serve alla psicologia generale»", si:"Non è <strong>elettivo</strong>, ma ha il <strong>massimo potere confutatorio</strong>: basta un caso per falsificare una legge" },
+    { no:"«L'osservazione indiretta elimina l'interferenza dell'osservatore»", si:"<strong>No</strong>: i soggetti consapevoli della telecamera possono comunque esserne influenzati" },
+    { no:"«Un campione grande è per definizione migliore»", si:"Gli <strong>exit poll</strong> hanno campioni enormi e sbagliano lo stesso: conta la <strong>rappresentatività</strong>" },
+    { no:"«Le domande di un questionario sono neutre»", si:"«Aumento del <strong>gettito fiscale</strong>» e «aumento delle <strong>tasse</strong>» ottengono approvazioni diverse" }
+  ]
+});
+
+/* ---------- F4.5 — CORRELAZIONALE ---------- */
+PGE.schede.fascicoli[3].schede.push({
+  id:"S405", tipo:"scuola", nome:"Il metodo correlazionale",
+  identificazione:{ anno:"—", luogo:"—", lezione:"L06", capitolo:"C20",
+    unaRiga:"Un passo oltre i descrittivi: misura quantitativamente l'associazione fra variabili. Consente previsioni, non spiegazioni." },
+  nasceDa:{ problema:"I metodi descrittivi permettono di <strong>intravedere</strong> relazioni fra eventi, ma non di stabilire se ci siano davvero, né quanto siano forti.",
+    formula:"L'esigenza è <strong>misurare</strong> l'associazione, non solo osservarla — perché solo sapendo che due eventi sono associati si può <strong>prevedere</strong> l'uno conoscendo l'altro." },
+  radici:[
+    { nome:"I metodi descrittivi", tipo:"metodo", tesi:"Come la ricerca descrittiva, il correlazionale si limita a <strong>osservare e rilevare</strong>: il ricercatore non apporta modifiche alle variabili." }
+  ],
+  precursori:[
+    { nome:"L'inchiesta", provenienza:"Metodi descrittivi (L05)", apporto:"Quando la mole di dati raccolta viene <strong>codificata su scale numeriche</strong>, si aprono le statistiche quantitative e quindi le correlazioni" }
+  ],
+  oggetto:{ formula:"La <strong>relazione, l'associazione fra variabili</strong>, valutata in modo <strong>specifico e appropriato</strong> attraverso la misura quantitativa.",
+    glossa:"Le variabili studiabili sono le più disparate, comprese quelle <strong>non manipolabili</strong>: età, scolarità, ambiente fisico e sociale, ore dedicate ad attività, stati emotivi, risultati conseguiti, tratti di personalità, stili motivazionali, misure di intelligenza." },
+  metodo:{ formula:"Si seleziona un campione → si misurano le variabili <strong>x</strong> e <strong>y</strong> → si eseguono <strong>calcoli statistici</strong> per verificare se esiste realmente una relazione.",
+    glossa:"⚠️ Il ricercatore <strong>non esercita alcun tipo di controllo sulla situazione</strong>, ed è precisamente questo il motivo per cui non è il metodo scientifico per eccellenza.",
+    vincoli:[] },
+  teorie:[
+    { nome:"Le due ragioni per cui la correlazione non è causalità", enunciato:"<strong>1. Bidirezionalità del nesso</strong> — osservando due variabili contemporaneamente non si può stabilire quale causi quale. <strong>2. Terza variabile</strong> — a spiegare la relazione può intervenire una variabile <strong>non osservata</strong>.",
+      glossa:"<strong>Esempio</strong>: fra la scelta di programmi TV <strong>aggressivi</strong> e l'<strong>aggressività dello spettatore</strong>, guardare quei programmi può aumentare l'aggressività, <em>ma anche</em> l'aggressività può portare a sceglierli; oppure un <strong>livello di energia insolitamente alto</strong> può spiegare entrambe.<br><strong>Secondo esempio</strong>: fra <strong>tempo passato all'aperto</strong> e <strong>sensazione di benessere</strong> vale lo stesso, e un <strong>tratto di personalità</strong> non indagato può spiegare entrambi." },
+    { nome:"Il coefficiente di correlazione (r)", enunciato:"Misura statistica che dice <strong>quanto strettamente due cose variano insieme</strong> — e quindi con quanta precisione l'una sia <strong>predittiva</strong> dell'altra. Fornisce <strong>due</strong> informazioni: il <strong>segno</strong> dà la <strong>direzione</strong>, il <strong>valore</strong> dà la <strong>forza</strong>.",
+      glossa:"<strong>Positiva (+)</strong>: valori alti con valori alti — crescita <strong>direttamente proporzionale</strong>. <strong>Negativa (−)</strong>: valori alti con valori bassi — crescita <strong>indirettamente proporzionale</strong>.<br><strong>Forza</strong>: da <strong>perfetta</strong> (massima) all'<strong>assenza di correlazione</strong>, con coefficiente prossimo a <strong>zero</strong>." },
+    { nome:"I grafici di dispersione", enunciato:"Rappresentano visivamente <strong>direzione e forza</strong> graficando i singoli punteggi; la <strong>retta interpolante</strong> ne mostra l'andamento.",
+      glossa:"Nei tre esempi della lezione la <strong>y</strong> è sempre il <strong>voto conseguito a un esame</strong>. Con x = <strong>ore di studio settimanali</strong>: correlazione <strong>positiva</strong>, retta verso l'alto. Con x = <strong>numero di mele consumate</strong>: punti a caso, <strong>nessuna correlazione</strong>, nessuna retta possibile. Con x = <strong>ore davanti alla TV</strong>: correlazione <strong>negativa</strong>, retta di direzione opposta." }
+  ],
+  esponenti:[],
+  esperimenti:[
+    { nome:"I quattro esempi di correlazione della lezione", disegno:["Si selezionano campioni e si misurano coppie di variabili su scale numeriche.","Si calcola il coefficiente di correlazione e se ne legge segno e valore."],
+      risultato:"<strong>Positive</strong>: quanti più contenuti sessuali gli adolescenti vedono in TV, tanto più frequenti i loro rapporti sessuali; quanto più a lungo i bambini sono allattati al seno, tanto maggiori i successi scolastici.<br><strong>Negative</strong>: quanto maggiore l'uso di dispositivi elettronici, tanto minore la soddisfazione per la propria vita; in famiglie povere, quanto maggiore l'incremento del reddito, tanto minori i sintomi psichiatrici dei bambini.",
+      significato:"Sull'allattamento la lezione insiste: sarebbe <strong>fuorviante</strong> inferire che l'allattamento produca i successi scolastici, perché molte altre variabili non controllate possono influire su entrambi. È l'esempio-tipo della <strong>terza variabile</strong>." }
+  ],
+  validita:{
+    merito:"Consente <strong>generalizzazioni</strong> dal campione alla popolazione, in <strong>ambiente naturale</strong>; genera <strong>idee</strong> da approfondire in laboratorio; permette di studiare un <strong>alto numero di variabili</strong>, comprese quelle inaccessibili per motivi <strong>pratici o etici</strong>; e permette <strong>predizioni</strong>.",
+    limite:"<strong>Non fornisce alcuna relazione causale</strong>, per la bidirezionalità del nesso e la possibile terza variabile.",
+    esito:"È il gradino intermedio: apre al metodo sperimentale, che è costruito proprio per rispondere alle sue due mancanze." },
+  precorre:[
+    { nome:"Il metodo sperimentale", come:"la <strong>manipolazione</strong> risponde alla bidirezionalità, il <strong>controllo</strong> risponde alla terza variabile" }
+  ],
+  formule:[
+    "La crescita di una variabile è direttamente proporzionale alla crescita dell'altra.",
+    "Bidirezionalità del nesso e intervento di una terza variabile."
+  ],
+  errori:[
+    { no:"«Se due variabili correlano, una causa l'altra»", si:"<strong>No</strong>, per <strong>due</strong> ragioni: la <strong>bidirezionalità</strong> e la possibile <strong>terza variabile</strong>" },
+    { no:"«Un coefficiente negativo indica una correlazione debole»", si:"Il <strong>segno</strong> dà la <strong>direzione</strong>, il <strong>valore</strong> dà la <strong>forza</strong>: sono due informazioni distinte" },
+    { no:"«Il correlazionale è un metodo descrittivo»", si:"È un <strong>passo oltre</strong>: aggiunge la <strong>misura quantitativa</strong>. Ma come i descrittivi non manipola né controlla" }
+  ]
+});
+
+/* ---------- F4.6 — SPERIMENTALE ---------- */
+PGE.schede.fascicoli[3].schede.push({
+  id:"S406", tipo:"scuola", nome:"Il metodo sperimentale",
+  identificazione:{ anno:"—", luogo:"Laboratorio", lezione:"L06", capitolo:"C20",
+    unaRiga:"Il metodo scientifico per eccellenza: l'unico che rispetta tutti e quattro gli assunti, e l'unico che stabilisce nessi causa-effetto." },
+  nasceDa:{ problema:"Il metodo correlazionale non stabilisce nessi causali per due ragioni precise: la <strong>bidirezionalità</strong> del nesso e la possibile <strong>terza variabile</strong>.",
+    formula:"Il metodo sperimentale è costruito <strong>come risposta a quelle due obiezioni</strong>: la <strong>manipolazione</strong> elimina la bidirezionalità, il <strong>controllo delle altre variabili</strong> elimina la terza variabile." },
+  radici:[
+    { nome:"I quattro assunti del metodo scientifico", tipo:"metodo", tesi:"È l'<strong>unico</strong> metodo che li rispetta tutti: <strong>determinismo</strong> (stabilisce relazioni causali), <strong>empirismo</strong> (dimostra praticamente le ipotesi), <strong>invarianza</strong>, <strong>operazionalizzazione</strong> (rende misurabili variabili astratte)." },
+    { nome:"Il metodo ipotetico-deduttivo", tipo:"logica", tesi:"Da ipotesi teoriche formulate <strong>a priori</strong> si costruisce un assetto sperimentale per verificarle." }
+  ],
+  precursori:[
+    { nome:"Metodo correlazionale", provenienza:"L06", apporto:"Ne definisce per contrasto i due limiti da superare" },
+    { nome:"Metodi descrittivi", provenienza:"L05", apporto:"Forniscono la conoscenza del comportamento naturale e le ipotesi da testare" },
+    { nome:"Revisione della letteratura", provenienza:"L05", apporto:"È ciò che consente di <strong>conoscere</strong> le variabili di confusione — e quindi di controllarle: da preliminare bibliografico diventa <strong>condizione di validità</strong>" }
+  ],
+  oggetto:{ formula:"I <strong>rapporti causa-effetto</strong> fra variabili, stabiliti attraverso <strong>esperimenti</strong> volti a verificare ipotesi formulate a priori.",
+    glossa:"Ciò che si verifica sul campione può essere <strong>generalizzato all'intera popolazione</strong> di riferimento tramite la statistica inferenziale.<br><strong>Manipolazione sperimentale</strong>: il cambiamento che lo sperimentatore induce sulla variabile.<br>⚠️ La lezione avverte che <strong>la terminologia sarà valutata in sede d'esame</strong>: qui i termini vanno usati con precisione, non parafrasati." },
+  metodo:{ formula:"<strong>Disegno sperimentale</strong>: definizione delle variabili → scelta del campione → costituzione dei gruppi → manipolazione e misura → verifica inferenziale delle ipotesi.",
+    glossa:"Si svolge generalmente in <strong>laboratorio</strong>, ambiente dedicato, controllato e <strong>pertanto artificiale</strong>, dove si creano di proposito le condizioni migliori per studiare la relazione x→y.",
+    vincoli:[
+      "<strong>Le tre variabili</strong> — <strong>indipendente x</strong>: manipolata, ritenuta la <strong>causa</strong>, ha <strong>livelli</strong> che sono le condizioni. <strong>Dipendente y</strong>: <strong>misurata</strong>, ritenuta l'<strong>effetto</strong>, dev'essere <strong>quantitativa</strong>. <strong>Di confusione z</strong>: tutto ciò che può interferire, e che dev'essere <strong>conosciuta</strong> per poter essere controllata.",
+      "<strong>Il campione</strong> — dev'essere <strong>rappresentativo</strong> della popolazione su cui si formulano le ipotesi, e i soggetti vanno scelti in modo <strong>casuale</strong>: ogni soggetto ha <strong>la stessa probabilità</strong> di essere scelto. ⚠️ <strong>Scelta casuale ≠ scelta a caso</strong>: la prima è controllata e bilanciata, la seconda è prendere i primi che capitano.",
+      "<strong>I gruppi</strong> — uno o più <strong>gruppi sperimentali</strong>, in cui la variabile manipolata è <strong>presente</strong>, e un <strong>gruppo di controllo</strong>, in cui è <strong>assente</strong>. L'assegnazione dev'essere <strong>casuale e randomizzata</strong>.",
+      "<strong>Le due ipotesi</strong> — l'<strong>alternativa</strong> (x e y <em>sono</em> legate da un nesso causale: è l'ipotesi sperimentale) e la <strong>nulla</strong> (non lo sono). Lo scopo è confermare che le variazioni di y siano dovute a x <strong>e non al caso</strong>."
+    ] },
+  teorie:[
+    { nome:"I due disegni sperimentali", enunciato:"<strong>Tra i soggetti</strong>: soggetti <strong>diversi</strong> assegnati a gruppi diversi, ciascuno riceve <strong>una sola</strong> condizione. <strong>Entro i soggetti</strong>: i soggetti formano <strong>un unico gruppo</strong> sottoposto a <strong>tutte</strong> le condizioni.",
+      glossa:"<strong>Tra</strong> — vantaggio: minimizza i problemi legati allo <strong>strumento di misura</strong>, perché il test si fa una volta sola; svantaggio: richiede un <strong>campione ampio</strong>. Esempio: disegno <strong>trasversale</strong>.<br><strong>Entro</strong> — vantaggio: <strong>numerosità maggiore</strong> nelle misurazioni; svantaggio: <strong>sensibilizzazione</strong> e <strong>abituazione</strong> agli strumenti. Esempio: disegno <strong>longitudinale</strong>." },
+    { nome:"Le due validità", enunciato:"<strong>Validità interna</strong>: quanto si è sicuri che la relazione causale indagata <strong>sia veramente quella</strong>. In laboratorio è <strong>massima</strong>. <strong>Validità ecologica</strong>: quanto le generalizzazioni valgono in ambiente <strong>naturale</strong>. In laboratorio è <strong>bassa</strong>.",
+      glossa:"È il <strong>vero limite</strong> della ricerca sperimentale in psicologia, perché i fenomeni riprodotti in laboratorio <strong>non sono mai proprio uguali</strong> a quelli naturali.<br>Non è un limite nuovo: è la stessa critica che <strong>Neisser</strong> muoveva al cognitivismo (L03). Le due validità sono in <strong>trade-off</strong>." },
+    { nome:"Il quasi esperimento", enunciato:"Quando la variabile indipendente <strong>non è manipolabile</strong> non si ha un vero esperimento ma un <strong>quasi esperimento</strong>, perché manca il <strong>controllo assoluto</strong>.",
+      glossa:"Esempio: per indagare una <strong>differenza di genere</strong> si è costretti ad avere due gruppi — maschi e femmine — la cui divisione è <strong>data a priori</strong>. È la conseguenza diretta della distinzione fra VI manipolabili e non manipolabili." },
+    { nome:"I due tipi di errore", enunciato:"<strong>Errore di primo tipo (α)</strong>: dichiarare <strong>falsa</strong> l'ipotesi nulla quando in realtà è <strong>vera</strong> — dire che ciò che si osserva non è dovuto al caso quando invece lo è. <strong>Errore di secondo tipo (β)</strong>: dichiarare <strong>vera</strong> l'ipotesi nulla quando in realtà è <strong>falsa</strong>.",
+      glossa:"<strong>β diminuisce con l'aumentare di α, e viceversa</strong>: i due errori sono complementari e <strong>non si possono minimizzare entrambi</strong>. Bisogna decidere quale si è disposti a commettere più spesso — ed è una decisione, non un calcolo.<br>La <strong>statistica inferenziale</strong> (per esempio l'<strong>analisi della varianza</strong>) stabilisce se le differenze siano <strong>significative</strong> — generalizzabili — o <strong>dovute al caso</strong>. L'inferenza resta comunque <strong>probabilistica</strong>." }
+  ],
+  esponenti:[],
+  esperimenti:[
+    { nome:"Rumore e apprendimento (uomo)", disegno:["<strong>Ipotesi</strong>: il rumore ha un'influenza negativa sull'apprendimento negli studenti universitari.","<strong>VI</strong>: quantità di rumore — stanza <strong>senza</strong> (controllo) e <strong>con</strong> rumore (sperimentale).","<strong>VD</strong>: numero di errori a un test a risposta multipla.","<strong>Confusione</strong>: temperatura e illuminazione costanti; la <strong>disposizione del ricercatore</strong> nell'interagire con i soggetti."],
+      risultato:"Il confronto statistico fra i due gruppi permette di generalizzare le eventuali differenze alla popolazione.",
+      significato:"La VI va <strong>operazionalizzata</strong> in modo che un altro sperimentatore, <strong>anche a dieci anni di distanza e molto lontano geograficamente</strong>, possa rifare l'esperimento <strong>tale e quale</strong>." },
+    { nome:"Propranololo e stress (scimmie)", disegno:["<strong>Ipotesi</strong>: il propranololo previene patologie cardiache in scimmie stressate.","<strong>VI</strong>: il farmaco — assenza (controllo) e somministrazione (sperimentale). <strong>Entrambe</strong> le condizioni prevedono esposizione a stress: dieta ipercalorica, ingresso di estranei.","<strong>VD</strong>: parametri indicatori di patologia cardiaca, per esempio la frequenza cardiaca.","<strong>Confusione</strong>: condizioni stressanti bilanciate; illuminazione, temperatura, atteggiamento dello sperimentatore costanti."],
+      risultato:"Se le scimmie trattate risultano più resistenti alla patologia cardiaca, le statistiche inferenziali dicono se il risultato è estensibile alla popolazione.",
+      significato:"Gli animali consentono di studiare in laboratorio fenomeni <strong>eticamente impossibili</strong> sull'uomo. E il campionamento è più semplice: gli <strong>allevamenti da laboratorio</strong> forniscono animali controllati per malattie e variabilità individuale, quindi il campione è <strong>verosimilmente molto rappresentativo</strong>." },
+    { nome:"Arricchimento ambientale e neuroplasticità (ratti)", disegno:["<strong>Ipotesi</strong>: le stimolazioni ambientali precoci migliorano lo sviluppo cerebrale e cognitivo.","<strong>VI</strong>: esposizione alle stimolazioni, operazionalizzata con un <strong>modello di arricchimento ambientale</strong> — allevamento in condizioni <strong>standard</strong> o <strong>arricchite</strong> dopo lo svezzamento.","<strong>VD</strong>: indicatori di <strong>sinaptogenesi</strong> e <strong>dendritogenesi</strong>; numero di risposte corrette a test cognitivi."],
+      risultato:"La condizione standard produce performance cognitive e indici morfologici e neuronali <strong>più bassi</strong> rispetto alla condizione arricchita.",
+      significato:"È il filone di ricerca della docente, e mostra il disegno sperimentale applicato a variabili dipendenti sia <strong>comportamentali</strong> sia <strong>morfologiche</strong>." }
+  ],
+  validita:{
+    merito:"<strong>Stabilisce rapporti causa-effetto</strong>; ha <strong>alta validità interna</strong>; consente di approfondire e definire le relazioni osservate con i metodi correlazionali e descrittivi.",
+    limite:"<strong>Bassa validità ecologica</strong>. Non sempre è possibile <strong>operazionalizzare e misurare</strong> tutte le variabili (→ quasi esperimenti); non sempre si può <strong>assegnare a caso</strong> i soggetti o <strong>manipolare</strong> la VI; non sempre si possono <strong>individuare tutte</strong> le variabili di confusione; e motivazioni <strong>etiche e pratiche</strong> possono rendere l'esperimento impossibile.",
+    esito:"Resta il metodo di riferimento, ma la sua applicabilità è condizionata: per questo la psicologia usa anche tutti gli altri." },
+  precorre:[
+    { nome:"La ricerca originale", come:"è la tipologia di articolo che riporta esperimenti o quasi esperimenti (Scheda 8)" }
+  ],
+  formule:[
+    "Il cambiamento che lo sperimentatore induce sulla variabile.",
+    "Le variazioni di y sono dovute alla modificazione di x e non al caso.",
+    "Dichiarare falsa l'ipotesi nulla quando in realtà è vera."
+  ],
+  errori:[
+    { no:"«Scelta casuale = prendere i soggetti a caso»", si:"La <strong>scelta casuale è controllata</strong>: bilancia il genere, esclude patologie, mantiene le caratteristiche tipiche della popolazione" },
+    { no:"«Il laboratorio garantisce la validità dell'esperimento»", si:"Garantisce la <strong>validità interna</strong>; la <strong>ecologica</strong> resta <strong>bassa</strong> — è il vero limite" },
+    { no:"«Se manipolo una variabile ho un esperimento»", si:"Se la VI <strong>non è manipolabile</strong> si ha un <strong>quasi esperimento</strong>: manca il controllo assoluto" },
+    { no:"«Basta ridurre α per rendere lo studio più sicuro»", si:"<strong>β aumenta quando α diminuisce</strong>: i due errori sono complementari e non si minimizzano entrambi" }
+  ]
+});
+
+/* ---------- F4.7 — PUBBLICAZIONE ---------- */
+PGE.schede.fascicoli[3].schede.push({
+  id:"S407", tipo:"scuola", nome:"La pubblicazione scientifica",
+  identificazione:{ anno:"—", luogo:"—", lezione:"L07", capitolo:"C21",
+    unaRiga:"La quarta fase del processo di ricerca: come la conoscenza entra nel circuito internazionale, e che cosa la rende scientifica prima ancora di entrarci." },
+  nasceDa:{ problema:"Un risultato che resta nel laboratorio che lo ha prodotto non accresce la conoscenza. Ma se chiunque potesse pubblicare qualsiasi cosa, la letteratura non varrebbe nulla.",
+    formula:"La pubblicazione scientifica è la <strong>principale e ufficiale forma di divulgazione</strong> della conoscenza; ciò che la rende scientifica è la <strong>revisione tra pari</strong>, che valuta il contenuto <strong>ex ante</strong>." },
+  radici:[
+    { nome:"L'assunto di invarianza", tipo:"metodo", tesi:"Il requisito di descrivere metodi e procedure in modo da <strong>consentire la replica</strong> è l'invarianza trasformata in norma editoriale." },
+    { nome:"Il falsificazionismo", tipo:"epistemologia", tesi:"La <strong>doppia valutazione</strong> ex ante (peer review) ed ex post (citazioni, commenti, confutazioni) è la forma istituzionale della falsificabilità: nessuna pubblicazione è definitivamente vera." }
+  ],
+  precursori:[
+    { nome:"Fase 4 del processo di ricerca", provenienza:"L04", apporto:"La comunicazione dei risultati è la fase che chiude il cerchio e ne apre un altro" }
+  ],
+  oggetto:{ formula:"I <strong>risultati</strong>, la <strong>metodologia</strong> e le <strong>conclusioni</strong> di una ricerca, messi a disposizione della <strong>comunità scientifica internazionale</strong>.",
+    glossa:"Circola in formato cartaceo ma <strong>soprattutto digitale</strong>, tramite <strong>riviste</strong> di gruppi editoriali specializzati e riconosciuti. La <strong>lingua è l'inglese</strong>, lingua ufficiale della comunità internazionale dalla metà del XX secolo.<br>🔑 <strong>La distinzione strutturale</strong>: nelle pubblicazioni <strong>non</strong> scientifiche la valutazione critica avviene <strong>ex post</strong>, dopo la pubblicazione; in quelle scientifiche <strong>ex ante</strong>." },
+  metodo:{ formula:"<strong>La revisione tra pari</strong> (<em>peer review</em>): manoscritto → editore → 2-4 revisori esterni anonimi → rifiuto, accettazione o revisioni.",
+    glossa:"Sembra complicato, ma è ciò che <strong>garantisce la qualità</strong>: altrimenti ognuno potrebbe pubblicare qualsiasi cosa.",
+    vincoli:[
+      "<strong>L'editore</strong> valuta l'<strong>adeguatezza formale</strong> (ogni rivista ha un <em>vademecum</em> per l'autore: formattazione, figure, caratteri), la presenza dei <strong>documenti</strong>, le <strong>parti grafiche</strong> e i <strong>permessi etici</strong>. ⚠️ <strong>Non fa l'analisi scientifica</strong>, e può rifiutare un lavoro <strong>valido</strong> se la rivista è satura.",
+      "<strong>I revisori</strong> sono <strong>ricercatori come gli autori</strong>, in genere <strong>due o quattro</strong>. Il lavoro <strong>non è retribuito</strong> ma è un <strong>onore</strong>, perché significa essere riconosciuti esperti del settore.",
+      "<strong>Il documento di revisione</strong> ha tre parti: <strong>riassunto e commento generale</strong> (originalità, contributo, importanza, <strong>validità metodologica</strong>); <strong>criticità importanti</strong> — si valuta soprattutto la sezione <strong>metodologica</strong>: le informazioni bastano a <strong>replicare</strong> lo studio? c'è un <strong>bias metodologico</strong>?; <strong>problematiche minori</strong> — stile, suggerimenti bibliografici.",
+      "<strong>L'etica</strong>: ogni progetto su soggetti umani o animali deve rispettare principi etici. In Italia il <strong>codice etico dell'AIP</strong>; garanti sono i <strong>comitati etici</strong>, che valutano il progetto <strong>prima</strong> dell'esecuzione."
+    ] },
+  teorie:[
+    { nome:"Le tipologie di pubblicazione", enunciato:"<strong>Atti di congresso</strong> — presentazione <strong>orale</strong> (simposi, talk) o <strong>poster</strong>; <strong>non</strong> vera peer review, ma controllo di un <strong>comitato scientifico</strong> sugli abstract. <strong>Articolo scientifico</strong> (<em>paper</em>) — la forma principale, in <strong>cinque tipologie</strong>: ricerca originale, revisione della letteratura, case report, trial clinico, commento.",
+      glossa:"Le cinque tipologie <strong>ricalcano i metodi di ricerca</strong>: ricerca originale = sperimentale; revisione = revisione della letteratura; case report = studio dei casi. La forma editoriale rispecchia la tassonomia metodologica." },
+    { nome:"La struttura dell'articolo", enunciato:"Sempre la stessa, a prescindere dalla casa editrice: <strong>titolo · autori · affiliazioni · parole chiave · abstract · introduzione · metodi · risultati · discussione e conclusioni · bibliografia · materiale supplementare</strong>.",
+      glossa:"<strong>Titolo</strong>: la parte <strong>più letta in assoluto</strong>; specifico, non vago; a volte con <em>running title</em>. <strong>Parole chiave</strong>: servono all'<strong>indicizzazione</strong>. <strong>Abstract</strong>: la parte <strong>più letta dopo il titolo</strong>, libera su PubMed; contiene background → metodi → risultati → conclusioni; è in base a esso che si decide se leggere l'articolo. <strong>Introduzione</strong>: contestualizza e si chiude con l'<strong>esplicitazione del razionale</strong>. <strong>Metodi</strong>: dettagli <strong>sufficienti a ripetere lo studio</strong>; sottosezioni soggetti, strumenti, procedura, analisi statistica." },
+    { nome:"Le tre posizioni d'autore", enunciato:"<strong>Primo autore</strong>: responsabile del <strong>disegno sperimentale</strong>. <strong>Ultimo autore</strong>: il <strong>supervisore</strong> del gruppo, o chi mette i fondi. <strong>Corresponding author</strong>: tiene i rapporti con l'editore — in genere il primo o l'ultimo.",
+      glossa:"Per essere autore servono contributi sostanziali nell'<strong>ideazione e realizzazione</strong>, nell'<strong>acquisizione o interpretazione</strong> dei dati; aver partecipato alla <strong>stesura o revisione</strong>; aver dato la propria <strong>approvazione</strong> prima dell'invio." },
+    { nome:"Risultati e discussione — la differenza di stile", enunciato:"Nei <strong>risultati</strong> lo stile è <strong>descrittivo</strong>: si descrive e <strong>non</strong> si spiega. Nella <strong>discussione</strong> è <strong>argomentativo</strong>: si spiega alla luce delle evidenze già presenti in letteratura.",
+      glossa:"Nei risultati vanno riportati gli indici <strong>inferenziali</strong> (analisi della varianza, correlazione) <strong>e</strong> quelli <strong>descrittivi</strong> (<strong>media</strong> e <strong>deviazione standard</strong>). La deviazione standard tiene conto della <strong>variabilità</strong> interna al gruppo: più è bassa, meno variabilità. Gli <strong>asterischi</strong> sui grafici indicano la <strong>significatività</strong>: dove mancano, le differenze <strong>non sono estendibili alla popolazione</strong>.<br>La discussione segue <strong>sei mosse</strong>: riassumere · problemi metodologici · confronto con lavori precedenti · implicazioni · ricerche future · conclusione succinta." },
+    { nome:"La bibliografia", enunciato:"Elenco delle pubblicazioni <strong>citate</strong>. Nel testo: <strong>primo autore <em>et al.</em>, anno</strong>, oppure <strong>numeri fra parentesi</strong>. L'elenco finale è in <strong>ordine alfabetico</strong> o di <strong>comparizione</strong>.",
+      glossa:"I due stili citati sono l'<strong>APA</strong> — prettamente psicologico — e il <strong>Vancouver</strong>. <strong>Cambia la formattazione, non l'informazione</strong>: in entrambi servono autori (cognome e iniziali), anno, titolo, rivista, volume, pagine." },
+    { nome:"Impact factor e accesso", enunciato:"<strong>Impact factor</strong>: indice <strong>dinamico</strong> che misura il prestigio di una <strong>rivista</strong> in base alle citazioni ottenute dai lavori dei <strong>due anni precedenti</strong>. Per il singolo ricercatore l'equivalente è l'<strong>indice H</strong>.<br><strong>Accesso chiuso</strong>: paga <strong>l'utente</strong> che legge. <strong>Accesso aperto</strong>: paga <strong>il ricercatore</strong> che pubblica, e l'articolo diventa gratuitamente fruibile — quindi più <strong>visibile</strong>.",
+      glossa:"🔑 <strong>La doppia valutazione</strong>: ogni lavoro subisce una valutazione <strong>ex ante</strong> (peer review) e una <strong>ex post</strong>, quantitativa (numero di citazioni)." },
+    { nome:"Le banche dati", enunciato:"<strong>PubMed</strong>: <strong>gratuita</strong>, contiene tutta la ricerca <strong>biomedica e psicologica</strong>, appartiene al <strong>National Institute of Health</strong> ed è aggiornata <strong>settimanalmente</strong>; contiene <strong>solo lavori scientifici</strong>. <strong>Google Scholar</strong>: gratuito, ma contiene anche <strong>letteratura grigia</strong> non sottoposta a peer review.",
+      glossa:"PubMed non contiene i lavori per intero, ma <strong>riferimenti, titoli e abstract</strong>: serve a fare uno <strong>screening</strong> e a capire se un lavoro meriti di essere letto. Ogni voce ha un <strong>link al sito della rivista</strong> per il full text. Si cerca per <strong>parole chiave</strong>, <strong>autore</strong> o <strong>rivista</strong>, con <strong>filtri</strong> per periodo, reperibilità o tipo di articolo." }
+  ],
+  esponenti:[],
+  esperimenti:[],
+  validita:{
+    merito:"Garantisce un <strong>controllo qualitativo preventivo</strong> e rende la conoscenza <strong>accessibile e verificabile</strong> da chiunque nella comunità internazionale. La struttura fissa dell'articolo consente di <strong>valutare, replicare e confutare</strong>.",
+    limite:"Il processo è lento e in parte arbitrario: un lavoro può essere rifiutato <strong>pur essendo valido</strong>; la revisione è <strong>non retribuita</strong> e dipende dalla disponibilità dei ricercatori; l'<strong>accesso chiuso</strong> limita la fruibilità.",
+    esito:"Chiude il ciclo e ne apre un altro: la pubblicazione consente di identificare le <strong>questioni rimaste irrisolte</strong>, che diventano i problemi da cui parte la ricerca successiva." },
+  precorre:[
+    { nome:"Un nuovo ciclo di ricerca", come:"le questioni irrisolte identificate dopo la pubblicazione sono i <strong>problemi</strong> della fase 1" }
+  ],
+  formule:[
+    "Dettagli sufficienti a ripetere lo studio.",
+    "Valutazione ex ante, non ex post."
+  ],
+  errori:[
+    { no:"«Gli atti di congresso passano la peer review»", si:"<strong>Non</strong> una vera peer review: c'è un controllo del <strong>comitato scientifico</strong> sugli abstract" },
+    { no:"«Un articolo rifiutato è scientificamente debole»", si:"Può essere rifiutato <strong>pur essendo valido</strong> se la rivista è satura: l'editor <strong>non fa l'analisi scientifica</strong>" },
+    { no:"Confondere lo stile dei risultati con quello della discussione", si:"Nei <strong>risultati</strong> si <strong>descrive</strong>; nella <strong>discussione</strong> si <strong>argomenta</strong>. È l'errore più comune anche nelle tesi" },
+    { no:"«PubMed e Google Scholar sono equivalenti»", si:"PubMed contiene <strong>solo lavori scientifici</strong>; Google Scholar anche <strong>letteratura grigia</strong> non revisionata" },
+    { no:"«L'impact factor misura la qualità di un articolo»", si:"Misura il prestigio della <strong>rivista</strong>; per il singolo ricercatore l'indice è l'<strong>indice H</strong>" }
+  ]
+});

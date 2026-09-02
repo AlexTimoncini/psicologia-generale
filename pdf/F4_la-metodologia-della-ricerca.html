@@ -1,0 +1,871 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8">
+<title>La metodologia della ricerca — Psicologia Generale</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 16mm 15mm 15mm 15mm; }
+
+:root {
+  --inchiostro: #14181d;
+  --grafite:    #55606c;
+  --tenue:      #7d8792;
+  --accento:    #12514d;
+  --segnale:    #9c3722;
+  --linea:      #c9cec6;
+  --linea-fine: #e2e5df;
+  --fondo:      #f5f6f2;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --testo:   "IBM Plex Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --dati:    "IBM Plex Mono", "SF Mono", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin:0; background:#fff; color-scheme: light; orphans: 3; widows: 3;
+       font-family: var(--testo); font-size: 9.6pt; line-height: 1.52;
+       color: var(--inchiostro); }
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* ---- copertina ---- */
+.copertina { margin-bottom: 10mm; }
+.cop-indice { break-after: avoid; }
+.cop-alto { border-bottom: 2.5pt solid var(--accento); padding-bottom: 5mm; margin-bottom: 8mm; }
+.cop-corso { font-family: var(--dati); font-size: 7.4pt; letter-spacing: .18em;
+             text-transform: uppercase; color: var(--grafite); margin: 0 0 8mm; }
+.cop-n { font-family: var(--display); font-size: 34pt; line-height:1; color: var(--accento); margin:0 0 2mm; }
+.cop-titolo { font-family: var(--display); font-size: 27pt; line-height: 1.1; margin: 0 0 3mm; font-weight: 500; }
+.cop-sottotitolo { font-family: var(--display); font-size: 13pt; font-style: italic;
+                   color: var(--grafite); margin: 0; font-weight: 400; }
+.cop-intro { font-size: 9.4pt; line-height: 1.62; color: var(--grafite); margin: 7mm 0 0; max-width: 145mm; }
+
+.cop-indice { margin-top: 0; }
+.cop-indice-tit { font-family: var(--dati); font-size: 7.2pt; letter-spacing: .16em;
+                  text-transform: uppercase; color: var(--grafite); margin: 0 0 4mm;
+                  border-bottom: .5pt solid var(--linea); padding-bottom: 2mm; }
+.cop-voce { display: grid; grid-template-columns: 12mm 1fr auto; gap: 3mm;
+            padding: 2.4mm 0; border-bottom: .5pt solid var(--linea-fine); align-items: baseline; }
+.cop-voce-n { font-family: var(--dati); font-size: 9pt; color: var(--accento); }
+.cop-voce-nome { font-family: var(--display); font-size: 11.5pt; }
+.cop-voce-riga { display:block; font-family: var(--testo); font-size: 8.4pt; color: var(--grafite);
+                 line-height:1.45; margin-top: .8mm; }
+.cop-voce-meta { font-family: var(--dati); font-size: 7.4pt; color: var(--tenue); white-space: nowrap; }
+
+.legenda { margin-top: 12mm; padding-top: 6mm; border-top: .5pt solid var(--linea); }
+.legenda-tit { font-family: var(--dati); font-size: 7.2pt; letter-spacing: .16em;
+               text-transform: uppercase; color: var(--grafite); margin: 0 0 3mm; }
+.legenda-corpo { columns: 2; column-gap: 8mm; font-size: 8.2pt; line-height: 1.5; color: var(--grafite); }
+.legenda-corpo p { margin: 0 0 1.6mm; break-inside: avoid; }
+.legenda-corpo b { color: var(--inchiostro); font-family: var(--dati); font-size: 7.6pt; }
+
+/* ---- scheda ---- */
+/* Le schede scorrono di seguito: nessun salto di pagina forzato, così non
+   restano pagine mezze bianche. A separarle è il filetto spesso della testata,
+   che non può restare orfano in fondo alla pagina. */
+.scheda { margin-top: 9mm; }
+.scheda:first-of-type { margin-top: 0; }
+
+.sk-testa { border-top: 2.5pt solid var(--accento); padding-top: 3mm; margin-bottom: 4mm;
+            break-inside: avoid; break-after: avoid; }
+.sk-occhiello { font-family: var(--dati); font-size: 7pt; letter-spacing: .16em;
+                text-transform: uppercase; color: var(--grafite); margin: 0 0 1.5mm;
+                display: flex; justify-content: space-between; }
+.sk-nome { font-family: var(--display); font-size: 20pt; line-height: 1.12; margin: 0 0 2mm; font-weight: 500; }
+.sk-unariga { font-size: 9.6pt; line-height: 1.5; color: var(--grafite); margin: 0 0 3mm; max-width: 155mm; }
+.sk-coord { display: flex; flex-wrap: wrap; gap: 0 6mm; font-family: var(--dati); font-size: 7.6pt;
+            color: var(--grafite); border-top: .5pt solid var(--linea-fine);
+            border-bottom: .5pt solid var(--linea-fine); padding: 1.8mm 0; }
+.sk-coord b { color: var(--accento); font-weight: 500; }
+
+/* blocco: etichetta a sinistra, contenuto a destra.
+   I blocchi scorrono liberamente fra le pagine: a non spezzarsi sono le unità
+   atomiche (una voce, un esponente, un esperimento, un errore). Così non restano
+   pagine mezze vuote per far stare un blocco intero. */
+.blocco { padding: 3mm 0; border-bottom: .5pt solid var(--linea-fine); break-inside: auto; overflow: hidden; }
+.bl-eti { float: left; width: 26mm; font-family: var(--dati); font-size: 7pt; letter-spacing: .1em;
+          text-transform: uppercase; color: var(--accento); line-height: 1.4; padding-top: .6mm; }
+.bl-eti span { display: block; color: var(--tenue); font-size: 6.4pt; letter-spacing: .06em; }
+.bl-corpo { margin-left: 30mm; }
+.bl-corpo > *:first-child { margin-top: 0; }
+.bl-corpo > *:last-child { margin-bottom: 0; }
+.bl-corpo p { margin: 0 0 2mm; }
+.bl-vuoto { color: var(--tenue); font-family: var(--dati); font-size: 8pt; }
+
+.formula { font-family: var(--display); font-size: 11pt; line-height: 1.45;
+           border-left: 2pt solid var(--accento); padding: 1mm 0 1mm 4mm; margin: 0 0 2.5mm; }
+.glossa { font-size: 8.8pt; line-height: 1.55; color: var(--grafite); margin: 0 0 2mm; }
+
+ul.punti { margin: 0 0 2mm; padding-left: 4.5mm; }
+ul.punti li { margin-bottom: 1.4mm; line-height: 1.5; }
+ul.punti li::marker { color: var(--accento); }
+
+.voce { break-inside: avoid; margin-bottom: 3mm; padding-bottom: 2.5mm;
+        border-bottom: .4pt dotted var(--linea); }
+.voce:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.voce-tit { font-family: var(--display); font-size: 11pt; font-weight: 500; margin: 0 0 1mm; }
+.voce-meta { font-family: var(--dati); font-size: 7.2pt; color: var(--tenue); margin: 0 0 1.4mm; }
+.voce-testo { margin: 0 0 1.5mm; line-height: 1.5; }
+
+.esponente { break-inside: avoid; margin-bottom: 4mm; padding: 2.5mm 3mm;
+             background: var(--fondo); border-left: 1.5pt solid var(--accento); }
+.esp-testa { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 3mm; margin-bottom: 1.2mm; }
+.esp-nome { font-family: var(--display); font-size: 11.5pt; font-weight: 500; }
+.esp-anni { font-family: var(--dati); font-size: 7.4pt; color: var(--tenue); }
+.esp-ruolo { font-family: var(--dati); font-size: 7.2pt; color: var(--accento);
+             text-transform: uppercase; letter-spacing: .06em; }
+.esp-chie { font-size: 9pt; line-height: 1.5; margin: 0 0 1.8mm; }
+.esp-sub { font-family: var(--dati); font-size: 6.6pt; letter-spacing: .12em; text-transform: uppercase;
+           color: var(--grafite); margin: 2mm 0 1mm; }
+.esp-nota { font-size: 8.4pt; line-height: 1.5; color: var(--grafite);
+            border-top: .4pt solid var(--linea); padding-top: 1.5mm; margin-top: 2mm; }
+
+.esperimento { break-inside: avoid; margin-bottom: 3.5mm; }
+.exp-nome { font-family: var(--display); font-size: 11pt; font-weight: 500; margin: 0 0 1.2mm; }
+.exp-riga { display: grid; grid-template-columns: 18mm 1fr; gap: 3mm; margin-bottom: 1.2mm; align-items: baseline; }
+.exp-eti { font-family: var(--dati); font-size: 6.6pt; letter-spacing: .1em; text-transform: uppercase;
+           color: var(--tenue); }
+.exp-riga ol { margin: 0; padding-left: 4.5mm; }
+.exp-riga ol li { margin-bottom: .8mm; }
+
+.terna { display: grid; gap: 2mm; }
+.terna-voce { display: grid; grid-template-columns: 16mm 1fr; gap: 3mm; align-items: baseline; }
+.terna-eti { font-family: var(--dati); font-size: 6.8pt; letter-spacing: .1em; text-transform: uppercase;
+             color: var(--accento); }
+
+table.griglia { width: 100%; border-collapse: collapse; font-size: 8.6pt; margin: 0 0 2mm; }
+table.griglia th { font-family: var(--dati); font-size: 6.8pt; letter-spacing: .1em;
+                   text-transform: uppercase; color: var(--grafite); text-align: left;
+                   border-bottom: .8pt solid var(--linea); padding: 1.5mm 2mm 1.5mm 0; vertical-align: bottom; }
+table.griglia td { padding: 1.8mm 2mm 1.8mm 0; border-bottom: .4pt solid var(--linea-fine);
+                   vertical-align: top; line-height: 1.45; }
+table.griglia tr:last-child td { border-bottom: none; }
+
+.errori { display: grid; gap: 1.8mm; }
+.err { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; break-inside: avoid;
+       padding-bottom: 1.8mm; border-bottom: .4pt dotted var(--linea); }
+.err:last-child { border-bottom: none; }
+.err-no  { color: var(--segnale); font-size: 8.8pt; line-height: 1.45; }
+.err-si  { font-size: 8.8pt; line-height: 1.45; }
+.err-no::before { content: "✗ "; font-family: var(--dati); }
+.err-si::before { content: "✓ "; font-family: var(--dati); color: var(--accento); }
+
+.contrasto { background: var(--fondo); border: .5pt solid var(--linea); padding: 3mm;
+             font-size: 9pt; line-height: 1.55; margin-top: 3mm; break-inside: avoid; }
+.chiuditura { margin-top: 4mm; padding-top: 3mm; border-top: 1.5pt solid var(--accento);
+              font-size: 9pt; line-height: 1.6; color: var(--grafite); break-inside: avoid; }
+</style></head><body>
+
+<div class="copertina">
+  <div class="cop-alto">
+    <p class="cop-corso">Psicologia Generale · SFO_PGE · Lezioni 4-7</p>
+    <p class="cop-n">IV</p>
+    <h1 class="cop-titolo">La metodologia della ricerca</h1>
+    <p class="cop-sottotitolo">Il metodo scientifico, il processo di ricerca, i metodi e la pubblicazione</p>
+  </div>
+
+  <div class="cop-indice">
+    <p class="cop-indice-tit">Le 7 schede</p>
+    <div class="cop-voce">
+      <span class="cop-voce-n">01</span>
+      <span><span class="cop-voce-nome">Il metodo scientifico</span>
+        <span class="cop-voce-riga">Che cosa distingue la psicologia dalla psicologia ingenua: non l'oggetto, ma quattro assunti — e il quarto esiste per rendere praticabili gli altri tre su un oggetto astratto.</span></span>
+      <span class="cop-voce-meta">L04</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">02</span>
+      <span><span class="cop-voce-nome">Il processo di ricerca</span>
+        <span class="cop-voce-riga">Quattro fasi disposte in cerchio: la quarta riporta alla prima, ma a un livello più profondo. Identico per la ricerca di base e per quella applicata.</span></span>
+      <span class="cop-voce-meta">L04</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">03</span>
+      <span><span class="cop-voce-nome">Le variabili e la revisione della letteratura</span>
+        <span class="cop-voce-riga">I mattoncini del disegno: quattro scale di misura in gerarchia cumulativa, e tre livelli di revisione della letteratura in insiemi concentrici.</span></span>
+      <span class="cop-voce-meta">L05</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">04</span>
+      <span><span class="cop-voce-nome">I metodi descrittivi</span>
+        <span class="cop-voce-riga">Il primo gradino della scala del controllo: studio dei casi, metodo osservativo, inchiesta. Descrivono e non spiegano — ma senza descrizione non si sa che cosa si sta alterando.</span></span>
+      <span class="cop-voce-meta">L05</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">05</span>
+      <span><span class="cop-voce-nome">Il metodo correlazionale</span>
+        <span class="cop-voce-riga">Un passo oltre i descrittivi: misura quantitativamente l'associazione fra variabili. Consente previsioni, non spiegazioni.</span></span>
+      <span class="cop-voce-meta">L06</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">06</span>
+      <span><span class="cop-voce-nome">Il metodo sperimentale</span>
+        <span class="cop-voce-riga">Il metodo scientifico per eccellenza: l'unico che rispetta tutti e quattro gli assunti, e l'unico che stabilisce nessi causa-effetto.</span></span>
+      <span class="cop-voce-meta">L06</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">07</span>
+      <span><span class="cop-voce-nome">La pubblicazione scientifica</span>
+        <span class="cop-voce-riga">La quarta fase del processo di ricerca: come la conoscenza entra nel circuito internazionale, e che cosa la rende scientifica prima ancora di entrarci.</span></span>
+      <span class="cop-voce-meta">L07</span>
+    </div>
+  </div>
+</div>
+
+<section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 1</span><span>S401</span></p>
+      <h2 class="sk-nome">Il metodo scientifico</h2>
+      <p class="sk-unariga">Che cosa distingue la psicologia dalla psicologia ingenua: non l'oggetto, ma quattro assunti — e il quarto esiste per rendere praticabili gli altri tre su un oggetto astratto.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L04</span>
+        <span><b>Manuale</b> cap. C16</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Il senso comune produce spiegazioni <strong>coerenti</strong> dei comportamenti, ma non ha modo di accorgersi quando sono sbagliate. E l'oggetto della psicologia — la mente — <strong>non è né osservabile né quantificabile</strong>.</p><div class="formula">Il metodo scientifico serve a <strong>salvaguardare la psicologia dalla psicologia ingenua</strong>: la coerenza non è verità.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Le tre fonti di errore del senso comune</p>
+      <p class="voce-meta">evidenza empirica</p>
+      <p class="voce-testo"><strong>Giudizio retrospettivo</strong>: bravi a spiegare l'accaduto, non a prevedere. <strong>Eccessiva fiducia in sé</strong>: ci crediamo migliori di quanto siamo (esperimento di Goranson). <strong>Schemi ricorrenti</strong>: individuiamo nessi causali anche in eventi casuali.</p></div><div class="voce">
+      <p class="voce-tit">La critica all'oggettività dalle scienze esatte</p>
+      <p class="voce-meta">epistemologia</p>
+      <p class="voce-testo"><strong>Einstein</strong>: le osservazioni sono sempre relative a un osservatore. <strong>Heisenberg</strong>: la misura di due variabili coniugate ha un'<strong>incertezza ineliminabile</strong>. Più i fenomeni non direttamente osservabili — atomi, buchi neri.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Wundt e il 1879</strong></td><td>Excursus storico</td><td>L'adozione di un metodo paragonabile a quello delle scienze esatte; poi affinato dall'evoluzione tecnologica</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">Gli stessi fenomeni di cui si occupa il senso comune — comportamento e processi mentali — ma <strong>spiegati in modo più esatto</strong>, con un processo guidato da <strong>principi oggettivi</strong>.</div><p class="glossa">Pur possedendo lo <strong>status di scienza</strong>, il campo della psicologia è molto diverso da quello delle scienze esatte: da qui il <strong>ritardo</strong> storico e le <strong>riserve</strong> che ancora l'accompagnano.<br><strong>Il riavvicinamento non dipende da un progresso della psicologia</strong>: dipende dal fatto che le scienze esatte hanno ammorbidito la propria immagine di sé. Tanto che <strong>gli assunti della psicologia sono del tutto uguali a quelli delle altre scienze</strong>.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Quattro assunti</strong>, che valgono per la psicologia come per ogni altra scienza.</div>
+     <p class="glossa">Solo <strong>personale formato</strong> può usarli: non è un atteggiamento mentale, è una competenza tecnica.</p>
+     <ul class="punti"><li><strong>1. Determinismo</strong> — assunto <em>epistemologico di base</em>: gli effetti <strong>non sono dovuti al caso</strong> ma sempre riconducibili a una <strong>causa</strong>. Ogni risposta è l'esito di una <strong>catena causale</strong>. Da regole circoscritte si sale a <strong>leggi generali</strong>.</li><li><strong>2. Empirismo</strong> — non ci si basa su <strong>logica e coerenza</strong> di un modello, ma su <strong>verifica empirica, concreta e materiale</strong>. <em>Clausola che si dimentica</em>: l'ipotesi <strong>non è precostituita</strong>, origina da osservazioni empiriche o da teorie già dimostrate empiricamente.</li><li><strong>3. Invarianza</strong> — <strong>a parità di tutte le condizioni</strong> la combinazione degli stessi fattori produce <strong>sempre lo stesso evento</strong>. È ciò che consente <strong>induzioni prospettiche e previsioni</strong>.</li><li><strong>4. Operazionalizzazione</strong> — <em>il più importante per la scienza psicologica</em>: ogni concetto va <strong>tradotto in un formato replicabile e misurabile</strong>. Comprende la <strong>definizione operativa</strong> e gli <strong>step operativi</strong> per osservarlo.</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Le due proprietà della definizione operativa</p>
+      <p class="voce-testo">Dev'essere <strong>valida</strong> — misura solo ciò che dichiara di misurare — e <strong>univoca</strong> — si riferisce a <strong>processi unici e non plurimi</strong>.</p>
+      <p class="glossa"><strong>Il controesempio</strong>: misurare il <em>pensiero riflessivo</em> contando il tempo con gli <strong>occhi chiusi</strong> non è valido, perché gli occhi chiusi possono indicare che il soggetto <strong>sta dormendo</strong>. La misura esprimerebbe un processo plurimo.</p></div><div class="voce">
+      <p class="voce-tit">L'approssimazione al vero</p>
+      <p class="voce-testo">Una definizione <strong>totalmente valida è virtualmente impossibile</strong>: è <strong>matematicamente impossibile escludere</strong> che una misura colga anche altri fattori. Ogni definizione operativa è quindi un'<strong>approssimazione al vero</strong> e <strong>non indica mai una verità assoluta</strong>.</p>
+      <p class="glossa">Non è un'ammissione di debolezza: è la <strong>condizione strutturale</strong> della disciplina, e giustifica la forma <strong>circolare</strong> del processo di ricerca. Se ogni misura è approssimata, nessun ciclo può chiudere definitivamente una questione.</p></div><div class="voce">
+      <p class="voce-tit">Validità, fidabilità, sensibilità</p>
+      <p class="voce-testo"><strong>Validità</strong> → riguarda la <strong>definizione operativa</strong>: la misura in cui un evento concreto definisce quella proprietà. <strong>Fidabilità</strong> → riguarda lo <strong>strumento</strong>: produce lo stesso risultato ogni volta. <strong>Sensibilità</strong> → riguarda lo <strong>strumento</strong>: rileva anche piccolissime quantità.</p>
+      <p class="glossa">Attribuire la proprietà all'oggetto sbagliato è un errore d'esame frequente.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Goranson</span>
+        <span class="esp-anni">—</span>
+        <span class="esp-ruolo">Ricercatore</span>
+      </div>
+      
+      <p class="esp-chie">Autore dell'esperimento che documenta l'<strong>eccessiva fiducia in sé</strong> come fonte di errore del senso comune.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Somministra tre <strong>anagrammi con la soluzione accanto</strong> e chiede quanto tempo si sarebbe impiegato a risolverli: i soggetti rispondono <strong>una decina di secondi</strong>.</li><li>Somministra poi un anagramma <strong>senza</strong> soluzione — la parola <em>Jackie</em>: una persona media impiega <strong>circa tre minuti</strong>.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Eccessiva fiducia in sé</strong> — Avere la soluzione sotto gli occhi rende il problema <strong>retrospettivamente facile</strong> e porta a sopravvalutare la propria capacità di giudizio.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Albert Einstein</span>
+        <span class="esp-anni">1879-1955</span>
+        <span class="esp-ruolo">Fisico · critica all'oggettività</span>
+      </div>
+      
+      <p class="esp-chie">Con la teoria della relatività contribuisce a riaprire il dibattito sul ruolo dell'osservatore nella ricerca scientifica.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Afferma che le osservazioni <strong>non possono essere assolute</strong> ma sono sempre <strong>relative al punto di vista di un osservatore</strong>.</li></ul>
+      
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Werner Heisenberg</span>
+        <span class="esp-anni">1901-1976</span>
+        <span class="esp-ruolo">Fisico · critica all'oggettività</span>
+      </div>
+      
+      <p class="esp-chie">Introduce un limite di principio alla misurazione, non un limite tecnico.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Sostiene che la misura simultanea di <strong>due variabili coniugate</strong> non può essere compiuta senza un'<strong>incertezza ineliminabile</strong>.</li></ul>
+      
+      
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Fornisce alla psicologia gli <strong>stessi assunti</strong> delle altre scienze e la separa dal sapere di senso comune, che pur avendo valore pragmatico produce errori sistematici.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>L'oggetto resta <strong>non direttamente osservabile né quantificabile</strong>, e ogni operazionalizzazione è un'<strong>approssimazione</strong>. Il metodo può essere usato solo da <strong>personale formato</strong>.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Da questi quattro assunti discende l'intera architettura del processo di ricerca e dei metodi.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Il processo di ricerca</strong> — la sua forma <strong>circolare</strong> discende dall'approssimazione al vero</li><li><strong>Le variabili</strong> — sono l'esito operativo dell'<strong>operazionalizzazione</strong></li><li><strong>Il metodo sperimentale</strong> — è l'<strong>unico</strong> che rispetta tutti e quattro gli assunti</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Gli effetti non sono dovuti al caso ma sempre riconducibili a una causa.</div><div class="formula">Tradurre ogni concetto contenuto in una teoria in un formato replicabile e misurabile.</div><div class="formula">Ogni definizione operativa si presenta come un'approssimazione al vero.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Il metodo scientifico sostituisce il senso comune»</div><div class="err-si">Lo <strong>salvaguarda da</strong>: la psicologia ingenua resta una <strong>forma imprescindibile di sapere</strong>, con valore pragmatico</div></div><div class="err">
+      <div class="err-no">«L'empirismo dice solo che bisogna verificare»</div><div class="err-si">Dice anche che <strong>l'ipotesi non è precostituita</strong>: deve <em>originare</em> da osservazioni empiriche</div></div><div class="err">
+      <div class="err-no">«Fidabilità e validità sono sinonimi»</div><div class="err-si">La <strong>validità</strong> riguarda la <strong>definizione operativa</strong>; <strong>fidabilità e sensibilità</strong> riguardano lo <strong>strumento</strong></div></div><div class="err">
+      <div class="err-no">«Una buona operazionalizzazione dà una misura vera»</div><div class="err-si">Ogni definizione operativa è un'<strong>approssimazione al vero</strong>: la validità totale è <strong>virtualmente impossibile</strong></div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 2</span><span>S402</span></p>
+      <h2 class="sk-nome">Il processo di ricerca</h2>
+      <p class="sk-unariga">Quattro fasi disposte in cerchio: la quarta riporta alla prima, ma a un livello più profondo. Identico per la ricerca di base e per quella applicata.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L04</span>
+        <span><b>Manuale</b> cap. C17</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Se ogni misura è un'<strong>approssimazione al vero</strong>, nessun ciclo di ricerca può chiudere definitivamente una questione.</p><div class="formula">Il processo di ricerca è un <strong>percorso circolare</strong>: quando finisce si ritorna alla tappa iniziale — ma <strong>a un livello più profondo</strong> di quello di partenza.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">I quattro assunti</p>
+      <p class="voce-meta">metodo</p>
+      <p class="voce-testo">Determinismo, empirismo, invarianza, operazionalizzazione governano ogni fase del processo.</p></div><div class="voce">
+      <p class="voce-tit">Il falsificazionismo di Popper</p>
+      <p class="voce-meta">epistemologia</p>
+      <p class="voce-testo">È scientifica ogni teoria <strong>confutabile</strong>: il compito dello scienziato non è accumulare conferme ma <strong>falsificare</strong>.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Karl Popper</strong></td><td>Filosofia della scienza</td><td>«Tutti i processi di ricerca cominciano dai <strong>problemi</strong>»; il criterio di <strong>falsificabilità</strong></td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">Le <strong>quattro fasi</strong>: <strong>1.</strong> identificazione del problema · <strong>2.</strong> formulazione di una spiegazione teorica · <strong>3.</strong> dimostrazione tramite ricerca empirica · <strong>4.</strong> comunicazione dei risultati.</div><p class="glossa"><strong>Ricerca di base</strong> (problema teorico, costituisce i fondamenti conoscitivi) e <strong>ricerca applicata</strong> (problema pratico, cerca una soluzione concreta) differiscono per il <strong>problema di partenza</strong>, ma <strong>il processo è totalmente identico</strong>. La distinzione riguarda la motivazione, non lo statuto epistemologico.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Ogni fase ha regole precise; la sequenza è vincolante e la chiusura riapre il ciclo.</div>
+     <p class="glossa">È qui che gli assunti diventano procedura: l'operazionalizzazione entra nella fase 3, l'invarianza nella fase 4 come requisito di replicabilità.</p>
+     <ul class="punti"><li><strong>Fase 1 — Il problema</strong> è una <strong>contraddizione fra affermazioni</strong> contenute in una teoria o in determinati fatti. Genera un'<strong>idea anticipatoria</strong>. Dev'essere <strong>rilevante e non banale</strong>. Fonte principale: <strong>le teorie e le ricerche esistenti</strong>, per via <strong>euristica</strong> (una teoria attira studi) o <strong>sistematica</strong> (una teoria fa affermazioni direttamente verificabili).</li><li><strong>Fase 2 — La teoria</strong> è un <strong>insieme organizzato di frasi</strong> che spiegano un fenomeno; l'<strong>ipotesi</strong> è una <strong>predizione testabile</strong> in forma <strong>se-allora</strong>. Una teoria non si testa direttamente: si testano le ipotesi che se ne derivano.</li><li><strong>Fase 3 — Si opera</strong>: si operazionalizza l'ipotesi, si sceglie lo strumento di misura, si progetta il disegno, si raccolgono e si analizzano i dati, si interpretano i risultati.</li><li><strong>Fase 4 — Si comunica</strong>: convegni, <strong>articoli su riviste</strong> (la via più ortodossa), libri. Requisito comune: consentire la <strong>replica</strong>.</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">La falsificabilità</p>
+      <p class="voce-testo"><strong>Ogni ipotesi deve poter essere falsificata per essere scientifica.</strong> Nessun numero di conferme rende vera un'affermazione: è vera <strong>finché non si dimostra che è falsa</strong>.</p>
+      <p class="glossa"><strong>L'argomento dei cigni</strong>: un solo cigno nero abbatte «tutti i cigni sono bianchi»; nessuna quantità di cigni bianchi la dimostra. Conseguenza operativa: il disegno prevede <strong>ipotesi alternativa</strong> e <strong>ipotesi nulla</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Le cinque caratteristiche del ricercatore</p>
+      <p class="voce-testo"><strong>Curioso</strong> · <strong>creativo</strong> (collega fattori apparentemente sconnessi) · <strong>intuitivo</strong> · <strong>aperto mentalmente</strong> · <strong>scettico</strong>.</p>
+      </div><div class="voce">
+      <p class="voce-tit">Le tre caratteristiche difficili dell'oggetto</p>
+      <p class="voce-testo"><strong>Complessità</strong> — i fenomeni sono <strong>multideterminati</strong>. <strong>Variabilità</strong> — sia <strong>interindividuale</strong> sia <strong>entro lo stesso individuo</strong>. <strong>Reattività</strong>.</p>
+      <p class="glossa">È per questo che le strategie di ricerca in psicologia sono fra le più sofisticate, e che serve una <strong>tassonomia</strong> su tre dimensioni: <strong>metodo</strong> (sperimentale &gt; correlazionale &gt; descrittivi), <strong>tecnica di raccolta</strong> (oggettiva / soggettiva), <strong>ambiente</strong> (laboratorio / campo).</p></div><div class="voce">
+      <p class="voce-tit">Statistica descrittiva e inferenziale</p>
+      <p class="voce-testo">La <strong>descrittiva</strong> non consente inferenze: descrive l'andamento dei dati. L'<strong>inferenziale</strong> consente <strong>generalizzazioni</strong> dal campione ristretto alla popolazione.</p>
+      </div><div class="voce">
+      <p class="voce-tit">L'etica della ricerca</p>
+      <p class="voce-testo">Standard fissati a livello <strong>governativo</strong> e dalle <strong>associazioni internazionali</strong>, condivisi in tutto il mondo. I <strong>comitati etici</strong> esaminano le proposte; uno studio eticamente discutibile va <strong>modificato e ripassato al vaglio</strong>.</p>
+      <p class="glossa"><strong>Il consenso informato</strong> — documento consegnato <em>prima</em> dell'adesione — contiene <strong>cinque</strong> elementi: scopo e procedure <em>(laddove comunicabile)</em> · potenziali benefici · potenziali rischi · <strong>diritto di rifiuto o ritiro in qualsiasi momento</strong> · tutela dei dati sensibili.<br>La clausola «laddove comunicabile» ammette che in certi disegni rivelare lo scopo <strong>distruggerebbe il dato</strong>: l'etica è un <strong>bilanciamento</strong>, non un elenco di divieti.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Karl Raimund Popper</span>
+        <span class="esp-anni">1902-1994</span>
+        <span class="esp-ruolo">Filosofo della scienza</span>
+      </div>
+      <p class="voce-meta">Austria, poi Regno Unito</p>
+      <p class="esp-chie">Fornisce alla metodologia della ricerca due contributi: la definizione del <strong>problema</strong> come punto di partenza e il criterio di <strong>falsificabilità</strong>.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Afferma che <strong>tutti i processi di ricerca cominciano dai problemi</strong>, intesi come contraddizioni fra affermazioni.</li><li>Formula il criterio di <strong>falsificabilità</strong>: è scientifica ogni teoria confutabile.</li><li>Rovescia il compito dello scienziato: non accumulare conferme ma <strong>falsificare le teorie esistenti</strong>, perché individuare l'errore avvicina alla verità.</li><li><strong>Critica la psicoanalisi</strong>: dal punto di vista logico «non fa una piega», ma non consente alcuna falsificazione — e quindi non è scientifica.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Falsificazionismo</strong> — Teorie incerte, vaghe o troppo astratte non sono concretamente verificabili, quindi non falsificabili, quindi non scientifiche.</li></ul>
+      <p class="esp-nota">La sua critica alla psicoanalisi è la stessa anomalia della <strong>L01</strong> vista da un altro angolo. Là il difetto era l'origine extra-accademica e l'assenza di verifica empirica; qui è <strong>logico</strong>: una teoria che spiega qualunque esito non è confermata da nessun esito.</p>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Fornisce una procedura <strong>identica per ogni tipo di ricerca</strong> e un criterio di demarcazione — la falsificabilità — che consente di distinguere ciò che è scientifico da ciò che non lo è.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>È un processo che <strong>non conclude mai</strong>: la ricerca è una continua approssimazione al vero e nessuna teoria potrà mai essere certa.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>La fase 4 riporta alla fase 1: il rapporto fra teoria e ricerca è <strong>continuo e ricorsivo</strong>.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>I metodi di ricerca</strong> — la fase 3 si articola nella tassonomia dei metodi (Schede 3-7)</li><li><strong>La pubblicazione scientifica</strong> — la fase 4 è trattata per intero nella Scheda 8</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Tutti i processi di ricerca cominciano dai problemi.</div><div class="formula">È scientifica ogni teoria confutabile.</div><div class="formula">Processo circolare di approssimazione al vero.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«La ricerca applicata ha un metodo più semplice»</div><div class="err-si">Il <strong>processo è totalmente identico</strong>: cambia il problema di partenza, non lo statuto epistemologico</div></div><div class="err">
+      <div class="err-no">«Una teoria confermata molte volte è vera»</div><div class="err-si"><strong>Nessun numero di conferme</strong> la rende vera: è vera <strong>finché non si dimostra falsa</strong></div></div><div class="err">
+      <div class="err-no">Confondere teoria e ipotesi</div><div class="err-si">La <strong>teoria spiega</strong>; l'<strong>ipotesi predice</strong> ed è <strong>testabile</strong>. Una teoria non si testa direttamente</div></div><div class="err">
+      <div class="err-no">«Il consenso informato dichiara sempre lo scopo»</div><div class="err-si">«<strong>Laddove questo si possa comunicare</strong>»: in certi disegni rivelarlo distruggerebbe il dato</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 3</span><span>S403</span></p>
+      <h2 class="sk-nome">Le variabili e la revisione della letteratura</h2>
+      <p class="sk-unariga">I mattoncini del disegno: quattro scale di misura in gerarchia cumulativa, e tre livelli di revisione della letteratura in insiemi concentrici.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L05</span>
+        <span><b>Manuale</b> cap. C18</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>L'operazionalizzazione produce entità misurabili, ma non tutte si misurano allo stesso modo: da come sono fatti i livelli di una variabile dipende che cosa se ne può dire.</p><div class="formula">Dalla <strong>scala di misura</strong> dipende la <strong>scelta dei test statistici</strong>: sbagliarla produce <strong>risultati non interpretabili</strong> e invalida lo studio.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Operazionalizzazione</p>
+      <p class="voce-meta">assunto</p>
+      <p class="voce-testo">Ogni concetto teorico va tradotto in formato replicabile e misurabile: le proprietà così definite sono le <strong>variabili</strong>.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">La <strong>variabile</strong>: un'entità che <strong>varia</strong>. Virtualmente <strong>tutto ciò che può variare</strong> — quantitativamente o anche solo come <strong>presente/assente</strong> — può essere definito variabile.</div><p class="glossa">La lista degli esempi mescola deliberatamente il banale e l'astratto — genere, altezza, colore dei capelli, ma anche attenzione, memoria, empatia — perché è il punto: <strong>l'operazionalizzazione mette sullo stesso piano operativo cose di natura molto diversa</strong>.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Classificare la variabile con l'<strong>albero decisionale</strong>: tre domande, quattro esiti.</div>
+     <p class="glossa">Il principio che rende memorizzabili le quattro scale: <strong>ogni categoria più complessa contiene le informazioni delle precedenti e ne aggiunge una</strong>. È una gerarchia <strong>cumulativa</strong>, non quattro casi indipendenti.</p>
+     <ul class="punti"><li><strong>I livelli sono ordinabili?</strong> Se <strong>no</strong> → scala <strong>NOMINALE</strong> (categoriale): solo <strong>diversità</strong>; categorie discrete; solo etichette, mai numeri né ordine. <em>Genere, colore degli occhi, squadra tifata, religione.</em></li><li>Se <strong>sì</strong> → <strong>gli intervalli fra i livelli sono equivalenti?</strong> Se <strong>no</strong> → scala <strong>ORDINALE</strong>: diversità <strong>+ ordine</strong>; valori ordinali, mai numerici; i livelli sono <strong>ranghi</strong>. <em>Classe sociale, titolo di studio, giorni della settimana.</em></li><li>Se <strong>sì</strong> → <strong>lo zero indica assenza della quantità misurata?</strong> Se <strong>no</strong> → scala a <strong>INTERVALLI EQUIVALENTI</strong>: numerica, ma con <strong>zero arbitrario</strong>. <em>Celsius, Fahrenheit, QI, scale di atteggiamento.</em></li><li>Se <strong>sì</strong> → scala a <strong>RAPPORTI EQUIVALENTI</strong>: <strong>zero naturale</strong>; il rapporto <strong>non dipende dall'unità di misura</strong>. <em>Peso, altezza, età, numero di figli, numero di errori, tempo di latenza, Kelvin.</em></li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Zero arbitrario e zero naturale</p>
+      <p class="voce-testo">Nella scala <strong>Celsius</strong> lo zero è la temperatura di congelamento dell'acqua, non l'assenza di temperatura: è <strong>arbitrario</strong>. Nella scala <strong>Kelvin</strong> lo zero è l'<strong>assenza di movimento fra le molecole</strong>: è <strong>naturale</strong>.</p>
+      <p class="glossa"><strong>La prova pratica</strong>: 20 °C non è «il doppio caldo» di 10 °C — convertendo in Fahrenheit il rapporto sparisce. Un rapporto che dipende dall'unità non è un rapporto reale.</p></div><div class="voce">
+      <p class="voce-tit">Qualitative e quantitative</p>
+      <p class="voce-testo"><strong>Nominale + ordinale</strong> = variabili <strong>qualitative</strong>: producono <strong>frequenze</strong> (quanti individui in ciascun livello). <strong>Intervalli + rapporti</strong> = variabili <strong>quantitative</strong> o <strong>metriche</strong>: producono un <strong>punteggio</strong> che informa sull'<strong>intensità</strong>.</p>
+      </div><div class="voce">
+      <p class="voce-tit">Variabile indipendente e dipendente</p>
+      <p class="voce-testo"><strong>Indipendente (x)</strong>: gli stimoli o eventi comportamentali che si presuppone siano la <strong>causa</strong> di cambiamenti. <strong>Dipendente (y)</strong>: gli eventi che <strong>risentono dell'effetto</strong> della VI, cioè gli <strong>effetti</strong>.</p>
+      <p class="glossa">Supporre una connessione fra variabili costituisce già l'<strong>ipotesi sperimentale</strong>. Esempio: livello di caffeina nel sangue (VI) → numero di battiti cardiaci (VD).</p></div><div class="voce">
+      <p class="voce-tit">VI manipolabili e non manipolabili</p>
+      <p class="voce-testo"><strong>Manipolabili</strong>: se ne possono controllare e modificare i livelli — caffeina, dose di un farmaco, intensità della luce. <strong>Non manipolabili</strong>: esistono in natura e il ricercatore non può agirvi — QI, appartenenza religiosa, età, affiliazione politica.</p>
+      <p class="glossa">È qui che la distinzione produce le sue conseguenze: se la VI <strong>non è manipolabile</strong> non si ha un vero esperimento ma un <strong>quasi esperimento</strong> (Scheda 7).</p></div><div class="voce">
+      <p class="voce-tit">I tre livelli di revisione della letteratura</p>
+      <p class="voce-testo"><strong>Narrativa</strong>: sintesi di un certo numero di articoli; domande <strong>ampie e generiche</strong>; conoscenza <strong>basilare</strong>. <strong>Sistematica</strong>: vero progetto di ricerca su <strong>aspetti specifici</strong>, con <strong>pochi quesiti ben definiti</strong>. <strong>Meta-analisi</strong>: revisione sistematica <strong>+ tecniche statistiche</strong>.</p>
+      <p class="glossa">Da immaginare come <strong>insiemi concentrici</strong>: più si stringe, più si è precisi.<br><strong>Il limite della narrativa</strong>: la selezione delle fonti risponde a <strong>criteri soggettivi</strong> — esempio, i capitoli di un manuale.<br><strong>Che cosa rende sistematica la sistematica</strong>: criteri <strong>rigorosi e stabiliti a priori</strong> in uno <strong>specifico protocollo</strong>, che minimizzano le distorsioni e la rendono <strong>replicabile</strong> da altri. Si riconosce la forma dell'<strong>invarianza</strong>.<br><strong>Quando la meta-analisi non si fa</strong>: con <strong>eterogeneità dei risultati molto ampia</strong> sarebbe fuorviante. Non serve a <em>decidere</em> fra risultati discordanti, serve a <strong>quantificare</strong> un effetto su cui c'è già convergenza.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Fornisce lo strumento di classificazione senza il quale nessun dato è analizzabile correttamente, e distingue tre gradi di rigore nella revisione della letteratura.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>La classificazione è un prerequisito, non un metodo: da sola non produce conoscenza.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Le variabili entrano in tutti i metodi successivi; la revisione della letteratura è propedeutica a ogni disegno — e nel metodo sperimentale diventa una <strong>condizione di validità</strong>, perché serve a individuare le variabili di confusione.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>I metodi descrittivi</strong> — il campionamento e la codifica presuppongono la classificazione delle variabili</li><li><strong>Il metodo correlazionale</strong> — richiede variabili <strong>quantitative</strong> per il calcolo del coefficiente</li><li><strong>Il metodo sperimentale</strong> — VI, VD e variabili di confusione ne sono l'ossatura</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Virtualmente tutto ciò che può variare può essere definito variabile.</div><div class="formula">Criteri rigorosi e stabiliti a priori in uno specifico protocollo.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«La scala Celsius ha uno zero naturale»</div><div class="err-si">È <strong>arbitrario</strong>: lo zero naturale ce l'ha la scala <strong>Kelvin</strong></div></div><div class="err">
+      <div class="err-no">«Le variabili ordinali si possono numerare»</div><div class="err-si">Ammettono solo <strong>ranghi</strong>: non si può dire nulla sull'<strong>intervallo</strong> né sul <strong>rapporto</strong></div></div><div class="err">
+      <div class="err-no">«Sbagliare la scala è un dettaglio»</div><div class="err-si">Determina la <strong>scelta dei test statistici</strong>: produce risultati <strong>non interpretabili</strong> e invalida lo studio</div></div><div class="err">
+      <div class="err-no">«La meta-analisi risolve i risultati discordanti»</div><div class="err-si">Con troppa <strong>eterogeneità</strong> è <strong>fuorviante</strong>: quantifica un effetto su cui c'è già convergenza</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 4</span><span>S404</span></p>
+      <h2 class="sk-nome">I metodi descrittivi</h2>
+      <p class="sk-unariga">Il primo gradino della scala del controllo: studio dei casi, metodo osservativo, inchiesta. Descrivono e non spiegano — ma senza descrizione non si sa che cosa si sta alterando.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L05</span>
+        <span><b>Manuale</b> cap. C19</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Prima di analizzare i nessi causali di un comportamento bisogna sapere <strong>com'è fatto</strong>, e in particolare come funziona nel suo <strong>ambiente naturale</strong> — altrimenti non si saprebbe che cosa si sta alterando trasportandolo in laboratorio.</p><div class="formula">La <strong>descrizione è il punto di partenza di qualsiasi scienza</strong>.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">La tassonomia per livelli di costrizione</p>
+      <p class="voce-meta">metodo</p>
+      <p class="voce-testo">I metodi si ordinano per quanto lo sperimentatore può controllare: <strong>descrittivi &lt; correlazionale &lt; sperimentale</strong>. Questi occupano il primo gradino.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>In che modo si comportano gli uomini o altri animali</strong>, particolarmente <strong>nel loro ambiente naturale</strong>.</div><p class="glossa">Possono servire a <strong>verificare ipotesi</strong> quando le variabili non consentono metodi più raffinati, oppure a fornire <strong>indicazioni su possibili rapporti causali</strong> da testare in seguito.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Tre metodi distinti: <strong>studio dei casi</strong>, <strong>metodo osservativo</strong>, <strong>inchiesta</strong>.</div>
+     <p class="glossa">Nessuno dei tre consente di stabilire <strong>nessi causali</strong>: al massimo di ipotizzarli.</p>
+     <ul class="punti"><li><strong>Studio dei casi</strong> — analisi approfondita di un <strong>individuo</strong> (caso singolo), di un gruppo o di un evento. <em>Non è elettivo per la psicologia generale</em>, che mira a leggi valide per tutti. Dati raccolti con osservazione, interviste, test, rilevazioni fisiologiche, esecuzione di compiti.</li><li><strong>Metodo osservativo</strong> — osservare, registrare, descrivere, trascrivere e <strong>codificare</strong> il comportamento. Il verbo che conta è l'ultimo: è ciò che separa l'osservazione scientifica dal guardare.</li><li><strong>Inchiesta</strong> (sondaggio, <em>survey</em>) — chiede ai soggetti di <strong>riferire</strong> sui propri comportamenti, atteggiamenti o opinioni, con <strong>interviste</strong> (domande aperte) o <strong>questionari</strong> (domande chiuse). Si sceglie spesso per <strong>necessità</strong>: fenomeni ampi o eticamente non studiabili in laboratorio.</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Il paradosso dello studio dei casi</p>
+      <p class="voce-testo">Ha il <strong>minimo potere probatorio</strong> e il <strong>massimo potere confutatorio</strong>: <strong>basta un caso</strong> per falsificare una legge generale, mentre nessun numero di casi la dimostra.</p>
+      <p class="glossa">È la <strong>falsificazione di Popper</strong> applicata al metodo più debole di tutti. Se un caso singolo falsifica una teoria, altri ricercatori dovranno verificarlo con disegni appropriati.</p></div><div class="voce">
+      <p class="voce-tit">Le tre coppie del metodo osservativo</p>
+      <p class="voce-testo"><strong>Ambiente</strong>: controllata (laboratorio) / naturalistica (ecologica). <strong>Tempo</strong>: diretta (in sincrono) / indiretta (registrazioni). <strong>Codifica</strong>: qualitativa (si descrive) / sistematica (categorie e regole prestabilite).</p>
+      <p class="glossa">Le tre coppie sono <strong>indipendenti</strong> e si combinano: un'osservazione può essere naturalistica, indiretta e sistematica.</p></div><div class="voce">
+      <p class="voce-tit">I due problemi dell'osservazione</p>
+      <p class="voce-testo"><strong>1. L'interferenza dell'osservatore</strong>: la presenza del ricercatore altera il comportamento, perché è un elemento estraneo — e il problema <strong>non si risolve</strong> passando all'indiretta, perché i soggetti consapevoli della telecamera possono esserne influenzati. <strong>2. La soggettività del ricercatore</strong> nell'interpretare ciò che osserva.</p>
+      <p class="glossa"><strong>La soluzione al secondo</strong>: la <strong>sistematizzazione</strong> — schemi di <strong>categorie comportamentali prefissate</strong> e <strong>regole di corrispondenza</strong> descritte in <strong>manuali di codifica</strong>.<br>È la stessa mossa del <strong>vocabolario di Titchener</strong> (L01), ma applicata a un comportamento <strong>osservabile da terzi</strong> anziché a un contenuto di coscienza accessibile a uno solo — ed è ciò che la rende praticabile dove quella falliva.</p></div><div class="voce">
+      <p class="voce-tit">L'esposizione preventiva allo sperimentatore</p>
+      <p class="voce-testo">Lo sperimentatore resta a lungo nel contesto naturalistico; si instaura un processo di <strong>abituazione</strong> e i membri della popolazione lo considerano <strong>parte del contesto</strong>. Neutralizza l'effetto dell'osservatore.</p>
+      <p class="glossa">È la tecnica dell'<strong>osservazione diretta partecipante</strong> di Jane Goodall.</p></div><div class="voce">
+      <p class="voce-tit">Popolazione, campione, campionamento</p>
+      <p class="voce-testo"><strong>Popolazione</strong>: <strong>tutti</strong> gli individui rispetto ai quali si è interessati. <strong>Campione</strong>: un <strong>sottoinsieme</strong>. <strong>Campionamento casuale</strong>: ogni membro ha <strong>le stesse probabilità</strong> di essere scelto. <strong>Stratificato</strong>: si suddivide in sottogruppi (genere, etnia) e poi si campiona casualmente.</p>
+      <p class="glossa"><strong>La regola</strong>: <strong>meglio un campione piccolo ma rappresentativo che grande e non rappresentativo</strong>. La numerosità aiuta la validità statistica, ma la <strong>rappresentatività conta di più</strong>.<br><strong>Gli exit poll</strong> sono l'illustrazione della regola: campioni enormi e inutili, perché chi esce dal seggio in un certo orario non rappresenta l'elettorato.</p></div><div class="voce">
+      <p class="voce-tit">Gli altri due problemi dell'inchiesta</p>
+      <p class="voce-testo"><strong>La formulazione delle domande</strong>: anche sottili cambiamenti di parole producono effetti diversi — si approva più volentieri un «<strong>aumento del gettito fiscale</strong>» che un «<strong>aumento delle tasse</strong>». <strong>I partecipanti</strong>: possono essere <strong>riluttanti</strong> su domande personali o risentire della <strong>desiderabilità sociale</strong>.</p>
+      </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Jane Goodall</span>
+        <span class="esp-anni">1934-2025</span>
+        <span class="esp-ruolo">Etologa · osservazione diretta partecipante</span>
+      </div>
+      <p class="voce-meta">Africa</p>
+      <p class="esp-chie">Entra a far parte del contesto in cui il comportamento viene agito, invece di osservarlo dall'esterno.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Conduce <strong>osservazioni dirette partecipanti</strong> sugli scimpanzé africani.</li><li>Applica l'<strong>esposizione preventiva allo sperimentatore</strong> per neutralizzare l'effetto dell'osservatore.</li><li>Scopre che gli scimpanzé sono in grado di <strong>realizzare e utilizzare strumenti finalizzati a uno scopo</strong> — ritenuto fino ad allora appannaggio della specie umana.</li></ul>
+      
+      <p class="esp-nota"><strong>Un confronto che vale la pena fare.</strong> Nella L02 <strong>Köhler</strong> studiava gli scimpanzé in laboratorio, con banane appese e casse, per dimostrare l'<strong>insight</strong>. Goodall li studia nel loro ambiente, senza manipolare nulla, e trova comportamenti strumentali complessi. Stessa specie, stesso tema, <strong>metodi opposti</strong> — e i due risultati si sostengono a vicenda.</p>
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Phineas Gage</span>
+        <span class="esp-anni">1823-1860</span>
+        <span class="esp-ruolo">Caso singolo</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie">Il caso da cui parte molta conoscenza neuropsicologica: una sbarra di ferro gli attraversò il cranio da parte a parte, e a posteriori si ricostruì che le lesioni riportate potevano provocare i comportamenti sintomatici osservati.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>È l'esempio della lezione per lo <strong>studio di caso singolo</strong> in neuropsicologia.</li></ul>
+      
+      <p class="esp-nota"><strong>[N.d.R.]</strong> Nella registrazione la lesione è descritta come «resezione del corpo calloso». In realtà la sbarra attraversò il <strong>lobo frontale sinistro</strong>, e il caso è ricordato per le alterazioni di personalità e condotta conseguenti a danno <strong>prefrontale</strong>. La sostanza del ragionamento non cambia.</p>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">Lo specchio unidirezionale</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Una stanza di laboratorio che riproduce un ambiente domestico.</li><li>Lo sperimentatore osserva attraverso uno specchio che dall'altra parte appare opaco.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Si osservano comportamenti in un ambiente controllato senza che i soggetti vedano l'osservatore.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Esempio di osservazione <strong>controllata</strong> e <strong>indiretta</strong>. Usato prevalentemente per bambini e <strong>diadi madre-bambino</strong>.</div></div>
+    </div><div class="esperimento">
+      <p class="exp-nome">EAR — Electronically Activated Recorder</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Un registratore digitale che si attiva elettronicamente.</li><li>Cattura <strong>registrazioni campionate nel tempo</strong> durante la vita quotidiana del soggetto.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Si ottiene un campione temporale del comportamento reale, analizzabile a posteriori.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Esempio di osservazione <strong>indiretta</strong> che si avvale di strumentazione tecnologica. Inizialmente usato su studenti universitari.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Consentono di studiare <strong>fenomeni rari</strong> e <strong>comportamenti spontanei</strong>, di raccogliere informazioni da soggetti che non parlano né eseguono compiti a richiesta (bambini piccoli, animali), e di seguire l'<strong>evoluzione nel tempo</strong>. L'inchiesta raccoglie molte informazioni su popolazioni ampie.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div><strong>Nessuno fornisce nessi causali.</strong> Lo studio dei casi non è generalizzabile e con casi atipici è fuorviante; l'osservazione non permette di controllare tutti i fattori né di replicare a richiesta; l'inchiesta si basa su <strong>resoconti personali</strong> ed è esposta a campioni non rappresentativi e domande mal poste.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Forniscono la base descrittiva su cui i metodi quantitativi lavorano; l'inchiesta, se codificata su scale numeriche, apre direttamente al metodo correlazionale.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Metodo correlazionale</strong> — quando i dati dell'inchiesta vengono <strong>codificati su scale numeriche</strong> si possono calcolare correlazioni</li><li><strong>Metodo sperimentale</strong> — la descrizione fornisce le <strong>ipotesi</strong> da testare e la conoscenza del comportamento naturale</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Meglio un campione piccolo ma rappresentativo che grande e non rappresentativo.</div><div class="formula">Osservare, registrare, descrivere, trascrivere e codificare il comportamento.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Lo studio dei casi non serve alla psicologia generale»</div><div class="err-si">Non è <strong>elettivo</strong>, ma ha il <strong>massimo potere confutatorio</strong>: basta un caso per falsificare una legge</div></div><div class="err">
+      <div class="err-no">«L'osservazione indiretta elimina l'interferenza dell'osservatore»</div><div class="err-si"><strong>No</strong>: i soggetti consapevoli della telecamera possono comunque esserne influenzati</div></div><div class="err">
+      <div class="err-no">«Un campione grande è per definizione migliore»</div><div class="err-si">Gli <strong>exit poll</strong> hanno campioni enormi e sbagliano lo stesso: conta la <strong>rappresentatività</strong></div></div><div class="err">
+      <div class="err-no">«Le domande di un questionario sono neutre»</div><div class="err-si">«Aumento del <strong>gettito fiscale</strong>» e «aumento delle <strong>tasse</strong>» ottengono approvazioni diverse</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 5</span><span>S405</span></p>
+      <h2 class="sk-nome">Il metodo correlazionale</h2>
+      <p class="sk-unariga">Un passo oltre i descrittivi: misura quantitativamente l'associazione fra variabili. Consente previsioni, non spiegazioni.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L06</span>
+        <span><b>Manuale</b> cap. C20</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>I metodi descrittivi permettono di <strong>intravedere</strong> relazioni fra eventi, ma non di stabilire se ci siano davvero, né quanto siano forti.</p><div class="formula">L'esigenza è <strong>misurare</strong> l'associazione, non solo osservarla — perché solo sapendo che due eventi sono associati si può <strong>prevedere</strong> l'uno conoscendo l'altro.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">I metodi descrittivi</p>
+      <p class="voce-meta">metodo</p>
+      <p class="voce-testo">Come la ricerca descrittiva, il correlazionale si limita a <strong>osservare e rilevare</strong>: il ricercatore non apporta modifiche alle variabili.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>L'inchiesta</strong></td><td>Metodi descrittivi (L05)</td><td>Quando la mole di dati raccolta viene <strong>codificata su scale numeriche</strong>, si aprono le statistiche quantitative e quindi le correlazioni</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">La <strong>relazione, l'associazione fra variabili</strong>, valutata in modo <strong>specifico e appropriato</strong> attraverso la misura quantitativa.</div><p class="glossa">Le variabili studiabili sono le più disparate, comprese quelle <strong>non manipolabili</strong>: età, scolarità, ambiente fisico e sociale, ore dedicate ad attività, stati emotivi, risultati conseguiti, tratti di personalità, stili motivazionali, misure di intelligenza.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Si seleziona un campione → si misurano le variabili <strong>x</strong> e <strong>y</strong> → si eseguono <strong>calcoli statistici</strong> per verificare se esiste realmente una relazione.</div>
+     <p class="glossa">⚠️ Il ricercatore <strong>non esercita alcun tipo di controllo sulla situazione</strong>, ed è precisamente questo il motivo per cui non è il metodo scientifico per eccellenza.</p>
+     </div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Le due ragioni per cui la correlazione non è causalità</p>
+      <p class="voce-testo"><strong>1. Bidirezionalità del nesso</strong> — osservando due variabili contemporaneamente non si può stabilire quale causi quale. <strong>2. Terza variabile</strong> — a spiegare la relazione può intervenire una variabile <strong>non osservata</strong>.</p>
+      <p class="glossa"><strong>Esempio</strong>: fra la scelta di programmi TV <strong>aggressivi</strong> e l'<strong>aggressività dello spettatore</strong>, guardare quei programmi può aumentare l'aggressività, <em>ma anche</em> l'aggressività può portare a sceglierli; oppure un <strong>livello di energia insolitamente alto</strong> può spiegare entrambe.<br><strong>Secondo esempio</strong>: fra <strong>tempo passato all'aperto</strong> e <strong>sensazione di benessere</strong> vale lo stesso, e un <strong>tratto di personalità</strong> non indagato può spiegare entrambi.</p></div><div class="voce">
+      <p class="voce-tit">Il coefficiente di correlazione (r)</p>
+      <p class="voce-testo">Misura statistica che dice <strong>quanto strettamente due cose variano insieme</strong> — e quindi con quanta precisione l'una sia <strong>predittiva</strong> dell'altra. Fornisce <strong>due</strong> informazioni: il <strong>segno</strong> dà la <strong>direzione</strong>, il <strong>valore</strong> dà la <strong>forza</strong>.</p>
+      <p class="glossa"><strong>Positiva (+)</strong>: valori alti con valori alti — crescita <strong>direttamente proporzionale</strong>. <strong>Negativa (−)</strong>: valori alti con valori bassi — crescita <strong>indirettamente proporzionale</strong>.<br><strong>Forza</strong>: da <strong>perfetta</strong> (massima) all'<strong>assenza di correlazione</strong>, con coefficiente prossimo a <strong>zero</strong>.</p></div><div class="voce">
+      <p class="voce-tit">I grafici di dispersione</p>
+      <p class="voce-testo">Rappresentano visivamente <strong>direzione e forza</strong> graficando i singoli punteggi; la <strong>retta interpolante</strong> ne mostra l'andamento.</p>
+      <p class="glossa">Nei tre esempi della lezione la <strong>y</strong> è sempre il <strong>voto conseguito a un esame</strong>. Con x = <strong>ore di studio settimanali</strong>: correlazione <strong>positiva</strong>, retta verso l'alto. Con x = <strong>numero di mele consumate</strong>: punti a caso, <strong>nessuna correlazione</strong>, nessuna retta possibile. Con x = <strong>ore davanti alla TV</strong>: correlazione <strong>negativa</strong>, retta di direzione opposta.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">I quattro esempi di correlazione della lezione</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Si selezionano campioni e si misurano coppie di variabili su scale numeriche.</li><li>Si calcola il coefficiente di correlazione e se ne legge segno e valore.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div><strong>Positive</strong>: quanti più contenuti sessuali gli adolescenti vedono in TV, tanto più frequenti i loro rapporti sessuali; quanto più a lungo i bambini sono allattati al seno, tanto maggiori i successi scolastici.<br><strong>Negative</strong>: quanto maggiore l'uso di dispositivi elettronici, tanto minore la soddisfazione per la propria vita; in famiglie povere, quanto maggiore l'incremento del reddito, tanto minori i sintomi psichiatrici dei bambini.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Sull'allattamento la lezione insiste: sarebbe <strong>fuorviante</strong> inferire che l'allattamento produca i successi scolastici, perché molte altre variabili non controllate possono influire su entrambi. È l'esempio-tipo della <strong>terza variabile</strong>.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Consente <strong>generalizzazioni</strong> dal campione alla popolazione, in <strong>ambiente naturale</strong>; genera <strong>idee</strong> da approfondire in laboratorio; permette di studiare un <strong>alto numero di variabili</strong>, comprese quelle inaccessibili per motivi <strong>pratici o etici</strong>; e permette <strong>predizioni</strong>.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div><strong>Non fornisce alcuna relazione causale</strong>, per la bidirezionalità del nesso e la possibile terza variabile.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>È il gradino intermedio: apre al metodo sperimentale, che è costruito proprio per rispondere alle sue due mancanze.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Il metodo sperimentale</strong> — la <strong>manipolazione</strong> risponde alla bidirezionalità, il <strong>controllo</strong> risponde alla terza variabile</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">La crescita di una variabile è direttamente proporzionale alla crescita dell'altra.</div><div class="formula">Bidirezionalità del nesso e intervento di una terza variabile.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Se due variabili correlano, una causa l'altra»</div><div class="err-si"><strong>No</strong>, per <strong>due</strong> ragioni: la <strong>bidirezionalità</strong> e la possibile <strong>terza variabile</strong></div></div><div class="err">
+      <div class="err-no">«Un coefficiente negativo indica una correlazione debole»</div><div class="err-si">Il <strong>segno</strong> dà la <strong>direzione</strong>, il <strong>valore</strong> dà la <strong>forza</strong>: sono due informazioni distinte</div></div><div class="err">
+      <div class="err-no">«Il correlazionale è un metodo descrittivo»</div><div class="err-si">È un <strong>passo oltre</strong>: aggiunge la <strong>misura quantitativa</strong>. Ma come i descrittivi non manipola né controlla</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 6</span><span>S406</span></p>
+      <h2 class="sk-nome">Il metodo sperimentale</h2>
+      <p class="sk-unariga">Il metodo scientifico per eccellenza: l'unico che rispetta tutti e quattro gli assunti, e l'unico che stabilisce nessi causa-effetto.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> Laboratorio</span>
+        <span><b>Lezione</b> L06</span>
+        <span><b>Manuale</b> cap. C20</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Il metodo correlazionale non stabilisce nessi causali per due ragioni precise: la <strong>bidirezionalità</strong> del nesso e la possibile <strong>terza variabile</strong>.</p><div class="formula">Il metodo sperimentale è costruito <strong>come risposta a quelle due obiezioni</strong>: la <strong>manipolazione</strong> elimina la bidirezionalità, il <strong>controllo delle altre variabili</strong> elimina la terza variabile.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">I quattro assunti del metodo scientifico</p>
+      <p class="voce-meta">metodo</p>
+      <p class="voce-testo">È l'<strong>unico</strong> metodo che li rispetta tutti: <strong>determinismo</strong> (stabilisce relazioni causali), <strong>empirismo</strong> (dimostra praticamente le ipotesi), <strong>invarianza</strong>, <strong>operazionalizzazione</strong> (rende misurabili variabili astratte).</p></div><div class="voce">
+      <p class="voce-tit">Il metodo ipotetico-deduttivo</p>
+      <p class="voce-meta">logica</p>
+      <p class="voce-testo">Da ipotesi teoriche formulate <strong>a priori</strong> si costruisce un assetto sperimentale per verificarle.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Metodo correlazionale</strong></td><td>L06</td><td>Ne definisce per contrasto i due limiti da superare</td></tr><tr><td><strong>Metodi descrittivi</strong></td><td>L05</td><td>Forniscono la conoscenza del comportamento naturale e le ipotesi da testare</td></tr><tr><td><strong>Revisione della letteratura</strong></td><td>L05</td><td>È ciò che consente di <strong>conoscere</strong> le variabili di confusione — e quindi di controllarle: da preliminare bibliografico diventa <strong>condizione di validità</strong></td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">I <strong>rapporti causa-effetto</strong> fra variabili, stabiliti attraverso <strong>esperimenti</strong> volti a verificare ipotesi formulate a priori.</div><p class="glossa">Ciò che si verifica sul campione può essere <strong>generalizzato all'intera popolazione</strong> di riferimento tramite la statistica inferenziale.<br><strong>Manipolazione sperimentale</strong>: il cambiamento che lo sperimentatore induce sulla variabile.<br>⚠️ La lezione avverte che <strong>la terminologia sarà valutata in sede d'esame</strong>: qui i termini vanno usati con precisione, non parafrasati.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Disegno sperimentale</strong>: definizione delle variabili → scelta del campione → costituzione dei gruppi → manipolazione e misura → verifica inferenziale delle ipotesi.</div>
+     <p class="glossa">Si svolge generalmente in <strong>laboratorio</strong>, ambiente dedicato, controllato e <strong>pertanto artificiale</strong>, dove si creano di proposito le condizioni migliori per studiare la relazione x→y.</p>
+     <ul class="punti"><li><strong>Le tre variabili</strong> — <strong>indipendente x</strong>: manipolata, ritenuta la <strong>causa</strong>, ha <strong>livelli</strong> che sono le condizioni. <strong>Dipendente y</strong>: <strong>misurata</strong>, ritenuta l'<strong>effetto</strong>, dev'essere <strong>quantitativa</strong>. <strong>Di confusione z</strong>: tutto ciò che può interferire, e che dev'essere <strong>conosciuta</strong> per poter essere controllata.</li><li><strong>Il campione</strong> — dev'essere <strong>rappresentativo</strong> della popolazione su cui si formulano le ipotesi, e i soggetti vanno scelti in modo <strong>casuale</strong>: ogni soggetto ha <strong>la stessa probabilità</strong> di essere scelto. ⚠️ <strong>Scelta casuale ≠ scelta a caso</strong>: la prima è controllata e bilanciata, la seconda è prendere i primi che capitano.</li><li><strong>I gruppi</strong> — uno o più <strong>gruppi sperimentali</strong>, in cui la variabile manipolata è <strong>presente</strong>, e un <strong>gruppo di controllo</strong>, in cui è <strong>assente</strong>. L'assegnazione dev'essere <strong>casuale e randomizzata</strong>.</li><li><strong>Le due ipotesi</strong> — l'<strong>alternativa</strong> (x e y <em>sono</em> legate da un nesso causale: è l'ipotesi sperimentale) e la <strong>nulla</strong> (non lo sono). Lo scopo è confermare che le variazioni di y siano dovute a x <strong>e non al caso</strong>.</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">I due disegni sperimentali</p>
+      <p class="voce-testo"><strong>Tra i soggetti</strong>: soggetti <strong>diversi</strong> assegnati a gruppi diversi, ciascuno riceve <strong>una sola</strong> condizione. <strong>Entro i soggetti</strong>: i soggetti formano <strong>un unico gruppo</strong> sottoposto a <strong>tutte</strong> le condizioni.</p>
+      <p class="glossa"><strong>Tra</strong> — vantaggio: minimizza i problemi legati allo <strong>strumento di misura</strong>, perché il test si fa una volta sola; svantaggio: richiede un <strong>campione ampio</strong>. Esempio: disegno <strong>trasversale</strong>.<br><strong>Entro</strong> — vantaggio: <strong>numerosità maggiore</strong> nelle misurazioni; svantaggio: <strong>sensibilizzazione</strong> e <strong>abituazione</strong> agli strumenti. Esempio: disegno <strong>longitudinale</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Le due validità</p>
+      <p class="voce-testo"><strong>Validità interna</strong>: quanto si è sicuri che la relazione causale indagata <strong>sia veramente quella</strong>. In laboratorio è <strong>massima</strong>. <strong>Validità ecologica</strong>: quanto le generalizzazioni valgono in ambiente <strong>naturale</strong>. In laboratorio è <strong>bassa</strong>.</p>
+      <p class="glossa">È il <strong>vero limite</strong> della ricerca sperimentale in psicologia, perché i fenomeni riprodotti in laboratorio <strong>non sono mai proprio uguali</strong> a quelli naturali.<br>Non è un limite nuovo: è la stessa critica che <strong>Neisser</strong> muoveva al cognitivismo (L03). Le due validità sono in <strong>trade-off</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Il quasi esperimento</p>
+      <p class="voce-testo">Quando la variabile indipendente <strong>non è manipolabile</strong> non si ha un vero esperimento ma un <strong>quasi esperimento</strong>, perché manca il <strong>controllo assoluto</strong>.</p>
+      <p class="glossa">Esempio: per indagare una <strong>differenza di genere</strong> si è costretti ad avere due gruppi — maschi e femmine — la cui divisione è <strong>data a priori</strong>. È la conseguenza diretta della distinzione fra VI manipolabili e non manipolabili.</p></div><div class="voce">
+      <p class="voce-tit">I due tipi di errore</p>
+      <p class="voce-testo"><strong>Errore di primo tipo (α)</strong>: dichiarare <strong>falsa</strong> l'ipotesi nulla quando in realtà è <strong>vera</strong> — dire che ciò che si osserva non è dovuto al caso quando invece lo è. <strong>Errore di secondo tipo (β)</strong>: dichiarare <strong>vera</strong> l'ipotesi nulla quando in realtà è <strong>falsa</strong>.</p>
+      <p class="glossa"><strong>β diminuisce con l'aumentare di α, e viceversa</strong>: i due errori sono complementari e <strong>non si possono minimizzare entrambi</strong>. Bisogna decidere quale si è disposti a commettere più spesso — ed è una decisione, non un calcolo.<br>La <strong>statistica inferenziale</strong> (per esempio l'<strong>analisi della varianza</strong>) stabilisce se le differenze siano <strong>significative</strong> — generalizzabili — o <strong>dovute al caso</strong>. L'inferenza resta comunque <strong>probabilistica</strong>.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">Rumore e apprendimento (uomo)</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li><strong>Ipotesi</strong>: il rumore ha un'influenza negativa sull'apprendimento negli studenti universitari.</li><li><strong>VI</strong>: quantità di rumore — stanza <strong>senza</strong> (controllo) e <strong>con</strong> rumore (sperimentale).</li><li><strong>VD</strong>: numero di errori a un test a risposta multipla.</li><li><strong>Confusione</strong>: temperatura e illuminazione costanti; la <strong>disposizione del ricercatore</strong> nell'interagire con i soggetti.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Il confronto statistico fra i due gruppi permette di generalizzare le eventuali differenze alla popolazione.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>La VI va <strong>operazionalizzata</strong> in modo che un altro sperimentatore, <strong>anche a dieci anni di distanza e molto lontano geograficamente</strong>, possa rifare l'esperimento <strong>tale e quale</strong>.</div></div>
+    </div><div class="esperimento">
+      <p class="exp-nome">Propranololo e stress (scimmie)</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li><strong>Ipotesi</strong>: il propranololo previene patologie cardiache in scimmie stressate.</li><li><strong>VI</strong>: il farmaco — assenza (controllo) e somministrazione (sperimentale). <strong>Entrambe</strong> le condizioni prevedono esposizione a stress: dieta ipercalorica, ingresso di estranei.</li><li><strong>VD</strong>: parametri indicatori di patologia cardiaca, per esempio la frequenza cardiaca.</li><li><strong>Confusione</strong>: condizioni stressanti bilanciate; illuminazione, temperatura, atteggiamento dello sperimentatore costanti.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Se le scimmie trattate risultano più resistenti alla patologia cardiaca, le statistiche inferenziali dicono se il risultato è estensibile alla popolazione.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Gli animali consentono di studiare in laboratorio fenomeni <strong>eticamente impossibili</strong> sull'uomo. E il campionamento è più semplice: gli <strong>allevamenti da laboratorio</strong> forniscono animali controllati per malattie e variabilità individuale, quindi il campione è <strong>verosimilmente molto rappresentativo</strong>.</div></div>
+    </div><div class="esperimento">
+      <p class="exp-nome">Arricchimento ambientale e neuroplasticità (ratti)</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li><strong>Ipotesi</strong>: le stimolazioni ambientali precoci migliorano lo sviluppo cerebrale e cognitivo.</li><li><strong>VI</strong>: esposizione alle stimolazioni, operazionalizzata con un <strong>modello di arricchimento ambientale</strong> — allevamento in condizioni <strong>standard</strong> o <strong>arricchite</strong> dopo lo svezzamento.</li><li><strong>VD</strong>: indicatori di <strong>sinaptogenesi</strong> e <strong>dendritogenesi</strong>; numero di risposte corrette a test cognitivi.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>La condizione standard produce performance cognitive e indici morfologici e neuronali <strong>più bassi</strong> rispetto alla condizione arricchita.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>È il filone di ricerca della docente, e mostra il disegno sperimentale applicato a variabili dipendenti sia <strong>comportamentali</strong> sia <strong>morfologiche</strong>.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div><strong>Stabilisce rapporti causa-effetto</strong>; ha <strong>alta validità interna</strong>; consente di approfondire e definire le relazioni osservate con i metodi correlazionali e descrittivi.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div><strong>Bassa validità ecologica</strong>. Non sempre è possibile <strong>operazionalizzare e misurare</strong> tutte le variabili (→ quasi esperimenti); non sempre si può <strong>assegnare a caso</strong> i soggetti o <strong>manipolare</strong> la VI; non sempre si possono <strong>individuare tutte</strong> le variabili di confusione; e motivazioni <strong>etiche e pratiche</strong> possono rendere l'esperimento impossibile.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Resta il metodo di riferimento, ma la sua applicabilità è condizionata: per questo la psicologia usa anche tutti gli altri.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>La ricerca originale</strong> — è la tipologia di articolo che riporta esperimenti o quasi esperimenti (Scheda 8)</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Il cambiamento che lo sperimentatore induce sulla variabile.</div><div class="formula">Le variazioni di y sono dovute alla modificazione di x e non al caso.</div><div class="formula">Dichiarare falsa l'ipotesi nulla quando in realtà è vera.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Scelta casuale = prendere i soggetti a caso»</div><div class="err-si">La <strong>scelta casuale è controllata</strong>: bilancia il genere, esclude patologie, mantiene le caratteristiche tipiche della popolazione</div></div><div class="err">
+      <div class="err-no">«Il laboratorio garantisce la validità dell'esperimento»</div><div class="err-si">Garantisce la <strong>validità interna</strong>; la <strong>ecologica</strong> resta <strong>bassa</strong> — è il vero limite</div></div><div class="err">
+      <div class="err-no">«Se manipolo una variabile ho un esperimento»</div><div class="err-si">Se la VI <strong>non è manipolabile</strong> si ha un <strong>quasi esperimento</strong>: manca il controllo assoluto</div></div><div class="err">
+      <div class="err-no">«Basta ridurre α per rendere lo studio più sicuro»</div><div class="err-si"><strong>β aumenta quando α diminuisce</strong>: i due errori sono complementari e non si minimizzano entrambi</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 7</span><span>S407</span></p>
+      <h2 class="sk-nome">La pubblicazione scientifica</h2>
+      <p class="sk-unariga">La quarta fase del processo di ricerca: come la conoscenza entra nel circuito internazionale, e che cosa la rende scientifica prima ancora di entrarci.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L07</span>
+        <span><b>Manuale</b> cap. C21</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Un risultato che resta nel laboratorio che lo ha prodotto non accresce la conoscenza. Ma se chiunque potesse pubblicare qualsiasi cosa, la letteratura non varrebbe nulla.</p><div class="formula">La pubblicazione scientifica è la <strong>principale e ufficiale forma di divulgazione</strong> della conoscenza; ciò che la rende scientifica è la <strong>revisione tra pari</strong>, che valuta il contenuto <strong>ex ante</strong>.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">L'assunto di invarianza</p>
+      <p class="voce-meta">metodo</p>
+      <p class="voce-testo">Il requisito di descrivere metodi e procedure in modo da <strong>consentire la replica</strong> è l'invarianza trasformata in norma editoriale.</p></div><div class="voce">
+      <p class="voce-tit">Il falsificazionismo</p>
+      <p class="voce-meta">epistemologia</p>
+      <p class="voce-testo">La <strong>doppia valutazione</strong> ex ante (peer review) ed ex post (citazioni, commenti, confutazioni) è la forma istituzionale della falsificabilità: nessuna pubblicazione è definitivamente vera.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Fase 4 del processo di ricerca</strong></td><td>L04</td><td>La comunicazione dei risultati è la fase che chiude il cerchio e ne apre un altro</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">I <strong>risultati</strong>, la <strong>metodologia</strong> e le <strong>conclusioni</strong> di una ricerca, messi a disposizione della <strong>comunità scientifica internazionale</strong>.</div><p class="glossa">Circola in formato cartaceo ma <strong>soprattutto digitale</strong>, tramite <strong>riviste</strong> di gruppi editoriali specializzati e riconosciuti. La <strong>lingua è l'inglese</strong>, lingua ufficiale della comunità internazionale dalla metà del XX secolo.<br>🔑 <strong>La distinzione strutturale</strong>: nelle pubblicazioni <strong>non</strong> scientifiche la valutazione critica avviene <strong>ex post</strong>, dopo la pubblicazione; in quelle scientifiche <strong>ex ante</strong>.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>La revisione tra pari</strong> (<em>peer review</em>): manoscritto → editore → 2-4 revisori esterni anonimi → rifiuto, accettazione o revisioni.</div>
+     <p class="glossa">Sembra complicato, ma è ciò che <strong>garantisce la qualità</strong>: altrimenti ognuno potrebbe pubblicare qualsiasi cosa.</p>
+     <ul class="punti"><li><strong>L'editore</strong> valuta l'<strong>adeguatezza formale</strong> (ogni rivista ha un <em>vademecum</em> per l'autore: formattazione, figure, caratteri), la presenza dei <strong>documenti</strong>, le <strong>parti grafiche</strong> e i <strong>permessi etici</strong>. ⚠️ <strong>Non fa l'analisi scientifica</strong>, e può rifiutare un lavoro <strong>valido</strong> se la rivista è satura.</li><li><strong>I revisori</strong> sono <strong>ricercatori come gli autori</strong>, in genere <strong>due o quattro</strong>. Il lavoro <strong>non è retribuito</strong> ma è un <strong>onore</strong>, perché significa essere riconosciuti esperti del settore.</li><li><strong>Il documento di revisione</strong> ha tre parti: <strong>riassunto e commento generale</strong> (originalità, contributo, importanza, <strong>validità metodologica</strong>); <strong>criticità importanti</strong> — si valuta soprattutto la sezione <strong>metodologica</strong>: le informazioni bastano a <strong>replicare</strong> lo studio? c'è un <strong>bias metodologico</strong>?; <strong>problematiche minori</strong> — stile, suggerimenti bibliografici.</li><li><strong>L'etica</strong>: ogni progetto su soggetti umani o animali deve rispettare principi etici. In Italia il <strong>codice etico dell'AIP</strong>; garanti sono i <strong>comitati etici</strong>, che valutano il progetto <strong>prima</strong> dell'esecuzione.</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Le tipologie di pubblicazione</p>
+      <p class="voce-testo"><strong>Atti di congresso</strong> — presentazione <strong>orale</strong> (simposi, talk) o <strong>poster</strong>; <strong>non</strong> vera peer review, ma controllo di un <strong>comitato scientifico</strong> sugli abstract. <strong>Articolo scientifico</strong> (<em>paper</em>) — la forma principale, in <strong>cinque tipologie</strong>: ricerca originale, revisione della letteratura, case report, trial clinico, commento.</p>
+      <p class="glossa">Le cinque tipologie <strong>ricalcano i metodi di ricerca</strong>: ricerca originale = sperimentale; revisione = revisione della letteratura; case report = studio dei casi. La forma editoriale rispecchia la tassonomia metodologica.</p></div><div class="voce">
+      <p class="voce-tit">La struttura dell'articolo</p>
+      <p class="voce-testo">Sempre la stessa, a prescindere dalla casa editrice: <strong>titolo · autori · affiliazioni · parole chiave · abstract · introduzione · metodi · risultati · discussione e conclusioni · bibliografia · materiale supplementare</strong>.</p>
+      <p class="glossa"><strong>Titolo</strong>: la parte <strong>più letta in assoluto</strong>; specifico, non vago; a volte con <em>running title</em>. <strong>Parole chiave</strong>: servono all'<strong>indicizzazione</strong>. <strong>Abstract</strong>: la parte <strong>più letta dopo il titolo</strong>, libera su PubMed; contiene background → metodi → risultati → conclusioni; è in base a esso che si decide se leggere l'articolo. <strong>Introduzione</strong>: contestualizza e si chiude con l'<strong>esplicitazione del razionale</strong>. <strong>Metodi</strong>: dettagli <strong>sufficienti a ripetere lo studio</strong>; sottosezioni soggetti, strumenti, procedura, analisi statistica.</p></div><div class="voce">
+      <p class="voce-tit">Le tre posizioni d'autore</p>
+      <p class="voce-testo"><strong>Primo autore</strong>: responsabile del <strong>disegno sperimentale</strong>. <strong>Ultimo autore</strong>: il <strong>supervisore</strong> del gruppo, o chi mette i fondi. <strong>Corresponding author</strong>: tiene i rapporti con l'editore — in genere il primo o l'ultimo.</p>
+      <p class="glossa">Per essere autore servono contributi sostanziali nell'<strong>ideazione e realizzazione</strong>, nell'<strong>acquisizione o interpretazione</strong> dei dati; aver partecipato alla <strong>stesura o revisione</strong>; aver dato la propria <strong>approvazione</strong> prima dell'invio.</p></div><div class="voce">
+      <p class="voce-tit">Risultati e discussione — la differenza di stile</p>
+      <p class="voce-testo">Nei <strong>risultati</strong> lo stile è <strong>descrittivo</strong>: si descrive e <strong>non</strong> si spiega. Nella <strong>discussione</strong> è <strong>argomentativo</strong>: si spiega alla luce delle evidenze già presenti in letteratura.</p>
+      <p class="glossa">Nei risultati vanno riportati gli indici <strong>inferenziali</strong> (analisi della varianza, correlazione) <strong>e</strong> quelli <strong>descrittivi</strong> (<strong>media</strong> e <strong>deviazione standard</strong>). La deviazione standard tiene conto della <strong>variabilità</strong> interna al gruppo: più è bassa, meno variabilità. Gli <strong>asterischi</strong> sui grafici indicano la <strong>significatività</strong>: dove mancano, le differenze <strong>non sono estendibili alla popolazione</strong>.<br>La discussione segue <strong>sei mosse</strong>: riassumere · problemi metodologici · confronto con lavori precedenti · implicazioni · ricerche future · conclusione succinta.</p></div><div class="voce">
+      <p class="voce-tit">La bibliografia</p>
+      <p class="voce-testo">Elenco delle pubblicazioni <strong>citate</strong>. Nel testo: <strong>primo autore <em>et al.</em>, anno</strong>, oppure <strong>numeri fra parentesi</strong>. L'elenco finale è in <strong>ordine alfabetico</strong> o di <strong>comparizione</strong>.</p>
+      <p class="glossa">I due stili citati sono l'<strong>APA</strong> — prettamente psicologico — e il <strong>Vancouver</strong>. <strong>Cambia la formattazione, non l'informazione</strong>: in entrambi servono autori (cognome e iniziali), anno, titolo, rivista, volume, pagine.</p></div><div class="voce">
+      <p class="voce-tit">Impact factor e accesso</p>
+      <p class="voce-testo"><strong>Impact factor</strong>: indice <strong>dinamico</strong> che misura il prestigio di una <strong>rivista</strong> in base alle citazioni ottenute dai lavori dei <strong>due anni precedenti</strong>. Per il singolo ricercatore l'equivalente è l'<strong>indice H</strong>.<br><strong>Accesso chiuso</strong>: paga <strong>l'utente</strong> che legge. <strong>Accesso aperto</strong>: paga <strong>il ricercatore</strong> che pubblica, e l'articolo diventa gratuitamente fruibile — quindi più <strong>visibile</strong>.</p>
+      <p class="glossa">🔑 <strong>La doppia valutazione</strong>: ogni lavoro subisce una valutazione <strong>ex ante</strong> (peer review) e una <strong>ex post</strong>, quantitativa (numero di citazioni).</p></div><div class="voce">
+      <p class="voce-tit">Le banche dati</p>
+      <p class="voce-testo"><strong>PubMed</strong>: <strong>gratuita</strong>, contiene tutta la ricerca <strong>biomedica e psicologica</strong>, appartiene al <strong>National Institute of Health</strong> ed è aggiornata <strong>settimanalmente</strong>; contiene <strong>solo lavori scientifici</strong>. <strong>Google Scholar</strong>: gratuito, ma contiene anche <strong>letteratura grigia</strong> non sottoposta a peer review.</p>
+      <p class="glossa">PubMed non contiene i lavori per intero, ma <strong>riferimenti, titoli e abstract</strong>: serve a fare uno <strong>screening</strong> e a capire se un lavoro meriti di essere letto. Ogni voce ha un <strong>link al sito della rivista</strong> per il full text. Si cerca per <strong>parole chiave</strong>, <strong>autore</strong> o <strong>rivista</strong>, con <strong>filtri</strong> per periodo, reperibilità o tipo di articolo.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Garantisce un <strong>controllo qualitativo preventivo</strong> e rende la conoscenza <strong>accessibile e verificabile</strong> da chiunque nella comunità internazionale. La struttura fissa dell'articolo consente di <strong>valutare, replicare e confutare</strong>.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Il processo è lento e in parte arbitrario: un lavoro può essere rifiutato <strong>pur essendo valido</strong>; la revisione è <strong>non retribuita</strong> e dipende dalla disponibilità dei ricercatori; l'<strong>accesso chiuso</strong> limita la fruibilità.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Chiude il ciclo e ne apre un altro: la pubblicazione consente di identificare le <strong>questioni rimaste irrisolte</strong>, che diventano i problemi da cui parte la ricerca successiva.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Un nuovo ciclo di ricerca</strong> — le questioni irrisolte identificate dopo la pubblicazione sono i <strong>problemi</strong> della fase 1</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Dettagli sufficienti a ripetere lo studio.</div><div class="formula">Valutazione ex ante, non ex post.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Gli atti di congresso passano la peer review»</div><div class="err-si"><strong>Non</strong> una vera peer review: c'è un controllo del <strong>comitato scientifico</strong> sugli abstract</div></div><div class="err">
+      <div class="err-no">«Un articolo rifiutato è scientificamente debole»</div><div class="err-si">Può essere rifiutato <strong>pur essendo valido</strong> se la rivista è satura: l'editor <strong>non fa l'analisi scientifica</strong></div></div><div class="err">
+      <div class="err-no">Confondere lo stile dei risultati con quello della discussione</div><div class="err-si">Nei <strong>risultati</strong> si <strong>descrive</strong>; nella <strong>discussione</strong> si <strong>argomenta</strong>. È l'errore più comune anche nelle tesi</div></div><div class="err">
+      <div class="err-no">«PubMed e Google Scholar sono equivalenti»</div><div class="err-si">PubMed contiene <strong>solo lavori scientifici</strong>; Google Scholar anche <strong>letteratura grigia</strong> non revisionata</div></div><div class="err">
+      <div class="err-no">«L'impact factor misura la qualità di un articolo»</div><div class="err-si">Misura il prestigio della <strong>rivista</strong>; per il singolo ricercatore l'indice è l'<strong>indice H</strong></div></div></div></div>
+  </div>
+    
+  </section>
+
+</body></html>

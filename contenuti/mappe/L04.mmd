@@ -1,0 +1,32 @@
+graph TD
+    ING["PSICOLOGIA INGENUA<br/>sapere di senso comune<br/>imprescindibile, pragmatica<br/>ma non verificata"]
+    ING -.->|"3 fonti di errore"| ERR["GIUDIZIO RETROSPETTIVO<br/>bravi a spiegare, non a prevedere<br/>ECCESSIVA FIDUCIA IN SÉ<br/>esperimento di Goranson<br/>SCHEMI RICORRENTI<br/>nessi causali in eventi casuali"]
+    ERR ==>|"da cui salvaguarda"| MS["METODO SCIENTIFICO<br/>processo guidato da<br/>PRINCIPI OGGETTIVI"]
+
+    DIFF["IL CASO DIFFICILE<br/>la mente non è né osservabile<br/>né quantificabile<br/>→ soggettività e indeterminazione"] -.-> MS
+    RIAV["IL RIAVVICINAMENTO<br/>EINSTEIN: osservazioni relative<br/>all'osservatore<br/>HEISENBERG: incertezza ineliminabile<br/>atomi, buchi neri: non osservabili"] ==>|"riduce le discrepanze"| MS
+
+    MS ==> A1["1. DETERMINISMO<br/>gli effetti non sono dovuti al caso<br/>ma a una catena causale"]
+    MS ==> A2["2. EMPIRISMO<br/>non logica e coerenza<br/>ma VERIFICA EMPIRICA"]
+    MS ==> A3["3. INVARIANZA<br/>a parità di condizioni<br/>stesso risultato<br/>→ consente PREVISIONI"]
+    MS ==> A4["4. OPERAZIONALIZZAZIONE<br/>il più importante<br/>tradurre i concetti in formato<br/>replicabile e misurabile"]
+
+    A4 --> OP["DEFINIZIONE OPERATIVA<br/>deve essere VALIDA e UNIVOCA<br/>(processi unici, non plurimi)<br/>è sempre APPROSSIMAZIONE AL VERO"]
+
+    MS ==> PROC["IL PROCESSO DI RICERCA<br/>CIRCOLARE<br/>identico per ricerca di base<br/>e ricerca applicata"]
+
+    PROC --> F1["1. IDENTIFICAZIONE<br/>DEL PROBLEMA<br/>Popper: si comincia dai problemi<br/>= contraddizione fra affermazioni<br/>fonte principale: la letteratura<br/>(euristica / sistematica)"]
+    F1 --> F2["2. SPIEGAZIONE TEORICA<br/>TEORIA = insieme organizzato<br/>di frasi che spiegano<br/>IPOTESI = predizione testabile<br/>forma SE-ALLORA"]
+    F2 --> FALS["FALSIFICABILITÀ (Popper)<br/>i cigni bianchi<br/>è scientifica ogni teoria CONFUTABILE<br/>→ critica alla psicoanalisi<br/>ipotesi ALTERNATIVA / NULLA"]
+    F2 --> F3["3. RICERCA EMPIRICA<br/>operazionalizzare le ipotesi<br/>progettare · raccogliere<br/>analizzare · interpretare"]
+
+    F3 --> VAR["VARIABILI<br/>validità (def. operativa)<br/>fidabilità e sensibilità<br/>(strumento di misura)"]
+    F3 --> TAX["TASSONOMIA su 3 DIMENSIONI<br/>METODO: sperimentale > correlazionale<br/>> descrittivo<br/>TECNICA: oggettiva / soggettiva<br/>AMBIENTE: laboratorio / campo"]
+    F3 --> STAT["ANALISI STATISTICA<br/>DESCRITTIVA: nessuna inferenza<br/>INFERENZIALE: generalizza<br/>dal campione alla popolazione"]
+
+    F3 --> F4["4. COMUNICAZIONE<br/>convegni · ARTICOLI · libri<br/>requisito: consentire la REPLICA<br/>→ peer review"]
+    F4 ==>|"nuovi problemi"| F1
+
+    COMPL["PERCHÉ È COMPLESSO<br/>l'essere umano è<br/>COMPLESSO (multideterminato)<br/>VARIABILE (fra e entro individui)<br/>REATTIVO"] -.-> TAX
+
+    PROC --> ETICA["ETICA DELLA RICERCA<br/>standard governativi e<br/>di associazioni internazionali<br/>COMITATI ETICI<br/>CONSENSO INFORMATO:<br/>scopo · benefici · rischi<br/>diritto di ritiro · dati sensibili"]

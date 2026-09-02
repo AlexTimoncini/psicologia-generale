@@ -1,0 +1,39 @@
+graph TD
+    OPER["OPERAZIONALIZZAZIONE<br/>(assunto della L04)"] ==> VAR["VARIABILE<br/>tutto ciò che può variare<br/>quantitativamente o come<br/>presente / assente"]
+
+    VAR ==> SCALE["LE 4 SCALE DI MISURA<br/>ogni scala contiene le informazioni<br/>di quelle più semplici"]
+    SCALE --> N["NOMINALE / categoriale<br/>solo DIVERSITÀ<br/>categorie non ordinabili<br/>solo etichette, mai numeri<br/>genere · religione · squadra"]
+    SCALE --> O["ORDINALE<br/>diversità + ORDINE<br/>valori ordinali, mai numeri<br/>titolo di studio · classe sociale<br/>giorni della settimana"]
+    SCALE --> I["INTERVALLI EQUIVALENTI<br/>+ intervallo COSTANTE<br/>numerica, ZERO ARBITRARIO<br/>Celsius · Fahrenheit · QI"]
+    SCALE --> R["RAPPORTI EQUIVALENTI<br/>+ RAPPORTI fra i livelli<br/>ZERO NATURALE = assenza<br/>peso · età · tempo · Kelvin"]
+
+    N --> QUAL["QUALITATIVE<br/>producono FREQUENZE"]
+    O --> QUAL
+    I --> QUANT["QUANTITATIVE o METRICHE<br/>producono PUNTEGGI<br/>informano sull'INTENSITÀ"]
+    R --> QUANT
+    QUAL -.->|"determina"| TEST["LA SCELTA DEI TEST STATISTICI<br/>sbagliare scala = test sbagliati<br/>= risultati non interpretabili"]
+    QUANT -.-> TEST
+
+    VAR ==> VIVD["VI e VD<br/>INDIPENDENTE x = la CAUSA<br/>DIPENDENTE y = l'EFFETTO"]
+    VIVD --> MAN["MANIPOLABILI<br/>caffeina · farmaco · luce"]
+    VIVD --> NOMAN["NON MANIPOLABILI<br/>QI · età · religione<br/>affiliazione politica"]
+
+    REV["REVISIONE DELLA LETTERATURA<br/>propedeutica al disegno<br/>oppure fine a sé stessa"] ==> RN["NARRATIVA<br/>domande ampie e generiche<br/>es. capitoli di un manuale<br/>LIMITE: selezione soggettiva"]
+    REV ==> RS["SISTEMATICA<br/>criteri rigorosi A PRIORI<br/>in un PROTOCOLLO<br/>pochi quesiti ben definiti<br/>→ replicabile da altri"]
+    REV ==> MA["META-ANALISI<br/>revisione sistematica<br/>+ TECNICHE STATISTICHE<br/>stima numerica dell'effetto<br/>NO se troppa eterogeneità"]
+
+    DESC["METODI DESCRITTIVI<br/>la descrizione è il punto<br/>di partenza di ogni scienza"] ==> CASI["STUDIO DEI CASI<br/>analisi approfondita di individuo,<br/>gruppo o evento (es. Phineas Gage)<br/>+ fenomeni rari, falsifica teorie<br/>− non generalizzabile, casi atipici"]
+    DESC ==> OSS["METODO OSSERVATIVO<br/>osservare · registrare · descrivere<br/>trascrivere · CODIFICARE"]
+    DESC ==> INC["INCHIESTA / sondaggio / survey<br/>interviste (aperte)<br/>questionari (chiuse)"]
+
+    OSS --> OS1["CONTROLLATA (laboratorio)<br/>vs NATURALISTICA (ecologica)"]
+    OSS --> OS2["DIRETTA (in sincrono)<br/>vs INDIRETTA (registrazioni)"]
+    OSS --> OS3["QUALITATIVA<br/>vs SISTEMATICA<br/>categorie prefissate<br/>manuali di codifica"]
+    OSS -.->|"2 problemi"| OSP["INTERFERENZA DELL'OSSERVATORE<br/>SOGGETTIVITÀ DEL RICERCATORE<br/>→ esposizione preventiva<br/>allo sperimentatore (Goodall)"]
+
+    INC --> POP["POPOLAZIONE = tutti gli individui<br/>CAMPIONE = sottoinsieme"]
+    POP --> CAMP["CAMPIONAMENTO CASUALE<br/>stessa probabilità per tutti<br/>STRATIFICATO: sottogruppi<br/>poi casuale"]
+    CAMP -.-> REG["meglio PICCOLO e RAPPRESENTATIVO<br/>che grande e non rappresentativo<br/>(gli exit poll sbagliano per questo)"]
+    INC -.->|"altri problemi"| INP["FORMULAZIONE DELLE DOMANDE<br/>«gettito fiscale» vs «tasse»<br/>DESIDERABILITÀ SOCIALE"]
+
+    INC ==>|"se codificata su scale numeriche"| CORR["METODO CORRELAZIONALE<br/>(lezione 6)"]
