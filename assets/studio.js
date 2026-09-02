@@ -838,7 +838,6 @@ function vistaSchede() {
               <p class="fasc-sot">${f.sottotitolo}</p>
             </div>
           </div>
-          <p class="fasc-intro">${f.intro}</p>
           <div class="fasc-conta">
             <span><b>${f.schede.length}</b> schede</span>
             <span><b>${f.schede.reduce((s, x) => s + (x.esponenti || []).length, 0)}</b> esponenti</span>
@@ -855,26 +854,7 @@ function vistaSchede() {
           </div>
         </div>`;
       }).join('')}
-    </div>
-
-    <h2>Come si legge una scheda</h2>
-    <div class="tab-scroll"><table>
-      <thead><tr><th>Blocco</th><th>Che cosa contiene</th></tr></thead>
-      <tbody>${[
-        ["1 · Perché nasce","L'esigenza teorica lasciata aperta dalla scuola precedente"],
-        ["2 · Radici","Le posizioni filosofiche o teoriche su cui poggia"],
-        ["3 · Precursori","Chi le ha passato che cosa, e da quale tradizione"],
-        ["4 · Oggetto","Che cosa studia, nella formulazione tecnica"],
-        ["5 · Metodo","Come lo studia, con i vincoli operativi"],
-        ["6 · Teorie","Gli enunciati che la scuola produce"],
-        ["7 · Esponenti","Chi è ciascuno, che cosa ha fatto, quali teorie"],
-        ["8 · Esperimenti","Disegno, risultato, significato"],
-        ["9 · Validità","Merito, limite, esito"],
-        ["10 · Precorre","Verso quali scuole successive apre"],
-        ["11 · Formule","Le frasi da riprodurre alla lettera"],
-        ["12 · Errori","Che cosa non dire, e che cosa dire al suo posto"]
-      ].map(([a, b]) => `<tr><td style="font-family:var(--dati);font-size:.78rem;color:var(--accento);white-space:nowrap">${a}</td><td>${b}</td></tr>`).join('')}</tbody>
-    </table></div>`;
+    </div>`;
 }
 
 function vistaFascicolo(id) {

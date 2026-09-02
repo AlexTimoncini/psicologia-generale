@@ -97,11 +97,12 @@ Tre fascicoli A4 pronti per la stampa, uno per macro-argomento:
 
 | File | Contenuto | Pagine |
 |---|---|---|
-| `pdf/F1_la-definizione-di-psicologia.pdf` | La definizione, il ritardo, la doppia emancipazione | 6 |
-| `pdf/F2_l-excursus-storico.pdf` | Dalle concezioni pre-scientifiche al comportamentismo | 42 |
-| `pdf/F3_la-psicologia-contemporanea.pdf` | Cognitivismo, mente embodied, neuroscienze, discipline collaterali | 23 |
+| `pdf/F1_la-definizione-di-psicologia.pdf` | La definizione, il ritardo, la doppia emancipazione | 5 |
+| `pdf/F2_l-excursus-storico.pdf` | Dalle concezioni pre-scientifiche al comportamentismo | 37 |
+| `pdf/F3_la-psicologia-contemporanea.pdf` | Cognitivismo, mente embodied, neuroscienze, discipline collaterali | 20 |
 
-Ogni scheda comincia su una pagina nuova. Per rigenerarli dopo aver modificato `data/schede.js`:
+Le schede scorrono di seguito senza salti di pagina forzati, per non lasciare carta bianca:
+a separarle è il filetto spesso della testata. Per rigenerarli dopo aver modificato `data/schede.js`:
 
 ```
 node pdf/genera.js

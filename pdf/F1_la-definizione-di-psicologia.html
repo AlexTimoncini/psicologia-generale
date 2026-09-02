@@ -20,18 +20,18 @@
 
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { margin:0; background:#fff; color-scheme: light;
+body { margin:0; background:#fff; color-scheme: light; orphans: 3; widows: 3;
        font-family: var(--testo); font-size: 9.6pt; line-height: 1.52;
        color: var(--inchiostro); }
 strong { font-weight: 600; }
 em { font-style: italic; }
 
 /* ---- copertina ---- */
-.copertina { break-after: page; }
-.indice-pagina { break-after: page; }
-.cop-alto { border-bottom: 2.5pt solid var(--accento); padding-bottom: 6mm; }
+.copertina { margin-bottom: 10mm; }
+.cop-indice { break-after: avoid; }
+.cop-alto { border-bottom: 2.5pt solid var(--accento); padding-bottom: 5mm; margin-bottom: 8mm; }
 .cop-corso { font-family: var(--dati); font-size: 7.4pt; letter-spacing: .18em;
-             text-transform: uppercase; color: var(--grafite); margin: 0 0 14mm; }
+             text-transform: uppercase; color: var(--grafite); margin: 0 0 8mm; }
 .cop-n { font-family: var(--display); font-size: 34pt; line-height:1; color: var(--accento); margin:0 0 2mm; }
 .cop-titolo { font-family: var(--display); font-size: 27pt; line-height: 1.1; margin: 0 0 3mm; font-weight: 500; }
 .cop-sottotitolo { font-family: var(--display); font-size: 13pt; font-style: italic;
@@ -58,10 +58,14 @@ em { font-style: italic; }
 .legenda-corpo b { color: var(--inchiostro); font-family: var(--dati); font-size: 7.6pt; }
 
 /* ---- scheda ---- */
-.scheda { break-before: page; }
-.scheda:first-of-type { break-before: auto; }
+/* Le schede scorrono di seguito: nessun salto di pagina forzato, così non
+   restano pagine mezze bianche. A separarle è il filetto spesso della testata,
+   che non può restare orfano in fondo alla pagina. */
+.scheda { margin-top: 9mm; }
+.scheda:first-of-type { margin-top: 0; }
 
-.sk-testa { border-top: 2.5pt solid var(--accento); padding-top: 3mm; margin-bottom: 4mm; }
+.sk-testa { border-top: 2.5pt solid var(--accento); padding-top: 3mm; margin-bottom: 4mm;
+            break-inside: avoid; break-after: avoid; }
 .sk-occhiello { font-family: var(--dati); font-size: 7pt; letter-spacing: .16em;
                 text-transform: uppercase; color: var(--grafite); margin: 0 0 1.5mm;
                 display: flex; justify-content: space-between; }
@@ -72,13 +76,15 @@ em { font-style: italic; }
             border-bottom: .5pt solid var(--linea-fine); padding: 1.8mm 0; }
 .sk-coord b { color: var(--accento); font-weight: 500; }
 
-/* blocco: etichetta a sinistra, contenuto a destra */
-.blocco { display: grid; grid-template-columns: 26mm 1fr; gap: 4mm;
-          padding: 3mm 0; border-bottom: .5pt solid var(--linea-fine); break-inside: avoid; }
-.blocco.lungo { break-inside: auto; }
-.bl-eti { font-family: var(--dati); font-size: 7pt; letter-spacing: .1em; text-transform: uppercase;
-          color: var(--accento); line-height: 1.4; padding-top: .6mm; }
+/* blocco: etichetta a sinistra, contenuto a destra.
+   I blocchi scorrono liberamente fra le pagine: a non spezzarsi sono le unità
+   atomiche (una voce, un esponente, un esperimento, un errore). Così non restano
+   pagine mezze vuote per far stare un blocco intero. */
+.blocco { padding: 3mm 0; border-bottom: .5pt solid var(--linea-fine); break-inside: auto; overflow: hidden; }
+.bl-eti { float: left; width: 26mm; font-family: var(--dati); font-size: 7pt; letter-spacing: .1em;
+          text-transform: uppercase; color: var(--accento); line-height: 1.4; padding-top: .6mm; }
 .bl-eti span { display: block; color: var(--tenue); font-size: 6.4pt; letter-spacing: .06em; }
+.bl-corpo { margin-left: 30mm; }
 .bl-corpo > *:first-child { margin-top: 0; }
 .bl-corpo > *:last-child { margin-bottom: 0; }
 .bl-corpo p { margin: 0 0 2mm; }
@@ -155,19 +161,9 @@ table.griglia tr:last-child td { border-bottom: none; }
     <h1 class="cop-titolo">La definizione di psicologia</h1>
     <p class="cop-sottotitolo">Che cos'è, perché nasce tardi, con quale criterio si dice scientifica</p>
   </div>
-  <p class="cop-intro">Il fascicolo copre la prima metà della Lezione 1. Non contiene scuole ma <strong>concetti</strong>, e perciò le schede seguono uno schema più corto: definizione, articolazione, perché serve, formule alla lettera, errori. Le schede delle scuole cominciano dal Fascicolo II.</p>
 
-  <div class="legenda">
-    <p class="legenda-tit">Lo schema, uguale per ogni scheda</p>
-    <div class="legenda-corpo">
-      <p><b>1 Definizioni</b> · le formulazioni, dalla più povera alla più completa</p><p><b>2 Articolazione</b> · il confronto fra i termini in gioco</p><p><b>3 Scomposizione</b> · la formula elemento per elemento</p><p><b>4 Perché serve</b> · la chiusura che alza il voto</p><p><b>5 Formule</b> · le frasi da riprodurre alla lettera</p><p><b>6 Errori</b> · che cosa non dire, e che cosa dire al suo posto</p>
-    </div>
-  </div>
-</div>
-
-<div class="indice-pagina">
   <div class="cop-indice">
-    <p class="cop-indice-tit">Le 2 schede di questo fascicolo</p>
+    <p class="cop-indice-tit">Le 2 schede</p>
     <div class="cop-voce">
       <span class="cop-voce-n">01</span>
       <span><span class="cop-voce-nome">L'oggetto della psicologia</span>
@@ -192,7 +188,7 @@ table.griglia tr:last-child td { border-bottom: none; }
         <span><b>Manuale</b> cap. C01</span>
       </div>
     </div>
-    <div class="blocco lungo">
+    <div class="blocco">
     <div class="bl-eti">1. Definizioni<span>le formulazioni</span></div>
     <div class="bl-corpo"><div class="voce">
       <p class="voce-tit">Etimologia</p>
@@ -204,13 +200,13 @@ table.griglia tr:last-child td { border-bottom: none; }
       <p class="voce-tit">Definizione attuale</p>
       <div class="formula">Studio scientifico del <strong>comportamento e dei processi mentali dell'essere vivente nel suo rapporto con l'ambiente: mentre lo esperisce, vi agisce e lo rappresenta</strong>.</div>
       <p class="glossa">È la formulazione da usare. Ogni suo elemento è motivato e va saputo giustificare uno per uno.</p></div></div>
-  </div><div class="blocco lungo">
+  </div><div class="blocco">
     <div class="bl-eti">2. I due termini della definizione generale<span>il confronto</span></div>
     <div class="bl-corpo"><table class="griglia">
       <tr><th></th><th>Mente</th><th>Comportamento</th></tr>
       <tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">Che cos'è</td><td>L'esperienza interiore personale: percezioni, pensieri, ricordi, sentimenti</td><td>Le azioni degli esseri umani <strong>e degli animali non umani</strong> nell'ambiente</td></tr><tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">Dove si colloca</td><td>All'<strong>interno</strong> del soggetto</td><td>All'<strong>esterno</strong>, nell'ambiente</td></tr><tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">Come si accede</td><td>Solo per via <strong>soggettiva</strong>: nessuno vede il pensiero di un altro</td><td><strong>Direttamente osservabile</strong> da chiunque</td></tr><tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">Che cosa produce</td><td>Un incessante <strong>flusso di coscienza</strong>: ciò di cui siamo consapevoli nel <em>qui e ora</em></td><td>Una sequenza di atti registrabili e misurabili</td></tr>
     </table></div>
-  </div><div class="blocco lungo">
+  </div><div class="blocco">
     <div class="bl-eti">3. Scomposizione<span>elemento per elemento</span></div>
     <div class="bl-corpo"><p class="voce-meta">La definizione attuale, elemento per elemento</p>
       <div class="voce">
@@ -234,7 +230,7 @@ table.griglia tr:last-child td { border-bottom: none; }
   </div><div class="blocco">
     <div class="bl-eti">5. Formule<span>alla lettera</span></div>
     <div class="bl-corpo"><div class="formula">Studio scientifico del comportamento e dei processi mentali dell'essere vivente nel suo rapporto con l'ambiente: mentre lo esperisce, vi agisce e lo rappresenta.</div></div>
-  </div><div class="blocco lungo">
+  </div><div class="blocco">
     <div class="bl-eti">6. Errori<span>da non fare</span></div>
     <div class="bl-corpo"><div class="errori"><div class="err">
       <div class="err-no">«La psicologia è lo studio della mente»</div><div class="err-si">«…del comportamento e dei <strong>processi mentali</strong> dell'<strong>essere vivente</strong> nel suo rapporto con l'ambiente»</div></div><div class="err">
@@ -252,7 +248,7 @@ table.griglia tr:last-child td { border-bottom: none; }
         <span><b>Manuale</b> cap. C02</span>
       </div>
     </div>
-    <div class="blocco lungo">
+    <div class="blocco">
     <div class="bl-eti">1. Definizioni<span>le formulazioni</span></div>
     <div class="bl-corpo"><div class="voce">
       <p class="voce-tit">Il dato di fatto</p>
@@ -264,13 +260,13 @@ table.griglia tr:last-child td { border-bottom: none; }
       <p class="voce-tit">Metodo sperimentale</p>
       <div class="formula">Osservazione controllata, manipolazione, misura, <strong>verifica empirica tangibile</strong>, sul modello delle scienze naturali.</div>
       <p class="glossa">Il criterio di scientificità non è l'oggetto ma il <strong>metodo</strong>: la mente veniva studiata anche prima, e intensamente. Cambia il <em>come</em>.</p></div></div>
-  </div><div class="blocco lungo">
+  </div><div class="blocco">
     <div class="bl-eti">2. Le tre cause del ritardo<span>il confronto</span></div>
     <div class="bl-corpo"><table class="griglia">
       <tr><th></th><th>Causa</th><th>Che tipo di ostacolo è</th></tr>
       <tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">1</td><td>Difficoltà di <strong>definire l'oggetto</strong>: che cosa significa studiare scientificamente un pensiero?</td><td><strong>Tecnica</strong> — «non so come misurarlo». Un metodo scientifico richiede che l'oggetto sia isolabile, manipolabile e misurabile</td></tr><tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">2</td><td>Difficoltà di considerare l'<strong>uomo</strong> un oggetto di studio scientifico</td><td><strong>Antropologica</strong> — «non mi è lecito trattarlo così». Le scienze naturali trattano il loro oggetto in modo deterministico; applicarlo all'uomo urta contro una lunga tradizione</td></tr><tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">3</td><td><strong>Concezione trascendentale della mente</strong>: considerata quasi divina per oltre due millenni</td><td><strong>Metafisica</strong> — «non ha senso trattarlo così». Non è un problema di strumenti mancanti, è un problema di categorie</td></tr>
     </table></div>
-  </div><div class="blocco lungo">
+  </div><div class="blocco">
     <div class="bl-eti">3. Scomposizione<span>elemento per elemento</span></div>
     <div class="bl-corpo"><p class="voce-meta">La doppia emancipazione — entrambe le formule hanno due termini</p>
       <div class="voce">
@@ -286,7 +282,7 @@ table.griglia tr:last-child td { border-bottom: none; }
   </div><div class="blocco">
     <div class="bl-eti">5. Formule<span>alla lettera</span></div>
     <div class="bl-corpo"><div class="formula">Dallo studio della mente sul piano filosofico alla relazione mente-corpo sul piano naturalistico.</div><div class="formula">Dallo studio del cervello sul piano meramente fisiologico all'unità cervello-mente e alle sue interazioni con l'ambiente.</div></div>
-  </div><div class="blocco lungo">
+  </div><div class="blocco">
     <div class="bl-eti">6. Errori<span>da non fare</span></div>
     <div class="bl-corpo"><div class="errori"><div class="err">
       <div class="err-no">«Si è emancipata dalla filosofia»</div><div class="err-si">Le formule hanno <strong>due termini</strong>: la risposta è <em>da che cosa a che cosa</em>. Perdere il secondo è l'errore più frequente</div></div><div class="err">

@@ -37,18 +37,18 @@ const STILE = `
 
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { margin:0; background:#fff; color-scheme: light;
+body { margin:0; background:#fff; color-scheme: light; orphans: 3; widows: 3;
        font-family: var(--testo); font-size: 9.6pt; line-height: 1.52;
        color: var(--inchiostro); }
 strong { font-weight: 600; }
 em { font-style: italic; }
 
 /* ---- copertina ---- */
-.copertina { break-after: page; }
-.indice-pagina { break-after: page; }
-.cop-alto { border-bottom: 2.5pt solid var(--accento); padding-bottom: 6mm; }
+.copertina { margin-bottom: 10mm; }
+.cop-indice { break-after: avoid; }
+.cop-alto { border-bottom: 2.5pt solid var(--accento); padding-bottom: 5mm; margin-bottom: 8mm; }
 .cop-corso { font-family: var(--dati); font-size: 7.4pt; letter-spacing: .18em;
-             text-transform: uppercase; color: var(--grafite); margin: 0 0 14mm; }
+             text-transform: uppercase; color: var(--grafite); margin: 0 0 8mm; }
 .cop-n { font-family: var(--display); font-size: 34pt; line-height:1; color: var(--accento); margin:0 0 2mm; }
 .cop-titolo { font-family: var(--display); font-size: 27pt; line-height: 1.1; margin: 0 0 3mm; font-weight: 500; }
 .cop-sottotitolo { font-family: var(--display); font-size: 13pt; font-style: italic;
@@ -75,10 +75,14 @@ em { font-style: italic; }
 .legenda-corpo b { color: var(--inchiostro); font-family: var(--dati); font-size: 7.6pt; }
 
 /* ---- scheda ---- */
-.scheda { break-before: page; }
-.scheda:first-of-type { break-before: auto; }
+/* Le schede scorrono di seguito: nessun salto di pagina forzato, così non
+   restano pagine mezze bianche. A separarle è il filetto spesso della testata,
+   che non può restare orfano in fondo alla pagina. */
+.scheda { margin-top: 9mm; }
+.scheda:first-of-type { margin-top: 0; }
 
-.sk-testa { border-top: 2.5pt solid var(--accento); padding-top: 3mm; margin-bottom: 4mm; }
+.sk-testa { border-top: 2.5pt solid var(--accento); padding-top: 3mm; margin-bottom: 4mm;
+            break-inside: avoid; break-after: avoid; }
 .sk-occhiello { font-family: var(--dati); font-size: 7pt; letter-spacing: .16em;
                 text-transform: uppercase; color: var(--grafite); margin: 0 0 1.5mm;
                 display: flex; justify-content: space-between; }
@@ -89,13 +93,15 @@ em { font-style: italic; }
             border-bottom: .5pt solid var(--linea-fine); padding: 1.8mm 0; }
 .sk-coord b { color: var(--accento); font-weight: 500; }
 
-/* blocco: etichetta a sinistra, contenuto a destra */
-.blocco { display: grid; grid-template-columns: 26mm 1fr; gap: 4mm;
-          padding: 3mm 0; border-bottom: .5pt solid var(--linea-fine); break-inside: avoid; }
-.blocco.lungo { break-inside: auto; }
-.bl-eti { font-family: var(--dati); font-size: 7pt; letter-spacing: .1em; text-transform: uppercase;
-          color: var(--accento); line-height: 1.4; padding-top: .6mm; }
+/* blocco: etichetta a sinistra, contenuto a destra.
+   I blocchi scorrono liberamente fra le pagine: a non spezzarsi sono le unità
+   atomiche (una voce, un esponente, un esperimento, un errore). Così non restano
+   pagine mezze vuote per far stare un blocco intero. */
+.blocco { padding: 3mm 0; border-bottom: .5pt solid var(--linea-fine); break-inside: auto; overflow: hidden; }
+.bl-eti { float: left; width: 26mm; font-family: var(--dati); font-size: 7pt; letter-spacing: .1em;
+          text-transform: uppercase; color: var(--accento); line-height: 1.4; padding-top: .6mm; }
 .bl-eti span { display: block; color: var(--tenue); font-size: 6.4pt; letter-spacing: .06em; }
+.bl-corpo { margin-left: 30mm; }
 .bl-corpo > *:first-child { margin-top: 0; }
 .bl-corpo > *:last-child { margin-bottom: 0; }
 .bl-corpo p { margin: 0 0 2mm; }
@@ -169,8 +175,8 @@ table.griglia tr:last-child td { border-bottom: none; }
 const vuoto = "<p class='bl-vuoto'>—</p>";
 const has = a => Array.isArray(a) && a.length;
 
-function blocco(n, eti, sub, corpo, lungo) {
-  return `<div class="blocco${lungo ? ' lungo' : ''}">
+function blocco(n, eti, sub, corpo) {
+  return `<div class="blocco">
     <div class="bl-eti">${n}. ${eti}${sub ? `<span>${sub}</span>` : ''}</div>
     <div class="bl-corpo">${corpo || vuoto}</div>
   </div>`;
@@ -202,13 +208,13 @@ function rendiScuola(s, i) {
   B.push(blocco(5, "Metodo", "come lo studia",
     `<div class="formula">${s.metodo.formula}</div>
      ${s.metodo.glossa ? `<p class="glossa">${s.metodo.glossa}</p>` : ''}
-     ${has(s.metodo.vincoli) ? `<ul class="punti">${s.metodo.vincoli.map(v => `<li>${v}</li>`).join('')}</ul>` : ''}`, true));
+     ${has(s.metodo.vincoli) ? `<ul class="punti">${s.metodo.vincoli.map(v => `<li>${v}</li>`).join('')}</ul>` : ''}`));
 
   B.push(blocco(6, "Teorie", "e concetti avanzati",
     has(s.teorie) ? s.teorie.map(t => `<div class="voce">
       <p class="voce-tit">${t.nome}</p>
       <p class="voce-testo">${t.enunciato}</p>
-      ${t.glossa ? `<p class="glossa">${t.glossa}</p>` : ''}</div>`).join('') : null, true));
+      ${t.glossa ? `<p class="glossa">${t.glossa}</p>` : ''}</div>`).join('') : null));
 
   B.push(blocco(7, "Esponenti", "chi è, cosa ha fatto",
     has(s.esponenti) ? s.esponenti.map(e => `<div class="esponente">
@@ -222,7 +228,7 @@ function rendiScuola(s, i) {
       ${has(e.haFatto) ? `<p class="esp-sub">Che cosa ha fatto</p><ul class="punti">${e.haFatto.map(x => `<li>${x}</li>`).join('')}</ul>` : ''}
       ${has(e.teorie) ? `<p class="esp-sub">Le sue teorie</p><ul class="punti">${e.teorie.map(t => `<li><strong>${t.nome}</strong> — ${t.enunciato}</li>`).join('')}</ul>` : ''}
       ${e.nota ? `<p class="esp-nota">${e.nota}</p>` : ''}
-    </div>`).join('') : null, true));
+    </div>`).join('') : null));
 
   B.push(blocco(8, "Esperimenti", "disegno, esito, senso",
     has(s.esperimenti) ? s.esperimenti.map(x => `<div class="esperimento">
@@ -230,14 +236,14 @@ function rendiScuola(s, i) {
       <div class="exp-riga"><span class="exp-eti">Disegno</span><ol>${x.disegno.map(d => `<li>${d}</li>`).join('')}</ol></div>
       <div class="exp-riga"><span class="exp-eti">Risultato</span><div>${x.risultato}</div></div>
       <div class="exp-riga"><span class="exp-eti">Significato</span><div>${x.significato}</div></div>
-    </div>`).join('') : null, true));
+    </div>`).join('') : null));
 
   B.push(blocco(9, "Validità", "merito, limite, esito",
     `<div class="terna">
       <div class="terna-voce"><span class="terna-eti">Merito</span><div>${s.validita.merito}</div></div>
       <div class="terna-voce"><span class="terna-eti">Limite</span><div>${s.validita.limite}</div></div>
       <div class="terna-voce"><span class="terna-eti">Esito</span><div>${s.validita.esito}</div></div>
-    </div>`, true));
+    </div>`));
 
   B.push(blocco(10, "Precorre", "verso che cosa apre",
     has(s.precorre) ? `<ul class="punti">${s.precorre.map(p => `<li><strong>${p.nome}</strong> — ${p.come}</li>`).join('')}</ul>` : null));
@@ -247,7 +253,7 @@ function rendiScuola(s, i) {
 
   B.push(blocco(12, "Errori", "da non fare",
     has(s.errori) ? `<div class="errori">${s.errori.map(e => `<div class="err">
-      <div class="err-no">${e.no}</div><div class="err-si">${e.si}</div></div>`).join('')}</div>` : null, true));
+      <div class="err-no">${e.no}</div><div class="err-si">${e.si}</div></div>`).join('')}</div>` : null));
 
   return `<section class="scheda">
     <div class="sk-testa">
@@ -275,19 +281,19 @@ function rendiConcetto(s, i) {
     has(s.definizioni) ? s.definizioni.map(d => `<div class="voce">
       <p class="voce-tit">${d.termine}</p>
       <div class="formula">${d.testo}</div>
-      ${d.glossa ? `<p class="glossa">${d.glossa}</p>` : ''}</div>`).join('') : null, true));
+      ${d.glossa ? `<p class="glossa">${d.glossa}</p>` : ''}</div>`).join('') : null));
 
   B.push(blocco(2, s.articolazione ? s.articolazione.titolo.split(',')[0] : "Articolazione", "il confronto",
     s.articolazione ? `<table class="griglia">
       <tr>${s.articolazione.colonne.map(c => `<th>${c}</th>`).join('')}</tr>
       ${s.articolazione.righe.map(r => `<tr>${r.map((c, k) => `<td${k === 0 ? ' style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)"' : ''}>${c}</td>`).join('')}</tr>`).join('')}
-    </table>` : null, true));
+    </table>` : null));
 
   B.push(blocco(3, "Scomposizione", "elemento per elemento",
     s.scomposizione ? `<p class="voce-meta">${s.scomposizione.titolo}</p>
       ${s.scomposizione.voci.map(v => `<div class="voce">
         <p class="voce-tit">${v.chiave}</p>
-        <p class="voce-testo">${v.valore}</p></div>`).join('')}` : null, true));
+        <p class="voce-testo">${v.valore}</p></div>`).join('')}` : null));
 
   B.push(blocco(4, "Perché serve", "la chiusura che alza il voto",
     s.percheServe ? `<p>${s.percheServe}</p>` : null));
@@ -297,7 +303,7 @@ function rendiConcetto(s, i) {
 
   B.push(blocco(6, "Errori", "da non fare",
     has(s.errori) ? `<div class="errori">${s.errori.map(e => `<div class="err">
-      <div class="err-no">${e.no}</div><div class="err-si">${e.si}</div></div>`).join('')}</div>` : null, true));
+      <div class="err-no">${e.no}</div><div class="err-si">${e.si}</div></div>`).join('')}</div>` : null));
 
   return `<section class="scheda">
     <div class="sk-testa">
@@ -339,9 +345,6 @@ const LEGENDA_CONCETTO = [
 
 /* ---------------- DOCUMENTO ---------------- */
 function documento(f) {
-  const soloConcetti = f.schede.every(s => s.tipo === 'concetto');
-  const legenda = soloConcetti ? LEGENDA_CONCETTO : LEGENDA_SCUOLA;
-
   return `<!doctype html><html lang="it"><head><meta charset="utf-8">
 <title>${f.titolo} — Psicologia Generale</title>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -354,19 +357,9 @@ function documento(f) {
     <h1 class="cop-titolo">${f.titolo}</h1>
     <p class="cop-sottotitolo">${f.sottotitolo}</p>
   </div>
-  <p class="cop-intro">${f.intro}</p>
 
-  <div class="legenda">
-    <p class="legenda-tit">Lo schema, uguale per ogni scheda</p>
-    <div class="legenda-corpo">
-      ${legenda.map(([k, v]) => `<p><b>${k}</b> · ${v}</p>`).join('')}
-    </div>
-  </div>
-</div>
-
-<div class="indice-pagina">
   <div class="cop-indice">
-    <p class="cop-indice-tit">Le ${f.schede.length} schede di questo fascicolo</p>
+    <p class="cop-indice-tit">Le ${f.schede.length} schede</p>
     ${f.schede.map((s, i) => `<div class="cop-voce">
       <span class="cop-voce-n">${String(i + 1).padStart(2, '0')}</span>
       <span><span class="cop-voce-nome">${s.nome}</span>

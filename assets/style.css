@@ -687,7 +687,6 @@ textarea {
 .fasc-n { font-family:var(--display); font-size:2rem; line-height:1; color:var(--accento); }
 .fasc-testa h2 { margin:0 0 .2rem; font-size:1.35rem; border:none; padding:0; }
 .fasc-sot { margin:0; font-family:var(--display); font-style:italic; color:var(--grafite); font-size:1rem; }
-.fasc-intro { font-size:.92rem; line-height:1.65; color:var(--grafite); margin:0 0 1rem; max-width:64ch; }
 .fasc-conta { display:flex; flex-wrap:wrap; gap:.4rem .9rem; font-family:var(--dati); font-size:.72rem;
   color:var(--grafite); padding:.6rem 0; border-top:1px solid var(--linea-fine);
   border-bottom:1px solid var(--linea-fine); margin-bottom:1rem; }

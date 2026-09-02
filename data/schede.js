@@ -31,7 +31,6 @@ PGE.schede.fascicoli.push({
   titolo: "La definizione di psicologia",
   sottotitolo: "Che cos'è, perché nasce tardi, con quale criterio si dice scientifica",
   lezione: "Lezione 1",
-  intro: "Il fascicolo copre la prima metà della Lezione 1. Non contiene scuole ma <strong>concetti</strong>, e perciò le schede seguono uno schema più corto: definizione, articolazione, perché serve, formule alla lettera, errori. Le schede delle scuole cominciano dal Fascicolo II.",
   schede: [
 
 /* ---------- F1.1 ---------- */
@@ -134,7 +133,6 @@ PGE.schede.fascicoli.push({
   titolo: "L'excursus storico",
   sottotitolo: "Dalle concezioni pre-scientifiche alla soglia del cognitivismo",
   lezione: "Lezioni 1 e 2",
-  intro: "Ogni scheda di scuola ha <strong>gli stessi dodici blocchi, nello stesso ordine</strong>. I blocchi non pertinenti restano visibili con un trattino, così la forma non cambia mai. Il criterio di lettura è quello del corso: <strong>oggetto → metodo → validità</strong>; e la domanda che tiene insieme la successione non è «che cosa viene dopo» ma <strong>«che cosa non funzionava prima»</strong>.",
   schede: [
 
 /* ---------- F2.1 — PRE-SCIENTIFICA ---------- */
@@ -844,7 +842,6 @@ PGE.schede.fascicoli.push({
   titolo: "La psicologia contemporanea",
   sottotitolo: "Dal cognitivismo alle neuroscienze e alle discipline collaterali",
   lezione: "Lezione 3",
-  intro: "Stesso schema del Fascicolo II. Con un'avvertenza: dalla terza scheda in poi <strong>non si descrivono più scuole</strong> — non esiste una scuola che si chiama «mente embodied», non c'è un fondatore dell'approccio biopsicosociale, e le neuroscienze non sono una corrente di pensiero ma un insieme di metodi. Si descrive l'<strong>assetto attuale della disciplina</strong>, e dirlo esplicitamente all'esame è il segno che si è capita la differenza fra la storia delle scuole e il presente della ricerca.",
   schede: [
 
 /* ---------- F3.1 — COGNITIVISMO ---------- */
