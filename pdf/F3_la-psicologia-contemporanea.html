@@ -1,0 +1,751 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8">
+<title>La psicologia contemporanea — Psicologia Generale</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 16mm 15mm 15mm 15mm; }
+
+:root {
+  --inchiostro: #14181d;
+  --grafite:    #55606c;
+  --tenue:      #7d8792;
+  --accento:    #12514d;
+  --segnale:    #9c3722;
+  --linea:      #c9cec6;
+  --linea-fine: #e2e5df;
+  --fondo:      #f5f6f2;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --testo:   "IBM Plex Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --dati:    "IBM Plex Mono", "SF Mono", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin:0; background:#fff; color-scheme: light;
+       font-family: var(--testo); font-size: 9.6pt; line-height: 1.52;
+       color: var(--inchiostro); }
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* ---- copertina ---- */
+.copertina { break-after: page; }
+.indice-pagina { break-after: page; }
+.cop-alto { border-bottom: 2.5pt solid var(--accento); padding-bottom: 6mm; }
+.cop-corso { font-family: var(--dati); font-size: 7.4pt; letter-spacing: .18em;
+             text-transform: uppercase; color: var(--grafite); margin: 0 0 14mm; }
+.cop-n { font-family: var(--display); font-size: 34pt; line-height:1; color: var(--accento); margin:0 0 2mm; }
+.cop-titolo { font-family: var(--display); font-size: 27pt; line-height: 1.1; margin: 0 0 3mm; font-weight: 500; }
+.cop-sottotitolo { font-family: var(--display); font-size: 13pt; font-style: italic;
+                   color: var(--grafite); margin: 0; font-weight: 400; }
+.cop-intro { font-size: 9.4pt; line-height: 1.62; color: var(--grafite); margin: 7mm 0 0; max-width: 145mm; }
+
+.cop-indice { margin-top: 0; }
+.cop-indice-tit { font-family: var(--dati); font-size: 7.2pt; letter-spacing: .16em;
+                  text-transform: uppercase; color: var(--grafite); margin: 0 0 4mm;
+                  border-bottom: .5pt solid var(--linea); padding-bottom: 2mm; }
+.cop-voce { display: grid; grid-template-columns: 12mm 1fr auto; gap: 3mm;
+            padding: 2.4mm 0; border-bottom: .5pt solid var(--linea-fine); align-items: baseline; }
+.cop-voce-n { font-family: var(--dati); font-size: 9pt; color: var(--accento); }
+.cop-voce-nome { font-family: var(--display); font-size: 11.5pt; }
+.cop-voce-riga { display:block; font-family: var(--testo); font-size: 8.4pt; color: var(--grafite);
+                 line-height:1.45; margin-top: .8mm; }
+.cop-voce-meta { font-family: var(--dati); font-size: 7.4pt; color: var(--tenue); white-space: nowrap; }
+
+.legenda { margin-top: 12mm; padding-top: 6mm; border-top: .5pt solid var(--linea); }
+.legenda-tit { font-family: var(--dati); font-size: 7.2pt; letter-spacing: .16em;
+               text-transform: uppercase; color: var(--grafite); margin: 0 0 3mm; }
+.legenda-corpo { columns: 2; column-gap: 8mm; font-size: 8.2pt; line-height: 1.5; color: var(--grafite); }
+.legenda-corpo p { margin: 0 0 1.6mm; break-inside: avoid; }
+.legenda-corpo b { color: var(--inchiostro); font-family: var(--dati); font-size: 7.6pt; }
+
+/* ---- scheda ---- */
+.scheda { break-before: page; }
+.scheda:first-of-type { break-before: auto; }
+
+.sk-testa { border-top: 2.5pt solid var(--accento); padding-top: 3mm; margin-bottom: 4mm; }
+.sk-occhiello { font-family: var(--dati); font-size: 7pt; letter-spacing: .16em;
+                text-transform: uppercase; color: var(--grafite); margin: 0 0 1.5mm;
+                display: flex; justify-content: space-between; }
+.sk-nome { font-family: var(--display); font-size: 20pt; line-height: 1.12; margin: 0 0 2mm; font-weight: 500; }
+.sk-unariga { font-size: 9.6pt; line-height: 1.5; color: var(--grafite); margin: 0 0 3mm; max-width: 155mm; }
+.sk-coord { display: flex; flex-wrap: wrap; gap: 0 6mm; font-family: var(--dati); font-size: 7.6pt;
+            color: var(--grafite); border-top: .5pt solid var(--linea-fine);
+            border-bottom: .5pt solid var(--linea-fine); padding: 1.8mm 0; }
+.sk-coord b { color: var(--accento); font-weight: 500; }
+
+/* blocco: etichetta a sinistra, contenuto a destra */
+.blocco { display: grid; grid-template-columns: 26mm 1fr; gap: 4mm;
+          padding: 3mm 0; border-bottom: .5pt solid var(--linea-fine); break-inside: avoid; }
+.blocco.lungo { break-inside: auto; }
+.bl-eti { font-family: var(--dati); font-size: 7pt; letter-spacing: .1em; text-transform: uppercase;
+          color: var(--accento); line-height: 1.4; padding-top: .6mm; }
+.bl-eti span { display: block; color: var(--tenue); font-size: 6.4pt; letter-spacing: .06em; }
+.bl-corpo > *:first-child { margin-top: 0; }
+.bl-corpo > *:last-child { margin-bottom: 0; }
+.bl-corpo p { margin: 0 0 2mm; }
+.bl-vuoto { color: var(--tenue); font-family: var(--dati); font-size: 8pt; }
+
+.formula { font-family: var(--display); font-size: 11pt; line-height: 1.45;
+           border-left: 2pt solid var(--accento); padding: 1mm 0 1mm 4mm; margin: 0 0 2.5mm; }
+.glossa { font-size: 8.8pt; line-height: 1.55; color: var(--grafite); margin: 0 0 2mm; }
+
+ul.punti { margin: 0 0 2mm; padding-left: 4.5mm; }
+ul.punti li { margin-bottom: 1.4mm; line-height: 1.5; }
+ul.punti li::marker { color: var(--accento); }
+
+.voce { break-inside: avoid; margin-bottom: 3mm; padding-bottom: 2.5mm;
+        border-bottom: .4pt dotted var(--linea); }
+.voce:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.voce-tit { font-family: var(--display); font-size: 11pt; font-weight: 500; margin: 0 0 1mm; }
+.voce-meta { font-family: var(--dati); font-size: 7.2pt; color: var(--tenue); margin: 0 0 1.4mm; }
+.voce-testo { margin: 0 0 1.5mm; line-height: 1.5; }
+
+.esponente { break-inside: avoid; margin-bottom: 4mm; padding: 2.5mm 3mm;
+             background: var(--fondo); border-left: 1.5pt solid var(--accento); }
+.esp-testa { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 3mm; margin-bottom: 1.2mm; }
+.esp-nome { font-family: var(--display); font-size: 11.5pt; font-weight: 500; }
+.esp-anni { font-family: var(--dati); font-size: 7.4pt; color: var(--tenue); }
+.esp-ruolo { font-family: var(--dati); font-size: 7.2pt; color: var(--accento);
+             text-transform: uppercase; letter-spacing: .06em; }
+.esp-chie { font-size: 9pt; line-height: 1.5; margin: 0 0 1.8mm; }
+.esp-sub { font-family: var(--dati); font-size: 6.6pt; letter-spacing: .12em; text-transform: uppercase;
+           color: var(--grafite); margin: 2mm 0 1mm; }
+.esp-nota { font-size: 8.4pt; line-height: 1.5; color: var(--grafite);
+            border-top: .4pt solid var(--linea); padding-top: 1.5mm; margin-top: 2mm; }
+
+.esperimento { break-inside: avoid; margin-bottom: 3.5mm; }
+.exp-nome { font-family: var(--display); font-size: 11pt; font-weight: 500; margin: 0 0 1.2mm; }
+.exp-riga { display: grid; grid-template-columns: 18mm 1fr; gap: 3mm; margin-bottom: 1.2mm; align-items: baseline; }
+.exp-eti { font-family: var(--dati); font-size: 6.6pt; letter-spacing: .1em; text-transform: uppercase;
+           color: var(--tenue); }
+.exp-riga ol { margin: 0; padding-left: 4.5mm; }
+.exp-riga ol li { margin-bottom: .8mm; }
+
+.terna { display: grid; gap: 2mm; }
+.terna-voce { display: grid; grid-template-columns: 16mm 1fr; gap: 3mm; align-items: baseline; }
+.terna-eti { font-family: var(--dati); font-size: 6.8pt; letter-spacing: .1em; text-transform: uppercase;
+             color: var(--accento); }
+
+table.griglia { width: 100%; border-collapse: collapse; font-size: 8.6pt; margin: 0 0 2mm; }
+table.griglia th { font-family: var(--dati); font-size: 6.8pt; letter-spacing: .1em;
+                   text-transform: uppercase; color: var(--grafite); text-align: left;
+                   border-bottom: .8pt solid var(--linea); padding: 1.5mm 2mm 1.5mm 0; vertical-align: bottom; }
+table.griglia td { padding: 1.8mm 2mm 1.8mm 0; border-bottom: .4pt solid var(--linea-fine);
+                   vertical-align: top; line-height: 1.45; }
+table.griglia tr:last-child td { border-bottom: none; }
+
+.errori { display: grid; gap: 1.8mm; }
+.err { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; break-inside: avoid;
+       padding-bottom: 1.8mm; border-bottom: .4pt dotted var(--linea); }
+.err:last-child { border-bottom: none; }
+.err-no  { color: var(--segnale); font-size: 8.8pt; line-height: 1.45; }
+.err-si  { font-size: 8.8pt; line-height: 1.45; }
+.err-no::before { content: "✗ "; font-family: var(--dati); }
+.err-si::before { content: "✓ "; font-family: var(--dati); color: var(--accento); }
+
+.contrasto { background: var(--fondo); border: .5pt solid var(--linea); padding: 3mm;
+             font-size: 9pt; line-height: 1.55; margin-top: 3mm; break-inside: avoid; }
+.chiuditura { margin-top: 4mm; padding-top: 3mm; border-top: 1.5pt solid var(--accento);
+              font-size: 9pt; line-height: 1.6; color: var(--grafite); break-inside: avoid; }
+</style></head><body>
+
+<div class="copertina">
+  <div class="cop-alto">
+    <p class="cop-corso">Psicologia Generale · SFO_PGE · Lezione 3</p>
+    <p class="cop-n">III</p>
+    <h1 class="cop-titolo">La psicologia contemporanea</h1>
+    <p class="cop-sottotitolo">Dal cognitivismo alle neuroscienze e alle discipline collaterali</p>
+  </div>
+  <p class="cop-intro">Stesso schema del Fascicolo II. Con un'avvertenza: dalla terza scheda in poi <strong>non si descrivono più scuole</strong> — non esiste una scuola che si chiama «mente embodied», non c'è un fondatore dell'approccio biopsicosociale, e le neuroscienze non sono una corrente di pensiero ma un insieme di metodi. Si descrive l'<strong>assetto attuale della disciplina</strong>, e dirlo esplicitamente all'esame è il segno che si è capita la differenza fra la storia delle scuole e il presente della ricerca.</p>
+
+  <div class="legenda">
+    <p class="legenda-tit">Lo schema, uguale per ogni scheda</p>
+    <div class="legenda-corpo">
+      <p><b>1 Perché nasce</b> · l'esigenza teorica lasciata aperta dalla scuola precedente</p><p><b>2 Radici</b> · le posizioni filosofiche o teoriche su cui poggia</p><p><b>3 Precursori</b> · chi le ha passato che cosa, e da quale tradizione</p><p><b>4 Oggetto</b> · che cosa studia, nella formulazione tecnica</p><p><b>5 Metodo</b> · come lo studia, con i vincoli operativi</p><p><b>6 Teorie</b> · gli enunciati che la scuola produce</p><p><b>7 Esponenti</b> · chi è ciascuno, che cosa ha fatto, quali teorie</p><p><b>8 Esperimenti</b> · disegno, risultato, significato</p><p><b>9 Validità</b> · merito, limite, esito</p><p><b>10 Precorre</b> · verso quali scuole successive apre</p><p><b>11 Formule</b> · le frasi da riprodurre alla lettera</p><p><b>12 Errori</b> · che cosa non dire, e che cosa dire al suo posto</p>
+    </div>
+  </div>
+</div>
+
+<div class="indice-pagina">
+  <div class="cop-indice">
+    <p class="cop-indice-tit">Le 5 schede di questo fascicolo</p>
+    <div class="cop-voce">
+      <span class="cop-voce-n">01</span>
+      <span><span class="cop-voce-nome">Il cognitivismo</span>
+        <span class="cop-voce-riga">L'unica scuola del corso che non nasce contro qualcuno: è la filiazione del cenocomportamentismo, per evoluzione naturale.</span></span>
+      <span class="cop-voce-meta">1967 (contributi decisivi negli anni '50) · L03</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">02</span>
+      <span><span class="cop-voce-nome">La scienza cognitiva: modularismo e connessionismo</span>
+        <span class="cop-voce-riga">Il cognitivismo si dà uno statuto epistemologico proprio, e si divide in due filoni: uno resta astratto, l'altro riporta il cervello dentro il modello.</span></span>
+      <span class="cop-voce-meta">anni '70-'80 · L03</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">03</span>
+      <span><span class="cop-voce-nome">La mente embodied e l'approccio biopsicosociale</span>
+        <span class="cop-voce-riga">Non è una scuola e non ha un fondatore: è l'assetto attuale della disciplina. Il cognitivismo non viene superato — si allarga.</span></span>
+      <span class="cop-voce-meta">dagli anni '60 a oggi · L03</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">04</span>
+      <span><span class="cop-voce-nome">Le neuroscienze comportamentali</span>
+        <span class="cop-voce-riga">L'approccio dominante nella psicologia attuale. Non una corrente di pensiero ma un insieme di metodi, reso possibile da una rivoluzione tecnologica.</span></span>
+      <span class="cop-voce-meta">oggi (precursori dagli anni '30) · L03</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">05</span>
+      <span><span class="cop-voce-nome">Le discipline collaterali</span>
+        <span class="cop-voce-riga">Quattro discipline che affiancano le neuroscienze, perché oggi la psicologia non è settoriale: si definisce integrando anziché restringendo.</span></span>
+      <span class="cop-voce-meta">oggi · L03</span>
+    </div>
+  </div>
+</div>
+
+<section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 1</span><span>S301</span></p>
+      <h2 class="sk-nome">Il cognitivismo</h2>
+      <p class="sk-unariga">L'unica scuola del corso che <strong>non nasce contro qualcuno</strong>: è la filiazione del cenocomportamentismo, per evoluzione naturale.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> 1967 (contributi decisivi negli anni '50)</span>
+        <span><b>Luogo</b> Stati Uniti</span>
+        <span><b>Lezione</b> L03</span>
+        <span><b>Manuale</b> cap. C13</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Il comportamentismo si è progressivamente ammorbidito: con Hull compare la variabile interveniente, con Tolman le rappresentazioni interne, con Hebb l'attività del SNC. Quando l'attenzione è ormai tutta rivolta ai processi interni, il divieto sull'interiorità è di fatto già caduto.</p><div class="formula">Non c'è contrapposizione netta nei principi epistemologici: c'è <strong>evoluzione naturale</strong>. Non serve una rivoluzione — serve un nome nuovo.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Cenocomportamentismo (Hebb)</p>
+      <p class="voce-meta">scuola</p>
+      <p class="voce-testo">Le variabili interne sono attività del sistema nervoso centrale: l'interiorità è già dentro la spiegazione.</p></div><div class="voce">
+      <p class="voce-tit">Informatica, cibernetica, intelligenza artificiale</p>
+      <p class="voce-meta">tecnologia</p>
+      <p class="voce-testo">Una macchina può <strong>elaborare informazioni</strong>, cioè svolgere il lavoro che si riteneva proprio della mente e del cervello umani.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Jean Piaget</strong></td><td>Psicologia evolutiva, Svizzera</td><td>Gli errori percettivi e cognitivi nei bambini: i processi mentali <strong>si sviluppano con l'età</strong>, diventando via via più sofisticati</td></tr><tr><td><strong>Noam Chomsky</strong></td><td>Psicolinguistica, USA</td><td>Contro Skinner: gli esseri umani sono <strong>biologicamente preprogrammati</strong> per apprendere il linguaggio, grazie a <strong>regole mentali</strong></td></tr><tr><td><strong>Frederic Bartlett</strong></td><td>Psicologia della memoria</td><td><strong>Schemi cognitivi</strong> nella memoria autobiografica: la memoria è un processo <strong>costruttivo</strong>, non passivo</td></tr><tr><td><strong>Donald Broadbent</strong></td><td>Psicologia dell'attenzione</td><td><strong>Teoria del filtro attentivo</strong>: un «collo di bottiglia» seleziona rigidamente l'informazione in entrata</td></tr><tr><td><strong>Vygotskij · Tolman · Hebb</strong></td><td>Storico-culturale · neo · cenocomportamentismo</td><td>I <strong>tre precursori</strong>: mediazione sociale e linguistica, rappresentazioni interne, substrato neurale. La loro eterogeneità è il punto — il cognitivismo nasce da una convergenza, non dalla vittoria di una scuola</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">I <strong>processi cognitivi</strong>: tutti i processi interni alla mente che portano all'emissione di un comportamento. È una <strong>psicologia totalmente mentalistica</strong>.</div><p class="glossa">Il paradosso vale la pena misurarlo: la scuola da cui il cognitivismo discende era nata dichiarando che l'interiorità <em>non è oggetto di scienza</em>; cinquant'anni dopo la sua erede diretta studia <strong>soltanto</strong> l'interiorità. Non per una sconfitta: per <strong>esaurimento interno del divieto</strong>.<br>Nella fase della scienza cognitiva l'oggetto si precisa come <strong>architettura funzionale</strong>: la <strong>struttura astratta</strong> che permette la realizzazione delle funzioni intellettive, <strong>prescindendo dalla sua base materiale</strong>.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Metodo simulativo</strong>, fondato sull'<strong>analogia mente-computer</strong>.</div>
+     <p class="glossa"><strong>Il pregio</strong>: dal punto di vista puramente metodologico è <strong>ineccepibile</strong>, perché fornisce un <strong>controllo assoluto di tutte le variabili</strong> — sono controllate da una macchina.<br><strong>Il salto epistemologico</strong>: i comportamentisti si erano rifiutati di analizzare concetti astratti come i processi cognitivi perché <em>non verificabili</em>. Con il computer diventa possibile <strong>verificare empiricamente qualcosa di astratto</strong>. Il divieto comportamentista non è stato confutato: è diventato <strong>tecnicamente superfluo</strong>.</p>
+     <ul class="punti"><li><strong>1.</strong> Il ricercatore formula un'<strong>ipotesi di funzionamento</strong> di una funzione cognitiva (per esempio come l'attenzione si relaziona con percezione e memoria).</li><li><strong>2.</strong> Ne costruisce un <strong>modello di funzionamento</strong>, tipicamente un diagramma di flusso.</li><li><strong>3.</strong> <strong>Implementa il modello nel computer.</strong></li><li><strong>4.</strong> Se la simulazione produce i risultati attesi, l'ipotesi è <strong>validata</strong>; altrimenti no.</li></ul></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Metafora mente-computer</p>
+      <p class="voce-testo">La mente viene assimilata a un <strong>elaboratore di informazioni</strong>. Il computer ha un hardware e vari software che mediano le funzioni; le componenti cognitive vengono disposte in un <strong>diagramma di flusso</strong> — processamenti sensoriali, percezione, attenzione, selezione delle risposte, memoria a breve e a lungo termine.</p>
+      <p class="glossa">L'informatica fornisce alla psicologia non solo un modello ma anche una <strong>terminologia tecnica</strong> che gli psicologi cominciano a usare.</p></div><div class="voce">
+      <p class="voce-tit">Lo span (Miller)</p>
+      <p class="voce-testo">Il <strong>numero di elementi</strong> che possono essere contenuti <strong>contemporaneamente</strong> nella <strong>memoria a breve termine</strong>, cioè il magazzino che consente di manipolare l'informazione in modo <strong>consapevole</strong>.</p>
+      <p class="glossa">Fu una scoperta rivoluzionaria per il periodo: pone un limite <em>quantitativo</em> a una funzione mentale.</p></div><div class="voce">
+      <p class="voce-tit">Problem solving (Newell e Simon)</p>
+      <p class="voce-testo">Si postula uno <strong>spazio problematico</strong> in cui si trovano vari elementi che il soggetto usa per arrivare a delle soluzioni; e le soluzioni, <strong>come nel computer</strong>, sono suscettibili di modifiche per avvicinarsi al risultato desiderato.</p>
+      </div><div class="voce">
+      <p class="voce-tit">Unità TOTE (Miller, Galanter, Pribram)</p>
+      <p class="voce-testo"><strong>T</strong>est → <strong>O</strong>perate → <strong>T</strong>est → <strong>E</strong>xit. Il comportamento pianificato viene <strong>testato</strong> (funziona per la finalità?), si apportano le <strong>modifiche</strong>, si <strong>ritesta</strong>; se si è soddisfatti si <strong>esce</strong> mettendolo in atto, altrimenti si torna a <em>Operate</em>.</p>
+      <p class="glossa">È uno schema a <strong>feedback retroattivo</strong> modellato sul computer. <strong>Che cosa sostituisce</strong>: prende il posto della <strong>connessione S-R</strong> come unità di analisi. Al posto di un legame fisso c'è un <strong>ciclo con retroazione</strong>: il comportamento non è <em>emesso</em>, è <strong>progettato, verificato e corretto</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Critica ecologica (Neisser)</p>
+      <p class="voce-testo">La ricerca psicologica <strong>si è allontanata dalla realtà</strong>: non analizza i processi cognitivi come avvengono nella <strong>vita quotidiana</strong>, ma li riduce all'ambito <strong>artificiale del laboratorio</strong>. Proposta: l'<strong>approccio ecologico</strong>, che recuperi la <strong>funzione adattativa</strong> dei processi psichici e la loro modificazione grazie all'interazione con l'ambiente.</p>
+      <p class="glossa">La simmetria è istruttiva: il metodo simulativo è ineccepibile <em>quanto a controllo delle variabili</em>, ed è proprio per questo che perde la realtà — è così controllato da misurare qualcosa che fuori dal laboratorio non esiste. La terna oggetto-metodo-validità funziona anche qui, e stavolta è la <strong>validità ecologica</strong> a cedere. E «funzione adattativa» e «interazione con l'ambiente» sono le parole del <strong>funzionalismo</strong>: settant'anni dopo, la stessa esigenza rientra dalla porta principale.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Jean Piaget</span>
+        <span class="esp-anni">1896-1980</span>
+        <span class="esp-ruolo">Precursore · psicologia evolutiva</span>
+      </div>
+      <p class="voce-meta">Svizzera</p>
+      <p class="esp-chie">Apre un filone di studi sugli errori percettivi e cognitivi nei bambini piccoli, e ne ricava che i processi mentali si sviluppano con l'età.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Conduce esperimenti sulla <strong>costanza percettiva</strong> nei bambini.</li><li>Deduce che la <strong>costanza della quantità</strong> è un'abilità acquisita <strong>più tardi</strong> nel tempo — e così molte altre.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Sviluppo dei processi mentali</strong> — I processi mentali dei bambini si sviluppano con l'età, diventando via via più sofisticati.</li></ul>
+      <p class="esp-nota">Il legame con il cognitivismo: il bambino non ha <em>meno esperienza</em> dell'adulto, ha <strong>strutture cognitive diverse</strong>. Se le stesse informazioni sensoriali producono risposte diverse a età diverse, allora fra stimolo e risposta c'è qualcosa che cambia nel tempo — ed è precisamente ciò che il comportamentismo aveva vietato di studiare.</p>
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Noam Chomsky</span>
+        <span class="esp-anni">1928</span>
+        <span class="esp-ruolo">Precursore · figura di frontiera</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie">Psicolinguista americano. Accende un forte dibattito con <strong>Skinner</strong> sull'acquisizione del linguaggio.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Contro la tesi di Skinner — il linguaggio come frutto del <strong>condizionamento ambientale</strong>, acquisito per esposizione ai suoni della lingua madre — sostiene che gli esseri umani hanno una <strong>predisposizione innata</strong>.</li><li>Afferma che i bambini arrivano a parlare grazie a <strong>regole mentali</strong>, possedute anche dagli adulti, che consentono di comprendere e produrre linguaggio.</li><li>Presenta la propria teoria del linguaggio al <strong>simposio del 1956</strong>.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Predisposizione innata al linguaggio</strong> — <strong>Argomento decisivo</strong>: i bambini, appena cominciano a parlare, producono <strong>frasi e parole a cui non sono mai stati esposti</strong>. Un condizionamento può riprodurre solo ciò che è stato presentato; la produzione di forme nuove richiede regole generative interne.</li></ul>
+      <p class="esp-nota">Chomsky contro Skinner è <strong>innatismo contro empirismo</strong>: la stessa opposizione Kant/Locke che separava Gestalt e comportamentismo, riemersa a mezzo secolo di distanza su un oggetto nuovo.</p>
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Frederic Bartlett</span>
+        <span class="esp-anni">1886-1969</span>
+        <span class="esp-ruolo">Precursore · memoria</span>
+      </div>
+      <p class="voce-meta">Regno Unito</p>
+      <p class="esp-chie">Studia la memoria autobiografica con il vocabolario dell'elaborazione dell'informazione.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Sostiene che possediamo <strong>schemi cognitivi</strong> con cui apprendiamo nuovi elementi, che si incastrano con quelli già acquisiti.</li><li>Ne ricava che la memoria è un percorso <strong>costruttivo</strong>, e non passivo come ritenevano i comportamentisti.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Schemi cognitivi</strong> — La memoria non registra: costruisce, incastrando il nuovo nel già acquisito.</li></ul>
+      <p class="esp-nota">«Costruttivo e non passivo» è la stessa cosa che <strong>von Helmholtz</strong> diceva della percezione nel 1860 con l'<strong>inferenza inconscia</strong>. Il filo della costruzione attraversa tutto il corso: Helmholtz → Gestalt → Bartlett → cognitivismo.<br><strong>[N.d.R.]</strong> la registrazione rende il nome come «Bastlet»: la grafia corretta è <strong>Bartlett</strong>.</p>
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Donald Broadbent</span>
+        <span class="esp-anni">1926-1993</span>
+        <span class="esp-ruolo">Precursore · attenzione</span>
+      </div>
+      <p class="voce-meta">Regno Unito</p>
+      <p class="esp-chie">Inaugura con i suoi allievi un filone di studi sull'attenzione con l'approccio dell'elaborazione dell'informazione.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Formula la <strong>teoria del filtro attentivo</strong>.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Filtro attentivo</strong> — Nel processo di elaborazione c'è un <strong>filtro</strong>, un <strong>collo di bottiglia</strong>, in cui l'informazione in entrata subisce una <strong>selezione molto rigida</strong>, così che venga elaborata solo una piccola parte del totale.</li></ul>
+      <p class="esp-nota"><strong>[N.d.R.]</strong> la registrazione rende il nome come «Bradbent» o «Broadband»: la grafia corretta è <strong>Broadbent</strong>.</p>
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">George Miller</span>
+        <span class="esp-anni">1920-2012</span>
+        <span class="esp-ruolo">Esponente</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie">Compare due volte nella storia della scuola: al simposio del 1956 e come coautore del TOTE.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Studia la <strong>memoria a breve termine</strong> e identifica lo <strong>span</strong>.</li><li>Con <strong>Galanter</strong> e <strong>Pribram</strong> mette a punto l'<strong>unità TOTE</strong>.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Span di memoria</strong> — Contemporaneamente nel magazzino a breve termine ci stanno solo pochi elementi, e soltanto quelli possono essere elaborati.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Allen Newell e Herbert Simon</span>
+        <span class="esp-anni">1927-1992 · 1916-2001</span>
+        <span class="esp-ruolo">Esponenti</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie">Si occupano per la prima volta di <strong>problem solving</strong>, cioè della capacità della mente umana di risolvere problemi.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Postulano l'esistenza di uno <strong>spazio problematico</strong>.</li><li>Studiano i fenomeni psichici utilizzando il modo in cui il computer elabora le informazioni.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Spazio problematico</strong> — Le soluzioni sono suscettibili di modifiche successive per avvicinarsi al risultato desiderato.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Ulric Neisser</span>
+        <span class="esp-anni">1928-2012</span>
+        <span class="esp-ruolo">Autore del manifesto · e suo primo critico</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie">L'unica figura del corso che <strong>critica la scuola di cui aveva scritto il manifesto</strong>.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Sintetizza le scoperte di intelligenza artificiale, linguistica e psicologia evolutiva nel volume <strong><em>Cognitive Psychology</em> (1967)</strong>, considerato ufficialmente il <strong>manifesto</strong> della psicologia cognitivista.</li><li>Formula poi la <strong>critica ecologica</strong> all'approccio <strong>Human Information Processing</strong>, e si fa promotore dell'<strong>approccio ecologico</strong>.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Approccio ecologico</strong> — Introdurre nel cognitivismo la funzione adattativa dei processi psichici e la loro modificazione grazie all'interazione con l'ambiente.</li></ul>
+      <p class="esp-nota"><strong>Il manifesto è un collage.</strong> Neisser «non fece altro che un'opera di collage» di cose già in essere: la nascita del 1967 è una <strong>ratifica</strong>, non un inizio. Per la <strong>terza volta</strong> nel corso una scuola nasce quando qualcuno le dà un nome — dopo Titchener e dopo il manifesto funzionalista.</p>
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">L'esperimento della creta (Piaget)</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Bambini di <strong>tre anni</strong>.</li><li>Due mucchietti di creta, uno più grande e uno più piccolo.</li><li>Si chiede al bambino di <strong>renderli uguali</strong>: lui sposta creta dall'uno all'altro e li pareggia — <em>fin qui il compito riesce</em>.</li><li>Piaget divide la creta di uno dei due mucchietti in <strong>tante piccole palline</strong>.</li><li>Si chiede quale porzione sia ora maggiore.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Il bambino risponde: <strong>quella con più palline</strong>. Non è in grado di capire che la quantità è rimasta la stessa nonostante la divisione.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>La <strong>costanza della quantità</strong> è un'abilità percettiva acquisita <strong>più tardi</strong> nel tempo. Per il cognitivismo: se le stesse informazioni sensoriali producono risposte diverse a età diverse, fra stimolo e risposta c'è qualcosa che cambia — ed è ciò che il comportamentismo vietava di studiare.</div></div>
+    </div><div class="esperimento">
+      <p class="exp-nome">Il simposio sulla teoria dell'informazione (1956)</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Partecipano matematici, fisici <strong>e psicologi</strong>.</li><li>Tre interventi restano nella storia.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div><strong>Miller</strong> presenta lo <strong>span</strong> della memoria a breve termine. <strong>Newell e Simon</strong> presentano il <strong>problem solving</strong> e lo spazio problematico. <strong>Chomsky</strong> presenta la <strong>teoria del linguaggio</strong>.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Nel simposio si vede la mossa che fonda la scuola: tre oggetti diversissimi — <strong>memoria, ragionamento, linguaggio</strong> — trattati con <strong>lo stesso vocabolario</strong>, quello dell'elaborazione dell'informazione. Non è la scoperta di un fatto: è l'<strong>adozione di un linguaggio comune</strong>. Le scuole nascono quasi sempre così.</div></div>
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Rende <strong>empiricamente verificabile</strong> ciò che era considerato inaccessibile: per la prima volta si possono testare modelli di funzionamento di processi astratti. Metodologicamente <strong>ineccepibile</strong> quanto a controllo delle variabili.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div><strong>Scarsa validità ecologica</strong>: la ricerca si allontana dalla vita quotidiana e indaga i processi cognitivi solo in laboratorio. La critica viene dall'interno, da Neisser stesso.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div><strong>Non tramonta.</strong> È tuttora in essere: si è soltanto <strong>allargato</strong>, ha preso un respiro diverso — la mente embodied e l'approccio biopsicosociale.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Scienza cognitiva</strong> — modularismo e connessionismo ne sono i due filoni</li><li><strong>Mente embodied</strong> — non lo supera: lo <strong>allarga</strong>, rimettendo la mente dentro un corpo e dentro un ambiente</li><li><strong>Neuroscienze cognitive</strong> — attraverso l'approccio biopsicosociale</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Una psicologia totalmente mentalistica.</div><div class="formula">Gli esseri umani sono biologicamente preprogrammati per apprendere il linguaggio.</div><div class="formula">L'architettura funzionale: la struttura astratta che permette le funzioni intellettive, prescindendo dalla sua base materiale.</div><div class="formula">La ricerca psicologica si è allontanata dalla realtà.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Il cognitivismo nasce come reazione al comportamentismo»</div><div class="err-si">È la <strong>filiazione</strong> del cenocomportamentismo: <strong>evoluzione naturale</strong>, non reazione. È l'unica scuola che non nasce contro qualcuno</div></div><div class="err">
+      <div class="err-no">«Neisser ha fondato il cognitivismo»</div><div class="err-si">Ne ha scritto il <strong>manifesto</strong>, che è «un'opera di collage» — ed è poi <strong>lui stesso</strong> a criticarlo</div></div><div class="err">
+      <div class="err-no">«Il metodo simulativo era metodologicamente debole»</div><div class="err-si">Era <strong>ineccepibile</strong>: il limite è di <strong>validità ecologica</strong>, non di controllo</div></div><div class="err">
+      <div class="err-no">«Le neuroscienze hanno superato il cognitivismo»</div><div class="err-si">Il cognitivismo è <strong>tuttora in essere</strong>: si è <strong>allargato</strong></div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 2</span><span>S302</span></p>
+      <h2 class="sk-nome">La scienza cognitiva: modularismo e connessionismo</h2>
+      <p class="sk-unariga">Il cognitivismo si dà uno statuto epistemologico proprio, e si divide in due filoni: uno resta astratto, l'altro riporta il cervello dentro il modello.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> anni '70-'80</span>
+        <span><b>Luogo</b> Stati Uniti</span>
+        <span><b>Lezione</b> L03</span>
+        <span><b>Manuale</b> cap. C13</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Dopo la critica ecologica il cognitivismo ha bisogno di ridefinirsi. Viene fondata una rivista dedicata, <em>Cognitive Science</em>, e per la prima volta si esamina dal punto di vista <strong>epistemologico</strong> la natura della nuova scienza.</p><div class="formula">Lo scopo: <strong>stabilire come le conoscenze sono codificate dalla mente</strong>.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Cognitivismo</p>
+      <p class="voce-meta">scuola</p>
+      <p class="voce-testo">I processi cognitivi sono l'oggetto proprio della psicologia.</p></div><div class="voce">
+      <p class="voce-tit">Teoria dei sistemi dinamici complessi</p>
+      <p class="voce-meta">fisica e matematica</p>
+      <p class="voce-testo">Un sistema con molte unità interconnesse esibisce comportamenti globali non riducibili alle singole unità — modello per il cervello (solo per il connessionismo).</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Neisser</strong></td><td>Cognitivismo</td><td>La critica ecologica che impone la ridefinizione</td></tr><tr><td><strong>Hebb</strong></td><td>Cenocomportamentismo</td><td>Il modello neurale che il connessionismo riprenderà — dopo che la prima fase lo aveva messo fra parentesi</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">L'<strong>architettura funzionale</strong>: la <strong>struttura astratta</strong> che permette la realizzazione delle funzioni intellettive, <strong>prescindendo dalla sua base materiale</strong>.</div><p class="glossa"><strong>Il paradosso da notare</strong>: il cognitivismo nasce dal cenocomportamentismo, cioè dalla fase in cui <strong>Hebb</strong> aveva finalmente portato il sistema nervoso centrale dentro la spiegazione psicologica. E la prima mossa della scienza cognitiva è <strong>rimuoverlo di nuovo</strong>, per studiare la funzione allo stato puro. Il connessionismo sarà il movimento che lo rimette dentro.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Modellizzazione formale dell'architettura mentale, con verifica per simulazione.</div>
+     <p class="glossa">Entrambi i filoni costruiscono modelli astratti; differiscono per il <strong>riferimento o meno alla struttura del cervello</strong>.</p>
+     </div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Modularismo (Fodor)</p>
+      <p class="voce-testo">L'attività della mente consiste nell'<strong>elaborazione di rappresentazioni interne</strong>: per operare in un ambiente, la mente deve <strong>rappresentarlo internamente</strong>. Tre stadi: <strong>1. trasduttori</strong>, che convertono gli stimoli ambientali (visivi, tattili, chimici) in rappresentazioni interne manipolabili; <strong>2. moduli</strong>, cioè i sistemi di input — «capsule» di informazione che lavorano in modo <strong>automatico e parallelo</strong>; <strong>3. sistemi centrali</strong>, che ricevono gli output dei moduli e li <strong>integrano</strong>.</p>
+      <p class="glossa">L'elaborazione procede <strong>prima in serie</strong> attraverso le capsule, <strong>poi viene integrata</strong> dalle strutture centrali. Resta un modello <strong>puramente astratto</strong>: non fa riferimento al cervello.</p></div><div class="voce">
+      <p class="voce-tit">Connessionismo (scienza cognitiva)</p>
+      <p class="voce-testo">L'architettura mentale è concepita come una <strong>rete di unità di elaborazione omogenee</strong>. Le unità ricalcano la funzionalità dei <strong>neuroni</strong>, che comunicano in modo <strong>divergente</strong> (da un neurone verso molti altri) e <strong>convergente</strong> (raccogliendo informazione da molti altri). Tre tipi di unità: <strong>input</strong>, che recepiscono le informazioni in ingresso; <strong>nascoste</strong>, che mediano il flusso; <strong>output</strong>, responsabili dell'emissione del comportamento.</p>
+      <p class="glossa">È il <strong>primo tentativo</strong>, dentro la scienza cognitiva, di considerare la <strong>base materiale</strong> delle funzioni cognitive: continua a fare ipotesi astratte, ma <strong>facendo riferimento alla struttura e al funzionamento del cervello</strong>. La docente precisa che è una teoria «estremamente complicata» e che <strong>non va studiata nel dettaglio</strong>: basta riconoscerne la mossa — <strong>riportare il cervello dentro il modello</strong>.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Jerry Fodor</span>
+        <span class="esp-anni">1935-2017</span>
+        <span class="esp-ruolo">Fondatore del modularismo</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie">Introduce il modularismo, il filone più importante della scienza cognitiva nella sua fase astratta.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Postula l'esistenza di <strong>trasduttori</strong> che convertono gli stimoli in rappresentazioni interne.</li><li>Definisce i <strong>moduli</strong> come capsule di input che lavorano in modo automatico e parallelo.</li><li>Postula i <strong>sistemi centrali</strong> che ricevono gli output dei moduli e li integrano.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Modularismo</strong> — L'attività della mente è elaborazione di rappresentazioni interne, incapsulate in moduli e poi integrate.</li></ul>
+      
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Dà al cognitivismo uno <strong>statuto epistemologico</strong> esplicito, e con il connessionismo riapre la strada al substrato biologico.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Il modularismo resta <strong>puramente astratto</strong> — la scienza cognitiva di quegli anni «era cervellotica», esasperando l'astrattismo dei concetti. Il connessionismo è di complessità elevatissima.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Entrambi i filoni confluiscono nel passaggio alla <strong>mente embodied</strong>, dove l'astrattismo viene definitivamente corretto.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Mente embodied</strong> — il connessionismo apre la strada, riportando la base materiale dentro il modello</li><li><strong>Reti neurali artificiali</strong> — il connessionismo ne è l'antenato concettuale</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">L'architettura funzionale: la struttura astratta che permette le funzioni intellettive, prescindendo dalla sua base materiale.</div><div class="formula">Una rete di unità di elaborazione omogenee.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Il connessionismo è quello di Thorndike»</div><div class="err-si">Sono <strong>due cose diverse</strong>: Thorndike (L01) parla di connessioni <strong>situazione-risposta</strong>; la scienza cognitiva (L03) di <strong>reti di unità di elaborazione</strong>. Stessa parola, due paradigmi</div></div><div class="err">
+      <div class="err-no">Confondere i moduli di Fodor con i moduli della psicologia evoluzionistica</div><div class="err-si">In Fodor sono <strong>capsule di elaborazione dell'input</strong>, definite per il loro funzionamento; nella psicologia evoluzionistica sono <strong>competenze specializzate</strong>, definite per la loro <strong>origine adattativa</strong></div></div><div class="err">
+      <div class="err-no">Attribuire al modularismo l'attenzione al substrato</div><div class="err-si">È il <strong>connessionismo</strong> a riportare il cervello nel modello; il modularismo resta astratto</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 3</span><span>S303</span></p>
+      <h2 class="sk-nome">La mente embodied e l'approccio biopsicosociale</h2>
+      <p class="sk-unariga">Non è una scuola e non ha un fondatore: è l'assetto attuale della disciplina. Il cognitivismo non viene superato — si <strong>allarga</strong>.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> dagli anni '60 a oggi</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L03</span>
+        <span><b>Manuale</b> cap. C14</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>La scienza cognitiva studiava l'architettura funzionale <em>prescindendo dalla base materiale</em>. Ma non si può prescindere dal fatto che i processi cognitivi si svolgano in una <strong>mente</strong> basata sul funzionamento di un <strong>cervello</strong>, che è un <strong>organo</strong>, che fa parte di un <strong>corpo</strong> — e che subisce quindi influenze non puramente cerebrali.</p><div class="formula">L'esigenza — già emergente <strong>negli anni Sessanta</strong> — è uno <strong>studio integrato della complessità mente-cervello</strong>, che indaghi sia le architetture cognitive sia quelle cerebrali necessarie all'uomo per interagire con la realtà esterna.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Approccio ecologico (Neisser)</p>
+      <p class="voce-meta">metodo</p>
+      <p class="voce-testo">Le competenze cognitive non sono studiabili in isolamento ma solo in interazione con l'ambiente.</p></div><div class="voce">
+      <p class="voce-tit">Darwin</p>
+      <p class="voce-meta">biologia</p>
+      <p class="voce-testo">La mente è frutto dell'adattamento: la selezione naturale ha sviluppato competenze adattate alle richieste ambientali.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Cognitivismo</strong></td><td>1967</td><td>Non viene superato: si allarga. Resta l'elaborazione cognitiva come una delle tre prospettive</td></tr><tr><td><strong>Neisser</strong></td><td>Approccio ecologico</td><td>Il secondo corollario è una sua formulazione diretta</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">La <strong>mente incarnata</strong> (<em>embodied</em>): la mente in quanto integrata in un cervello, in un corpo e in un ambiente fisico e sociale.</div><p class="glossa"><strong>La catena che giustifica l'aggettivo</strong>, da dire per intero: <strong>mente → cervello → organo → corpo</strong>. Ogni anello aggiunge un livello di determinazione che la scienza cognitiva della prima fase aveva deliberatamente messo fra parentesi.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Approccio biopsicosociale</strong>: la questione psicologica è indagata attraverso <strong>tre prospettive</strong>.</div>
+     <p class="glossa">Le tre prospettive non sono tre discipline messe accanto: sono <strong>tre eredità dell'excursus</strong> finalmente tenute insieme — la biologica viene da Darwin e da Hebb, la psicologica dal cognitivismo e dalla tradizione clinica, la socioculturale da Vygotskij e dalla psicologia sociale di Lewin.</p>
+     <ul class="punti"><li><strong>Prospettiva biologica</strong> — selezione naturale di <strong>tratti adattivi</strong>; <strong>predisposizioni genetiche</strong> di alcuni tratti cognitivi; <strong>meccanismi cerebrali</strong>, cioè il substrato biologico che media determinate funzioni; <strong>influenze ormonali</strong>, perché il cervello è integrato in un corpo e non va studiato a sé stante.</li><li><strong>Prospettiva psicologica</strong> — <strong>paure apprese</strong> e <strong>aspettative</strong>; il substrato <strong>emotivo</strong> oltre che cognitivo; l'<strong>elaborazione cognitiva</strong> vera e propria e l'<strong>interpretazione percettiva</strong>, cioè ciò che i cognitivisti studiavano.</li><li><strong>Prospettiva socioculturale</strong> — presenza degli <strong>altri</strong> e dei <strong>pari</strong>; aspettative <strong>sociali, culturali, familiari</strong>; influenze dei <strong>gruppi sociali</strong>; <strong>modelli persuasivi</strong> che arrivano dall'ambiente.</li></ul></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Primo corollario</p>
+      <p class="voce-testo"><strong>La mente ha un corpo</strong>: è integrata, incarnata in una struttura cerebrale.</p>
+      </div><div class="voce">
+      <p class="voce-tit">Secondo corollario</p>
+      <p class="voce-testo">Le <strong>competenze cognitive non si studiano isolate</strong>: come diceva Neisser, non sono descrivibili in modo isolato e a sé stante, ma <strong>soltanto in azione e in interazione</strong> con un ambiente circostante, fisico o sociale.</p>
+      </div><div class="voce">
+      <p class="voce-tit">Terzo corollario</p>
+      <p class="voce-testo"><strong>La mente è relazionale</strong>: non può essere studiata soltanto come una <strong>macchina di pensiero</strong>, ma come qualcosa in relazione con il complesso sistema che circonda il cervello — corpo, ambiente fisico, ambiente sociale.</p>
+      <p class="glossa"><strong>Conseguenza operativa</strong>: oggi lo studio basato <em>soltanto</em> sull'intelligenza artificiale non ha più molto senso per spiegare i processi cognitivi. Va <strong>integrato</strong> con altri punti di vista.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>È l'assetto che consente di tenere insieme livelli di analisi che l'excursus aveva prodotto separatamente. Corregge l'astrattismo della scienza cognitiva senza rinunciare ai suoi strumenti.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Non è una teoria unificata ma un <strong>quadro di integrazione</strong>: non fornisce di per sé né un metodo unico né predizioni.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>È l'assetto <strong>attuale</strong> della disciplina, e si realizza operativamente nelle neuroscienze comportamentali.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Neuroscienze comportamentali</strong> — ne sono la <strong>prospettiva biologica realizzata</strong></li><li><strong>Discipline collaterali</strong> — coprono le prospettive psicologica e socioculturale</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">La mente ha un corpo; le competenze cognitive sono descrivibili solo in azione e in interazione; la mente è relazionale.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Le neuroscienze hanno superato il cognitivismo»</div><div class="err-si">Il cognitivismo è <strong>tuttora in essere</strong>: si è <strong>allargato</strong></div></div><div class="err">
+      <div class="err-no">Elencare i tre corollari senza la catena che li giustifica</div><div class="err-si"><strong>Mente → cervello → organo → corpo</strong>: è l'argomento, non un preambolo</div></div><div class="err">
+      <div class="err-no">Confondere le tre prospettive con le tre espansioni delle neuroscienze</div><div class="err-si"><strong>Biologica, psicologica, socioculturale</strong> ≠ <strong>cognitive, affettive, relazionali</strong></div></div></div></div>
+  </div>
+    <div class="chiuditura"><strong>Il cerchio che si chiude sulla definizione.</strong> Nel Fascicolo I la definizione attuale diceva: studio scientifico del comportamento e dei processi mentali <strong>dell'essere vivente nel suo rapporto con l'ambiente</strong>, mentre lo <strong>esperisce</strong>, vi <strong>agisce</strong> e lo <strong>rappresenta</strong>. I tre corollari della mente embodied sono quella definizione riletta dall'altro capo di centoquarant'anni: il corpo che esperisce, l'azione nell'ambiente, la rappresentazione relazionale.</div>
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 4</span><span>S304</span></p>
+      <h2 class="sk-nome">Le neuroscienze comportamentali</h2>
+      <p class="sk-unariga">L'approccio <strong>dominante</strong> nella psicologia attuale. Non una corrente di pensiero ma un insieme di metodi, reso possibile da una rivoluzione tecnologica.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> oggi (precursori dagli anni '30)</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L03</span>
+        <span><b>Manuale</b> cap. C14</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Il problema del rapporto mente-cervello era stato posto già alla nascita della psicologia scientifica, ma <strong>non decollò</strong> — e per una ragione <strong>tecnica</strong>, non teorica: <strong>non c'erano gli strumenti tecnologici adatti</strong>.</p><div class="formula">L'esigenza è realizzare la <strong>prospettiva biologica</strong> dell'approccio biopsicosociale: analizzare <strong>direttamente il rapporto mente-cervello alla base del comportamento</strong>.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Approccio biopsicosociale</p>
+      <p class="voce-meta">quadro</p>
+      <p class="voce-testo">La questione psicologica va indagata anche dal lato biologico: meccanismi cerebrali, predisposizioni genetiche, influenze ormonali.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Karl Lashley</strong></td><td>Psicologia comparata</td><td>Labirinti nei ratti e <strong>asportazione chirurgica</strong>: cerca la zona che media l'apprendimento spaziale e <strong>non la trova</strong></td></tr><tr><td><strong>Donald Hebb</strong></td><td>Cenocomportamentismo</td><td>La connessione fra neuroni si rafforza <strong>in funzione dell'esperienza</strong>: i primi rudimentali concetti di <strong>plasticità neuronale</strong></td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">I <strong>processi cerebrali</strong> e le <strong>altre funzioni fisiologiche che sono all'origine del comportamento</strong>. Dette anche <strong>psicologia fisiologica</strong> o <strong>psicofisiologia</strong>.</div><p class="glossa"><strong>Estensione dell'oggetto</strong>: coprono tutta la scala del comportamento — da quelli <strong>semplici</strong> (esperienze sensoriali, bisogni di base: fame, sete, comportamenti riproduttivi) a quelli <strong>complessi</strong>, mediati dalle funzioni cognitive superiori (intelligenza, ragionamento, linguaggio).</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Reso possibile dalla <strong>rivoluzione tecnologica</strong>, su quattro fronti.</div>
+     <p class="glossa"><strong>Il salto decisivo</strong> sta nella neuroimmagine funzionale: i soggetti sperimentali <strong>svolgono compiti cognitivi</strong> — di memoria, di attenzione — e <strong>allo stesso tempo</strong> se ne analizza l'attività cerebrale e le circuitazioni. Si studia dunque il legame fra processi cognitivi superiori e attività cerebrale <strong>in vivo, nell'uomo, mentre esegue compiti</strong>.<br>Il confronto con Lashley chiarisce la portata: dove prima si doveva <strong>distruggere</strong> tessuto in un animale per inferire una funzione, ora si <strong>osserva</strong> la funzione mentre accade, in una persona sveglia, senza toccarla.</p>
+     <ul class="punti"><li><strong>Microscopia avanzata</strong>, messa a punto con teorie fisiche e matematiche: consente di studiare non solo l'assetto neuronale <strong>macroscopico</strong>, cioè le cellule che interagiscono, ma anche i <strong>processi molecolari</strong> che avvengono all'interno delle <strong>sinapsi</strong>, lo strumento con cui i neuroni comunicano.</li><li><strong>Registrazione dell'attività elettrica</strong>: apparecchi che rispondono alle <strong>onde cerebrali</strong>, per studiare l'attività elettrica <strong>macroscopica e microscopica</strong> — anche ciò che non è visibile a occhio nudo.</li><li><strong>Neuroimmagine strutturale</strong>: studia <strong>in vivo</strong> — nell'uomo vivo, senza operare animali né analizzare reperti autoptici — la <strong>struttura</strong> del cervello. Esempi: <strong>TAC</strong>, <strong>risonanza magnetica</strong>.</li><li><strong>Neuroimmagine funzionale</strong>: studia la <strong>funzione</strong> oltre alla struttura. Esempi: <strong>PET</strong>, <strong>risonanza magnetica funzionale</strong>.</li></ul></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Le tre espansioni</p>
+      <p class="voce-testo">Le neuroscienze comportamentali sono il <strong>contenitore più ampio</strong> e oggi comprendono: <strong>neuroscienze cognitive</strong> (i processi cerebrali in relazione alle <strong>funzioni superiori</strong>, quelle che ci permettono di adattarci meglio all'ambiente); <strong>neuroscienze affettive</strong> (in relazione a tutto ciò che è <strong>emotivo</strong>); <strong>neuroscienze relazionali</strong> (in relazione ai <strong>processi relazionali</strong> con le altre persone).</p>
+      <p class="glossa">La direzione dell'espansione non è casuale: <strong>cognitive → affettive → relazionali</strong> ricalca le tre prospettive del biopsicosociale viste dal lato biologico — il pensiero, l'emozione, il legame sociale.</p></div><div class="voce">
+      <p class="voce-tit">Plasticità neuronale (Hebb)</p>
+      <p class="voce-testo">Se dei neuroni comunicano in modo connesso, la <strong>connessione fra loro si rafforza in funzione dell'esperienza</strong>.</p>
+      <p class="glossa">Sono i primi, rudimentali concetti di plasticità, formulati ancora in modo molto acerbo perché mancavano gli strumenti.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Karl Lashley</span>
+        <span class="esp-anni">1890-1958</span>
+        <span class="esp-ruolo">Precursore</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie">Studia l'apprendimento nei ratti con l'approccio comparato della psicologia animale. Il suo <strong>fallimento</strong> è istruttivo quanto un successo.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Fa percorrere <strong>labirinti</strong> ai ratti per vedere come apprendono la strada.</li><li>Per collegare la funzione mentale — l'<strong>apprendimento spaziale</strong> — alle strutture cerebrali, procede per <strong>asportazione chirurgica</strong> di parti del cervello.</li><li><strong>Non riesce a identificare una zona precisa</strong> che medi la funzione: osserva che più asportava parti ampie, più la funzione era compromessa; meno asportava, più era preservata — ma non giunse a conclusioni vere e proprie.</li></ul>
+      
+      <p class="esp-nota"><strong>I due limiti del metodo</strong>: è <strong>molto invasivo</strong> (rimozione chirurgica in animali) e <strong>non utilizzabile nell'uomo</strong>.<br><strong>Perché il fallimento è istruttivo</strong>: cercava <em>la</em> zona, e trovava invece che conta la <em>quantità</em> di tessuto rimosso. È la prima evidenza contro una localizzazione rigida in stile Gall e a favore di un funzionamento <strong>distribuito</strong> — cioè esattamente ciò che Hebb formalizzerà con le <strong>assemblee cellulari</strong>. Il risultato negativo di Lashley e la teoria positiva di Hebb sono lo stesso fatto, visto da due lati.</p>
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Donald Hebb</span>
+        <span class="esp-anni">1904-1985</span>
+        <span class="esp-ruolo">Precursore</span>
+      </div>
+      <p class="voce-meta">Canada</p>
+      <p class="esp-chie">Già incontrato nel cenocomportamentismo. Fornisce alle neuroscienze il concetto che ne diventerà il fondamento.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Formula i primi concetti di <strong>plasticità neuronale</strong>: la connessione fra neuroni si rafforza in funzione dell'esperienza.</li><li>Introduce nella spiegazione del comportamento un <strong>modello psicofisiologico</strong>, identificando le variabili interne come attività del SNC.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Unità mente-cervello</strong> — Per la prima volta si parla di unità mente-cervello, che nella psicologia contemporanea sarà il principale oggetto di studio.</li></ul>
+      
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">Labirinti e asportazione chirurgica (Lashley)</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Ratti percorrono ripetutamente un <strong>labirinto</strong> fino ad apprenderne il tracciato.</li><li><strong>Asportazione chirurgica</strong> di zone specifiche del cervello.</li><li>Nuova prova nel labirinto, per verificare se l'apprendimento risulti inibito.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div><strong>Nessuna zona precisa</strong> risulta responsabile della funzione. L'unica regolarità è quantitativa: più tessuto viene asportato, più la funzione è compromessa.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Evidenza contro la localizzazione rigida e a favore di un funzionamento <strong>distribuito</strong>. Anticipa, in negativo, la teoria delle <strong>assemblee cellulari</strong>.</div></div>
+    </div><div class="esperimento">
+      <p class="exp-nome">Il paradigma della neuroimmagine funzionale</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Il soggetto è vigile, dentro l'apparecchio (PET o risonanza magnetica funzionale).</li><li>Esegue un <strong>compito cognitivo</strong> controllato: memoria, attenzione, ragionamento, linguaggio.</li><li><strong>Contemporaneamente</strong> se ne registra l'attività cerebrale e le circuitazioni.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Si osserva quali aree e quali circuiti si attivano <strong>mentre</strong> la funzione cognitiva viene esercitata.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>È il salto rispetto a Lashley: si studia il legame fra <strong>processi cognitivi superiori e attività cerebrale direttamente nell'uomo</strong>, in vivo, senza invasività. Ha dato molte più risposte ai quesiti psicologici, ma ha anche posto <strong>tantissime nuove domande</strong>: «una scienza in fermento».</div></div>
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>È l'<strong>approccio dominante</strong> nella psicologia attuale. Realizza l'accesso diretto al rapporto mente-cervello, che era il nodo irrisolto dell'intero excursus.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Copre la sola <strong>prospettiva biologica</strong>: da sola non risolve le domande che riguardano le prospettive psicologica e socioculturale — per questo viene affiancata dalle discipline collaterali.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>In piena espansione, su tre rami: cognitive, affettive, relazionali.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Neuroscienze cognitive, affettive, relazionali</strong> — le tre espansioni interne</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">I processi cerebrali e le altre funzioni fisiologiche all'origine del comportamento.</div><div class="formula">Per la prima volta si parla di unità mente-cervello.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«La TAC studia la funzione cerebrale»</div><div class="err-si">TAC e risonanza magnetica sono <strong>strutturali</strong>; la funzione si studia con <strong>PET</strong> e <strong>risonanza magnetica funzionale</strong></div></div><div class="err">
+      <div class="err-no">Raccontare Lashley come un successo</div><div class="err-si"><strong>Non trovò</strong> la zona precisa. E il metodo aveva due limiti: <strong>invasivo</strong> e <strong>non usabile nell'uomo</strong></div></div><div class="err">
+      <div class="err-no">Confondere le tre espansioni con le tre prospettive</div><div class="err-si"><strong>Cognitive, affettive, relazionali</strong> sono espansioni delle neuroscienze; <strong>biologica, psicologica, socioculturale</strong> sono le prospettive del biopsicosociale</div></div></div></div>
+  </div>
+    <div class="chiuditura"><strong>Il filo rosso più lungo del corso si chiude qui.</strong> L'unità mente-cervello è stata: <strong>negata</strong> da Cartesio (il cervello è <em>res extensa</em>) → <strong>abbozzata</strong> da Gall (frenologia) → <strong>mancante</strong> nell'emancipazione dalla medicina → <strong>rifiutata</strong> dal perifericalismo di Watson → <strong>postulata</strong> da Hebb → <strong>principale oggetto di studio</strong> delle neuroscienze.</div>
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 5</span><span>S305</span></p>
+      <h2 class="sk-nome">Le discipline collaterali</h2>
+      <p class="sk-unariga">Quattro discipline che affiancano le neuroscienze, perché oggi la psicologia <strong>non è settoriale</strong>: si definisce integrando anziché restringendo.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> oggi</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L03</span>
+        <span><b>Manuale</b> cap. C15</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Le neuroscienze coprono la prospettiva <strong>biologica</strong>. Restano le altre due, e restano domande che la sola misura dell'attività cerebrale non risolve.</p><div class="formula">Oggi la psicologia <strong>utilizza tantissime altre discipline</strong> per rispondere ai propri quesiti. È il rovesciamento della strategia di Wundt, che nel 1879 si definiva <strong>restringendo</strong>: un oggetto solo, un metodo solo, un laboratorio solo.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Approccio biopsicosociale</p>
+      <p class="voce-meta">quadro</p>
+      <p class="voce-testo">Tre prospettive — biologica, psicologica, socioculturale — che agiscono insieme sullo stesso fenomeno.</p></div><div class="voce">
+      <p class="voce-tit">Darwin</p>
+      <p class="voce-meta">biologia</p>
+      <p class="voce-testo">La selezione naturale preserva le caratteristiche, anche <strong>mentali</strong>, che consentono di rispondere meglio alle esigenze ambientali (per la psicologia evoluzionistica).</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">Quattro oggetti distinti, uno per disciplina.</div><p class="glossa"><strong>Attenzione al termine.</strong> Qui «collaterale» ha un senso <strong>diverso</strong> da quello della L01: là indicava scuole fuori dall'<em>asse geografico-accademico</em> (le russe) o fuori dall'accademia (la psicoanalisi); qui indica discipline che <strong>affiancano</strong> l'approccio dominante, dentro la stessa psicologia. Stessa parola, tre sensi nel corso: geografico, epistemologico, complementare.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Ciascuna disciplina ha il proprio. Il più caratteristico è lo <strong>studio sui gemelli</strong>.</div>
+     <p class="glossa"><strong>Perché il disegno funziona</strong>: l'elemento decisivo è la clausola «<strong>anche se allevati in ambienti diversi</strong>». Se due persone con patrimonio genetico quasi identico si somigliano pur essendo cresciute altrove, l'ambiente non può spiegare la somiglianza; e il confronto con gli eterozigoti — che condividono l'ambiente ma meno geni — isola il contributo genetico. È un esperimento che la natura ha già svolto: il ricercatore deve solo saperlo leggere.</p>
+     <ul class="punti"><li><strong>Gemelli omozigoti</strong>: condividono la <strong>maggior parte</strong> del patrimonio genetico; mostrano <strong>similarità</strong> in alcuni tratti comportamentali e funzioni cognitive <strong>anche se allevati in ambienti diversi</strong>.</li><li><strong>Gemelli eterozigoti</strong>: ne condividono <strong>meno</strong>; alcune di quelle similarità <strong>non si osservano</strong>.</li><li><strong>Conclusione</strong>: la similarità nonostante l'ambiente diverso fa dedurre una <strong>base biologica</strong> di alcune funzioni.</li></ul></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Genetica del comportamento</p>
+      <p class="voce-testo">Studia <strong>come le tendenze comportamentali siano influenzate da fattori genetici</strong>. Domande tipiche: come tratti quali <strong>aggressività</strong>, <strong>timidezza</strong> o la <strong>predisposizione a sviluppare patologie mentali</strong> possano essere mediati da influenze genetiche.</p>
+      <p class="glossa">Contribuisce a rispondere all'<strong>annoso dibattito natura/cultura</strong> — che è la terza comparsa della stessa opposizione: <strong>Kant/Locke</strong> per Gestalt e comportamentismo, <strong>Chomsky/Skinner</strong> sul linguaggio, e ora <strong>natura/cultura</strong>. Qui, per la prima volta, si presenta con gli strumenti per essere decisa.</p></div><div class="voce">
+      <p class="voce-tit">Epigenetica</p>
+      <p class="voce-testo">Analizza i <strong>cambiamenti che intervengono nel genotipo</strong> — cambiamenti genetici veri e propri — che il <strong>sistema nervoso sviluppa in seguito all'interazione con l'ambiente</strong>.</p>
+      <p class="glossa"><strong>Perché dirime il dibattito</strong>: innatismo ed empirismo si erano sempre fronteggiati come <em>alternative</em> — o è innato, o viene dall'esperienza. L'epigenetica mostra che la domanda era <strong>mal posta</strong>: l'ambiente <strong>modifica il genotipo stesso</strong>. Non c'è un patrimonio genetico fisso da un lato e un'esperienza che vi si sovrappone dall'altro; c'è un sistema in cui i due termini si determinano a vicenda.</p></div><div class="voce">
+      <p class="voce-tit">Psicologia evoluzionistica</p>
+      <p class="voce-testo">La <strong>mente umana è un insieme di moduli specializzati</strong> atti a risolvere i problemi che i nostri antenati hanno affrontato <strong>per milioni di anni</strong>.</p>
+      <p class="glossa"><strong>Conseguenza</strong>: la nostra mente è specializzata a <strong>fare bene alcune cose e non altre</strong>. Esistono specie animali molto meno evolute che sono più brave di noi in certi compiti — perché a loro servono di più; le funzioni che a noi non servivano, <strong>evolutivamente le abbiamo perse</strong>.<br><strong>Il rovesciamento</strong>: «meno evoluto» non significa «capace di meno». L'evoluzione non produce una scala di perfezione ma un insieme di <strong>adattamenti a problemi diversi</strong>: la mente umana non è la migliore possibile, è quella che ha risolto i problemi dei nostri antenati — e per questo può essere goffa davanti a problemi nuovi.</p></div><div class="voce">
+      <p class="voce-tit">Psicologia umanistica</p>
+      <p class="voce-testo">Approccio alla comprensione della natura umana che attribuisce importanza alle <strong>potenzialità positive della persona</strong>. Al centro stanno le <strong>aspirazioni più elevate</strong>: per funzionare al meglio, le persone devono essere collocate in un <strong>ambiente stimolante e positivo</strong>.</p>
+      <p class="glossa"><strong>Il rovesciamento rispetto a Freud</strong>: la psicodinamica indagava la <em>patologia</em>, ciò che non funziona; qui si mira al <em>positivo</em> e al funzionamento ottimale. Esito contemporaneo: la <strong>psicologia della salute</strong> — <strong>promozione del benessere</strong>, non solo correzione di ciò che non va.<br><em>Nota di equità storica: era stato Freud a stabilire la continuità fra normalità e patologia, ed è proprio quella continuità a rendere sensato studiare il funzionamento ottimale con gli stessi strumenti del disturbo.</em></p></div><div class="voce">
+      <p class="voce-tit">Psicologia socioculturale</p>
+      <p class="voce-testo">Esamina <strong>in che modo l'ambiente sociale e l'apprendimento culturale influenzino il comportamento, la cognizione e le emozioni</strong>. Si articola in <strong>psicologia sociale</strong> (l'uomo in interazione con i gruppi sociali), <strong>psicologia culturale</strong> (l'influenza della cultura, su cui l'enfasi si sposta in un secondo momento) e <strong>psicologia interculturale</strong> (come la cultura viene trasmessa; affinità e differenze fra persone di culture diverse).</p>
+      <p class="glossa"><strong>Che cos'è la cultura</strong>: l'insieme di <strong>valori, credenze, comportamenti e tradizioni</strong> durevoli nel tempo, condivisi da gruppi sociali e <strong>trasmessi da una generazione all'altra</strong>.<br><strong>Il punto teorico</strong>: la cultura <strong>non ha base biologica né genetica</strong> — eppure <strong>viene trasmessa ugualmente</strong>. Esiste un canale di trasmissione fra generazioni che non passa dai geni, produce effetti stabili sul comportamento, e che il modello biologico da solo non può descrivere.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Abraham Maslow</span>
+        <span class="esp-anni">1908-1970</span>
+        <span class="esp-ruolo">Capofila della psicologia umanistica</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie">Con Rogers mette al centro delle proprie teorie le aspirazioni più elevate delle persone.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Fonda, con Rogers, il movimento della psicologia umanistica.</li><li>Sostiene che per funzionare al meglio le persone debbano essere collocate in un ambiente stimolante e positivo.</li></ul>
+      
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Carl Rogers</span>
+        <span class="esp-anni">1902-1987</span>
+        <span class="esp-ruolo">Capofila · psicologo clinico</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie">Anche psicologo clinico: porta l'impostazione umanistica dentro la pratica terapeutica.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Con Maslow è capofila del movimento umanistico.</li><li>Contribuisce a spostare la clinica dall'indagine della patologia alla promozione del funzionamento ottimale.</li></ul>
+      
+      
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">Lo studio sui gemelli</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Si confrontano coppie di <strong>gemelli omozigoti</strong> (patrimonio genetico quasi identico) e di <strong>eterozigoti</strong> (patrimonio condiviso minore).</li><li>Si considerano in particolare le coppie <strong>allevate in ambienti diversi</strong>.</li><li>Si misurano tratti comportamentali e funzioni cognitive.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Gli omozigoti mostrano <strong>similarità anche se cresciuti separatamente</strong>; negli eterozigoti alcune di quelle similarità <strong>non si osservano</strong>.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Se l'ambiente è diverso e la somiglianza resta, l'ambiente non può spiegarla: si deduce una <strong>base biologica</strong> di alcune funzioni. È il metodo elettivo con cui la genetica del comportamento interviene nel dibattito natura/cultura.</div></div>
+    </div><div class="esperimento">
+      <p class="exp-nome">Le regole di esibizione delle emozioni</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Si confrontano l'<strong>espressione</strong> delle emozioni di base e le <strong>regole sociali</strong> che ne governano la manifestazione.</li><li>Il confronto è fatto <strong>fra culture diverse</strong>.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Le <strong>emozioni di base</strong> sono <strong>biologicamente determinate</strong> e la loro espressione è condivisa da tutti gli individui della specie <strong>indipendentemente dalla cultura</strong>; ma alcune <strong>regole di esibizione</strong> sono <strong>cultura-specifiche</strong> e cambiano a seconda della cultura di esposizione.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>È l'immagine più chiara di che cosa voglia dire «approccio biopsicosociale» in pratica: mostra i <strong>due livelli contemporaneamente e sullo stesso oggetto</strong> — il substrato è biologico, la regola di esibizione è culturale. Non tre spiegazioni alternative fra cui scegliere, ma <strong>tre livelli che agiscono insieme</strong>.</div></div>
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Coprono le domande che la sola prospettiva biologica non risolve, e forniscono al dibattito <strong>natura/cultura</strong> — con l'epigenetica — lo strumento per essere finalmente deciso.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Sono discipline eterogenee, con metodi e statuti diversi: non costituiscono un programma unitario.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Affiancano stabilmente le neuroscienze nell'assetto contemporaneo della disciplina.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Psicologia della salute</strong> — esito contemporaneo della <strong>psicologia umanistica</strong></li><li><strong>Psicologia delle emozioni</strong> — l'esempio delle regole di esibizione tornerà nella lezione dedicata</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">La mente umana è un insieme di moduli specializzati atti a risolvere i problemi che i nostri antenati hanno affrontato per milioni di anni.</div><div class="formula">Valori, credenze, comportamenti e tradizioni durevoli nel tempo, condivisi da gruppi sociali e trasmessi da una generazione all'altra.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«I gemelli eterozigoti condividono tutto il patrimonio genetico»</div><div class="err-si">Sono gli <strong>omozigoti</strong> a condividerne la maggior parte</div></div><div class="err">
+      <div class="err-no">Dimenticare «anche se allevati in ambienti diversi»</div><div class="err-si">Senza quella clausola lo studio sui gemelli <strong>non dimostra nulla</strong></div></div><div class="err">
+      <div class="err-no">Presentare l'epigenetica come una terza posizione</div><div class="err-si">Non è una terza posizione nel dibattito: è ciò che lo <strong>dirime</strong>, mostrando che la domanda era mal posta</div></div><div class="err">
+      <div class="err-no">«La psicologia socioculturale è la scuola di Vygotskij»</div><div class="err-si">Quella è la <strong>storico-culturale</strong> (Russia, dopo il 1917); questa è un approccio <strong>contemporaneo</strong> che affianca le neuroscienze</div></div></div></div>
+  </div>
+    
+  </section>
+
+</body></html>

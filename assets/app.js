@@ -52,6 +52,7 @@ const rotte = {
   '/filiazioni':        vistaFiliazioni,
   '/manuale':           vistaManuale,
   '/argomenti':         vistaArgomenti,
+  '/schede':            vistaSchede,
   '/nomi':              vistaNomi,
   '/flashcard':         vistaFlashcard,
   '/quiz':              vistaQuiz,
@@ -72,9 +73,11 @@ function instrada() {
   const lez = percorso.match(/^\/lezioni\/(L\d+)$/);
   const cap = percorso.match(/^\/manuale\/([CA]\d+)$/);
   const arg = percorso.match(/^\/argomenti\/(D\d+)$/);
+  const fas = percorso.match(/^\/schede\/(F\d+)$/);
   if (lez) vistaLezione(lez[1]);
   else if (cap) vistaCapitolo(cap[1]);
   else if (arg) vistaArgomento(arg[1]);
+  else if (fas) vistaFascicolo(fas[1]);
   else if (rotte[percorso]) rotte[percorso]();
   else vistaAssente(percorso);
 
@@ -854,6 +857,7 @@ function costruisciIndice() {
   PGE.preScientifica.voci.forEach(v => indice.push({ t: v.nome, c: v.contributo.replace(/<[^>]+>/g, '').slice(0, 90), ct: 'Pre-scientifica', h: '#/excursus' }));
   (PGE.manuale && PGE.manuale.capitoli || []).forEach(c => indice.push({ t: c.n + '. ' + c.titolo, c: c.sommario, ct: 'Manuale', h: '#/manuale/' + c.id }));
   (PGE.argomenti && PGE.argomenti.voci || []).forEach(v => indice.push({ t: v.titolo, c: 'Esposizione orale · ' + v.minuti + ' min · ' + v.perni.slice(0, 4).join(', '), ct: 'Argomento', h: '#/argomenti/' + v.id }));
+  ((PGE.schede && PGE.schede.fascicoli) || []).forEach(f => f.schede.forEach(x => indice.push({ t: x.nome, c: x.identificazione.unaRiga.replace(/<[^>]+>/g, ''), ct: 'Scheda', h: '#/schede/' + f.id })));
   (PGE.nomi || []).forEach(n => indice.push({ t: n.n, c: n.scuola + ' — ' + n.indizio, ct: 'Nome', h: '#/nomi' }));
   (PGE.flashcard || []).forEach(c => indice.push({ t: c.f.replace(/<[^>]+>/g, ''), c: c.b.replace(/<[^>]+>/g, '').slice(0, 90), ct: 'Flashcard', h: '#/flashcard' }));
   (PGE.quiz || []).forEach(q => indice.push({ t: q.q.slice(0, 80) + (q.q.length > 80 ? '…' : ''), c: q.o[0].slice(0, 90), ct: 'Quiz', h: '#/quiz' }));

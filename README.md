@@ -8,6 +8,7 @@ Nessun database, nessuna dipendenza da installare.
 | Sezione | Contenuto |
 |---|---|
 | **Manuale** | 15 capitoli + 2 appendici (~34.000 parole) in forma di manuale: prosa espositiva, riquadri, tabelle, «In sintesi» e domande di verifica per ogni capitolo |
+| **Schede** | 17 schede con struttura rigida e ripetuta — 12 blocchi identici per ogni scuola: perché nasce, radici, precursori, oggetto, metodo, teorie, esponenti, esperimenti, validità, precorre, formule, errori. Consultabili a schermo e scaricabili come **tre fascicoli PDF stampabili** |
 | **Argomenti** | 15 esposizioni orali (~21.000 parole, 64 minuti di parlato) organizzate in sei cartelle: ogni argomento scritto **come si direbbe a voce**, con indicazioni di regìa nascondibili |
 | **Excursus storico** | Le scuole raggruppate in quattro fasi, con filtri, tavola sinottica e la terna oggetto–metodo–validità per ciascuna |
 | **Quiz a crocette** | 145 domande a quattro opzioni con spiegazione; ripasso automatico delle sbagliate |
@@ -38,6 +39,7 @@ Il file `.nojekyll` serve a impedire che GitHub processi la cartella con Jekyll:
 |---|---|
 | Un capitolo del manuale | `contenuti/manuale/C16.md` + una voce in `data/manuale.js` |
 | Un'esposizione orale | `contenuti/argomenti/D16.md` + una voce in `data/argomenti.js` |
+| Una scheda schematica | `data/schede.js`, poi `node pdf/genera.js` per rigenerare i PDF |
 | Domande del quiz | `data/quiz.js` — la **prima** opzione è sempre quella corretta, vengono mescolate a runtime |
 | Flashcard | `data/flashcard.js` |
 | Nomi da allenare | `data/nomi.js` |
@@ -76,6 +78,10 @@ data/corso.js           lezioni, scuole, periodi, definizione, sintagmi, errori
 data/esami.js           banca domande aperte e archivio prove
 data/manuale.js         indice dei capitoli del manuale
 data/argomenti.js       indice delle esposizioni orali, per cartella
+data/schede.js          le schede schematiche, a struttura fissa
+pdf/genera.js           genera i tre fascicoli PDF (richiede Google Chrome)
+pdf/*.pdf               i fascicoli stampabili
+pdf/*.html              la sorgente di stampa, apribile e stampabile dal browser
 data/quiz.js            banca delle domande a scelta multipla
 data/flashcard.js       mazzo delle flashcard
 data/nomi.js            nomi, indizi e trappole ortografiche
@@ -83,6 +89,22 @@ contenuti/              trascrizioni e appunti in Markdown
 contenuti/manuale/      i capitoli del manuale in Markdown
 contenuti/argomenti/    le esposizioni orali in Markdown, una per file
 contenuti/mappe/        mappe concettuali in Mermaid
+```
+
+## I fascicoli PDF
+
+Tre fascicoli A4 pronti per la stampa, uno per macro-argomento:
+
+| File | Contenuto | Pagine |
+|---|---|---|
+| `pdf/F1_la-definizione-di-psicologia.pdf` | La definizione, il ritardo, la doppia emancipazione | 6 |
+| `pdf/F2_l-excursus-storico.pdf` | Dalle concezioni pre-scientifiche al comportamentismo | 42 |
+| `pdf/F3_la-psicologia-contemporanea.pdf` | Cognitivismo, mente embodied, neuroscienze, discipline collaterali | 23 |
+
+Ogni scheda comincia su una pagina nuova. Per rigenerarli dopo aver modificato `data/schede.js`:
+
+```
+node pdf/genera.js
 ```
 
 ## Il file autonomo

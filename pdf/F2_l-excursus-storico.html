@@ -1,0 +1,1314 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8">
+<title>L'excursus storico — Psicologia Generale</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 16mm 15mm 15mm 15mm; }
+
+:root {
+  --inchiostro: #14181d;
+  --grafite:    #55606c;
+  --tenue:      #7d8792;
+  --accento:    #12514d;
+  --segnale:    #9c3722;
+  --linea:      #c9cec6;
+  --linea-fine: #e2e5df;
+  --fondo:      #f5f6f2;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --testo:   "IBM Plex Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --dati:    "IBM Plex Mono", "SF Mono", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin:0; background:#fff; color-scheme: light;
+       font-family: var(--testo); font-size: 9.6pt; line-height: 1.52;
+       color: var(--inchiostro); }
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* ---- copertina ---- */
+.copertina { break-after: page; }
+.indice-pagina { break-after: page; }
+.cop-alto { border-bottom: 2.5pt solid var(--accento); padding-bottom: 6mm; }
+.cop-corso { font-family: var(--dati); font-size: 7.4pt; letter-spacing: .18em;
+             text-transform: uppercase; color: var(--grafite); margin: 0 0 14mm; }
+.cop-n { font-family: var(--display); font-size: 34pt; line-height:1; color: var(--accento); margin:0 0 2mm; }
+.cop-titolo { font-family: var(--display); font-size: 27pt; line-height: 1.1; margin: 0 0 3mm; font-weight: 500; }
+.cop-sottotitolo { font-family: var(--display); font-size: 13pt; font-style: italic;
+                   color: var(--grafite); margin: 0; font-weight: 400; }
+.cop-intro { font-size: 9.4pt; line-height: 1.62; color: var(--grafite); margin: 7mm 0 0; max-width: 145mm; }
+
+.cop-indice { margin-top: 0; }
+.cop-indice-tit { font-family: var(--dati); font-size: 7.2pt; letter-spacing: .16em;
+                  text-transform: uppercase; color: var(--grafite); margin: 0 0 4mm;
+                  border-bottom: .5pt solid var(--linea); padding-bottom: 2mm; }
+.cop-voce { display: grid; grid-template-columns: 12mm 1fr auto; gap: 3mm;
+            padding: 2.4mm 0; border-bottom: .5pt solid var(--linea-fine); align-items: baseline; }
+.cop-voce-n { font-family: var(--dati); font-size: 9pt; color: var(--accento); }
+.cop-voce-nome { font-family: var(--display); font-size: 11.5pt; }
+.cop-voce-riga { display:block; font-family: var(--testo); font-size: 8.4pt; color: var(--grafite);
+                 line-height:1.45; margin-top: .8mm; }
+.cop-voce-meta { font-family: var(--dati); font-size: 7.4pt; color: var(--tenue); white-space: nowrap; }
+
+.legenda { margin-top: 12mm; padding-top: 6mm; border-top: .5pt solid var(--linea); }
+.legenda-tit { font-family: var(--dati); font-size: 7.2pt; letter-spacing: .16em;
+               text-transform: uppercase; color: var(--grafite); margin: 0 0 3mm; }
+.legenda-corpo { columns: 2; column-gap: 8mm; font-size: 8.2pt; line-height: 1.5; color: var(--grafite); }
+.legenda-corpo p { margin: 0 0 1.6mm; break-inside: avoid; }
+.legenda-corpo b { color: var(--inchiostro); font-family: var(--dati); font-size: 7.6pt; }
+
+/* ---- scheda ---- */
+.scheda { break-before: page; }
+.scheda:first-of-type { break-before: auto; }
+
+.sk-testa { border-top: 2.5pt solid var(--accento); padding-top: 3mm; margin-bottom: 4mm; }
+.sk-occhiello { font-family: var(--dati); font-size: 7pt; letter-spacing: .16em;
+                text-transform: uppercase; color: var(--grafite); margin: 0 0 1.5mm;
+                display: flex; justify-content: space-between; }
+.sk-nome { font-family: var(--display); font-size: 20pt; line-height: 1.12; margin: 0 0 2mm; font-weight: 500; }
+.sk-unariga { font-size: 9.6pt; line-height: 1.5; color: var(--grafite); margin: 0 0 3mm; max-width: 155mm; }
+.sk-coord { display: flex; flex-wrap: wrap; gap: 0 6mm; font-family: var(--dati); font-size: 7.6pt;
+            color: var(--grafite); border-top: .5pt solid var(--linea-fine);
+            border-bottom: .5pt solid var(--linea-fine); padding: 1.8mm 0; }
+.sk-coord b { color: var(--accento); font-weight: 500; }
+
+/* blocco: etichetta a sinistra, contenuto a destra */
+.blocco { display: grid; grid-template-columns: 26mm 1fr; gap: 4mm;
+          padding: 3mm 0; border-bottom: .5pt solid var(--linea-fine); break-inside: avoid; }
+.blocco.lungo { break-inside: auto; }
+.bl-eti { font-family: var(--dati); font-size: 7pt; letter-spacing: .1em; text-transform: uppercase;
+          color: var(--accento); line-height: 1.4; padding-top: .6mm; }
+.bl-eti span { display: block; color: var(--tenue); font-size: 6.4pt; letter-spacing: .06em; }
+.bl-corpo > *:first-child { margin-top: 0; }
+.bl-corpo > *:last-child { margin-bottom: 0; }
+.bl-corpo p { margin: 0 0 2mm; }
+.bl-vuoto { color: var(--tenue); font-family: var(--dati); font-size: 8pt; }
+
+.formula { font-family: var(--display); font-size: 11pt; line-height: 1.45;
+           border-left: 2pt solid var(--accento); padding: 1mm 0 1mm 4mm; margin: 0 0 2.5mm; }
+.glossa { font-size: 8.8pt; line-height: 1.55; color: var(--grafite); margin: 0 0 2mm; }
+
+ul.punti { margin: 0 0 2mm; padding-left: 4.5mm; }
+ul.punti li { margin-bottom: 1.4mm; line-height: 1.5; }
+ul.punti li::marker { color: var(--accento); }
+
+.voce { break-inside: avoid; margin-bottom: 3mm; padding-bottom: 2.5mm;
+        border-bottom: .4pt dotted var(--linea); }
+.voce:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.voce-tit { font-family: var(--display); font-size: 11pt; font-weight: 500; margin: 0 0 1mm; }
+.voce-meta { font-family: var(--dati); font-size: 7.2pt; color: var(--tenue); margin: 0 0 1.4mm; }
+.voce-testo { margin: 0 0 1.5mm; line-height: 1.5; }
+
+.esponente { break-inside: avoid; margin-bottom: 4mm; padding: 2.5mm 3mm;
+             background: var(--fondo); border-left: 1.5pt solid var(--accento); }
+.esp-testa { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 3mm; margin-bottom: 1.2mm; }
+.esp-nome { font-family: var(--display); font-size: 11.5pt; font-weight: 500; }
+.esp-anni { font-family: var(--dati); font-size: 7.4pt; color: var(--tenue); }
+.esp-ruolo { font-family: var(--dati); font-size: 7.2pt; color: var(--accento);
+             text-transform: uppercase; letter-spacing: .06em; }
+.esp-chie { font-size: 9pt; line-height: 1.5; margin: 0 0 1.8mm; }
+.esp-sub { font-family: var(--dati); font-size: 6.6pt; letter-spacing: .12em; text-transform: uppercase;
+           color: var(--grafite); margin: 2mm 0 1mm; }
+.esp-nota { font-size: 8.4pt; line-height: 1.5; color: var(--grafite);
+            border-top: .4pt solid var(--linea); padding-top: 1.5mm; margin-top: 2mm; }
+
+.esperimento { break-inside: avoid; margin-bottom: 3.5mm; }
+.exp-nome { font-family: var(--display); font-size: 11pt; font-weight: 500; margin: 0 0 1.2mm; }
+.exp-riga { display: grid; grid-template-columns: 18mm 1fr; gap: 3mm; margin-bottom: 1.2mm; align-items: baseline; }
+.exp-eti { font-family: var(--dati); font-size: 6.6pt; letter-spacing: .1em; text-transform: uppercase;
+           color: var(--tenue); }
+.exp-riga ol { margin: 0; padding-left: 4.5mm; }
+.exp-riga ol li { margin-bottom: .8mm; }
+
+.terna { display: grid; gap: 2mm; }
+.terna-voce { display: grid; grid-template-columns: 16mm 1fr; gap: 3mm; align-items: baseline; }
+.terna-eti { font-family: var(--dati); font-size: 6.8pt; letter-spacing: .1em; text-transform: uppercase;
+             color: var(--accento); }
+
+table.griglia { width: 100%; border-collapse: collapse; font-size: 8.6pt; margin: 0 0 2mm; }
+table.griglia th { font-family: var(--dati); font-size: 6.8pt; letter-spacing: .1em;
+                   text-transform: uppercase; color: var(--grafite); text-align: left;
+                   border-bottom: .8pt solid var(--linea); padding: 1.5mm 2mm 1.5mm 0; vertical-align: bottom; }
+table.griglia td { padding: 1.8mm 2mm 1.8mm 0; border-bottom: .4pt solid var(--linea-fine);
+                   vertical-align: top; line-height: 1.45; }
+table.griglia tr:last-child td { border-bottom: none; }
+
+.errori { display: grid; gap: 1.8mm; }
+.err { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; break-inside: avoid;
+       padding-bottom: 1.8mm; border-bottom: .4pt dotted var(--linea); }
+.err:last-child { border-bottom: none; }
+.err-no  { color: var(--segnale); font-size: 8.8pt; line-height: 1.45; }
+.err-si  { font-size: 8.8pt; line-height: 1.45; }
+.err-no::before { content: "✗ "; font-family: var(--dati); }
+.err-si::before { content: "✓ "; font-family: var(--dati); color: var(--accento); }
+
+.contrasto { background: var(--fondo); border: .5pt solid var(--linea); padding: 3mm;
+             font-size: 9pt; line-height: 1.55; margin-top: 3mm; break-inside: avoid; }
+.chiuditura { margin-top: 4mm; padding-top: 3mm; border-top: 1.5pt solid var(--accento);
+              font-size: 9pt; line-height: 1.6; color: var(--grafite); break-inside: avoid; }
+</style></head><body>
+
+<div class="copertina">
+  <div class="cop-alto">
+    <p class="cop-corso">Psicologia Generale · SFO_PGE · Lezioni 1 e 2</p>
+    <p class="cop-n">II</p>
+    <h1 class="cop-titolo">L'excursus storico</h1>
+    <p class="cop-sottotitolo">Dalle concezioni pre-scientifiche alla soglia del cognitivismo</p>
+  </div>
+  <p class="cop-intro">Ogni scheda di scuola ha <strong>gli stessi dodici blocchi, nello stesso ordine</strong>. I blocchi non pertinenti restano visibili con un trattino, così la forma non cambia mai. Il criterio di lettura è quello del corso: <strong>oggetto → metodo → validità</strong>; e la domanda che tiene insieme la successione non è «che cosa viene dopo» ma <strong>«che cosa non funzionava prima»</strong>.</p>
+
+  <div class="legenda">
+    <p class="legenda-tit">Lo schema, uguale per ogni scheda</p>
+    <div class="legenda-corpo">
+      <p><b>1 Perché nasce</b> · l'esigenza teorica lasciata aperta dalla scuola precedente</p><p><b>2 Radici</b> · le posizioni filosofiche o teoriche su cui poggia</p><p><b>3 Precursori</b> · chi le ha passato che cosa, e da quale tradizione</p><p><b>4 Oggetto</b> · che cosa studia, nella formulazione tecnica</p><p><b>5 Metodo</b> · come lo studia, con i vincoli operativi</p><p><b>6 Teorie</b> · gli enunciati che la scuola produce</p><p><b>7 Esponenti</b> · chi è ciascuno, che cosa ha fatto, quali teorie</p><p><b>8 Esperimenti</b> · disegno, risultato, significato</p><p><b>9 Validità</b> · merito, limite, esito</p><p><b>10 Precorre</b> · verso quali scuole successive apre</p><p><b>11 Formule</b> · le frasi da riprodurre alla lettera</p><p><b>12 Errori</b> · che cosa non dire, e che cosa dire al suo posto</p>
+    </div>
+  </div>
+</div>
+
+<div class="indice-pagina">
+  <div class="cop-indice">
+    <p class="cop-indice-tit">Le 10 schede di questo fascicolo</p>
+    <div class="cop-voce">
+      <span class="cop-voce-n">01</span>
+      <span><span class="cop-voce-nome">La fase pre-scientifica</span>
+        <span class="cop-voce-riga">Non è una scuola. Sono figure che hanno quasi tutte torto, e si studiano per i passaggi concettuali che segnano — non per ciò che hanno scoperto.</span></span>
+      <span class="cop-voce-meta">V sec. a.C. — inizio XIX sec. · L01</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">02</span>
+      <span><span class="cop-voce-nome">Il contesto della svolta: positivismo e psicofisica</span>
+        <span class="cop-voce-riga">Due precondizioni della nascita del 1879: una culturale che dà il permesso, una tecnica che fornisce la prova.</span></span>
+      <span class="cop-voce-meta">XIX secolo · L01</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">03</span>
+      <span><span class="cop-voce-nome">La nascita della psicologia scientifica</span>
+        <span class="cop-voce-riga">Wundt fonda il primo laboratorio di Psicologia Fisiologica: non nasce l'interesse per la mente, nasce l'istituzione che la studia col metodo delle scienze naturali.</span></span>
+      <span class="cop-voce-meta">1879 · L01</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">04</span>
+      <span><span class="cop-voce-nome">Lo strutturalismo</span>
+        <span class="cop-voce-riga">Titchener porta in America la psicologia wundtiana, le dà un nome e la sistematizza — e nel farlo ne rivela il difetto.</span></span>
+      <span class="cop-voce-meta">1892 · L01</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">05</span>
+      <span><span class="cop-voce-nome">Il funzionalismo</span>
+        <span class="cop-voce-riga">Non nasce da una scoperta ma da un cambio di domanda: non «com'è fatta» la mente, ma «a che cosa serve» — e con la domanda entra l'ambiente.</span></span>
+      <span class="cop-voce-meta">1896 · L01</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">06</span>
+      <span><span class="cop-voce-nome">La scuola riflessologica</span>
+        <span class="cop-voce-riga">Prima delle due scuole russe. È «collaterale» in senso geografico e istituzionale: fuori dall'asse Germania-America, ma pienamente accademica e pienamente sperimentale.</span></span>
+      <span class="cop-voce-meta">fine '800 → 1917 · L01</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">07</span>
+      <span><span class="cop-voce-nome">La scuola storico-culturale</span>
+        <span class="cop-voce-riga">Seconda scuola russa, dopo lo spartiacque della rivoluzione. Sposta l'attenzione dai processi semplici alle funzioni complesse e alla dimensione sociale.</span></span>
+      <span class="cop-voce-meta">1917 → anni '50 · L01</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">08</span>
+      <span><span class="cop-voce-nome">La psicologia dinamica (psicoanalisi)</span>
+        <span class="cop-voce-riga">L'unica scuola del corso che non nasce in ambiente accademico: è «collaterale» in senso epistemologico, non geografico.</span></span>
+      <span class="cop-voce-meta">fine '800 — inizio '900 · L01</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">09</span>
+      <span><span class="cop-voce-nome">La psicologia della Gestalt</span>
+        <span class="cop-voce-riga">Prima delle due reazioni a Wundt: gli rimprovera di scomporre. Motto: il tutto è più della somma delle parti.</span></span>
+      <span class="cop-voce-meta">1912 · L02</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">10</span>
+      <span><span class="cop-voce-nome">Il comportamentismo</span>
+        <span class="cop-voce-riga">Seconda reazione a Wundt, opposta alla Gestalt: gli rimprovera di studiare l'interiorità. Attraverso tre fasi produce per via interna il proprio superamento.</span></span>
+      <span class="cop-voce-meta">1913 → anni '50 · L02</span>
+    </div>
+  </div>
+</div>
+
+<section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 1</span><span>S201</span></p>
+      <h2 class="sk-nome">La fase pre-scientifica</h2>
+      <p class="sk-unariga">Non è una scuola. Sono figure che hanno quasi tutte torto, e si studiano per i passaggi concettuali che segnano — non per ciò che hanno scoperto.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> V sec. a.C. — inizio XIX sec.</span>
+        <span><b>Luogo</b> Grecia, Francia, area germanica</span>
+        <span><b>Lezione</b> L01</span>
+        <span><b>Manuale</b> cap. C03</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Non nasce da un problema teorico: è la condizione di partenza. La mente è oggetto di discorso da due millenni, ma con metodo razionalista.</p><div class="formula">Il criterio che squalifica tutte queste concezioni è unico: <strong>approccio razionalista-filosofico, senza alcuna verifica empirica</strong>.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Filosofia razionalista</p>
+      <p class="voce-meta">metodo</p>
+      <p class="voce-testo">La conoscenza si produce per speculazione logica a partire da premesse che sono spesso assiomi indimostrabili.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">L'anima, gli umori corporei, il carattere, la sede delle facoltà psichiche.</div><p class="glossa">L'oggetto varia da figura a figura, e nessuna lo definisce in modo operativo. È precisamente la prima delle tre cause del ritardo.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Speculazione, analogia, aneddoto. In un caso — la trapanazione — intervento fisico basato su una spiegazione magica.</div>
+     <p class="glossa">Nessuna delle affermazioni prodotte viene mai sottoposta a controllo.</p>
+     </div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Possessione</p>
+      <p class="voce-testo">I disturbi del comportamento sono causati da uno spirito maligno entrato nel corpo, che va fatto uscire.</p>
+      <p class="glossa">Per quanto la spiegazione sia magica, la localizzazione dell'intervento non è casuale: si interviene sulla <strong>testa</strong>. C'è già, in forma mitica, l'intuizione che la vita psichica abbia a che fare con il cranio.</p></div><div class="voce">
+      <p class="voce-tit">Dottrina dei quattro temperamenti</p>
+      <p class="voce-testo">La personalità dipende dalla prevalenza di uno dei quattro umori corporei: sanguigno, collerico, malinconico, flemmatico.</p>
+      <p class="glossa">È la <strong>prima teoria della personalità</strong> della storia occidentale, e sposta la causa dei disturbi dagli spiriti al corpo. Resta però costruita per analogia con la dottrina dei quattro elementi, e mai verificata.</p></div><div class="voce">
+      <p class="voce-tit">Dualismo cartesiano</p>
+      <p class="voce-testo">Due sostanze distinte: la <em>res cogitans</em> (spirito, anima, mente, i fenomeni psichici) e la <em>res extensa</em> (la materia, il corpo, <strong>cervello incluso</strong>).</p>
+      <p class="glossa">È il dettaglio decisivo: il cervello sta dalla parte della materia, <strong>non è la sede della mente</strong>. Finché è così, l'unità mente-cervello è impensabile.</p></div><div class="voce">
+      <p class="voce-tit">Frenologia</p>
+      <p class="voce-testo">Le caratteristiche di personalità risiedono nel cervello, in aree distinte, e si desumono dalle <strong>protuberanze della scatola cranica</strong>.</p>
+      <p class="glossa">Nessun fondamento: le mappe erano compilate per analogia e aneddoto, mai validate. Ma con Gall compare per la prima volta, in forma sbagliata, l'idea di <strong>localizzazione</strong> cerebrale delle funzioni psichiche.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Guaritori antichi</span>
+        <span class="esp-anni">—</span>
+        <span class="esp-ruolo">Pratica pre-medica</span>
+      </div>
+      
+      <p class="esp-chie">Figure delle società antiche che trattavano i disturbi del comportamento interpretandoli come possessione.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Praticavano la <strong>trapanazione</strong>: pietre grezze sfregate sulla scatola cranica del posseduto fino ad aprire un foro, perché lo spirito potesse uscirne.</li><li>La pratica causava spesso la morte del paziente, o comunque menomazioni gravi.</li></ul>
+      
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Ippocrate</span>
+        <span class="esp-anni">V sec. a.C.</span>
+        <span class="esp-ruolo">Medico</span>
+      </div>
+      <p class="voce-meta">Grecia</p>
+      <p class="esp-chie">Rappresenta un salto: sposta la causa dei disturbi dagli spiriti al corpo, ed è il primo passo verso una concezione naturalistica.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Formula la <strong>prima teoria della personalità</strong> della storia occidentale.</li><li>Individua <strong>quattro temperamenti</strong> fondati sulla prevalenza di uno dei quattro umori.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>I quattro temperamenti</strong> — <strong>Sanguigno</strong> (sangue): ottimista, socievole, mutevole. <strong>Collerico</strong> (bile gialla): irascibile, energico, impulsivo. <strong>Malinconico</strong> (bile nera): riflessivo, triste, introverso. <strong>Flemmatico</strong> (flegma): calmo, lento, imperturbabile.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Cartesio (René Descartes)</span>
+        <span class="esp-anni">1596-1650</span>
+        <span class="esp-ruolo">Filosofo e matematico</span>
+      </div>
+      <p class="voce-meta">Francia</p>
+      <p class="esp-chie">La figura più importante della fase: formula in modo esplicito il problema che la psicologia dovrà smontare. Non apre la strada alla psicologia — le costruisce davanti il muro più alto.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Introduce l'accezione <strong>dualistica</strong> dell'essere umano, dividendo <em>res cogitans</em> e <em>res extensa</em>.</li><li>Elabora una prima teorizzazione del <strong>sistema nervoso</strong>: i nervi come tubi percorsi da un'energia raccolta dall'ambiente e convogliata al cervello.</li><li>Colloca il punto di contatto fra le due sostanze nella <strong>ghiandola pineale</strong>, attraverso cui l'energia fluirebbe nella sostanza pensante dando luogo ai fenomeni psichici.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Dualismo</strong> — I fenomeni psichici sono propri dell'anima e per costruzione <strong>non studiabili</strong> con metodo naturalistico. Il cervello è corpo, e da solo non dice nulla della vita psichica.</li></ul>
+      <p class="esp-nota"><strong>[N.d.R.]</strong> Nella registrazione della lezione la ghiandola pineale è collocata «nella parte occipitale» e in un punto si dice che il cervello è collegato alla <em>res extensa</em>. Sono imprecisioni del parlato: l'epifisi è una struttura epitalamica, mediana e profonda, e il collegamento è con la <em>res cogitans</em>.</p>
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Franz Joseph Gall</span>
+        <span class="esp-anni">1758-1828</span>
+        <span class="esp-ruolo">Medico</span>
+      </div>
+      <p class="voce-meta">Area germanica</p>
+      <p class="esp-chie">Lavora nel secolo in cui la psicologia nascerà. Il suo metodo è privo di valore, ma l'ipotesi di fondo — che funzioni psichiche distinte risiedano in aree cerebrali distinte — è quella giusta.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Fonda la <strong>frenologia</strong>, teoria della personalità basata sull'esame delle protuberanze craniche.</li><li>Introduce, sia pure in forma errata, l'idea di <strong>localizzazione cerebrale</strong> delle funzioni psichiche.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Frenologia</strong> — Dalla conformazione del cranio si legge il carattere. Ripresa in criminologia da <strong>Cesare Lombroso</strong>, con la teoria del «delinquente nato».</li></ul>
+      
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Nessuna di queste concezioni produce conoscenza valida. Il loro merito è indiretto: <strong>pongono i problemi</strong> che la psicologia scientifica dovrà risolvere.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Approccio razionalista-filosofico: affermazioni sulla mente <strong>senza alcuna verifica empirica</strong>. Quasi tutto ciò che affermano è sbagliato.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Lasciano due eredità di segno opposto, ed è la coppia da memorizzare come tale.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Le neuroscienze</strong> — attraverso il lascito <strong>da recuperare</strong> di Gall: la localizzazione cerebrale delle funzioni psichiche</li><li><strong>L'unità mente-cervello</strong> — attraverso il lascito <strong>da superare</strong> di Cartesio: la separazione fra mente e corpo</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Da Cartesio: la separazione mente/corpo — un lascito da superare. Da Gall: l'idea di localizzazione cerebrale delle funzioni psichiche — un lascito da recuperare.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">Collocare il cervello nella <em>res cogitans</em></div><div class="err-si">Il cervello sta nella <strong>res extensa</strong>: è il dettaglio che dà senso a tutto il passaggio</div></div><div class="err">
+      <div class="err-no">Raccontarle come aneddoti storici</div><div class="err-si">Si studiano per il <strong>problema che pongono</strong>, non per ciò che hanno scoperto</div></div><div class="err">
+      <div class="err-no">Dimenticare Lombroso</div><div class="err-si">La frenologia ebbe conseguenze concrete: fu ripresa in criminologia</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 2</span><span>S202</span></p>
+      <h2 class="sk-nome">Il contesto della svolta: positivismo e psicofisica</h2>
+      <p class="sk-unariga">Due precondizioni della nascita del 1879: una culturale che dà il permesso, una tecnica che fornisce la prova.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> XIX secolo</span>
+        <span><b>Luogo</b> Francia (positivismo), Germania (psicofisica)</span>
+        <span><b>Lezione</b> L01</span>
+        <span><b>Manuale</b> cap. C04</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>La psicologia non può diventare scienza finché manca un clima che lo esiga e una dimostrazione che sia possibile misurare un fenomeno psichico.</p><div class="formula">Il <strong>positivismo</strong> dice che si deve fare. La <strong>psicofisica</strong> dimostra che si può. Servono entrambi.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Positivismo</p>
+      <p class="voce-meta">filosofia</p>
+      <p class="voce-testo">Alle scienze naturali è attribuito il ruolo privilegiato di <strong>unica fonte attendibile di conoscenza</strong>.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Psicofisica</strong>: lo studio di come le <strong>sensazioni percepite a livello psicologico dipendano dalle caratteristiche fisiche degli stimoli ambientali</strong>.</div><p class="glossa">La mossa decisiva: non si pretende di misurare direttamente il contenuto della coscienza, si misura <strong>come varia</strong> al variare di qualcosa che si sa misurare. È il primo caso in cui un fenomeno psichico entra in un esperimento controllato.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Metodo sperimentale applicato alla relazione stimolo fisico → sensazione.</div>
+     <p class="glossa">È già a tutti gli effetti uno studio sperimentale di fenomeni psichici: per questo la psicofisica è il <strong>precursore diretto</strong> della psicologia scientifica.</p>
+     </div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Legge di Weber-Fechner</p>
+      <p class="voce-testo">Traduzione matematica del rapporto fra mondo fisico e mondo psichico.</p>
+      <p class="glossa">Weber aveva osservato che la <strong>differenza minima percepibile</strong> non è una quantità fissa ma una proporzione costante dello stimolo di partenza; Fechner ne trae la formulazione logaritmica. <em>La formula non è richiesta: il dato d'esame è che Fechner traduce matematicamente il rapporto fisico-psichico.</em></p></div><div class="voce">
+      <p class="voce-tit">Teoria dell'inferenza inconscia</p>
+      <p class="voce-testo">La percezione è un <strong>processo costruttivo</strong>: viene influenzata e corretta dall'<strong>esperienza pregressa</strong>, tramite un processo cognitivo <strong>inconsapevole</strong> al soggetto.</p>
+      <p class="glossa">Contraddice il senso comune: percepire non è registrare passivamente ciò che c'è, è <strong>costruire un'ipotesi</strong> su ciò che c'è, usando ciò che si è imparato prima, senza accorgersene.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Auguste Comte</span>
+        <span class="esp-anni">1798-1857</span>
+        <span class="esp-ruolo">Filosofo</span>
+      </div>
+      <p class="voce-meta">Francia</p>
+      <p class="esp-chie">Il riferimento per il clima intellettuale dell'Ottocento. Non è uno psicologo e non ha mai fatto un esperimento psicologico: il suo contributo è di <strong>clima</strong>, non di contenuto.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Attribuisce alle scienze naturali il ruolo di <strong>unica fonte attendibile di conoscenza</strong>.</li><li>Stabilisce che qualsiasi disciplina, per produrre conoscenza, debba dotarsi di una <strong>base scientifica</strong>.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Positivismo</strong> — Non basta più il discorso ben argomentato: serve il metodo delle scienze della natura. È il panorama più favorevole perché la psicologia si stacchi dalla filosofia.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Gustav Theodor Fechner</span>
+        <span class="esp-anni">1801-1887</span>
+        <span class="esp-ruolo">Psicofisiologo, fondatore della psicofisica</span>
+      </div>
+      <p class="voce-meta">Germania</p>
+      <p class="esp-chie">La figura chiave della precondizione tecnica. La sua affermazione fondativa è radicale nel contesto di una mente considerata quasi divina.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Afferma che la <strong>sensazione è oggettiva, materiale e misurabile</strong>: almeno una parte della vita psichica esce dalla sfera trascendentale ed entra nella natura.</li><li>Traduce in termini matematici il rapporto fra mondo esterno e mondo psichico nella <strong>legge di Weber-Fechner</strong>.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Misurabilità della sensazione</strong> — La sensazione è oggettiva, materiale e misurabile.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Hermann von Helmholtz</span>
+        <span class="esp-anni">1821-1894</span>
+        <span class="esp-ruolo">Fisiologo e fisico</span>
+      </div>
+      <p class="voce-meta">Germania</p>
+      <p class="esp-chie">Studia la fisiologia sensoriale, in particolare la funzione visiva e uditiva. Il suo contributo teorico è uno dei fili rossi del corso.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Studia il funzionamento della fisiologia delle sensazioni <strong>visive e uditive</strong>.</li><li>Formula la <strong>teoria dell'inferenza inconscia</strong>.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Inferenza inconscia</strong> — La percezione è un processo costruttivo, corretto dall'esperienza pregressa tramite un processo cognitivo inconsapevole.</li></ul>
+      
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Fornisce alla psicologia nascente <strong>il permesso epistemologico</strong> (positivismo) e <strong>la prova che lo psichico è misurabile</strong> (psicofisica).</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Il positivismo da solo resta un'affermazione di principio; la psicofisica misura le sensazioni, non ancora i processi mentali complessi.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Wundt porterà l'impianto psicofisico dentro la psicologia, fondando il laboratorio di Lipsia.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Wundt e la nascita del 1879</strong> — la psicofisica ne è il <strong>precursore diretto</strong>; l'obiettivo wundtiano di cogliere la variazione dell'esperienza al variare dello stimolo ne è la trasposizione</li><li><strong>Gestalt</strong> — radicalizza l'inferenza inconscia: la percezione non solo costruisce, ma lo fa secondo <strong>leggi innate</strong> anziché per esperienza pregressa</li><li><strong>Cognitivismo</strong> — riprende la costruzione come <strong>elaborazione dell'informazione</strong></li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">La sensazione è oggettiva, materiale e misurabile.</div><div class="formula">La percezione è un processo costruttivo, influenzato e corretto dall'esperienza pregressa tramite un processo cognitivo inconsapevole.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">Presentare Comte come precursore della psicologia</div><div class="err-si">È il precursore delle <strong>condizioni</strong> in cui la psicologia diventa pensabile: è un filosofo, non ha mai fatto un esperimento psicologico</div></div><div class="err">
+      <div class="err-no">Confondere l'inferenza inconscia con l'inconscio di Freud</div><div class="err-si">Qui a guidare la costruzione è l'<strong>esperienza pregressa</strong>, non una pulsione rimossa</div></div><div class="err">
+      <div class="err-no">Attribuire alla Gestalt l'inferenza inconscia</div><div class="err-si">La Gestalt la radicalizza sostituendo l'esperienza pregressa con <strong>leggi innate</strong></div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 3</span><span>S203</span></p>
+      <h2 class="sk-nome">La nascita della psicologia scientifica</h2>
+      <p class="sk-unariga">Wundt fonda il primo laboratorio di Psicologia Fisiologica: non nasce l'interesse per la mente, nasce l'istituzione che la studia col metodo delle scienze naturali.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> 1879</span>
+        <span><b>Luogo</b> Lipsia, Germania</span>
+        <span><b>Lezione</b> L01</span>
+        <span><b>Manuale</b> cap. C05</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>La mente è studiata da due millenni con metodo razionalista. Manca una disciplina autonoma che la studi con verifica empirica.</p><div class="formula">L'esigenza è <strong>fondativa</strong>: dare alla psicologia un metodo sperimentale, sottraendola alla speculazione filosofica.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Positivismo (Comte)</p>
+      <p class="voce-meta">clima</p>
+      <p class="voce-testo">Ogni disciplina, per produrre conoscenza, deve avere base scientifica.</p></div><div class="voce">
+      <p class="voce-tit">Psicofisica (Fechner)</p>
+      <p class="voce-meta">metodo</p>
+      <p class="voce-testo">La sensazione è oggettiva, materiale e misurabile: un fenomeno psichico può entrare in un esperimento controllato.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Comte</strong></td><td>Filosofia positivista</td><td>Il permesso epistemologico: le scienze naturali come unica fonte attendibile di conoscenza</td></tr><tr><td><strong>Fechner</strong></td><td>Psicofisica</td><td>La prova che lo psichico è misurabile; la legge di Weber-Fechner</td></tr><tr><td><strong>von Helmholtz</strong></td><td>Fisiologia sensoriale</td><td>Il modello di un processo psichico non consapevole: l'inferenza inconscia</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">L'<strong>esperienza diretta e immediata</strong> — il contenuto della coscienza che il soggetto ha della propria attività mentale consapevole — <strong>scomposta nei suoi elementi irriducibili</strong>, gli «atomi della mente».</div><p class="glossa">Tre elementi da non perdere. «<em>Diretta e immediata</em>»: non l'esperienza ricordata né interpretata, quella che sta accadendo. «<em>Attività mentale consapevole</em>»: Wundt studia la coscienza, e ciò che non è consapevole resta fuori. «<em>Scomposta negli elementi irriducibili</em>»: è il cuore del programma e il punto su cui tutte le scuole successive attaccheranno.<br><strong>Obiettivo operativo</strong>: cogliere la variazione dell'esperienza cosciente al variare dello stimolo fisico — è l'impianto della psicofisica portato dentro la psicologia.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Introspezione</strong> («guardare dentro»): descrizione soggettiva della propria esperienza personale in seguito all'esposizione a uno stimolo, più la <strong>misura dei tempi di reazione</strong>.</div>
+     <p class="glossa">Detta così sarebbe il contrario di un metodo scientifico. Wundt la circonda di quattro vincoli che dovrebbero renderla controllata.</p>
+     <ul class="punti"><li><strong>Il soggetto è lo sperimentatore stesso, addestrato.</strong> Wundt reclutava gli studenti dei propri corsi e li addestrava a descrivere scrupolosamente e in modo coerente l'esperienza diretta.</li><li><strong>Criteri elementistici e congruenti con le proprietà fisiche dello stimolo.</strong> Davanti a un colore non basta nominarlo: vanno descritte brillantezza, intensità, tonalità. Le categorie del resoconto devono corrispondere alle dimensioni fisiche manipolate.</li><li><strong>Esperienza immediata, non la sua interpretazione.</strong> Dire «c'è scritta una parola» è già interpretazione: si è attribuita allo stimolo la categoria «parola». Bisogna fermarsi allo stadio precedente — segni, forme, tonalità.</li><li><strong>Misura dei tempi di reazione.</strong> È il vincolo che introduce una misura oggettiva in un metodo altrimenti interamente soggettivo.</li></ul></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Analogia con la chimica</p>
+      <p class="voce-testo">Come la chimica studia la materia <strong>scomponendola in atomi</strong>, così la psicologia deve studiare la coscienza <strong>scomponendola in elementi semplici</strong>.</p>
+      <p class="glossa">L'analogia porta un'ambizione di metodo e un vizio: dà per dimostrato ciò che è da dimostrare, cioè che la coscienza <em>abbia</em> elementi e che scomponendola non la si distrugga. È la presupposizione che James contesterà e che la Gestalt rovescerà.</p></div><div class="voce">
+      <p class="voce-tit">Regola dei tempi di reazione</p>
+      <p class="voce-testo">Più il tempo di reazione è <strong>lungo</strong>, più è probabile che il soggetto stia <strong>interpretando</strong> lo stimolo anziché riferire il contenuto irriducibile della coscienza.</p>
+      <p class="glossa">Introduce una misura fisica come indicatore di un processo psichico — non si misura il pensiero, si misura il tempo — ed è lo schema logico di tutta la cronometria mentale successiva. Ma è anche un correttivo che ammette implicitamente l'inaffidabilità del dato principale.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Wilhelm Wundt</span>
+        <span class="esp-anni">1832-1920</span>
+        <span class="esp-ruolo">Fondatore</span>
+      </div>
+      <p class="voce-meta">Lipsia</p>
+      <p class="esp-chie">Fonda la psicologia come pratica sperimentale istituzionalizzata. La sua teoria elementistica sarà abbandonata in una generazione; l'istituzione resta.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Fonda nel <strong>1879</strong> a <strong>Lipsia</strong> il primo <strong>laboratorio di Psicologia Fisiologica</strong>. Il nome dichiara il programma: studiare i contenuti psichici con gli strumenti e i criteri di una scienza naturale.</li><li>Definisce l'oggetto della psicologia come esperienza diretta e immediata scomposta negli elementi irriducibili.</li><li>Sistematizza il <strong>metodo introspettivo</strong> con quattro vincoli.</li><li>Introduce la misura dei <strong>tempi di reazione</strong> come controllo di qualità del dato introspettivo.</li><li>Forma la generazione successiva: <strong>Titchener, James, Külpe</strong> passano tutti da Lipsia — le scuole che lo combatteranno nascono da persone che hanno lavorato con lui.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Elementismo</strong> — La coscienza è scomponibile in elementi irriducibili, gli «atomi della mente».</li></ul>
+      
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">Il paradigma dei tempi di reazione</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Si presenta uno stimolo fisico controllato.</li><li>Si registra l'intervallo fra presentazione dello stimolo ed emissione della risposta verbale.</li><li>Si raccoglie contestualmente il resoconto introspettivo, vincolato ai criteri elementistici.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Tempi lunghi si associano a resoconti interpretativi, tempi brevi a resoconti elementari.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Consente di stimare quanto un resoconto sia contaminato da interpretazione. È il primo uso di una misura fisica come indicatore di un'operazione mentale.</div></div>
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Fonda la <strong>psicologia come pratica sperimentale istituzionalizzata</strong>: il laboratorio, il tirocinio, la figura dello psicologo sperimentale. È il passaggio dall'esperimento psicologico alla psicologia sperimentale.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Il punto debole è il <strong>metodo</strong>. Il correttivo dei tempi di reazione non risolve il problema di fondo: il dato principale resta un resoconto verbale soggettivo.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>La psicologia elementistica sarà abbandonata in una generazione, ma l'istituzione e il criterio del metodo restano.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Strutturalismo</strong> — ne è la <strong>fonte diretta</strong>: Titchener porta la psicologia wundtiana in America</li><li><strong>Gestalt</strong> — ne è la <strong>reazione</strong>: sbaglia a scomporre</li><li><strong>Comportamentismo</strong> — ne è la <strong>reazione</strong>: sbaglia a studiare l'inosservabile</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">L'esperienza diretta e immediata, scomposta negli elementi irriducibili.</div><div class="formula">Più lungo è il tempo di reazione, più è probabile che il soggetto stia interpretando anziché riferire il contenuto irriducibile.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«1879, Wundt»</div><div class="err-si">Servono <strong>tre dati</strong>: chi, dove, quando — e il nome del laboratorio, «Psicologia Fisiologica», che dichiara il programma</div></div><div class="err">
+      <div class="err-no">Enunciare l'oggetto senza «scomposta negli elementi irriducibili»</div><div class="err-si">È tutta la scuola: senza quella clausola non si capisce contro che cosa reagiranno Gestalt e funzionalismo</div></div><div class="err">
+      <div class="err-no">«I tempi di reazione misuravano la velocità del pensiero»</div><div class="err-si">Servivano a <strong>stimare la contaminazione da interpretazione</strong> del resoconto introspettivo</div></div><div class="err">
+      <div class="err-no">Elencare meno di quattro vincoli del metodo</div><div class="err-si">Sono quattro e vanno saputi come elenco</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 4</span><span>S204</span></p>
+      <h2 class="sk-nome">Lo strutturalismo</h2>
+      <p class="sk-unariga">Titchener porta in America la psicologia wundtiana, le dà un nome e la sistematizza — e nel farlo ne rivela il difetto.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> 1892</span>
+        <span><b>Luogo</b> Cornell University, Stati Uniti</span>
+        <span><b>Lezione</b> L01</span>
+        <span><b>Manuale</b> cap. C06</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>La psicologia wundtiana esiste come pratica di laboratorio ma non ha un nome, confini definiti né un lessico standard.</p><div class="formula">L'esigenza è di <strong>sistematizzazione</strong>: dare identità a una ricerca già in corso.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Wundt</p>
+      <p class="voce-meta">scuola</p>
+      <p class="voce-testo">L'esperienza diretta e immediata va scomposta negli elementi irriducibili.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Wundt</strong></td><td>Lipsia</td><td>Titchener ne è l'allievo diretto; porta la psicologia wundtiana negli Stati Uniti</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Percezioni, emozioni (o sentimenti) e idee</strong>, analizzate attraverso i rispettivi <strong>elementi più semplici</strong>.</div><p class="glossa">È il programma wundtiano ma con un <strong>catalogo</strong>: Wundt parlava dell'esperienza diretta in generale, Titchener nomina le classi di contenuti su cui si lavora. Il nome della scuola viene da qui: l'oggetto è la <strong>struttura</strong> della mente e della coscienza.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Introspezione ancora più sistematizzata</strong>: Titchener elabora un <strong>vocabolario</strong> che il soggetto è tenuto a usare quando viene esposto agli stimoli.</div>
+     <p class="glossa">Il resoconto non è libero ma vincolato a un repertorio di termini prestabiliti, così da renderlo confrontabile fra soggetti e fra prove. <strong>[slide]</strong> Con questo apparato furono individuate <strong>44.000 unità sensoriali</strong> diverse.<br>Nel disegno sperimentale <strong>il soggetto coincide con lo sperimentatore</strong>: chi osserva è chi è osservato — ed è il bersaglio della futura critica comportamentista.</p>
+     <ul class="punti"><li>Il resoconto deve usare i termini del vocabolario prestabilito.</li><li>L'osservatore è addestrato e coincide con lo sperimentatore.</li><li>Le 44.000 unità sensoriali non sono un successo classificatorio: un sistema che per descrivere l'esperienza ha bisogno di decine di migliaia di categorie elementari sta segnalando che le sue «unità irriducibili» non sono unità.</li></ul></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Distinzione mente / coscienza</p>
+      <p class="voce-testo"><strong>Mente</strong>: la somma di <em>tutti</em> i processi mentali e i contenuti che si svolgono <strong>durante la vita</strong> di un individuo. <strong>Coscienza</strong>: la somma dei processi che si verificano <strong>nel qui e ora</strong> (<em>hic et nunc</em>), che la psicologia sperimentale deve descrivere nei contenuti elementari.</p>
+      <p class="glossa">La differenza sta interamente nel <strong>tempo</strong>: la mente è la biografia, la coscienza è l'istante. Conseguenza operativa: l'oggetto effettivo del lavoro sperimentale è la <em>coscienza</em>, perché solo dell'istante presente si può chiedere un resoconto. È l'asimmetria che James userà come arma.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Edward Bradford Titchener</span>
+        <span class="esp-anni">1867-1927</span>
+        <span class="esp-ruolo">Caposcuola</span>
+      </div>
+      <p class="voce-meta">Cornell University</p>
+      <p class="esp-chie">Allievo di Wundt a Lipsia, si trasferisce alla Cornell nel 1892. Il suo gesto ha una doppia natura, geografica e teorica.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li><strong>Geografica</strong>: trasporta in America la scuola di pensiero wundtiana. È il primo trasferimento dell'asse della disciplina dalla Germania agli Stati Uniti — movimento che si ripeterà con la Gestalt negli anni Trenta, ma per ragioni opposte (là sarà una fuga).</li><li><strong>Teorica</strong>: dà un <strong>nome</strong> alla scuola e la <strong>sistematizza</strong> dal punto di vista scientifico. È lo stesso gesto che compirà la Scuola di Chicago con il manifesto funzionalista, e poi Neisser nel 1967.</li><li>Elabora il <strong>vocabolario</strong> obbligatorio del resoconto introspettivo.</li><li>Distingue <strong>mente</strong> e <strong>coscienza</strong> sul criterio del tempo.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Strutturalismo</strong> — L'oggetto della psicologia è la struttura della coscienza, colta nei suoi elementi irriducibili.</li></ul>
+      
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Aver posto la <strong>questione del metodo</strong> come condizione perché la psicologia diventi una scienza. Prima di Titchener si discuteva di <em>che cosa</em> studiare; dopo di lui è chiaro che la partita si gioca su <em>come</em> lo si studia. <strong>Il merito non viene cancellato dal fallimento del metodo proposto: la domanda giusta resta giusta anche quando la risposta è sbagliata.</strong></div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Il metodo <strong>non è valido</strong>, per due critiche distinte:<br>· <strong>Retrospezione</strong> — fra la percezione dello stimolo e la sua verbalizzazione passa del tempo: ciò che viene riferito non è l'esperienza immediata ma quella appena trascorsa, recuperata dalla memoria. È una critica <em>temporale</em> e demolisce la qualifica «immediata» che stava nella definizione dell'oggetto.<br>· <strong>Incoerenza dei resoconti</strong> — soggetti perfettamente addestrati fornivano descrizioni incoerenti degli stessi stimoli fisici. È una critica di <em>attendibilità</em> e colpisce il requisito minimo di qualunque misura: se la stessa causa non produce lo stesso dato, il dato non misura nulla.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Con la <strong>morte di Titchener (1927)</strong> lo strutturalismo <strong>decade</strong>: era una scuola senza successione, tenuta insieme dalla persona che l'aveva sistematizzata.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Funzionalismo</strong> — nasce per <strong>reazione</strong>, ma su una critica all'<strong>oggetto</strong> e non al metodo: andare oltre la struttura, considerare la mente nell'ambiente e per le sue funzioni</li><li><strong>Gestalt e comportamentismo</strong> — nascono per reazione all'impianto wundtiano-strutturalista, da direzioni opposte</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">L'introspezione è in realtà una retrospezione.</div><div class="formula">Lo strutturalismo ha posto la domanda giusta — quella del metodo — e ha dato la risposta sbagliata. Ma è la domanda a restare.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">Rispondere raccontando Wundt</div><div class="err-si">Le tre cose <strong>di Titchener</strong> sono: il catalogo dei contenuti, la coppia mente/coscienza, il vocabolario con le 44.000 unità</div></div><div class="err">
+      <div class="err-no">Fondere le due critiche in una</div><div class="err-si"><strong>Retrospezione</strong> = problema di tempo. <strong>Incoerenza</strong> = problema di attendibilità. Chi ne dice una sola ha risposto a metà</div></div><div class="err">
+      <div class="err-no">Presentare l'esigenza del funzionalismo come critica al metodo</div><div class="err-si">È una critica all'<strong>oggetto</strong>: la struttura non basta, serve la funzione nell'ambiente</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 5</span><span>S205</span></p>
+      <h2 class="sk-nome">Il funzionalismo</h2>
+      <p class="sk-unariga">Non nasce da una scoperta ma da un cambio di domanda: non «com'è fatta» la mente, ma «a che cosa serve» — e con la domanda entra l'ambiente.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> 1896</span>
+        <span><b>Luogo</b> Scuola di Chicago, Stati Uniti</span>
+        <span><b>Lezione</b> L01</span>
+        <span><b>Manuale</b> cap. C07</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Gli strutturalisti indagano i <strong>contenuti</strong> della mente, cioè come la mente è fatta. Ma una struttura descritta in isolamento non dice nulla dell'uso che se ne fa.</p><div class="formula">L'esigenza è andare <strong>oltre la struttura</strong> e considerare la mente <strong>all'interno dell'ambiente in cui l'individuo vive</strong>, quindi non per i contenuti ma per le <strong>funzioni</strong>. Sono due mosse in una: la mente entra in un ambiente, e la domanda passa da «com'è fatta» a «a che cosa serve».</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Evoluzionismo darwiniano</p>
+      <p class="voce-meta">biologia</p>
+      <p class="voce-testo">Le caratteristiche utili alla sopravvivenza hanno più probabilità di essere trasmesse: sopravvive chi meglio si adatta all'ambiente.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Charles Darwin</strong></td><td>Biologia evoluzionistica</td><td>Selezione naturale e <strong>adattamento all'ambiente</strong>: il concetto-chiave che passa al funzionalismo</td></tr><tr><td><strong>William James</strong></td><td>Filosofia e psicologia, Harvard</td><td>Lo <em>stream of consciousness</em> e la conclusione che è più utile studiare come la mente funziona</td></tr><tr><td><strong>Strutturalismo</strong></td><td>Cornell</td><td>Vi si oppone: è l'esigenza insoddisfatta che genera la nuova scuola</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">Le <strong>attività mentali</strong> e la loro <strong>utilizzazione nella guida del comportamento</strong>: i comportamenti nella loro <strong>globalità</strong>, in relazione all'<strong>adattamento ambientale</strong>.</div><p class="glossa">Due elementi da non perdere. «<em>Nella guida del comportamento</em>»: i processi mentali non sono studiati per sé ma per l'uso che ne fa il comportamento — è il ponte verso il comportamentismo. «<em>Nella loro globalità</em>»: il rifiuto dell'elementismo è esplicito già nella formulazione dell'oggetto.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Eclettico</strong> ma sperimentale: sperimentazione di laboratorio, osservazione semplice, osservazione controllata.</div>
+     <p class="glossa">L'eclettismo non è vaghezza. Se l'oggetto è la <em>funzione</em>, cioè un rapporto fra organismo e ambiente, il metodo deve poter seguire quel rapporto dove si dà: un rapporto adattivo si osserva anche fuori dal laboratorio, e irrigidire il metodo significherebbe perdere l'oggetto. <strong>È il primo caso nel corso in cui il metodo è subordinato all'oggetto</strong> — in Wundt era il metodo a definire la scuola.</p>
+     </div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Selezione naturale (Darwin)</p>
+      <p class="voce-testo">Le caratteristiche <strong>più utili alla sopravvivenza</strong> e alla riproduzione degli individui di una stessa specie hanno <strong>maggiori probabilità delle altre di essere trasmesse alle generazioni successive</strong>.</p>
+      <p class="glossa">Esempio della lezione: il collo lungo della giraffa. <strong>[N.d.R.]</strong> nella forma «la giraffa allunga il collo per arrivare alle foglie» l'esempio è <em>lamarckiano</em>: in Darwin la variazione è preesistente e casuale, e l'ambiente non la produce, la <strong>seleziona</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Stream of consciousness (James)</p>
+      <p class="voce-testo">La coscienza non è una serie di elementi distinti ma un <strong>flusso dinamico</strong>, un fiume che scorre: nessun momento di coscienza, una volta trascorso, si ripropone identico.</p>
+      <p class="glossa">La catena logica in quattro passi: <strong>1.</strong> la coscienza è dinamica → <strong>2.</strong> nessun momento è replicabile → <strong>3.</strong> studiarne i contenuti è privo di senso, perché nell'istante successivo non esistono più → <strong>4.</strong> dunque è più utile studiare <em>come la mente funziona</em> che <em>come è fatta</em>. Il punto 4 è la conclusione, ed è la frase che vale il voto.</p></div><div class="voce">
+      <p class="voce-tit">Connessionismo (Thorndike)</p>
+      <p class="voce-testo">I processi psichici sono costituiti da <strong>connessioni, innate o acquisite, fra una situazione e una risposta</strong>.</p>
+      <p class="glossa">È la traduzione decisiva: ciò che nel funzionalismo era un <em>processo adattivo</em> diventa un <em>legame associativo</em>. È già, nella sostanza, lo schema S-R del comportamentismo, formulato nel lessico funzionalista.</p></div><div class="voce">
+      <p class="voce-tit">Legge dell'effetto (Thorndike)</p>
+      <p class="voce-testo">Un comportamento seguito da un <strong>feedback positivo</strong> dell'ambiente si <strong>rinforza</strong> e diventa più probabile in futuro; un comportamento seguito da un <strong>feedback negativo</strong> tende a <strong>estinguersi</strong>.</p>
+      <p class="glossa">Sposta la spiegazione del comportamento <strong>dalle cause alle conseguenze</strong>: ciò che determina se un comportamento si ripeterà non è ciò che lo ha provocato, ma ciò che gli è seguito. È il rovesciamento che Skinner porterà alle estreme conseguenze.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Charles Darwin</span>
+        <span class="esp-anni">1809-1882</span>
+        <span class="esp-ruolo">Precursore</span>
+      </div>
+      <p class="voce-meta">Inghilterra</p>
+      <p class="esp-chie">Non è uno psicologo, ma la sua teoria fornisce al funzionalismo l'intera impalcatura concettuale.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Formula la <strong>teoria dell'evoluzione</strong> per mezzo della <strong>selezione naturale</strong>.</li><li>Fornisce alla psicologia il concetto di <strong>adattamento all'ambiente</strong>: se vale per gli organi, vale anche per la mente.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Selezione naturale</strong> — Sopravvivono soltanto gli individui che meglio si adattano all'ambiente.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">William James</span>
+        <span class="esp-anni">1842-1910</span>
+        <span class="esp-ruolo">Precursore principale</span>
+      </div>
+      <p class="voce-meta">Harvard (incarico 1890)</p>
+      <p class="esp-chie">Alcuni lo considerano il fondatore; è più corretto considerarlo un <strong>precursore</strong>, perché i caposcuola veri e propri sono quelli di Chicago. Ha un'esperienza di lavoro con Wundt.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Condivide con Wundt l'importanza di studiare l'esperienza immediata, ma <strong>dissente sulla possibilità di scomporla</strong>: farlo significa <strong>snaturare la mente</strong>.</li><li>Definisce la coscienza come <strong>stream of consciousness</strong>.</li><li>Definisce la mente come <strong>effetto massimo dell'adattamento</strong> finalizzato all'<strong>autoconservazione</strong>: la struttura più evoluta di cui l'uomo dispone, quella che gli consente di adattarsi meglio all'ambiente.</li><li><strong>Rifiuta l'introspezione</strong> come metodo elettivo.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Stream of consciousness</strong> — È più utile studiare come la mente funziona che come è fatta.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">John Dewey</span>
+        <span class="esp-anni">1859-1952</span>
+        <span class="esp-ruolo">Caposcuola</span>
+      </div>
+      <p class="voce-meta">Scuola di Chicago</p>
+      <p class="esp-chie">Primo dei tre che emettono il manifesto funzionalista.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Con Angell e Carr emette il <strong>manifesto funzionalista</strong> (1896), dando nome e sistematizzazione alla scuola — lo stesso gesto compiuto da Titchener per lo strutturalismo.</li></ul>
+      
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">James Rowland Angell</span>
+        <span class="esp-anni">1869-1949</span>
+        <span class="esp-ruolo">Caposcuola</span>
+      </div>
+      <p class="voce-meta">Scuola di Chicago</p>
+      <p class="esp-chie">Secondo dei tre caposcuola.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Concorre alla stesura del manifesto funzionalista e alla definizione dell'oggetto: le attività mentali nella guida del comportamento.</li></ul>
+      
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Harvey Carr</span>
+        <span class="esp-anni">1873-1954</span>
+        <span class="esp-ruolo">Caposcuola</span>
+      </div>
+      <p class="voce-meta">Scuola di Chicago</p>
+      <p class="esp-chie">Terzo dei tre caposcuola.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Concorre alla stesura del manifesto funzionalista e alla sistematizzazione del metodo eclettico.</li></ul>
+      
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Edward Lee Thorndike</span>
+        <span class="esp-anni">1874-1949</span>
+        <span class="esp-ruolo">Funzionalista <em>sui generis</em> · figura di frontiera</span>
+      </div>
+      <p class="voce-meta">Columbia University</p>
+      <p class="esp-chie">Fra le decine di funzionalisti la lezione lo isola deliberatamente — <strong>non</strong> perché sia stato caposcuola o esponente di spicco (non lo è stato), ma perché interpreta in modo <strong>originale</strong> i concetti del funzionalismo e diventa <strong>precursore diretto del comportamentismo</strong>.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Si definisce <strong>connessionista</strong>: riduce le funzioni mentali a connessioni situazione-risposta.</li><li>Formula la <strong>legge dell'effetto</strong>, che la lezione chiede esplicitamente di tenere a mente perché è il ponte verso la scuola successiva.</li><li>Sposta la spiegazione del comportamento dalle cause alle <strong>conseguenze</strong>.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Connessionismo</strong> — I processi psichici sono connessioni, innate o acquisite, fra una situazione e una risposta.</li><li><strong>Legge dell'effetto</strong> — Feedback positivo → il comportamento si rinforza. Feedback negativo → tende a estinguersi.</li></ul>
+      
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Solida. Introduce nella psicologia l'<strong>ambiente</strong> — che finirà nella definizione moderna della disciplina — e subordina per la prima volta il metodo all'oggetto.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Non ha un metodo proprio riconoscibile, e proprio per questo si dissolve più che tramontare: le sue acquisizioni passano al comportamentismo.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Apre al comportamentismo attraverso Thorndike; lascia «nel suo rapporto con l'ambiente» nella definizione della disciplina.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Comportamentismo</strong> — tramite <strong>Thorndike</strong>: connessionismo e legge dell'effetto</li><li><strong>La definizione moderna</strong> — vi lascia l'espressione «nel suo rapporto con l'ambiente» e il plurale «processi mentali»</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">È più utile studiare come la mente funziona che come è fatta.</div><div class="formula">Le caratteristiche più utili alla sopravvivenza hanno maggiori probabilità di essere trasmesse alle generazioni successive.</div><div class="formula">I processi psichici sono connessioni, innate o acquisite, fra una situazione e una risposta.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">Presentare James come caposcuola</div><div class="err-si">È un <strong>precursore</strong>: i caposcuola sono Dewey, Angell e Carr</div></div><div class="err">
+      <div class="err-no">Fermarsi alla metafora del fiume</div><div class="err-si">La conclusione è il passo 4: <strong>è più utile studiare come la mente funziona che come è fatta</strong></div></div><div class="err">
+      <div class="err-no">«Metodo eclettico» senza motivarlo</div><div class="err-si">Se l'oggetto è un rapporto, il metodo deve poterlo seguire dove si dà</div></div><div class="err">
+      <div class="err-no">Non spiegare perché Thorndike viene isolato</div><div class="err-si">Senza quella ragione l'elenco dei nomi è inerte: è il <strong>ponte</strong> verso il comportamentismo</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 6</span><span>S206</span></p>
+      <h2 class="sk-nome">La scuola riflessologica</h2>
+      <p class="sk-unariga">Prima delle due scuole russe. È «collaterale» in senso geografico e istituzionale: fuori dall'asse Germania-America, ma pienamente accademica e pienamente sperimentale.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> fine '800 → 1917</span>
+        <span><b>Luogo</b> Russia</span>
+        <span><b>Lezione</b> L01</span>
+        <span><b>Manuale</b> cap. C08</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Come studiare i processi psichici con gli strumenti della fisiologia, senza postulare entità mentali non osservabili.</p><div class="formula">L'esigenza è <strong>riduzionista</strong>: ricondurre tutto ciò che chiamiamo vita mentale a meccanismi fisiologici semplici e misurabili.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Fisiologia sperimentale russa</p>
+      <p class="voce-meta">disciplina</p>
+      <p class="voce-testo">I processi psichici sono riconducibili a riflessi, cioè a processi fisiologici elementari.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Ivan Sečenov</strong></td><td>Fisiologia</td><td>Autore de «I riflessi del cervello»: i processi psichici sono riconducibili a riflessi cerebrali</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">I <strong>riflessi</strong>. I processi psichici sono <strong>riducibili a riflessi</strong>, cioè a processi puramente fisiologici ed elementari.</div><p class="glossa"><strong>Che cos'è un riflesso</strong>: un meccanismo di connessione fra due o più neuroni — uno in input e uno in output — che riceve uno stimolo e produce una risposta. Caratteristica distintiva: l'<strong>automaticità</strong>, cioè avviene e non è controllabile volontariamente (esempio: il riflesso patellare).<br><strong>Due tipi</strong>: i riflessi <strong>spinali</strong> hanno sede nel midollo spinale e non prevedono consapevolezza; i riflessi <strong>cerebrali</strong> prevedono stazioni del circuito nel cervello e mediano comportamenti leggermente più complessi, ma sempre semplici. La distinzione è ciò che consente di estendere il modello a comportamenti meno elementari.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Sperimentale rigoroso, su animali</strong>: misura di secrezioni salivari e gastriche in condizioni controllate.</div>
+     <p class="glossa">È il punto su cui si sbaglia più spesso: Pavlov non è meno scientifico dei tedeschi. Lavora in un laboratorio di fisiologia e vince il <strong>Nobel nel 1904</strong>.</p>
+     </div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Teoria dei riflessi condizionati (1902)</p>
+      <p class="voce-testo">I <strong>riflessi condizionati</strong> — quelli che si attivano anche di fronte a stimoli che in natura non li provocano — costituiscono una <strong>forma elementare di apprendimento</strong>, fondata sull'<strong>associazione fra due stimoli</strong>.</p>
+      <p class="glossa">Tre elementi nella formula, e servono tutti e tre: è <strong>apprendimento</strong>, è <strong>elementare</strong>, il meccanismo è l'<strong>associazione fra due stimoli</strong>. Estesa poi all'uomo con i <strong>riflessi condizionati verbali</strong>.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Ivan Petrovič Pavlov</span>
+        <span class="esp-anni">1849-1936</span>
+        <span class="esp-ruolo">Massimo esponente · Nobel 1904</span>
+      </div>
+      <p class="voce-meta">Russia</p>
+      <p class="esp-chie">Fisiologo, non psicologo. È uno dei due <strong>precursori diretti del comportamentismo</strong>. Il Nobel è per gli studi sulla <strong>digestione</strong>: la scoperta che interessa la psicologia arriva come sottoprodotto di una ricerca su tutt'altro.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Studia le <strong>secrezioni salivari e gastriche</strong> di cani affamati esposti al cibo.</li><li>Osserva che gli animali salivano anche alla <strong>sola vista dell'inserviente senza cibo</strong>, e trasforma l'osservazione in oggetto di studio sistematico.</li><li>Formula la <strong>teoria dei riflessi condizionati</strong> (1902).</li><li>Estende gli esperimenti dall'animale all'uomo con i <strong>riflessi condizionati verbali</strong>.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Condizionamento classico</strong> — Si associano <strong>due stimoli</strong>; i comportamenti coinvolti sono <strong>passivi</strong>, cioè riflessi automatici e inconsapevoli. Da distinguere dal condizionamento operante di Skinner.</li></ul>
+      <p class="esp-nota">È un <strong>precursore</strong> e non un comportamentista: resta un fisiologo, parla di riflessi e circuiti nervosi, non costruisce una teoria psicologica generale. Il comportamentismo prende il suo paradigma sperimentale e gliene dà un uso che lui non aveva previsto.</p>
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">Il riflesso condizionato della salivazione</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Cani deprivati di cibo, in condizioni di misura controllata delle secrezioni salivari.</li><li>Presentazione ripetuta del cibo, che provoca naturalmente la salivazione.</li><li>Presenza costante dell'inserviente che porta il cibo: l'associazione cibo-inserviente si ripete molte volte.</li><li>Presentazione del solo inserviente, senza cibo.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Gli animali salivano alla <strong>sola vista dell'inserviente</strong>: il riflesso si attiva davanti a uno stimolo che <strong>in natura non lo provoca</strong>.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>L'associazione ripetuta fra due stimoli produce una <strong>forma elementare di apprendimento</strong>. È il paradigma sperimentale che il comportamentismo erediterà per intero, e su cui Watson costruirà il condizionamento della paura nel piccolo Albert.</div></div>
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Acquisizioni <strong>tuttora valide</strong> sull'apprendimento. Fornisce al comportamentismo il suo paradigma sperimentale principale.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Riduzionismo: i processi psichici complessi non si lasciano ricondurre a riflessi. È esattamente l'obiezione che muoverà Vygotskij dopo il 1917.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Confluisce nel comportamentismo come precursore; viene superata in Russia dalla scuola storico-culturale.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Comportamentismo</strong> — <strong>precursore diretto</strong>, insieme a Thorndike. Minimo comune denominatore: entrambi studiano l'<strong>apprendimento</strong> e sperimentano <strong>sugli animali</strong> → la psicologia comparata diventa metodo elettivo</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">I riflessi condizionati costituiscono una forma elementare di apprendimento fondata sull'associazione fra due stimoli.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Le scuole russe erano isolate dalle idee occidentali»</div><div class="err-si">Sono <strong>collaterali</strong> in senso <strong>geografico e istituzionale</strong>: fuori dall'asse Germania-America. Nulla di più</div></div><div class="err">
+      <div class="err-no">«Pavlov non era scientifico»</div><div class="err-si">È <strong>pienamente sperimentale</strong>: Nobel 1904</div></div><div class="err">
+      <div class="err-no">Attribuire il Nobel ai riflessi condizionati</div><div class="err-si">Il Nobel è per la <strong>digestione</strong></div></div><div class="err">
+      <div class="err-no">Enunciare la teoria perdendo un elemento</div><div class="err-si">Servono tutti e tre: <strong>apprendimento</strong>, <strong>elementare</strong>, <strong>associazione fra due stimoli</strong></div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 7</span><span>S207</span></p>
+      <h2 class="sk-nome">La scuola storico-culturale</h2>
+      <p class="sk-unariga">Seconda scuola russa, dopo lo spartiacque della rivoluzione. Sposta l'attenzione dai processi semplici alle funzioni complesse e alla dimensione sociale.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> 1917 → anni '50</span>
+        <span><b>Luogo</b> Russia</span>
+        <span><b>Lezione</b> L01</span>
+        <span><b>Manuale</b> cap. C08</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>La rivoluzione bolscevica del 1917 cambia il quadro culturale e i vincoli entro cui si fa scienza. La riflessologia, che studia comportamenti semplici, non risponde più alle esigenze della nuova società.</p><div class="formula">L'esigenza è duplice, in parte teorica e in parte imposta dal regime: <strong>adattare la scienza psicologica ai principi della nuova società russa</strong> — marxismo e materialismo — e studiare le <strong>funzioni complesse</strong> anziché i riflessi.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Marxismo e materialismo</p>
+      <p class="voce-meta">filosofia politica</p>
+      <p class="voce-testo">La coscienza è determinata dalle condizioni materiali e sociali dell'esistenza.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>La rivoluzione del 1917</strong></td><td>Contesto storico-politico</td><td>Impone il quadro entro cui la nuova psicologia deve costituirsi</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">Le <strong>funzioni complesse</strong> della mente e la <strong>dimensione sociale</strong> dell'essere umano, in particolare il <strong>linguaggio</strong>.</div><p class="glossa">Lo spostamento va formulato come tale: <em>dai</em> processi semplici — contenuti di coscienza, associazioni elementari come i riflessi condizionati — <em>alle</em> funzioni complesse, che si sviluppano a seconda della società in cui l'individuo vive.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Osservativo e teorico, non sperimentale in senso stretto.</div>
+     <p class="glossa">È il punto più debole della scuola sul piano metodologico, e la ragione per cui viene ricordata soprattutto per le sue tesi.</p>
+     </div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Sviluppo psichico e sviluppo socio-economico</p>
+      <p class="voce-testo">Lo sviluppo della psiche è <strong>connesso agli stadi dello sviluppo socio-economico</strong>: più una società è culturalmente ricca, prestigiosa dal punto di vista economico e quindi stimolante, più l'essere umano sviluppa <strong>funzioni mentali complesse</strong>, che ne ricalcano l'<em>habitus</em>.</p>
+      <p class="glossa">È la tesi che dà il nome alla scuola: la dimensione è <strong>storica</strong> perché riguarda gli stadi storici dello sviluppo socio-economico.</p></div><div class="voce">
+      <p class="voce-tit">Primato del linguaggio</p>
+      <p class="voce-testo">Il <strong>linguaggio</strong> è l'<strong>espressione principale della vita psichica umana</strong> ed è <strong>alla base dei processi di coscienza</strong>.</p>
+      <p class="glossa">Non è un veicolo neutro del pensiero: lo <strong>struttura</strong>. È l'elemento che collega Vygotskij al cognitivismo.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Lev Semënovič Vygotskij</span>
+        <span class="esp-anni">1896-1934</span>
+        <span class="esp-ruolo">Massimo esponente</span>
+      </div>
+      <p class="voce-meta">Russia</p>
+      <p class="esp-chie">Uno dei tre <strong>precursori del cognitivismo</strong>. La sua importanza va motivata con <strong>due ragioni</strong>, e darne una sola dimezza la risposta.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Sposta l'attenzione dai processi semplici alla <strong>dimensione sociale</strong> e alle <strong>funzioni complesse</strong> della mente.</li><li>Critica lo studio dei comportamenti semplici come i riflessi condizionati — critica in parte convinta, in parte obbligata dal regime.</li><li>Formula la tesi degli <strong>stadi dello sviluppo socio-economico</strong>.</li><li>Attribuisce al <strong>linguaggio</strong> il ruolo di base dei processi di coscienza.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Le due ragioni della sua importanza</strong> — <strong>1.</strong> Mostra come il <strong>pensiero scientifico stesso possa risentire della società</strong> in cui si sviluppa — ragione epistemologica. <strong>2.</strong> È <strong>precursore del cognitivismo</strong>, l'ultima scuola di pensiero veramente a sé stante — ragione storica.</li></ul>
+      
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>È il caso più chiaro del corso di come i fondamenti epistemologici di una scuola possano dipendere dal <strong>contesto sociale</strong> in cui nasce. E anticipa la mediazione sociale e linguistica dei processi cognitivi.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Impianto metodologico debole; la produzione di Vygotskij è interrotta dalla morte precoce (1934) e a lungo osteggiata.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Confluisce nel cognitivismo come uno dei tre precursori.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Cognitivismo</strong> — <strong>precursore</strong>, insieme a Tolman e Hebb: la mediazione sociale e linguistica dei processi mentali</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Lo sviluppo della psiche è connesso agli stadi dello sviluppo socio-economico.</div><div class="formula">Il linguaggio è l'espressione principale della vita psichica umana ed è alla base dei processi di coscienza.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Scuola socio-culturale»</div><div class="err-si">Si chiama <strong>storico</strong>-culturale: la tesi riguarda gli stadi <em>storici</em> dello sviluppo socio-economico</div></div><div class="err">
+      <div class="err-no">Confonderla con la psicologia socioculturale contemporanea</div><div class="err-si">Quella è un approccio della <strong>L03</strong> che affianca le neuroscienze: epoca, luogo e impianto sono diversi</div></div><div class="err">
+      <div class="err-no">Dare una sola delle due ragioni</div><div class="err-si">Servono <strong>entrambe</strong>: epistemologica e storica</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 8</span><span>S208</span></p>
+      <h2 class="sk-nome">La psicologia dinamica (psicoanalisi)</h2>
+      <p class="sk-unariga">L'unica scuola del corso che non nasce in ambiente accademico: è «collaterale» in senso epistemologico, non geografico.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> fine '800 — inizio '900</span>
+        <span><b>Luogo</b> Austria (Vienna); tappa decisiva a Parigi</span>
+        <span><b>Lezione</b> L01</span>
+        <span><b>Manuale</b> cap. C09</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>In Austria i pazienti con disturbi somatici privi di base organica erano trascurati, perché non c'era una causa organica da curare. Nessuna teoria rendeva conto di sintomi eterogenei — fisici e psichici insieme — senza lesione.</p><div class="formula">Nasce dalla <strong>sistemazione teorica di esperienze cliniche</strong>: il trattamento con tecniche ipnotiche di pazienti affetti da <strong>nevrosi isterica</strong>.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Pratica clinica</p>
+      <p class="voce-meta">origine</p>
+      <p class="voce-testo">La conoscenza deriva dall'osservazione del caso singolo, non dall'esperimento controllato.</p></div><div class="voce">
+      <p class="voce-tit">Metodo razionalista</p>
+      <p class="voce-meta">metodo</p>
+      <p class="voce-testo">Si costruiscono teorie coerenti a partire da osservazioni cliniche, per via deduttiva, senza verifica empirica.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Jean-Martin Charcot</strong></td><td>Neurologia, Parigi</td><td>L'<strong>ipnosi</strong>: sotto ipnosi riemergono contenuti inconsapevoli e il sintomo sparisce. Da qui l'intuizione dell'inconscio</td></tr><tr><td><strong>Josef Breuer</strong></td><td>Medicina, Vienna</td><td>La collaborazione clinica da cui nasce il metodo psicoanalitico</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">Le <strong>istanze psichiche</strong> e le loro <strong>relazioni dinamiche</strong>.</div><p class="glossa">Il termine «<strong>dinamica</strong>» fa riferimento a una <strong>relazione mobile fra le parti funzionali della mente</strong>: inconscio, preconscio e conscio non sono compartimenti stagni, interagiscono. I contenuti si spostano fra i livelli, vengono respinti, premono per emergere — ed è questo movimento a dare il nome alla scuola.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Metodo psicoanalitico</strong>, abbandonata l'ipnosi: quattro vie d'accesso all'inconscio.</div>
+     <p class="glossa">Ciò che accomuna le quattro vie: si accede all'inconscio <strong>solo indirettamente</strong>, attraverso ciò che sfugge al controllo del soggetto. È coerente con la definizione dell'oggetto — ed è anche il motivo per cui il metodo non è verificabile, perché l'interpretazione non ha criterio esterno di controllo.</p>
+     <ul class="punti"><li><strong>Libere associazioni</strong>: associazioni apparentemente illogiche che rivelerebbero materiale inconscio.</li><li><strong>Interpretazione dei sogni</strong>: il sogno ha un contenuto <em>latente</em> che va reso <em>manifesto</em>.</li><li><strong>Atti mancati e lapsus</strong>.</li><li><strong>Sintomi</strong>.</li></ul></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">I due postulati</p>
+      <p class="voce-testo"><strong>1.</strong> Un'<strong>unità di funzionamento mente-corpo</strong>. <strong>2.</strong> Una <strong>pluralità di livelli di funzione mentale</strong>: inconscio, preconscio, conscio.</p>
+      <p class="glossa">Il primo postulato serve a spiegare come un conflitto psichico possa produrre un sintomo corporeo. Il secondo articola la mente su più piani. <strong>[slide]</strong> In una fase successiva si affianca la seconda topica: <strong>Es, Io, Super-Io</strong>. <em>Da non confondere con i due <strong>assunti fondamentali</strong>, che sono i risultati per cui la teoria viene ricordata.</em></p></div><div class="voce">
+      <p class="voce-tit">Il conflitto</p>
+      <p class="voce-testo">Il sintomo va indagato a livello <strong>inconscio</strong>, dove risiedono <strong>pulsioni</strong> inaccessibili alla coscienza perché inaccettabili. Il conflitto si genera fra <strong>principio di piacere</strong> — il bisogno di soddisfare il piacere interno — e <strong>principio di realtà</strong> — il necessario confronto con il mondo reale che spesso lo impedisce.</p>
+      <p class="glossa">La prassi terapeutica ne discende direttamente: risoluzione del conflitto portando alla luce i contenuti inconsci.</p></div><div class="voce">
+      <p class="voce-tit">Primo assunto fondamentale</p>
+      <p class="voce-testo"><strong>Continuità fra normalità e patologia mentale</strong>: gli stessi processi spiegano il lapsus quotidiano e il sintomo clinico. Non una frattura ma un <em>continuum</em>.</p>
+      <p class="glossa">La conseguenza è enorme: se normalità e patologia sono un continuum, una teoria costruita sui pazienti dice qualcosa su tutti. È così che una teoria clinica diventa una <strong>teoria generale della personalità</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Secondo assunto fondamentale</p>
+      <p class="voce-testo"><strong>Ruolo centrale dell'inconscio</strong> — entità <strong>non osservabile direttamente</strong> — nel <strong>modulare l'attività conscia</strong>.</p>
+      <p class="glossa">Non è un magazzino inerte di ricordi dimenticati: è una forza che agisce continuamente su ciò di cui siamo consapevoli.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Sigmund Freud</span>
+        <span class="esp-anni">1856-1939</span>
+        <span class="esp-ruolo">Caposcuola, fondatore e di fatto unico esponente</span>
+      </div>
+      <p class="voce-meta">Vienna</p>
+      <p class="esp-chie">Medico austriaco. Il suo percorso biografico spiega la teoria: non è aneddotico.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Si reca a <strong>Parigi</strong> perché in Austria i pazienti con disturbi senza base organica erano trascurati.</li><li>Incontra <strong>Charcot</strong>, che li trattava con l'<strong>ipnosi</strong>: riportando alla consapevolezza contenuti inconsapevoli, il sintomo spariva. Da qui l'intuizione decisiva — <strong>l'inconscio non è postulato per ragioni filosofiche, è inferito da un fatto clinico</strong>.</li><li>Torna in Austria, collabora con <strong>Breuer</strong> ed elabora il <strong>metodo psicoanalitico</strong>, abbandonando l'ipnosi.</li><li>Formula i due postulati, la teoria del conflitto e i due assunti fondamentali.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Metodo psicoanalitico</strong> — Libere associazioni, interpretazione dei sogni, atti mancati e lapsus, sintomi.</li><li><strong>Continuità normalità/patologia</strong> — Il lapsus è la cartina di tornasole di un conflitto fra pulsione inconscia e principio di realtà.</li></ul>
+      
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Ha portato alla creazione di <strong>nuovi metodi di trattamento e cura</strong> dei disturbi psichici, con risvolti applicativi importanti in clinica; ha parlato <strong>per la prima volta di disturbi psichici</strong> come oggetto di una teoria; ha dato lo spunto per una teoria della personalità <strong>non soltanto patologica ma anche normale</strong>; ha influenzato fortemente tutta la psicologia successiva.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div><strong>Fondazione epistemologica povera, quasi nulla.</strong> Tre conseguenze: non usa metodologia sperimentale, perché la conoscenza viene dalla clinica e non dal laboratorio; procede per <strong>speculazione logica</strong>; la conoscenza prodotta <strong>non è verificabile empiricamente</strong>. Rispetto al criterio oggetto-metodo-validità, la psicoanalisi ha un metodo che la riporta <em>prima</em> del 1879.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Il corso non la include nonostante l'anomalia: la include <strong>segnalando</strong> l'anomalia. Dopo la morte di Freud le si prendono le distanze proprio per l'eterodossia dell'approccio.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Psicologia clinica e psicoterapie</strong> — attraverso i metodi di trattamento</li><li><strong>Psicologia umanistica (L03)</strong> — per <strong>opposizione</strong>: Maslow e Rogers rovesciano lo sguardo dalla patologia alle potenzialità positive — ma camminano sul ponte della continuità normalità/patologia costruito da Freud</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Una relazione mobile fra le parti funzionali della mente.</div><div class="formula">Il conflitto fra principio di piacere e principio di realtà.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«È collaterale come le scuole russe»</div><div class="err-si">Le russe lo sono in senso <strong>geografico</strong>, la psicoanalisi in senso <strong>epistemologico</strong>. Usare lo stesso criterio è l'errore tipico</div></div><div class="err">
+      <div class="err-no">Confondere i due postulati con i due assunti</div><div class="err-si">I <strong>postulati</strong> sono i punti di partenza (unità mente-corpo, pluralità dei livelli); gli <strong>assunti</strong> sono i risultati (continuità normalità/patologia, ruolo centrale dell'inconscio)</div></div><div class="err">
+      <div class="err-no">Dire il limite senza il merito, o viceversa</div><div class="err-si">Riconoscere il difetto epistemologico e affermare l'importanza storica <strong>non è una contraddizione</strong>: è la valutazione corretta</div></div></div></div>
+  </div>
+    <div class="chiuditura">Il <strong>comportamentismo</strong> nasce negli stessi anni ed esclude l'inosservabile <em>perché</em> inosservabile. Freud fa l'opposto: colloca al centro della spiegazione un'entità che per definizione non è osservabile. Sono le due risposte opposte allo stesso problema — che cosa fare di ciò che non si vede.</div>
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 9</span><span>S209</span></p>
+      <h2 class="sk-nome">La psicologia della Gestalt</h2>
+      <p class="sk-unariga">Prima delle due reazioni a Wundt: gli rimprovera di <strong>scomporre</strong>. Motto: il tutto è più della somma delle parti.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> 1912</span>
+        <span><b>Luogo</b> Germania, poi Stati Uniti per il nazismo</span>
+        <span><b>Lezione</b> L02</span>
+        <span><b>Manuale</b> cap. C10</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Wundt scompone la coscienza in elementi irriducibili. Ma l'atto conoscitivo è <strong>unitario</strong>, e ridurlo a elementi lo distrugge.</p><div class="formula">L'esigenza è rifiutare l'<strong>elementismo</strong> — non il metodo sperimentale, che la Gestalt userà anzi con grande rigore.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Immanuel Kant — innatismo</p>
+      <p class="voce-meta">filosofia</p>
+      <p class="voce-testo"><strong>Sintesi a priori</strong>: l'atto della conoscenza è un'attività <strong>unitaria e unificante</strong>, in cui la <strong>materia</strong> fornita dall'ambiente attraverso i sensi viene organizzata attraverso <strong>forme proprie della mente</strong>. Quelle forme sono le <strong>idee a priori</strong>: schemi e regole <strong>innate</strong>, possedute alla nascita da ogni individuo della specie perché <strong>geneticamente predeterminate</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Franz Brentano — psicologia dell'atto</p>
+      <p class="voce-meta">psicologia</p>
+      <p class="voce-testo">L'oggetto della psicologia è l'<strong>atto</strong>, cioè un'azione compiuta nell'ambiente; ma l'atto <strong>ha senso solo in riferimento a un oggetto</strong>. L'aspetto specifico dei fenomeni psichici è l'<strong>intenzionalità</strong>: il ruolo che il soggetto assume nel compiere l'atto.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Kant</strong></td><td>Filosofia critica</td><td>L'ambiente fornisce la <strong>materia</strong>, la mente fornisce la <strong>forma</strong>: da qui l'innatismo gestaltico</td></tr><tr><td><strong>Brentano</strong></td><td>Scuola di Graz</td><td>La distinzione <strong>fenomeno / oggetto fisico</strong>, che rende possibile il metodo della Gestalt</td></tr><tr><td><strong>Christian von Ehrenfels</strong></td><td>Scuola di Graz</td><td>Il concetto di <strong>qualità gestaltica</strong> (<em>Gestaltqualität</em>, 1890) e l'esempio della melodia trasposta</td></tr><tr><td><strong>Wundt</strong></td><td>Lipsia</td><td>Vi si oppone: è il bersaglio</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">L'<strong>atto unitario della percezione</strong> e le <strong>leggi innate</strong> che ne governano l'organizzazione.</div><p class="glossa"><strong>Fenomeno vs oggetto fisico</strong> (da Brentano): il <em>fenomeno</em> è l'oggetto <strong>per come lo percepisco</strong> ed esiste <em>dentro</em> il mio atto; l'<em>oggetto fisico</em> è quello della realtà, indipendente da me. La distinzione è decisiva perché rende possibile un esperimento rigoroso: si manipola l'<strong>oggetto fisico</strong>, misurabile in unità fisiche, e si registra il <strong>fenomeno</strong>, raccolto dal resoconto.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Metodo fenomenologico sperimentale</strong>: studiare il <strong>fenomeno percepito dai soggetti</strong> in relazione al <strong>variare degli stimoli fisici</strong> del mondo esterno.</div>
+     <p class="glossa">Il motivo teorico del rifiuto dell'introspezione lega il metodo alla tesi: l'atto conoscitivo <strong>unifica e sintetizza</strong>, e il suo esito va oltre le singole parti — scomporlo significa distruggere proprio ciò che si voleva studiare. <strong>La Gestalt non abbandona il metodo sperimentale: lo rafforza.</strong> Ciò che manipola è misurato con precisione; ciò che rifiuta è la scomposizione del <em>resoconto</em>, non il controllo dello <em>stimolo</em>.</p>
+     <ul class="punti"><li><strong>Prima differenza dall'introspezione — che cosa si chiede al soggetto</strong>: l'introspezione gli chiede di <em>scomporre</em> i contenuti di coscienza negli elementi più semplici; il metodo fenomenologico gli chiede di riferire il fenomeno <em>così com'è, senza scomporlo</em>.</li><li><strong>Seconda differenza — chi osserva</strong>: nell'introspezione l'osservatore <em>coincide</em> con lo sperimentatore; nel metodo fenomenologico ci sono resoconti di <em>soggetti</em> più un <em>rigoroso controllo sperimentale</em> del variare delle caratteristiche fisiche dello stimolo.</li></ul></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Leggi innate dell'organizzazione percettiva</p>
+      <p class="voce-testo">L'organizzazione percettiva è regolata da <strong>leggi innate</strong>, con tre caratteristiche: <strong>indipendenti dall'esperienza</strong>, <strong>geneticamente determinate</strong>, <strong>specie-specifiche</strong>.</p>
+      <p class="glossa">«Specie-specifiche» significa uguali per tutti gli appartenenti alla specie: un italiano e una persona che vive nella foresta amazzonica organizzano il campo percettivo secondo le stesse leggi.</p></div><div class="voce">
+      <p class="voce-tit">Qualità gestaltica</p>
+      <p class="voce-testo">La caratteristica della percezione che <strong>rimane invariata al variare degli elementi che la compongono</strong>. Garantisce l'<strong>invarianza percettiva</strong>.</p>
+      <p class="glossa">Esempio canonico: una melodia trasposta in un'altra tonalità resta riconoscibile benché <em>nessuna</em> nota sia più la stessa. Ciò che si conserva non sta nelle parti ma nella loro <strong>relazione</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Gestalten</p>
+      <p class="voce-testo">Totalità percettive organizzate <strong>dalle parti all'intero e non viceversa</strong>.</p>
+      </div><div class="voce">
+      <p class="voce-tit">Illusioni</p>
+      <p class="voce-testo"><strong>Errori percettivi, di memoria o di giudizio</strong> in cui l'<strong>esperienza soggettiva differisce dalla realtà oggettiva</strong>.</p>
+      <p class="glossa">Sono lo stimolo elettivo dei gestaltisti perché rendono <strong>visibile l'atto di sintesi</strong>: quando percezione e realtà coincidono si può credere che la percezione sia registrazione passiva; quando divergono, l'attività costruttiva diventa osservabile nei suoi effetti. L'illusione non è un errore da correggere, è il <strong>caso sperimentale privilegiato</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Insight</p>
+      <p class="voce-testo">Frutto di un'<strong>improvvisa e unitaria illuminazione</strong> che <strong>ristruttura gli elementi del campo fenomenico</strong>, riorganizzandoli in una struttura globale diversa, corrispondente alla soluzione del problema.</p>
+      <p class="glossa">Tre elementi: <strong>improvvisa</strong>, <strong>unitaria</strong>, <strong>ristrutturazione del campo</strong>. <strong>Non procede per prove ed errori</strong>: nel condizionamento pavloviano si apprende un'<em>associazione</em> senza ristrutturazione cognitiva; nell'insight c'è <em>ristrutturazione</em>.</p></div><div class="voce">
+      <p class="voce-tit">Teoria di campo (Lewin)</p>
+      <p class="voce-testo">Il comportamento si spiega <strong>in relazione alla situazione in cui si verifica</strong> — non nel passato della persona ma <strong>nel qui e ora</strong> — esaminando le <strong>interrelazioni fra persona e ambiente</strong>.</p>
+      <p class="glossa">Il <strong>campo di vita</strong> è un <strong>campo di forze</strong> rappresentato da <strong>vettori</strong> a valenza positiva o negativa: situazioni attuali, oggetti materiali e immateriali, ambiente sociale. La persona mantiene un <strong>equilibrio</strong>; quando si genera uno <strong>squilibrio</strong>, agisce per ripristinarlo.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Max Wertheimer</span>
+        <span class="esp-anni">1880-1943</span>
+        <span class="esp-ruolo">Caposcuola</span>
+      </div>
+      <p class="voce-meta">Francoforte</p>
+      <p class="esp-chie">Fonda il movimento e ne conduce l'esperimento fondativo.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Studia le <strong>illusioni</strong> come stimolo elettivo per rendere visibile l'atto di sintesi.</li><li>Conduce a Francoforte l'esperimento del <strong>fenomeno phi</strong>.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Movimento stroboscopico</strong> — Il movimento percepito fra due luci alternate non è nello stimolo: è prodotto dall'atto percettivo. È il «più» del motto.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Wolfgang Köhler</span>
+        <span class="esp-anni">1887-1967</span>
+        <span class="esp-ruolo">Allievo</span>
+      </div>
+      <p class="voce-meta">Germania, poi Tenerife e USA</p>
+      <p class="esp-chie">Allievo di Wertheimer. Conduce gli esperimenti sui primati che definiscono l'apprendimento per insight.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Conduce esperimenti su <strong>scimpanzé</strong> con banane appese e strumenti familiari.</li><li>Definisce l'<strong>apprendimento per insight</strong>.</li><li>Imposta i propri esperimenti <em>contro</em> i risultati di Thorndike sui gatti nelle gabbie-problema, dove l'apprendimento appariva graduale.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Insight</strong> — Illuminazione improvvisa e unitaria che ristruttura il campo fenomenico. La curva di apprendimento non è graduale, è a gradino.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Kurt Koffka</span>
+        <span class="esp-anni">1886-1941</span>
+        <span class="esp-ruolo">Allievo</span>
+      </div>
+      <p class="voce-meta">Germania, poi USA</p>
+      <p class="esp-chie">L'altro allievo di Wertheimer, insieme a Köhler.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Contribuisce alla sistematizzazione teorica della scuola e alla sua diffusione negli Stati Uniti.</li></ul>
+      
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Kurt Lewin</span>
+        <span class="esp-anni">1890-1947</span>
+        <span class="esp-ruolo">Figura di frontiera</span>
+      </div>
+      <p class="voce-meta">Germania, poi USA (nazismo)</p>
+      <p class="esp-chie">Appartiene alla Gestalt ma applica i suoi temi a un campo che i gestaltisti non avevano mai studiato: la <strong>psicologia sociale</strong>.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Prende in prestito concetti dalla <strong>topologia</strong>, branca della matematica.</li><li>Formula la <strong>teoria di campo</strong>.</li><li>Estende il principio gestaltico alle <strong>interazioni fra individui</strong>: anche queste appartengono a un campo di forze.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Campo di vita</strong> — Campo di forze vettoriali a valenza positiva o negativa; equilibrio e squilibrio ne governano il comportamento.</li></ul>
+      <p class="esp-nota">Non cambia paradigma: applica il principio gestaltico a un oggetto nuovo. Come il percetto si spiega per la <strong>configurazione globale</strong> e non per gli elementi, così il comportamento si spiega per il <strong>campo</strong> e non per la storia individuale.</p>
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">Il fenomeno phi (Wertheimer, Francoforte)</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Soggetto in <strong>camera oscurata</strong>.</li><li>Su uno schermo, <strong>due fessure</strong> in cui una luce si accende e si spegne <strong>alternativamente</strong>.</li><li><strong>Variabile manipolata</strong>: l'<strong>intervallo temporale</strong> fra le due accensioni.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Con intervallo <strong>molto breve</strong> il soggetto percepisce <strong>un unico stimolo luminoso in movimento</strong>, non due luci separate. Con intervallo <strong>più lungo</strong> il fenomeno non si verifica: si vedono due luci distinte.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>È un'<strong>illusione di movimento</strong>, poi detta <strong>movimento stroboscopico</strong>. Fisicamente non c'è alcun movimento: ci sono due luci ferme che si accendono a turno. Il movimento è <strong>prodotto dall'atto percettivo</strong> — è esattamente il «più» del motto: il tutto (il movimento) non è nella somma delle parti (due lampi). Applicazione: i cartoni animati e il cinema. È l'<strong>esempio-tipo del metodo</strong>: al soggetto si chiede l'esperienza unitaria, allo sperimentatore compete il controllo rigoroso dello stimolo.</div></div>
+    </div><div class="esperimento">
+      <p class="exp-nome">L'insight negli scimpanzé (Köhler)</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Stanza con <strong>banane appese al soffitto</strong>, fuori portata.</li><li>Strumenti <strong>familiari</strong> all'animale: casse, funi, bastoni.</li><li>Osservazione del comportamento spontaneo.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Dopo una fase di stallo, <strong>di punto in bianco</strong> l'animale usa gli oggetti con una <strong>funzionalità diversa da quella originaria</strong>: impila le casse, ci sale sopra, raggiunge la banana.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>La cassa non cambia; cambia il suo <strong>posto nella configurazione</strong>, da oggetto su cui sedersi a gradino. È la ristrutturazione del campo fenomenico, e <strong>non</strong> un apprendimento per prove ed errori.</div></div>
+    </div><div class="esperimento">
+      <p class="exp-nome">Le figure ambigue (esempi della lezione)</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li><strong>«La nuora e la suocera»</strong>: immagine ambigua presente sul libro di testo.</li><li><strong>Il volto composto di natura morta</strong>: opera conservata in un museo di Washington.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Nella prima si vedono alternativamente una giovane donna di profilo e una donna anziana, ed è <strong>impossibile vederle contemporaneamente</strong>. Nella seconda si vede prima il volto, poi i dettagli (uva, rami, fiori); <strong>ribaltando l'immagine il volto scompare</strong>.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Gli stessi elementi fisici — una riga, una curva — <strong>assumono valenza diversa a seconda del percetto sotto attenzione</strong>: la riga che è il mento della giovane è il naso dell'anziana. L'atto percettivo <strong>sintetizza modificando</strong> i singoli elementi, non si limita a sommarli.</div></div>
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Dimostra sperimentalmente che la percezione è <strong>organizzazione attiva</strong> e non registrazione. Le sue leggi restano <strong>acquisite alla psicologia della percezione</strong>, dove sono tuttora insegnate.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Come scuola non produce un programma di ricerca esteso oltre la percezione; l'emigrazione forzata degli anni Trenta ne disperde il nucleo.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div><strong>Si esaurisce</strong> come scuola, ma le leggi restano. Lewin ne porta i principi nella psicologia sociale.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Psicologia della percezione</strong> — le leggi dell'organizzazione percettiva restano il nucleo dell'insegnamento contemporaneo (L16-L17)</li><li><strong>Psicologia sociale</strong> — attraverso <strong>Lewin</strong> e la teoria di campo</li><li><strong>Psicologia dell'apprendimento</strong> — attraverso la contrapposizione <strong>insight / prove ed errori</strong> (L18)</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Il tutto è più della somma delle parti.</div><div class="formula">La materia fornita dai sensi è organizzata attraverso forme proprie della mente.</div><div class="formula">La caratteristica della percezione che rimane invariata al variare degli elementi che la compongono.</div><div class="formula">Un'improvvisa e unitaria illuminazione che ristruttura gli elementi del campo fenomenico.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«La Gestalt abbandona il metodo sperimentale»</div><div class="err-si">Lo <strong>rafforza</strong>: rifiuta la scomposizione del resoconto, non il controllo dello stimolo</div></div><div class="err">
+      <div class="err-no">Enunciare la differenza con l'introspezione su una sola dimensione</div><div class="err-si">Sono <strong>due</strong>: che cosa si chiede al soggetto, e chi osserva</div></div><div class="err">
+      <div class="err-no">Descrivere il fenomeno phi senza la variabile manipolata</div><div class="err-si">La variabile è l'<strong>intervallo temporale</strong> fra le due accensioni</div></div><div class="err">
+      <div class="err-no">«L'insight procede per prove ed errori»</div><div class="err-si"><strong>No</strong>: è ristrutturazione improvvisa e unitaria del campo fenomenico</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 10</span><span>S210</span></p>
+      <h2 class="sk-nome">Il comportamentismo</h2>
+      <p class="sk-unariga">Seconda reazione a Wundt, opposta alla Gestalt: gli rimprovera di <strong>studiare</strong> l'interiorità. Attraverso tre fasi produce per via interna il proprio superamento.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> 1913 → anni '50</span>
+        <span><b>Luogo</b> Stati Uniti</span>
+        <span><b>Lezione</b> L02</span>
+        <span><b>Manuale</b> cap. C11</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>I <strong>contenuti interni della coscienza</strong> sono impossibili da osservare direttamente e da misurare obiettivamente. Perciò tutti i tentativi precedenti di applicare il metodo scientifico ai fenomeni psicologici erano stati <strong>nulli</strong>.</p><div class="formula">Non si dice che Wundt scomponesse male: si dice che studiava un oggetto <strong>non studiabile</strong>. La conseguenza è radicale — non si corregge il metodo, <strong>si cambia l'oggetto</strong>.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">John Locke — empirismo</p>
+      <p class="voce-meta">filosofia</p>
+      <p class="voce-testo">Alla nascita la mente è una <strong><em>tabula rasa</em></strong>, una lavagna bianca su cui l'esperienza scrive: tutto ciò che è nella mente è frutto dell'esperienza, <strong>nulla è innato</strong>. È l'<strong>opposto esatto</strong> dell'innatismo kantiano che fonda la Gestalt.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Edward Thorndike</strong></td><td>Funzionalismo americano</td><td><strong>Legge dell'effetto</strong>: più un comportamento produce un effetto positivo, più ha probabilità di essere replicato</td></tr><tr><td><strong>Ivan Pavlov</strong></td><td>Riflessologia russa</td><td><strong>Condizionamento classico</strong>: l'esposizione ad associazioni fra stimoli produce apprendimento; si condizionano riflessi automatici e inconsapevoli</td></tr><tr><td><strong>— minimo comune denominatore</strong></td><td>—</td><td><strong>1.</strong> Entrambi ricercano nell'ambito dell'<strong>apprendimento</strong>, tema cardine dei comportamentisti. <strong>2.</strong> Entrambi sperimentano <strong>sugli animali</strong> → la <strong>psicologia comparata</strong> diventa metodo elettivo. Vengono da tradizioni diverse e non si sono influenzati: che convergano è ciò che rende il comportamentismo possibile</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">Il <strong>comportamento manifesto</strong>, in termini di <strong>associazioni stimolo-risposta</strong>. È una psicologia <strong>integralmente obiettiva</strong>.</div><p class="glossa"><strong>Schema S-R</strong>: lo <em>stimolo</em> è il mondo fisico esterno, l'input al comportamento; la <em>risposta</em> è il comportamento osservabile messo in atto dal soggetto. Si misurano <strong>solo input e output</strong>: ciò che sta in mezzo non si indaga.<br><strong>La <em>black box</em></strong>: l'organismo è una scatola nera in cui non è possibile entrare. Non si nega che dentro accada qualcosa — si nega che sia <strong>oggetto di scienza</strong>.</p></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Sperimentale rigoroso</strong>, in <strong>laboratorio</strong> e <strong>sugli animali</strong>, perché sugli animali è possibile ogni manipolazione.</div>
+     <p class="glossa"><strong>Critica all'introspezione</strong>: non è scientifica perché <strong>l'osservatore coincide con l'osservato</strong>, e questo immette soggettività nel disegno sperimentale. È una critica diversa dalle due che avevano già demolito lo strutturalismo dall'interno — retrospezione e incoerenza: questa colpisce il <strong>disegno sperimentale</strong>.</p>
+     </div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Le tre posizioni epistemologiche di Watson</p>
+      <p class="voce-testo"><strong>Molecolarismo</strong>: scompone il comportamento manifesto in <strong>semplici associazioni S-R</strong> — l'analogo degli «atomi della mente» di Wundt, applicato al comportamento. <strong>Perifericalismo</strong>: le cause del comportamento si indagano al più nell'attività di <strong>muscoli e nervi periferici</strong>, senza postulare l'intervento del <strong>sistema nervoso centrale</strong>. <strong>Ambientalismo</strong>: l'<strong>input ambientale</strong> ha rilevanza decisiva nella messa in atto del comportamento.</p>
+      <p class="glossa">Due osservazioni. Il <strong>molecolarismo è un paradosso</strong>: Watson rimprovera a Wundt l'<em>oggetto</em>, non il metodo di analisi, e riproduce sul comportamento la stessa mossa elementistica — da questo punto di vista è <em>meno</em> lontano da Wundt di quanto lo sia la Gestalt. Il <strong>perifericalismo è la posizione che invecchia peggio</strong>, ed è esattamente quella che Hebb rovescerà.</p></div><div class="voce">
+      <p class="voce-tit">Le tre fasi</p>
+      <p class="voce-testo"><strong>Comportamentismo classico</strong> (1913 →, Watson): S-R rigido, nessuna variabile interna. <strong>Neocomportamentismo</strong> (Hull, Tolman; a parte Skinner): si postula una <strong>variabile interveniente</strong>, l'organismo → <strong>S-O-R</strong>. <strong>Cenocomportamentismo</strong> (anni '50, Hebb): le variabili interne diventano <strong>attività del SNC</strong> → nasce l'<strong>unità mente-cervello</strong>.</p>
+      <p class="glossa">L'evoluzione delle tre fasi corrisponde a un'<strong>evoluzione epistemologica</strong>: riaffiora progressivamente l'attenzione alla componente interiore non osservabile. In una riga: «il comportamentismo comincia vietando di guardare dentro la scatola nera e finisce descrivendo che cosa c'è dentro — prima una variabile interveniente, poi una rappresentazione, poi un circuito neuronale. Il cognitivismo non lo sconfigge dall'esterno: ne è l'esito».</p></div><div class="voce">
+      <p class="voce-tit">La catena della pulsione (Hull)</p>
+      <p class="voce-testo"><strong>Condizione di bisogno</strong> (l'organismo richiede glucosio) → <strong>tensione</strong> → <strong>spinta a ripristinare l'equilibrio</strong> → <strong>comportamento</strong> (mangiare).</p>
+      <p class="glossa">Il comportamentista classico avrebbe visto solo il cibo (S) e l'atto del mangiare (R). Hull dice che fra i due c'è la <strong>pulsione</strong>, ed è ciò che lo spiega: senza di essa non si capirebbe come mai lo <em>stesso</em> stimolo produca risposte diverse in momenti diversi.</p></div><div class="voce">
+      <p class="voce-tit">Apprendimento latente e mappe cognitive (Tolman)</p>
+      <p class="voce-testo"><strong>Apprendimento latente</strong>: si apprende anche senza che l'apprendimento si manifesti subito in una risposta. <strong>Mappe cognitive</strong>: memorie organizzate in base alle <strong>relazioni spaziali</strong> dell'ambiente.</p>
+      <p class="glossa">Sono le due condizioni minime perché una psicologia della rappresentazione diventi pensabile: compare una <strong>rappresentazione interna strutturata</strong> — non una tensione generica come in Hull, ma un modello dell'ambiente — e cade il legame necessario fra apprendimento e prestazione.</p></div><div class="voce">
+      <p class="voce-tit">Condizionamento operante (Skinner)</p>
+      <p class="voce-testo">Il comportamento è <strong>forgiato dalle conseguenze che esso stesso produce sull'ambiente</strong>. Si chiama «operante» perché il soggetto <strong>opera attivamente</strong> nell'ambiente.</p>
+      <p class="glossa"><strong>Classico vs operante</strong> — <em>Pavlov</em>: comportamenti <strong>passivi</strong> (riflessi automatici, inconsapevoli); si associano <strong>due stimoli</strong>. <em>Skinner</em>: comportamenti <strong>attivi</strong>; si associano un <strong>comportamento</strong> e la sua <strong>conseguenza</strong>.<br><strong>Rinforzo</strong>: la <strong>conseguenza del comportamento sull'ambiente</strong>; determina se il comportamento avrà maggiori o minori probabilità di essere ripetuto.<br><strong>[N.d.R.]</strong> Nel sistema tecnico di Skinner il <strong>rinforzo aumenta sempre</strong> la risposta (positivo = si aggiunge un gradito; negativo = si toglie uno sgradito); ciò che la <strong>riduce</strong> è la <strong>punizione</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Legge di Hebb e assemblee cellulari</p>
+      <p class="voce-testo"><strong>Legge di Hebb</strong>: se <strong>due neuroni</strong> scaricano insieme si <strong>potenziano reciprocamente</strong> e tenderanno ad attivarsi insieme anche in seguito. <strong>Assemblee cellulari</strong>: <strong>configurazioni ampie</strong>, circuiti diffusi nel cervello, che una volta stabilite si rafforzano e stanno <strong>alla base dell'apprendimento</strong>.</p>
+      <p class="glossa">La differenza di <strong>scala</strong> va tenuta ferma: la legge riguarda due singoli neuroni, le assemblee riguardano configurazioni ampie. La legge di Hebb è alla base delle teorie moderne della <strong>plasticità sinaptica</strong>.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">John Broadus Watson</span>
+        <span class="esp-anni">1878-1958</span>
+        <span class="esp-ruolo">Caposcuola · fase classica (1913)</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie">Fonda il comportamentismo. L'oggetto di studio <strong>non può essere psichico</strong>: dev'essere ciò che è osservabile.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Definisce il comportamentismo come <strong>psicologia integralmente obiettiva</strong>.</li><li>Formula le <strong>tre posizioni epistemologiche</strong>: molecolarismo, perifericalismo, ambientalismo.</li><li>Individua <strong>tre argomenti</strong> di studio: <strong>apprendimento</strong> (in primo luogo), <strong>emozioni</strong>, <strong>pensiero</strong>.</li><li>Conduce l'esperimento del <strong>piccolo Albert</strong>, con Rosalie Rayner.</li><li>Sostiene la <strong>tesi radicale dell'ambientalismo</strong>: dati una dozzina di bambini sani e un ambiente organizzato a modo suo, potrebbe formare uno qualunque di loro a diventare qualsiasi tipo di specialista — o un criminale — a prescindere da talenti, inclinazioni e origini.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Molecolarismo</strong> — Scomposizione del comportamento manifesto in semplici associazioni S-R.</li><li><strong>Perifericalismo</strong> — Le cause si indagano al più in muscoli e nervi periferici: non si postula il SNC.</li><li><strong>Ambientalismo</strong> — Gli esseri umani sono il prodotto delle loro esperienze di apprendimento.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Clark Hull</span>
+        <span class="esp-anni">1884-1952</span>
+        <span class="esp-ruolo">Caposcuola · neocomportamentismo</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie">Mette in discussione il divieto di occuparsi di ciò che sta fra stimolo e risposta: la scatola nera non viene aperta, ma si ammette che contenga qualcosa che fa differenza.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Postula la <strong>variabile interveniente</strong>: lo schema S-R diventa <strong>S-O-R</strong>.</li><li>Introduce le <strong>pulsioni</strong> come variabili riferite a processi interni.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Pulsione</strong> — Bisogno → tensione → spinta a ripristinare l'equilibrio → comportamento.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Edward Chace Tolman</span>
+        <span class="esp-anni">1886-1959</span>
+        <span class="esp-ruolo">Neocomportamentista · figura di frontiera</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie">La lezione lo definisce «estremamente utile per lo sviluppo del cognitivismo». È uno dei <strong>tre precursori del cognitivismo</strong>.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Sostiene l'esistenza di <strong>rappresentazioni mentali interne</strong> fra S e R.</li><li>Introduce l'<strong>apprendimento latente</strong>.</li><li>Introduce le <strong>mappe cognitive</strong>: memorie organizzate in base alle relazioni spaziali dell'ambiente.</li><li>Descrive una forma di <strong>apprendimento cognitivo</strong>, non più semplice come quello degli altri comportamentisti.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Apprendimento latente</strong> — Si può sapere senza mostrarlo: cade il legame necessario fra apprendimento e prestazione.</li><li><strong>Mappe cognitive</strong> — Rappresentazione interna strutturata dell'ambiente, non una tensione generica.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Burrhus Frederic Skinner</span>
+        <span class="esp-anni">1904-1990</span>
+        <span class="esp-ruolo">La voce fuori dal coro</span>
+      </div>
+      <p class="voce-meta">Stati Uniti</p>
+      <p class="esp-chie"><strong>Cronologicamente</strong> sta dentro il neocomportamentismo. <strong>Teoricamente</strong> vi si oppone: <strong>ritorna all'ortodossia watsoniana e la estremizza</strong>. Rispetto alle acquisizioni neocomportamentiste, la sua linea di ricerca <strong>fa un passo indietro</strong>.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Afferma che <strong>nessun resoconto di ciò che accade dentro il corpo, per quanto esauriente, potrà mai spiegare il comportamento</strong> — non «non esiste», ma «non spiega».</li><li>Formula il <strong>condizionamento operante</strong>.</li><li>Costruisce la <strong>Skinner Box</strong>.</li><li>Definisce il <strong>rinforzo</strong> in modo puramente <strong>funzionale</strong>, per i suoi effetti osservabili sulla frequenza della risposta — a differenza del lessico <em>mentalistico</em> di Thorndike, che parlava di stati soddisfacenti.</li><li>Sviluppa <strong>tre applicazioni</strong>: addestramento animale; <strong>macchine per l'apprendimento</strong> (scomporre un problema complesso in problemi semplici, dove la risoluzione di ciascuno è essa stessa un rinforzo positivo, procedendo per difficoltà crescente); <strong>terapia comportamentale</strong> delle fobie, per decondizionamento.</li><li>Sostiene <strong>due derive</strong> che gli valgono critiche internazionali: il <strong>libero arbitrio è un'illusione</strong>, e l'ideazione di una <strong>società utopistica</strong> in cui il comportamento è controllato dall'accorta applicazione di programmi di rinforzo.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Condizionamento operante</strong> — Si associano comportamento e conseguenza; il soggetto opera attivamente sull'ambiente.</li></ul>
+      <p class="esp-nota"><strong>Legge dell'effetto vs condizionamento operante</strong>, su tre dimensioni. <em>Statuto</em>: una <strong>legge</strong> contro un <strong>sistema teorico completo</strong>. <em>Unità di analisi</em>: <strong>connessione S-R</strong> contro <strong>relazione risposta-conseguenza</strong>. <em>Lessico</em>: <strong>mentalistico</strong> contro <strong>funzionale</strong>.</p>
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Donald Olding Hebb</span>
+        <span class="esp-anni">1904-1985</span>
+        <span class="esp-ruolo">Figura decisiva · cenocomportamentismo</span>
+      </div>
+      <p class="voce-meta">Canada</p>
+      <p class="esp-chie">Dagli <strong>anni Cinquanta</strong>. La fase è detta anche <strong>comportamentismo cognitivista</strong>, perché i fondamenti epistemologici sono ormai molto diversi da quelli classici.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Introduce per la prima volta nella spiegazione del comportamento un <strong>modello psicofisiologico</strong>, identificando le variabili interne come <strong>attività del sistema nervoso centrale</strong>.</li><li><strong>Per la prima volta si parla di unità mente-cervello</strong>, che nella psicologia contemporanea sarà il principale oggetto di studio.</li><li>Formula la <strong>legge di Hebb</strong>.</li><li>Amplia la legge nella <strong>teoria delle assemblee cellulari</strong>.</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Legge di Hebb</strong> — Due neuroni che scaricano insieme si potenziano reciprocamente.</li><li><strong>Assemblee cellulari</strong> — Configurazioni globali di attivazione che, una volta stabilite, si rafforzano; stanno alla base dell'apprendimento.</li></ul>
+      <p class="esp-nota"><strong>Il cerchio che si chiude</strong>: nella L01 l'unità mente-cervello era il passaggio mancante che impediva l'emancipazione dalla medicina. Qui arriva — e arriva <strong>dall'interno della scuola che aveva teorizzato il perifericalismo</strong>, cioè la negazione del ruolo del SNC. È la prova più netta che l'evoluzione del comportamentismo è epistemologica, non un semplice avvicendamento di autori.</p>
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">Il piccolo Albert (Watson e Rayner, 1920)</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Il bambino gioca <strong>volentieri</strong> con dei ratti bianchi da laboratorio: nessuna paura iniziale.</li><li>Watson produce <strong>rumori molto forti</strong> mentre il bambino gioca con l'animale; il rumore provoca naturalmente paura.</li><li><strong>Associazione ripetuta</strong> rumore-animale.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Il bambino impara ad <strong>avere paura dell'animale</strong>, anche in assenza del rumore.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>È <strong>condizionamento classico pavloviano applicato all'uomo</strong>: lo stimolo neutro (il ratto), associato ripetutamente allo stimolo che provoca naturalmente la risposta (il rumore), finisce per provocarla da solo. Lo stesso schema dell'inserviente di Pavlov, con la paura al posto della salivazione. <strong>Significato teorico</strong>: anche un'<strong>emozione</strong> — non solo un riflesso fisiologico — può essere condizionata, e quindi <strong>appresa</strong>. Le emozioni entrano nel dominio dell'apprendimento.<br><strong>[N.d.R.]</strong> Nella registrazione si afferma che Albert fosse il figlio di Watson. Non è così: era un bambino di circa <strong>11 mesi non imparentato</strong> con lo sperimentatore, e l'esperimento fu condotto da <strong>Watson e Rosalie Rayner nel 1920</strong>.</div></div>
+    </div><div class="esperimento">
+      <p class="exp-nome">La Skinner Box</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Gabbia con un animale <strong>deprivato di cibo</strong>, quindi motivato.</li><li>All'interno più leve, di cui <strong>una sola</strong> collegata a un dispenser di cibo.</li><li>L'animale esplora e preme le leve a caso.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Casualmente trova la leva giusta e riceve cibo — <strong>rinforzo positivo</strong>. Col tempo <strong>smette di premere a caso</strong> e preme direttamente quella leva.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Dimostra che il comportamento è <strong>forgiato dalle sue conseguenze</strong>: non serve un legame preesistente fra stimolo e risposta, basta che una conseguenza selezioni una risposta fra quelle emesse. È la legge dell'effetto trasformata in sistema teorico.</div></div>
+    </div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Impone alla psicologia lo standard dell'<strong>obiettività</strong> del dato e il metodo sperimentale rigoroso. Produce un corpo enorme di conoscenze sull'<strong>apprendimento</strong>, tuttora valide, e applicazioni cliniche ed educative.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Il <strong>perifericalismo</strong> — negare persino il ruolo del SNC — rende il comportamentismo classico insostenibile. E il divieto sull'interiorità si rivela troppo costoso: lo schema S-R rigido non spiega perché lo stesso stimolo produca risposte diverse.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div><strong>Sfocia nel cognitivismo</strong>. Non viene sconfitto dall'esterno: produce per via interna il proprio superamento attraverso le tre fasi.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Cognitivismo</strong> — ne è la <strong>filiazione diretta</strong> attraverso il cenocomportamentismo — evoluzione, non reazione</li><li><strong>Neuroscienze</strong> — attraverso <strong>Hebb</strong>: il modello psicofisiologico e la plasticità neuronale</li><li><strong>Terapia comportamentale</strong> — attraverso <strong>Skinner</strong>: il decondizionamento delle fobie</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Una psicologia integralmente obiettiva, che analizza unicamente i comportamenti manifesti.</div><div class="formula">L'introspezione non è scientifica perché l'osservatore coincide con l'osservato.</div><div class="formula">Il rinforzo è la conseguenza del comportamento sull'ambiente e determina se avrà maggiori o minori probabilità di essere ripetuto.</div><div class="formula">Se due neuroni scaricano insieme, si potenziano reciprocamente.</div><div class="formula">Per la prima volta si parla di unità mente-cervello.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">Attribuire alla Gestalt la critica del comportamentismo</div><div class="err-si">La Gestalt rimprovera a Wundt di <strong>scomporre</strong>; il comportamentismo di <strong>studiare</strong> l'interiorità</div></div><div class="err">
+      <div class="err-no">«Skinner appartiene al neocomportamentismo»</div><div class="err-si"><strong>Cronologicamente sì, teoricamente no</strong>: torna all'ortodossia watsoniana e la estremizza</div></div><div class="err">
+      <div class="err-no">«Rinforzo negativo = punizione»</div><div class="err-si">Il <strong>rinforzo aumenta sempre</strong> la risposta; ciò che la riduce è la <strong>punizione</strong></div></div><div class="err">
+      <div class="err-no">Confondere legge di Hebb e assemblee cellulari</div><div class="err-si">La legge riguarda <strong>due neuroni</strong>, le assemblee <strong>configurazioni ampie</strong></div></div><div class="err">
+      <div class="err-no">«Skinner nega l'esistenza di pensieri e sentimenti»</div><div class="err-si">Afferma che <strong>non spiegano</strong> il comportamento, non che non esistano</div></div></div></div>
+  </div>
+    
+  </section>
+
+</body></html>

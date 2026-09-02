@@ -676,3 +676,94 @@ textarea {
   .arg-comandi { margin-left:0; }
   .prosa.discorso p { font-size:1rem; line-height:1.75; }
 }
+
+/* =========================================================
+   SCHEDE — fascicoli schematici a video
+   ========================================================= */
+.fasc-elenco { display:flex; flex-direction:column; gap:1.6rem; margin:1.6rem 0 2.5rem; }
+.fasc { border:1px solid var(--linea); border-top:3px solid var(--accento);
+  border-radius:0 0 3px 3px; padding:1.4rem 1.5rem; background:var(--carta-alta); }
+.fasc-testa { display:flex; gap:1rem; align-items:baseline; margin-bottom:.7rem; }
+.fasc-n { font-family:var(--display); font-size:2rem; line-height:1; color:var(--accento); }
+.fasc-testa h2 { margin:0 0 .2rem; font-size:1.35rem; border:none; padding:0; }
+.fasc-sot { margin:0; font-family:var(--display); font-style:italic; color:var(--grafite); font-size:1rem; }
+.fasc-intro { font-size:.92rem; line-height:1.65; color:var(--grafite); margin:0 0 1rem; max-width:64ch; }
+.fasc-conta { display:flex; flex-wrap:wrap; gap:.4rem .9rem; font-family:var(--dati); font-size:.72rem;
+  color:var(--grafite); padding:.6rem 0; border-top:1px solid var(--linea-fine);
+  border-bottom:1px solid var(--linea-fine); margin-bottom:1rem; }
+.fasc-conta b { color:var(--accento); font-weight:500; }
+.fasc-indice { list-style:none; margin:0 0 1.2rem; padding:0; display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(15rem,1fr)); gap:.25rem .9rem; }
+.fasc-indice li { font-size:.88rem; }
+.fasc-indice em { font-family:var(--dati); font-style:normal; font-size:.72rem; color:var(--accento); margin-right:.4rem; }
+
+.sk-web { margin:2.5rem 0 3rem; scroll-margin-top:calc(var(--testata-h) + 1rem); }
+.sk-web-testa { border-top:3px solid var(--accento); padding-top:.7rem; margin-bottom:1.2rem; }
+.sk-web-occhiello { display:flex; justify-content:space-between; font-family:var(--dati);
+  font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--grafite); margin:0 0 .4rem; }
+.sk-web-testa h2 { margin:0 0 .4rem; border:none; padding:0; font-size:1.6rem; }
+.sk-web-riga { font-size:.95rem; line-height:1.55; color:var(--grafite); margin:0 0 .7rem; max-width:64ch; }
+.sk-web-coord { display:flex; flex-wrap:wrap; gap:.3rem 1.2rem; font-family:var(--dati); font-size:.72rem;
+  color:var(--grafite); border-top:1px solid var(--linea-fine); border-bottom:1px solid var(--linea-fine);
+  padding:.45rem 0; }
+.sk-web-coord b { color:var(--accento); font-weight:500; }
+.sk-web-coord a { color:var(--accento); }
+
+.sk-blocco { display:grid; grid-template-columns:9.5rem 1fr; gap:1.2rem;
+  padding:.9rem 0; border-bottom:1px solid var(--linea-fine); }
+.sk-bl-eti { font-family:var(--dati); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--accento); line-height:1.4; padding-top:.15rem; }
+.sk-bl-eti span { display:block; color:var(--grafite); font-size:.62rem; letter-spacing:.04em; }
+.sk-bl-corpo > *:first-child { margin-top:0; }
+.sk-bl-corpo > *:last-child { margin-bottom:0; }
+.sk-bl-corpo p { margin:0 0 .55rem; font-size:.93rem; line-height:1.6; }
+.sk-bl-corpo ul, .sk-bl-corpo ol { margin:0 0 .6rem; padding-left:1.2rem; }
+.sk-bl-corpo li { font-size:.92rem; line-height:1.55; margin-bottom:.3rem; }
+.sk-bl-corpo li::marker { color:var(--accento); }
+.sk-bl-corpo table { font-size:.88rem; margin:0 0 .5rem; }
+.sk-vuoto { color:var(--linea); font-family:var(--dati); }
+
+.sk-formula { font-family:var(--display); font-size:1.08rem; line-height:1.5;
+  border-left:2px solid var(--accento); padding:.15rem 0 .15rem .8rem; margin:0 0 .6rem; }
+.sk-glossa { font-size:.88rem !important; color:var(--grafite); }
+.sk-voce { padding-bottom:.7rem; margin-bottom:.7rem; border-bottom:1px dotted var(--linea); }
+.sk-voce:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+.sk-voce-tit { font-family:var(--display); font-size:1.05rem; font-weight:500; margin:0 0 .25rem !important; }
+.sk-voce-meta { font-family:var(--dati); font-size:.7rem; color:var(--grafite); margin:0 0 .35rem !important; }
+
+.sk-esp { background:var(--carta); border-left:2px solid var(--accento); border-radius:0 3px 3px 0;
+  padding:.8rem 1rem; margin-bottom:.9rem; }
+.sk-esp-testa { margin:0 0 .4rem !important; }
+.sk-esp-testa strong { font-family:var(--display); font-size:1.06rem; }
+.sk-esp-testa em { font-family:var(--dati); font-style:normal; font-size:.72rem; color:var(--grafite); }
+.sk-esp-testa span { font-family:var(--dati); font-size:.68rem; text-transform:uppercase;
+  letter-spacing:.06em; color:var(--accento); }
+.sk-esp-sub { font-family:var(--dati); font-size:.64rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--grafite); margin:.7rem 0 .3rem !important; }
+.sk-esp-nota { font-size:.87rem !important; color:var(--grafite);
+  border-top:1px solid var(--linea-fine); padding-top:.5rem; margin-top:.6rem !important; }
+
+.sk-terna { display:grid; gap:.5rem; }
+.sk-terna > div { display:grid; grid-template-columns:4.5rem 1fr; gap:.8rem; align-items:baseline; }
+.sk-terna span { font-family:var(--dati); font-size:.66rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--accento); }
+.sk-terna > div > div { font-size:.93rem; line-height:1.6; }
+
+.sk-err { display:grid; grid-template-columns:1fr 1fr; gap:1rem; padding-bottom:.5rem;
+  margin-bottom:.5rem; border-bottom:1px dotted var(--linea); }
+.sk-err:last-child { border-bottom:none; margin-bottom:0; }
+.sk-err .no { color:var(--segnale); font-size:.9rem; line-height:1.5; }
+.sk-err .si { font-size:.9rem; line-height:1.5; }
+.sk-err .no::before { content:"✗ "; font-family:var(--dati); }
+.sk-err .si::before { content:"✓ "; font-family:var(--dati); color:var(--accento); }
+
+.sk-chiusura { margin-top:1.2rem; padding:.9rem 1rem; background:var(--accento-tenue);
+  border-left:3px solid var(--accento); border-radius:0 3px 3px 0; font-size:.93rem; line-height:1.65; }
+
+@media (max-width: 700px) {
+  .sk-blocco { grid-template-columns:1fr; gap:.4rem; }
+  .sk-bl-eti span { display:inline; margin-left:.4rem; }
+  .sk-err { grid-template-columns:1fr; gap:.3rem; }
+  .sk-terna > div { grid-template-columns:1fr; gap:.15rem; }
+  .fasc-indice { grid-template-columns:1fr; }
+}

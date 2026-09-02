@@ -810,3 +810,196 @@ function marcaRegia(el) {
   const primo = $('p', el);
   if (primo && primo.querySelector('em') && primo.textContent.length < 260) primo.classList.add('nota-uso');
 }
+
+/* =========================================================
+   SCHEDE — i fascicoli schematici, a video e in PDF
+   ========================================================= */
+const PDF_FILE = {
+  F1: "pdf/F1_la-definizione-di-psicologia.pdf",
+  F2: "pdf/F2_l-excursus-storico.pdf",
+  F3: "pdf/F3_la-psicologia-contemporanea.pdf"
+};
+
+function vistaSchede() {
+  const F = PGE.schede.fascicoli;
+  main.innerHTML = `
+    <p class="occhiello">Schede</p>
+    <h1>I fascicoli schematici</h1>
+    <p class="sommario">Tre fascicoli, uno per macro-argomento. Ogni scheda di scuola ha <strong>gli stessi dodici blocchi, nello stesso ordine</strong> — perché nasce, radici, precursori, oggetto, metodo, teorie, esponenti, esperimenti, validità, precorre, formule, errori — così che la forma non cambi mai da una scheda all'altra. Sono pensati per essere <strong>stampati</strong>: ogni scheda comincia su una pagina nuova.</p>
+
+    <div class="fasc-elenco">
+      ${F.map(f => {
+        const conc = f.schede.every(s => s.tipo === 'concetto');
+        return `<div class="fasc">
+          <div class="fasc-testa">
+            <span class="fasc-n">${f.n}</span>
+            <div>
+              <h2>${f.titolo}</h2>
+              <p class="fasc-sot">${f.sottotitolo}</p>
+            </div>
+          </div>
+          <p class="fasc-intro">${f.intro}</p>
+          <div class="fasc-conta">
+            <span><b>${f.schede.length}</b> schede</span>
+            <span><b>${f.schede.reduce((s, x) => s + (x.esponenti || []).length, 0)}</b> esponenti</span>
+            <span><b>${f.schede.reduce((s, x) => s + (x.teorie || []).length + (x.definizioni || []).length, 0)}</b> teorie</span>
+            <span><b>${f.schede.reduce((s, x) => s + (x.errori || []).length, 0)}</b> errori tipici</span>
+            <span>${f.lezione}</span>
+          </div>
+          <ul class="fasc-indice">
+            ${f.schede.map((s, i) => `<li><em>${String(i + 1).padStart(2, '0')}</em> ${s.nome}</li>`).join('')}
+          </ul>
+          <div class="azioni">
+            <a class="bottone" href="#/schede/${f.id}">Leggi a schermo</a>
+            <a class="bottone vuoto" href="${PDF_FILE[f.id]}" target="_blank" rel="noopener">Scarica il PDF ↓</a>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>
+
+    <h2>Come si legge una scheda</h2>
+    <div class="tab-scroll"><table>
+      <thead><tr><th>Blocco</th><th>Che cosa contiene</th></tr></thead>
+      <tbody>${[
+        ["1 · Perché nasce","L'esigenza teorica lasciata aperta dalla scuola precedente"],
+        ["2 · Radici","Le posizioni filosofiche o teoriche su cui poggia"],
+        ["3 · Precursori","Chi le ha passato che cosa, e da quale tradizione"],
+        ["4 · Oggetto","Che cosa studia, nella formulazione tecnica"],
+        ["5 · Metodo","Come lo studia, con i vincoli operativi"],
+        ["6 · Teorie","Gli enunciati che la scuola produce"],
+        ["7 · Esponenti","Chi è ciascuno, che cosa ha fatto, quali teorie"],
+        ["8 · Esperimenti","Disegno, risultato, significato"],
+        ["9 · Validità","Merito, limite, esito"],
+        ["10 · Precorre","Verso quali scuole successive apre"],
+        ["11 · Formule","Le frasi da riprodurre alla lettera"],
+        ["12 · Errori","Che cosa non dire, e che cosa dire al suo posto"]
+      ].map(([a, b]) => `<tr><td style="font-family:var(--dati);font-size:.78rem;color:var(--accento);white-space:nowrap">${a}</td><td>${b}</td></tr>`).join('')}</tbody>
+    </table></div>`;
+}
+
+function vistaFascicolo(id) {
+  const f = PGE.schede.fascicoli.find(x => x.id === id);
+  if (!f) return vistaAssente('/schede/' + id);
+
+  main.innerHTML = `
+    <p class="occhiello"><a href="#/schede" style="text-decoration:none">Schede</a> · Fascicolo ${f.n}</p>
+    <div class="cap-testata">
+      <div>
+        <h1 style="margin-bottom:.3rem">${f.titolo}</h1>
+        <p class="sommario" style="margin-bottom:0">${f.sottotitolo}</p>
+      </div>
+      <div class="cap-testata-meta">${f.schede.length} schede · ${f.lezione}</div>
+    </div>
+    <div class="azioni" style="margin-bottom:1.6rem">
+      <a class="bottone" href="${PDF_FILE[f.id]}" target="_blank" rel="noopener">Scarica il PDF ↓</a>
+      <a class="bottone vuoto" href="#/schede">Tutti i fascicoli</a>
+    </div>
+    <div class="filtri" id="skNav">
+      ${f.schede.map((s, i) => `<a class="chip" href="#sk-${s.id}">${String(i + 1).padStart(2, '0')} ${esc(s.nome)}</a>`).join('')}
+    </div>
+    ${f.schede.map((s, i) => s.tipo === 'concetto' ? schedaConcetto(s, i + 1) : schedaScuola(s, i + 1)).join('')}`;
+
+  $$('#skNav a').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.getElementById(a.getAttribute('href').slice(1));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
+}
+
+const skVuoto = '<p class="sk-vuoto">—</p>';
+const skHas = a => Array.isArray(a) && a.length;
+
+function skBlocco(n, eti, sub, corpo) {
+  return `<div class="sk-blocco">
+    <div class="sk-bl-eti">${n}. ${eti}<span>${sub || ''}</span></div>
+    <div class="sk-bl-corpo">${corpo || skVuoto}</div>
+  </div>`;
+}
+
+function skTesta(s, i, coord) {
+  return `<div class="sk-web-testa">
+    <p class="sk-web-occhiello"><span>Scheda ${i}</span><span>${s.id}</span></p>
+    <h2>${s.nome}</h2>
+    <p class="sk-web-riga">${s.identificazione.unaRiga}</p>
+    <div class="sk-web-coord">${coord.map(([k, v]) => `<span><b>${k}</b> ${v}</span>`).join('')}</div>
+  </div>`;
+}
+
+function schedaScuola(s, i) {
+  const id = s.identificazione;
+  const B = [];
+  B.push(skBlocco(1, "Perché nasce", "l'esigenza teorica",
+    `<p>${s.nasceDa.problema}</p><div class="sk-formula">${s.nasceDa.formula}</div>`));
+  B.push(skBlocco(2, "Radici", "filosofiche e teoriche",
+    skHas(s.radici) ? s.radici.map(r => `<div class="sk-voce"><p class="sk-voce-tit">${r.nome}</p>
+      <p class="sk-voce-meta">${r.tipo}</p><p>${r.tesi}</p></div>`).join('') : null));
+  B.push(skBlocco(3, "Precursori", "da chi eredita",
+    skHas(s.precursori) ? `<table><thead><tr><th>Chi</th><th>Da dove</th><th>Che cosa porta</th></tr></thead>
+      <tbody>${s.precursori.map(p => `<tr><td><strong>${p.nome}</strong></td><td>${p.provenienza || '—'}</td><td>${p.apporto}</td></tr>`).join('')}</tbody></table>` : null));
+  B.push(skBlocco(4, "Oggetto di studio", "che cosa studia",
+    `<div class="sk-formula">${s.oggetto.formula}</div>${s.oggetto.glossa ? `<p class="sk-glossa">${s.oggetto.glossa}</p>` : ''}`));
+  B.push(skBlocco(5, "Metodo", "come lo studia",
+    `<div class="sk-formula">${s.metodo.formula}</div>${s.metodo.glossa ? `<p class="sk-glossa">${s.metodo.glossa}</p>` : ''}
+     ${skHas(s.metodo.vincoli) ? `<ul>${s.metodo.vincoli.map(v => `<li>${v}</li>`).join('')}</ul>` : ''}`));
+  B.push(skBlocco(6, "Teorie", "e concetti avanzati",
+    skHas(s.teorie) ? s.teorie.map(t => `<div class="sk-voce"><p class="sk-voce-tit">${t.nome}</p>
+      <p>${t.enunciato}</p>${t.glossa ? `<p class="sk-glossa">${t.glossa}</p>` : ''}</div>`).join('') : null));
+  B.push(skBlocco(7, "Esponenti", "chi è, cosa ha fatto",
+    skHas(s.esponenti) ? s.esponenti.map(e => `<div class="sk-esp">
+      <p class="sk-esp-testa"><strong>${e.nome}</strong> <em>${e.anni}</em> <span>${e.ruolo}</span></p>
+      ${e.luogo && e.luogo !== '—' ? `<p class="sk-voce-meta">${e.luogo}</p>` : ''}
+      <p>${e.chiE}</p>
+      ${skHas(e.haFatto) ? `<p class="sk-esp-sub">Che cosa ha fatto</p><ul>${e.haFatto.map(x => `<li>${x}</li>`).join('')}</ul>` : ''}
+      ${skHas(e.teorie) ? `<p class="sk-esp-sub">Le sue teorie</p><ul>${e.teorie.map(t => `<li><strong>${t.nome}</strong> — ${t.enunciato}</li>`).join('')}</ul>` : ''}
+      ${e.nota ? `<p class="sk-esp-nota">${e.nota}</p>` : ''}</div>`).join('') : null));
+  B.push(skBlocco(8, "Esperimenti", "disegno, esito, senso",
+    skHas(s.esperimenti) ? s.esperimenti.map(x => `<div class="sk-voce">
+      <p class="sk-voce-tit">${x.nome}</p>
+      <p class="sk-esp-sub">Disegno</p><ol>${x.disegno.map(d => `<li>${d}</li>`).join('')}</ol>
+      <p class="sk-esp-sub">Risultato</p><p>${x.risultato}</p>
+      <p class="sk-esp-sub">Significato</p><p>${x.significato}</p></div>`).join('') : null));
+  B.push(skBlocco(9, "Validità", "merito, limite, esito",
+    `<div class="sk-terna">
+      <div><span>Merito</span><div>${s.validita.merito}</div></div>
+      <div><span>Limite</span><div>${s.validita.limite}</div></div>
+      <div><span>Esito</span><div>${s.validita.esito}</div></div>
+    </div>`));
+  B.push(skBlocco(10, "Precorre", "verso che cosa apre",
+    skHas(s.precorre) ? `<ul>${s.precorre.map(p => `<li><strong>${p.nome}</strong> — ${p.come}</li>`).join('')}</ul>` : null));
+  B.push(skBlocco(11, "Formule", "alla lettera",
+    skHas(s.formule) ? s.formule.map(f => `<div class="sk-formula">${f}</div>`).join('') : null));
+  B.push(skBlocco(12, "Errori", "da non fare",
+    skHas(s.errori) ? s.errori.map(e => `<div class="sk-err">
+      <div class="no">${e.no}</div><div class="si">${e.si}</div></div>`).join('') : null));
+
+  return `<section class="sk-web" id="sk-${s.id}">
+    ${skTesta(s, i, [["Anno", id.anno], ["Luogo", id.luogo], ["Lezione", id.lezione], ["Manuale", `<a href="#/manuale/${id.capitolo}">cap. ${id.capitolo}</a>`]])}
+    ${B.join('')}
+    ${s.contrasto ? `<div class="sk-chiusura">${s.contrasto}</div>` : ''}
+  </section>`;
+}
+
+function schedaConcetto(s, i) {
+  const id = s.identificazione;
+  const B = [];
+  B.push(skBlocco(1, "Definizioni", "le formulazioni",
+    skHas(s.definizioni) ? s.definizioni.map(d => `<div class="sk-voce"><p class="sk-voce-tit">${d.termine}</p>
+      <div class="sk-formula">${d.testo}</div>${d.glossa ? `<p class="sk-glossa">${d.glossa}</p>` : ''}</div>`).join('') : null));
+  B.push(skBlocco(2, s.articolazione ? s.articolazione.titolo.split(',')[0] : "Articolazione", "il confronto",
+    s.articolazione ? `<table><thead><tr>${s.articolazione.colonne.map(c => `<th>${c}</th>`).join('')}</tr></thead>
+      <tbody>${s.articolazione.righe.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table>` : null));
+  B.push(skBlocco(3, "Scomposizione", "elemento per elemento",
+    s.scomposizione ? `<p class="sk-voce-meta">${s.scomposizione.titolo}</p>
+      ${s.scomposizione.voci.map(v => `<div class="sk-voce"><p class="sk-voce-tit">${v.chiave}</p><p>${v.valore}</p></div>`).join('')}` : null));
+  B.push(skBlocco(4, "Perché serve", "la chiusura che alza il voto", s.percheServe ? `<p>${s.percheServe}</p>` : null));
+  B.push(skBlocco(5, "Formule", "alla lettera",
+    skHas(s.formule) ? s.formule.map(f => `<div class="sk-formula">${f}</div>`).join('') : null));
+  B.push(skBlocco(6, "Errori", "da non fare",
+    skHas(s.errori) ? s.errori.map(e => `<div class="sk-err">
+      <div class="no">${e.no}</div><div class="si">${e.si}</div></div>`).join('') : null));
+
+  return `<section class="sk-web" id="sk-${s.id}">
+    ${skTesta(s, i, [["Lezione", id.lezione], ["Manuale", `<a href="#/manuale/${id.capitolo}">cap. ${id.capitolo}</a>`]])}
+    ${B.join('')}
+  </section>`;
+}

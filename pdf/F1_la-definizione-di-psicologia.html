@@ -1,0 +1,298 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8">
+<title>La definizione di psicologia — Psicologia Generale</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 16mm 15mm 15mm 15mm; }
+
+:root {
+  --inchiostro: #14181d;
+  --grafite:    #55606c;
+  --tenue:      #7d8792;
+  --accento:    #12514d;
+  --segnale:    #9c3722;
+  --linea:      #c9cec6;
+  --linea-fine: #e2e5df;
+  --fondo:      #f5f6f2;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --testo:   "IBM Plex Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --dati:    "IBM Plex Mono", "SF Mono", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin:0; background:#fff; color-scheme: light;
+       font-family: var(--testo); font-size: 9.6pt; line-height: 1.52;
+       color: var(--inchiostro); }
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* ---- copertina ---- */
+.copertina { break-after: page; }
+.indice-pagina { break-after: page; }
+.cop-alto { border-bottom: 2.5pt solid var(--accento); padding-bottom: 6mm; }
+.cop-corso { font-family: var(--dati); font-size: 7.4pt; letter-spacing: .18em;
+             text-transform: uppercase; color: var(--grafite); margin: 0 0 14mm; }
+.cop-n { font-family: var(--display); font-size: 34pt; line-height:1; color: var(--accento); margin:0 0 2mm; }
+.cop-titolo { font-family: var(--display); font-size: 27pt; line-height: 1.1; margin: 0 0 3mm; font-weight: 500; }
+.cop-sottotitolo { font-family: var(--display); font-size: 13pt; font-style: italic;
+                   color: var(--grafite); margin: 0; font-weight: 400; }
+.cop-intro { font-size: 9.4pt; line-height: 1.62; color: var(--grafite); margin: 7mm 0 0; max-width: 145mm; }
+
+.cop-indice { margin-top: 0; }
+.cop-indice-tit { font-family: var(--dati); font-size: 7.2pt; letter-spacing: .16em;
+                  text-transform: uppercase; color: var(--grafite); margin: 0 0 4mm;
+                  border-bottom: .5pt solid var(--linea); padding-bottom: 2mm; }
+.cop-voce { display: grid; grid-template-columns: 12mm 1fr auto; gap: 3mm;
+            padding: 2.4mm 0; border-bottom: .5pt solid var(--linea-fine); align-items: baseline; }
+.cop-voce-n { font-family: var(--dati); font-size: 9pt; color: var(--accento); }
+.cop-voce-nome { font-family: var(--display); font-size: 11.5pt; }
+.cop-voce-riga { display:block; font-family: var(--testo); font-size: 8.4pt; color: var(--grafite);
+                 line-height:1.45; margin-top: .8mm; }
+.cop-voce-meta { font-family: var(--dati); font-size: 7.4pt; color: var(--tenue); white-space: nowrap; }
+
+.legenda { margin-top: 12mm; padding-top: 6mm; border-top: .5pt solid var(--linea); }
+.legenda-tit { font-family: var(--dati); font-size: 7.2pt; letter-spacing: .16em;
+               text-transform: uppercase; color: var(--grafite); margin: 0 0 3mm; }
+.legenda-corpo { columns: 2; column-gap: 8mm; font-size: 8.2pt; line-height: 1.5; color: var(--grafite); }
+.legenda-corpo p { margin: 0 0 1.6mm; break-inside: avoid; }
+.legenda-corpo b { color: var(--inchiostro); font-family: var(--dati); font-size: 7.6pt; }
+
+/* ---- scheda ---- */
+.scheda { break-before: page; }
+.scheda:first-of-type { break-before: auto; }
+
+.sk-testa { border-top: 2.5pt solid var(--accento); padding-top: 3mm; margin-bottom: 4mm; }
+.sk-occhiello { font-family: var(--dati); font-size: 7pt; letter-spacing: .16em;
+                text-transform: uppercase; color: var(--grafite); margin: 0 0 1.5mm;
+                display: flex; justify-content: space-between; }
+.sk-nome { font-family: var(--display); font-size: 20pt; line-height: 1.12; margin: 0 0 2mm; font-weight: 500; }
+.sk-unariga { font-size: 9.6pt; line-height: 1.5; color: var(--grafite); margin: 0 0 3mm; max-width: 155mm; }
+.sk-coord { display: flex; flex-wrap: wrap; gap: 0 6mm; font-family: var(--dati); font-size: 7.6pt;
+            color: var(--grafite); border-top: .5pt solid var(--linea-fine);
+            border-bottom: .5pt solid var(--linea-fine); padding: 1.8mm 0; }
+.sk-coord b { color: var(--accento); font-weight: 500; }
+
+/* blocco: etichetta a sinistra, contenuto a destra */
+.blocco { display: grid; grid-template-columns: 26mm 1fr; gap: 4mm;
+          padding: 3mm 0; border-bottom: .5pt solid var(--linea-fine); break-inside: avoid; }
+.blocco.lungo { break-inside: auto; }
+.bl-eti { font-family: var(--dati); font-size: 7pt; letter-spacing: .1em; text-transform: uppercase;
+          color: var(--accento); line-height: 1.4; padding-top: .6mm; }
+.bl-eti span { display: block; color: var(--tenue); font-size: 6.4pt; letter-spacing: .06em; }
+.bl-corpo > *:first-child { margin-top: 0; }
+.bl-corpo > *:last-child { margin-bottom: 0; }
+.bl-corpo p { margin: 0 0 2mm; }
+.bl-vuoto { color: var(--tenue); font-family: var(--dati); font-size: 8pt; }
+
+.formula { font-family: var(--display); font-size: 11pt; line-height: 1.45;
+           border-left: 2pt solid var(--accento); padding: 1mm 0 1mm 4mm; margin: 0 0 2.5mm; }
+.glossa { font-size: 8.8pt; line-height: 1.55; color: var(--grafite); margin: 0 0 2mm; }
+
+ul.punti { margin: 0 0 2mm; padding-left: 4.5mm; }
+ul.punti li { margin-bottom: 1.4mm; line-height: 1.5; }
+ul.punti li::marker { color: var(--accento); }
+
+.voce { break-inside: avoid; margin-bottom: 3mm; padding-bottom: 2.5mm;
+        border-bottom: .4pt dotted var(--linea); }
+.voce:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.voce-tit { font-family: var(--display); font-size: 11pt; font-weight: 500; margin: 0 0 1mm; }
+.voce-meta { font-family: var(--dati); font-size: 7.2pt; color: var(--tenue); margin: 0 0 1.4mm; }
+.voce-testo { margin: 0 0 1.5mm; line-height: 1.5; }
+
+.esponente { break-inside: avoid; margin-bottom: 4mm; padding: 2.5mm 3mm;
+             background: var(--fondo); border-left: 1.5pt solid var(--accento); }
+.esp-testa { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 3mm; margin-bottom: 1.2mm; }
+.esp-nome { font-family: var(--display); font-size: 11.5pt; font-weight: 500; }
+.esp-anni { font-family: var(--dati); font-size: 7.4pt; color: var(--tenue); }
+.esp-ruolo { font-family: var(--dati); font-size: 7.2pt; color: var(--accento);
+             text-transform: uppercase; letter-spacing: .06em; }
+.esp-chie { font-size: 9pt; line-height: 1.5; margin: 0 0 1.8mm; }
+.esp-sub { font-family: var(--dati); font-size: 6.6pt; letter-spacing: .12em; text-transform: uppercase;
+           color: var(--grafite); margin: 2mm 0 1mm; }
+.esp-nota { font-size: 8.4pt; line-height: 1.5; color: var(--grafite);
+            border-top: .4pt solid var(--linea); padding-top: 1.5mm; margin-top: 2mm; }
+
+.esperimento { break-inside: avoid; margin-bottom: 3.5mm; }
+.exp-nome { font-family: var(--display); font-size: 11pt; font-weight: 500; margin: 0 0 1.2mm; }
+.exp-riga { display: grid; grid-template-columns: 18mm 1fr; gap: 3mm; margin-bottom: 1.2mm; align-items: baseline; }
+.exp-eti { font-family: var(--dati); font-size: 6.6pt; letter-spacing: .1em; text-transform: uppercase;
+           color: var(--tenue); }
+.exp-riga ol { margin: 0; padding-left: 4.5mm; }
+.exp-riga ol li { margin-bottom: .8mm; }
+
+.terna { display: grid; gap: 2mm; }
+.terna-voce { display: grid; grid-template-columns: 16mm 1fr; gap: 3mm; align-items: baseline; }
+.terna-eti { font-family: var(--dati); font-size: 6.8pt; letter-spacing: .1em; text-transform: uppercase;
+             color: var(--accento); }
+
+table.griglia { width: 100%; border-collapse: collapse; font-size: 8.6pt; margin: 0 0 2mm; }
+table.griglia th { font-family: var(--dati); font-size: 6.8pt; letter-spacing: .1em;
+                   text-transform: uppercase; color: var(--grafite); text-align: left;
+                   border-bottom: .8pt solid var(--linea); padding: 1.5mm 2mm 1.5mm 0; vertical-align: bottom; }
+table.griglia td { padding: 1.8mm 2mm 1.8mm 0; border-bottom: .4pt solid var(--linea-fine);
+                   vertical-align: top; line-height: 1.45; }
+table.griglia tr:last-child td { border-bottom: none; }
+
+.errori { display: grid; gap: 1.8mm; }
+.err { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; break-inside: avoid;
+       padding-bottom: 1.8mm; border-bottom: .4pt dotted var(--linea); }
+.err:last-child { border-bottom: none; }
+.err-no  { color: var(--segnale); font-size: 8.8pt; line-height: 1.45; }
+.err-si  { font-size: 8.8pt; line-height: 1.45; }
+.err-no::before { content: "✗ "; font-family: var(--dati); }
+.err-si::before { content: "✓ "; font-family: var(--dati); color: var(--accento); }
+
+.contrasto { background: var(--fondo); border: .5pt solid var(--linea); padding: 3mm;
+             font-size: 9pt; line-height: 1.55; margin-top: 3mm; break-inside: avoid; }
+.chiuditura { margin-top: 4mm; padding-top: 3mm; border-top: 1.5pt solid var(--accento);
+              font-size: 9pt; line-height: 1.6; color: var(--grafite); break-inside: avoid; }
+</style></head><body>
+
+<div class="copertina">
+  <div class="cop-alto">
+    <p class="cop-corso">Psicologia Generale · SFO_PGE · Lezione 1</p>
+    <p class="cop-n">I</p>
+    <h1 class="cop-titolo">La definizione di psicologia</h1>
+    <p class="cop-sottotitolo">Che cos'è, perché nasce tardi, con quale criterio si dice scientifica</p>
+  </div>
+  <p class="cop-intro">Il fascicolo copre la prima metà della Lezione 1. Non contiene scuole ma <strong>concetti</strong>, e perciò le schede seguono uno schema più corto: definizione, articolazione, perché serve, formule alla lettera, errori. Le schede delle scuole cominciano dal Fascicolo II.</p>
+
+  <div class="legenda">
+    <p class="legenda-tit">Lo schema, uguale per ogni scheda</p>
+    <div class="legenda-corpo">
+      <p><b>1 Definizioni</b> · le formulazioni, dalla più povera alla più completa</p><p><b>2 Articolazione</b> · il confronto fra i termini in gioco</p><p><b>3 Scomposizione</b> · la formula elemento per elemento</p><p><b>4 Perché serve</b> · la chiusura che alza il voto</p><p><b>5 Formule</b> · le frasi da riprodurre alla lettera</p><p><b>6 Errori</b> · che cosa non dire, e che cosa dire al suo posto</p>
+    </div>
+  </div>
+</div>
+
+<div class="indice-pagina">
+  <div class="cop-indice">
+    <p class="cop-indice-tit">Le 2 schede di questo fascicolo</p>
+    <div class="cop-voce">
+      <span class="cop-voce-n">01</span>
+      <span><span class="cop-voce-nome">L'oggetto della psicologia</span>
+        <span class="cop-voce-riga">La definizione della disciplina in tre versioni successive: etimologica, generale, attuale. Solo la terza si usa all'esame.</span></span>
+      <span class="cop-voce-meta">L01</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">02</span>
+      <span><span class="cop-voce-nome">Il ritardo e la doppia emancipazione</span>
+        <span class="cop-voce-riga">Oltre due millenni di psicologia filosofica contro poco più di 140 anni di psicologia scientifica: perché, e da chi la disciplina ha dovuto separarsi.</span></span>
+      <span class="cop-voce-meta">L01</span>
+    </div>
+  </div>
+</div>
+
+<section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 1</span><span>S101</span></p>
+      <h2 class="sk-nome">L'oggetto della psicologia</h2>
+      <p class="sk-unariga">La definizione della disciplina in tre versioni successive: etimologica, generale, attuale. Solo la terza si usa all'esame.</p>
+      <div class="sk-coord">
+        <span><b>Lezione</b> L01</span>
+        <span><b>Manuale</b> cap. C01</span>
+      </div>
+    </div>
+    <div class="blocco lungo">
+    <div class="bl-eti">1. Definizioni<span>le formulazioni</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Etimologia</p>
+      <div class="formula">Dal greco <em>psyché</em> (anima) e <em>lógos</em> (discorso): letteralmente «discorso sull'anima», cioè scienza della mente.</div>
+      <p class="glossa">Serve a mostrare da dove viene il problema — l'oggetto originario è l'anima, cioè per definizione qualcosa che non si lascia misurare — e va liquidata in una frase.</p></div><div class="voce">
+      <p class="voce-tit">Definizione generale</p>
+      <div class="formula">Studio scientifico della <strong>mente</strong> e del <strong>comportamento</strong>.</div>
+      <p class="glossa">È volutamente vaga, e la vaghezza va dichiarata spontaneamente: è essa stessa una delle cause del ritardo della disciplina.</p></div><div class="voce">
+      <p class="voce-tit">Definizione attuale</p>
+      <div class="formula">Studio scientifico del <strong>comportamento e dei processi mentali dell'essere vivente nel suo rapporto con l'ambiente: mentre lo esperisce, vi agisce e lo rappresenta</strong>.</div>
+      <p class="glossa">È la formulazione da usare. Ogni suo elemento è motivato e va saputo giustificare uno per uno.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">2. I due termini della definizione generale<span>il confronto</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th></th><th>Mente</th><th>Comportamento</th></tr>
+      <tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">Che cos'è</td><td>L'esperienza interiore personale: percezioni, pensieri, ricordi, sentimenti</td><td>Le azioni degli esseri umani <strong>e degli animali non umani</strong> nell'ambiente</td></tr><tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">Dove si colloca</td><td>All'<strong>interno</strong> del soggetto</td><td>All'<strong>esterno</strong>, nell'ambiente</td></tr><tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">Come si accede</td><td>Solo per via <strong>soggettiva</strong>: nessuno vede il pensiero di un altro</td><td><strong>Direttamente osservabile</strong> da chiunque</td></tr><tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">Che cosa produce</td><td>Un incessante <strong>flusso di coscienza</strong>: ciò di cui siamo consapevoli nel <em>qui e ora</em></td><td>Una sequenza di atti registrabili e misurabili</td></tr>
+    </table></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">3. Scomposizione<span>elemento per elemento</span></div>
+    <div class="bl-corpo"><p class="voce-meta">La definizione attuale, elemento per elemento</p>
+      <div class="voce">
+        <p class="voce-tit">«Studio scientifico»</p>
+        <p class="voce-testo">Richiama il <strong>metodo sperimentale</strong> e la verifica empirica. È la parola che porta con sé l'intero criterio di scientificità.</p></div><div class="voce">
+        <p class="voce-tit">«Comportamento e processi mentali»</p>
+        <p class="voce-testo">Non più «mente» al singolare, come se fosse una cosa, ma <strong>processi</strong>: la mente non è un oggetto da descrivere, è un insieme di operazioni. È l'eredità del <strong>funzionalismo</strong>.</p></div><div class="voce">
+        <p class="voce-tit">«Dell'essere vivente»</p>
+        <p class="voce-testo">Non «dell'uomo». Rientrano gli animali non umani, e con essi la <strong>psicologia comparata</strong>, che è un metodo elettivo della disciplina.</p></div><div class="voce">
+        <p class="voce-tit">«Nel suo rapporto con l'ambiente»</p>
+        <p class="voce-testo">È l'elemento decisivo, assente nella definizione generale: comportamento e processi mentali non si studiano in isolamento ma <strong>in relazione</strong>. Eredità congiunta di Darwin, del funzionalismo e dell'ambientalismo comportamentista.</p></div><div class="voce">
+        <p class="voce-tit">«Lo esperisce»</p>
+        <p class="voce-testo">Il versante <strong>ricettivo</strong>: sensazione e percezione. Viene dalla psicofisica, da Wundt, dalla Gestalt.</p></div><div class="voce">
+        <p class="voce-tit">«Vi agisce»</p>
+        <p class="voce-testo">Il versante <strong>attivo</strong>: azione e comportamento manifesto. Viene dal funzionalismo e dal comportamentismo.</p></div><div class="voce">
+        <p class="voce-tit">«Lo rappresenta»</p>
+        <p class="voce-testo">Il versante <strong>interno</strong>: rappresentazioni mentali, mappe cognitive, linguaggio. Viene da Vygotskij, Tolman, cognitivismo.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Perché serve<span>la chiusura che alza il voto</span></div>
+    <div class="bl-corpo"><p>Le due traiettorie di emancipazione — dalla filosofia e dalla medicina — non corrono parallele ma <strong>convergono</strong>: la filosofia porta la mente dentro il piano naturalistico, la medicina porta il cervello a farsi carico della mente. Si incontrano esattamente nella definizione moderna, dove l'unità mente-cervello viene collocata in relazione all'ambiente. Ed è proprio perché quel rapporto ha tre facce che la definizione contiene tre verbi. <strong>La definizione attuale è la forma compressa dell'intero excursus storico.</strong></p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Studio scientifico del comportamento e dei processi mentali dell'essere vivente nel suo rapporto con l'ambiente: mentre lo esperisce, vi agisce e lo rappresenta.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«La psicologia è lo studio della mente»</div><div class="err-si">«…del comportamento e dei <strong>processi mentali</strong> dell'<strong>essere vivente</strong> nel suo rapporto con l'ambiente»</div></div><div class="err">
+      <div class="err-no">«Il comportamento sono le azioni dell'uomo»</div><div class="err-si">«…degli esseri umani <strong>e degli animali non umani</strong>» — senza questo, metà del programma diventa incomprensibile</div></div><div class="err">
+      <div class="err-no">Elencare i tre verbi senza dire a che cosa corrispondono</div><div class="err-si">Ciascuno nomina una modalità del rapporto con l'ambiente e ha una paternità storica precisa</div></div><div class="err">
+      <div class="err-no">Fermarsi all'etimologia e alla definizione generale</div><div class="err-si">È un decimo della risposta: la definizione completa ha sette passaggi e dura circa tre minuti</div></div></div></div>
+  </div>
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 2</span><span>S102</span></p>
+      <h2 class="sk-nome">Il ritardo e la doppia emancipazione</h2>
+      <p class="sk-unariga">Oltre due millenni di psicologia filosofica contro poco più di 140 anni di psicologia scientifica: perché, e da chi la disciplina ha dovuto separarsi.</p>
+      <div class="sk-coord">
+        <span><b>Lezione</b> L01</span>
+        <span><b>Manuale</b> cap. C02</span>
+      </div>
+    </div>
+    <div class="blocco lungo">
+    <div class="bl-eti">1. Definizioni<span>le formulazioni</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Il dato di fatto</p>
+      <div class="formula">La fisica moderna nasce nel Seicento, la chimica nel Settecento, la biologia nell'Ottocento. La <strong>psicologia scientifica nel 1879</strong>.</div>
+      <p class="glossa">Non si tratta di disinteresse: la mente è uno degli oggetti più discussi del pensiero occidentale. Si tratta del fatto che per tutto quel tempo se ne parlava con un <strong>altro metodo</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Metodo razionalista</p>
+      <div class="formula">Speculazione logica: da premesse — spesso <strong>assiomi indimostrabili</strong> — si traggono conclusioni per via deduttiva. <strong>Nessuna verifica empirica</strong>.</div>
+      <p class="glossa">È il metodo con cui la mente è stata studiata per due millenni, ed è il criterio che squalifica come non scientifica ogni concezione pre-1879.</p></div><div class="voce">
+      <p class="voce-tit">Metodo sperimentale</p>
+      <div class="formula">Osservazione controllata, manipolazione, misura, <strong>verifica empirica tangibile</strong>, sul modello delle scienze naturali.</div>
+      <p class="glossa">Il criterio di scientificità non è l'oggetto ma il <strong>metodo</strong>: la mente veniva studiata anche prima, e intensamente. Cambia il <em>come</em>.</p></div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">2. Le tre cause del ritardo<span>il confronto</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th></th><th>Causa</th><th>Che tipo di ostacolo è</th></tr>
+      <tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">1</td><td>Difficoltà di <strong>definire l'oggetto</strong>: che cosa significa studiare scientificamente un pensiero?</td><td><strong>Tecnica</strong> — «non so come misurarlo». Un metodo scientifico richiede che l'oggetto sia isolabile, manipolabile e misurabile</td></tr><tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">2</td><td>Difficoltà di considerare l'<strong>uomo</strong> un oggetto di studio scientifico</td><td><strong>Antropologica</strong> — «non mi è lecito trattarlo così». Le scienze naturali trattano il loro oggetto in modo deterministico; applicarlo all'uomo urta contro una lunga tradizione</td></tr><tr><td style="font-family:var(--dati);font-size:7.6pt;color:var(--grafite)">3</td><td><strong>Concezione trascendentale della mente</strong>: considerata quasi divina per oltre due millenni</td><td><strong>Metafisica</strong> — «non ha senso trattarlo così». Non è un problema di strumenti mancanti, è un problema di categorie</td></tr>
+    </table></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">3. Scomposizione<span>elemento per elemento</span></div>
+    <div class="bl-corpo"><p class="voce-meta">La doppia emancipazione — entrambe le formule hanno due termini</p>
+      <div class="voce">
+        <p class="voce-tit">Dalla filosofia</p>
+        <p class="voce-testo">Dallo studio della mente sul <strong>piano filosofico</strong> → allo studio della <strong>relazione mente-corpo sul piano naturalistico</strong>.<br><em>Cambiano insieme l'oggetto — non più la mente sola ma la sua relazione con qualcosa di materiale — e il piano, non più speculativo ma naturalistico.</em></p></div><div class="voce">
+        <p class="voce-tit">Dalla medicina</p>
+        <p class="voce-testo">Dallo studio del cervello sul <strong>piano meramente fisiologico</strong> → allo studio dell'<strong>unità cervello-mente e delle sue interazioni con l'ambiente</strong>.<br><em>Il cervello era già studiato scientificamente, come organo. Mancava il <strong>ponte concettuale</strong>: ammettere che la mente potesse essere determinata dal funzionamento del cervello.</em></p></div><div class="voce">
+        <p class="voce-tit">Dove si scioglie il nodo</p>
+        <p class="voce-testo">L'unità mente-cervello sarà postulata per la prima volta dentro una teoria psicologica da <strong>Donald Hebb</strong>, con il cenocomportamentismo, negli anni Cinquanta — e diventerà il principale oggetto di studio delle <strong>neuroscienze</strong>. Il corso apre qui la parentesi e la chiude nella L03.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Perché serve<span>la chiusura che alza il voto</span></div>
+    <div class="bl-corpo"><p>Il ritardo si spiega di solito con il <strong>positivismo</strong>, che attribuisce alle scienze naturali il ruolo di unica fonte attendibile di conoscenza. È vero ma insufficiente: il positivismo è un'<strong>affermazione di principio</strong> — dice che la psicologia <em>dovrebbe</em> essere una scienza, non dice come. Il passaggio all'atto richiede una dimostrazione concreta che un fenomeno psichico <strong>possa</strong> essere misurato, e quella la fornisce la <strong>psicofisica</strong> con la legge di Weber-Fechner. Aggiungere questo ponte è ciò che trasforma un elenco corretto in un ragionamento.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Dallo studio della mente sul piano filosofico alla relazione mente-corpo sul piano naturalistico.</div><div class="formula">Dallo studio del cervello sul piano meramente fisiologico all'unità cervello-mente e alle sue interazioni con l'ambiente.</div></div>
+  </div><div class="blocco lungo">
+    <div class="bl-eti">6. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Si è emancipata dalla filosofia»</div><div class="err-si">Le formule hanno <strong>due termini</strong>: la risposta è <em>da che cosa a che cosa</em>. Perdere il secondo è l'errore più frequente</div></div><div class="err">
+      <div class="err-no">«Prima non si studiava il cervello»</div><div class="err-si">Il cervello <strong>era già studiato</strong>, in modo deterministico, come organo. Mancava il ponte concettuale dell'unità mente-cervello</div></div><div class="err">
+      <div class="err-no">Citare solo il positivismo</div><div class="err-si">Senza la <strong>psicofisica</strong> il positivismo resta un auspicio: serve la dimostrazione che lo psichico è misurabile</div></div></div></div>
+  </div>
+  </section>
+
+</body></html>
