@@ -818,7 +818,8 @@ const PDF_FILE = {
   F1: "pdf/F1_la-definizione-di-psicologia.pdf",
   F2: "pdf/F2_l-excursus-storico.pdf",
   F3: "pdf/F3_la-psicologia-contemporanea.pdf",
-  F4: "pdf/F4_la-metodologia-della-ricerca.pdf"
+  F4: "pdf/F4_la-metodologia-della-ricerca.pdf",
+  F5: "pdf/F5_le-basi-biologiche-del-comportamento.pdf"
 };
 
 function vistaSchede() {

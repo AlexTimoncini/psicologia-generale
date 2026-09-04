@@ -1,0 +1,49 @@
+graph TD
+    MET["LO STUDIO DEL CERVELLO<br/>4 categorie di metodi"]
+
+    MET ==> LES["1. STUDIO DELLE LESIONI<br/>tolgo → vedo cosa si rompe"]
+    MET ==> ELE["2. ATTIVITÀ ELETTRICA<br/>ascolto il segnale"]
+    MET ==> IMG["3. NEUROIMMAGINI<br/>guardo struttura o funzione"]
+    MET ==> STI["4. STIMOLAZIONE<br/>accendo → vedo cosa cambia"]
+
+    LES --> PRES["IL PRESUPPOSTO<br/>per capire come funziona<br/>guarda quando NON funziona<br/>→ NEUROPSICOLOGIA COGNITIVA"]
+
+    LES ==> SPO["LESIONI SPONTANEE<br/>ictus · tumori · neurodegenerative<br/>infettive · incidenti"]
+    SPO --> INF["LE 2 CONDIZIONI<br/>1 comportamento INUSUALE<br/>(normalità STATISTICA)<br/>2 evidenza neurologica CHIARA"]
+    SPO --> BRW["BROCA: frontale sx<br/>→ deficit di PRODUZIONE<br/>WERNICKE: temporale sup. sx<br/>→ deficit di COMPRENSIONE"]
+    SPO --> GAG["PHINEAS GAGE<br/>sbarra nei LOBI FRONTALI<br/>SOPRAVVIVE<br/>3 deficit: regolazione emotiva<br/>progettazione · decisione"]
+
+    LES ==> TER["LESIONI TERAPEUTICHE<br/>tumori · EPILESSIA<br/>(attività parossistica<br/>con capacità PROPAGATORIA)"]
+    TER --> DUE["asportazione della regione TRIGGER<br/>oppure COMMISSUROTOMIA<br/>→ pazienti SPLIT BRAIN"]
+
+    TER --> HM["PAZIENTE H.M.<br/>lobi temporali mediali<br/>NON memorizza il nuovo<br/>MA rievoca il passato"]
+    HM ==> DIS["DISSOCIAZIONE FUNZIONALE<br/>stesso paziente:<br/>una funzione preservata<br/>una compromessa<br/>→ MULTICOMPONENZIALITÀ"]
+
+    DIS --> SIN["SINGOLA<br/>1 paziente, 2 compiti<br/>BIAS: i compiti potrebbero<br/>avere DIFFICOLTÀ DIVERSA"]
+    DIS --> DOP["DOPPIA<br/>2 pazienti, stesse 2 prove<br/>dissociazioni OPPOSTE<br/>→ esclude il bias<br/>→ 2 SISTEMI SEPARATI"]
+    SIN -.->|"non basta"| DOP
+
+    LES ==> ART["LESIONI ARTIFICIALI<br/>psicologia animale"]
+    ART --> ETI["LE 4 REGOLE ETICHE<br/>comitato etico PRIMA<br/>anestesia sempre<br/>analgesia post-operatoria<br/>unico metodo disponibile"]
+    ART --> STE["APPARATO STEREOTASSICO<br/>coordinate + atlante anatomico"]
+    ART --> TEC["asportazione · ablazione<br/>aspirazione · elettrolitica<br/>tossica (selettiva per<br/>neurotrasmettitore)"]
+    ART --> LAB["valutazione: LABIRINTI<br/>+ analisi POST-MORTEM<br/>(anche per verificare la lesione)"]
+
+    ELE --> MICR["MICROELETTRODI<br/>SINGOLI neuroni<br/>HUBEL e WIESEL<br/>corteccia occipitale dei gatti"]
+    ELE --> EEG["ELETTROENCEFALOGRAMMA<br/>popolazioni neuronali<br/>dallo SCALPO<br/>stati di coscienza · sonno<br/>epilessia"]
+    ELE --> PEV["POTENZIALI EVOCATI<br/>risposta a uno stimolo SPECIFICO<br/>integrità delle vie sensoriali<br/>+ operazioni cognitive"]
+
+    IMG ==> STRU["IMAGING STRUTTURALE"]
+    STRU --> TAC["TAC<br/>raggi X da più angolazioni<br/>mostra la DENSITÀ<br/>bianco=osso grigio=corteccia<br/>nero=ventricoli e LESIONI<br/>LIMITI: radiazioni · solo ASSIALE"]
+    STRU --> RM["RISONANZA MAGNETICA<br/>atomi di IDROGENO<br/>+ campo magnetico<br/>10x più risoluta della TAC<br/>TUTTI E 3 GLI ASSI"]
+    STRU --> DTI["DTI<br/>SOSTANZA BIANCA<br/>= le CONNESSIONI<br/>→ HUMAN CONNECTOME PROJECT"]
+
+    IMG ==> FUNZ["IMAGING FUNZIONALE"]
+    FUNZ --> PRIN["IL PRINCIPIO COMUNE<br/>area attiva → più energia<br/>→ più AFFLUSSO DI SANGUE<br/>le tecniche leggono il SANGUE"]
+    FUNZ --> PET["PET<br/>sostanza RADIOATTIVA innocua<br/>sensori rilevano la radioattività"]
+    FUNZ --> FMRI["fMRI<br/>emoglobina OSSIGENATA<br/>vs DEOSSIGENATA<br/>NIENTE radioattività<br/>PIÙ RAPIDA · la più usata"]
+    FMRI --> REST["RESTING STATE<br/>attività SENZA compito<br/>→ scoperta del<br/>DEFAULT MODE NETWORK<br/>immaginazione · ruminazione"]
+
+    STI --> ELC["stimolazione ELETTRICA o CHIMICA<br/>effetto di RINFORZO"]
+    STI ==> TMS["TMS<br/>manipolo a OTTO<br/>campo magnetico focalizzato<br/>= LESIONE VIRTUALE<br/>perturba il pattern circuitale<br/>NON INVASIVA · su soggetti SANI<br/>senza aspettare casi clinici"]
+    LES -.->|"stessa domanda,<br/>via opposta"| TMS

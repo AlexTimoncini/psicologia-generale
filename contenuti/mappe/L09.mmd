@@ -1,0 +1,52 @@
+graph TD
+    SN["IL SISTEMA NERVOSO<br/>il centro del controllo del corpo"]
+
+    SN ==> LIV["I 3 LIVELLI DI ELABORAZIONE"]
+    LIV --> AFF["AFFERENTE = input<br/>NEURONI SENSORIALI<br/>pseudounipolari<br/>soma FUORI dal SNC"]
+    LIV --> INTE["ELABORAZIONE INTERMEDIA<br/>INTERNEURONI<br/>= nessun contatto<br/>con la periferia"]
+    LIV --> EFF["EFFERENTE = output<br/>MOTONEURONI<br/>terminano su fibra muscolare"]
+
+    SN ==> CRIT["CRITERIO ANATOMICO<br/>= la PROTEZIONE OSSEA"]
+
+    CRIT ==> SNP["SISTEMA NERVOSO PERIFERICO<br/>SENZA protezione ossea"]
+    CRIT ==> SNC["SISTEMA NERVOSO CENTRALE<br/>CON protezione ossea<br/>midollo spinale + encefalo"]
+
+    SNP --> SOM["SOMATICO<br/>o 'di relazione'<br/>VOLONTARIO<br/>nervi spinali + nervi cranici"]
+    SNP --> AUT["AUTONOMO<br/>NON cosciente<br/>funzioni involontarie<br/>+ emozioni e stress"]
+
+    AUT --> SIM["SIMPATICO = ATTIVANTE<br/>midriasi · bronchi dilatati<br/>cuore accelerato<br/>intestino inibito<br/>vasi ristretti<br/>PREPARA ALLA REAZIONE"]
+    AUT --> PAR["PARASIMPATICO = RILASSANTE<br/>l'esatto opposto<br/>garantisce l'OMEOSTASI"]
+    AUT --> ENT["ENTERICO<br/>plesso di Auerbach<br/>plesso di Meissner"]
+    SIM -.->|"RECIPROCI: mai<br/>entrambi attivi<br/>né entrambi spenti"| PAR
+
+    SNC ==> TERM["LA TERMINOLOGIA"]
+    TERM --> ASSE["ASSE CAUDO-ROSTRALE<br/>+ DEFLESSIONE al mesencefalo<br/>causata dalla STAZIONE ERETTA"]
+    TERM --> RIF["mediale / laterale<br/>ipsilaterale / controlaterale<br/>VISIONI (non si taglia)<br/>SEZIONI (si taglia)"]
+
+    SNC ==> PROT["LE PROTEZIONI"]
+    PROT --> MEN["3 MENINGI<br/>DURA MADRE (cuoio)<br/>ARACNOIDE (tela di ragno)<br/>PIA MADRE (sottile, elastica)"]
+    MEN -.->|"trauma → sangue fra<br/>dura e aracnoide"| EMA["EMATOMA SUBDURALE"]
+    PROT --> LIQ["LIQUOR<br/>prodotto dai PLESSI CORIOIDEI<br/>riassorbito dai VILLI ARACNOIDEI<br/>3 funzioni: alleggerire ·<br/>proteggere · regolare la chimica"]
+    LIQ -.->|"ostruzione"| IDR["IDROCEFALO"]
+
+    SNC ==> GER["ORGANIZZAZIONE GERARCHICA<br/>gerarchia anatomica<br/>= gerarchia funzionale<br/>caudale = arcaico = vitale"]
+
+    GER ==> PRIM["IL CERVELLO PRIMITIVO"]
+
+    PRIM --> MID["MIDOLLO SPINALE<br/>il più arcaico<br/>già formato alla nascita<br/>organizzazione SEGMENTALE"]
+    MID --> CORNI["corno DORSALE = afferenze<br/>corno VENTRALE = efferenze<br/>→ appaiati = NERVO SPINALE<br/>grigia = somi · bianca = fibre"]
+    MID --> RIFL["sede dei RIFLESSI<br/>sensitivo → interneurone<br/>→ motoneurone<br/>senza coscienza"]
+    MID --> CAU["CAUDA EQUINA<br/>solo assoni<br/>→ anestesia epidurale"]
+
+    PRIM --> TRO["TRONCO DELL'ENCEFALO<br/>bulbo · ponte · mesencefalo<br/>pressione · respiro · sonno<br/>da qui i NERVI CRANICI"]
+    TRO --> RET["FORMAZIONE RETICOLARE<br/>vigilanza · sonno-veglia<br/>attenzione · tono muscolare"]
+
+    PRIM --> CER["CERVELLETTO<br/>il PIÙ ALTO NUMERO di neuroni<br/>stesso circuito replicato<br/>COORDINAZIONE MOTORIA<br/>alcol → ATASSIA"]
+
+    PRIM --> DIE["DIENCEFALO"]
+    DIE --> TAL["TALAMO (dorsale)<br/>tutte le vie sensoriali<br/>FANNO TAPPA QUI"]
+    DIE --> IPO["IPOTALAMO (ventrale)<br/>OMEOSTASI<br/>comunica con l'IPOFISI<br/>→ regolazione ormonale"]
+
+    SN -.-> END["SISTEMA ENDOCRINO<br/>ormoni nel SANGUE<br/>LENTO ma a lungo termine"]
+    SN -.-> IMM["SISTEMA IMMUNITARIO<br/>antigeni → anticorpi"]
+    END -.->|"insieme al SN =<br/>BODY-MIND"| IMM

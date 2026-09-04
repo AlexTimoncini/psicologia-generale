@@ -1,0 +1,52 @@
+graph TD
+    SN["IL SISTEMA NERVOSO<br/>due tipi di cellule"]
+    SN ==> GLIA["CELLULE GLIALI<br/>10 volte più numerose"]
+    SN ==> NEU["NEURONI<br/>le cellule FUNZIONALI<br/>migliaia di miliardi"]
+
+    GLIA --> G1["1. FUNZIONE STRUTTURALE<br/>impalcatura che tiene<br/>i neuroni in situ<br/>ASTROCITI"]
+    GLIA --> G2["2. FUNZIONE METABOLICA<br/>nutrono (sostanze trofiche)<br/>ed eliminano i detriti<br/>OLIGODENDROCITI = mielina"]
+
+    NEU ==> CAR["LE 4 CARATTERISTICHE"]
+    CAR --> C1["eccitabili<br/>trasmettono informazione"]
+    CAR --> C2["migliaia di miliardi"]
+    CAR --> C3["comunicano<br/>anche a lunga distanza"]
+    CAR --> C4["NON si rigenerano<br/>→ niente cura per le<br/>malattie neurodegenerative<br/>MA neuroplasticità"]
+
+    NEU ==> STR["LA STRUTTURA PROTOTIPICA"]
+    STR --> SOMA["CORPO CELLULARE (soma)<br/>~20 μm<br/>SINTETIZZA le proteine"]
+    STR --> DEN["DENDRITI<br/>le ANTENNE<br/>CAPTANO dal neurone<br/>precedente"]
+    STR --> ASS["ASSONE<br/>GENERA e TRASMETTE<br/>fino a 1 metro"]
+
+    SOMA --> NUC["nucleo → DNA<br/>TRASCRIZIONE → RNAm<br/>esce nel citoplasma<br/>TRADUZIONE → proteine"]
+    SOMA --> ORG["organelli<br/>ribosomi · reticolo rugoso (restano)<br/>Golgi (escono)<br/>mitocondri → ATP"]
+
+    DEN --> REC["RECETTORI<br/>proteine recettoriali"]
+    DEN --> SPI["SPINE DENDRITICHE<br/>aumentano la superficie<br/>→ substrato della PLASTICITÀ"]
+
+    ASS --> CONO["CONO DI EMERGENZA<br/>qui si genera<br/>il potenziale d'azione"]
+    ASS --> MIE["GUAINA MIELINICA<br/>+ NODI DI RANVIER<br/>→ conduzione SALTATORIA"]
+    ASS --> BOT["TERMINALI → BOTTONI SINAPTICI"]
+
+    NEU ==> FIS["LA FISIOLOGIA<br/>l'attività elettrica"]
+
+    FIS --> RIP["1. POTENZIALE DI RIPOSO<br/>interno NEGATIVO<br/>fuori Na+ e Cl−<br/>dentro K+ e anioni proteici<br/>pompa Na/K: 3 fuori, 2 dentro"]
+    FIS --> PA["2. POTENZIALE D'AZIONE<br/>DEPOLARIZZAZIONE: entra Na+<br/>RIPOLARIZZAZIONE: esce K+<br/>IPERPOLARIZZAZIONE"]
+    FIS --> RIT["3. RITORNO AL RIPOSO"]
+
+    PA ==> TON["LEGGE DEL TUTTO O NULLA<br/>sempre uguale a se stesso<br/>o c'è o non c'è"]
+    TON --> FRQ["l'INTENSITÀ si codifica<br/>con la FREQUENZA<br/>non con l'ampiezza"]
+    PA --> REF["PERIODO REFRATTARIO<br/>→ propagazione<br/>UNIDIREZIONALE"]
+
+    FIS --> GRAD["nei DENDRITI:<br/>POTENZIALI GRADUATI<br/>niente canali voltaggio-dip.<br/>si sommano e si integrano"]
+
+    NEU ==> SIN["LA SINAPSI CHIMICA<br/>il messaggio elettrico<br/>diventa CHIMICO<br/>e poi di nuovo elettrico"]
+
+    SIN --> P5["I 5 PASSAGGI<br/>1 sintesi<br/>2 vescicole<br/>3 rilascio<br/>4 legame ai recettori<br/>5 disattivazione:<br/>enzimatica o REUPTAKE"]
+
+    SIN --> ECC["SINAPSI ECCITATORIA<br/>entra Na+ → DEPOLARIZZA<br/>GLUTAMMATO"]
+    SIN --> INI["SINAPSI INIBITORIA<br/>entra Cl− → IPERPOLARIZZA<br/>GABA"]
+
+    ECC --> INT["I potenziali graduati<br/>si SOMMANO nel soma<br/>→ nell'assone avviene<br/>o NON avviene il PA"]
+    INI --> INT
+
+    SIN --> MOD["NEUROMODULATORI<br/>modulano la SENSIBILITÀ<br/>ai neurotrasmettitori<br/>es. ENDORFINE"]

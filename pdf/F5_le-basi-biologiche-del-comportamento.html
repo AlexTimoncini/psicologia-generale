@@ -1,0 +1,1020 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8">
+<title>Le basi biologiche del comportamento — Psicologia Generale</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 16mm 15mm 15mm 15mm; }
+
+:root {
+  --inchiostro: #14181d;
+  --grafite:    #55606c;
+  --tenue:      #7d8792;
+  --accento:    #12514d;
+  --segnale:    #9c3722;
+  --linea:      #c9cec6;
+  --linea-fine: #e2e5df;
+  --fondo:      #f5f6f2;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --testo:   "IBM Plex Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --dati:    "IBM Plex Mono", "SF Mono", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin:0; background:#fff; color-scheme: light; orphans: 3; widows: 3;
+       font-family: var(--testo); font-size: 9.6pt; line-height: 1.52;
+       color: var(--inchiostro); }
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* ---- copertina ---- */
+.copertina { margin-bottom: 10mm; }
+.cop-indice { break-after: avoid; }
+.cop-alto { border-bottom: 2.5pt solid var(--accento); padding-bottom: 5mm; margin-bottom: 8mm; }
+.cop-corso { font-family: var(--dati); font-size: 7.4pt; letter-spacing: .18em;
+             text-transform: uppercase; color: var(--grafite); margin: 0 0 8mm; }
+.cop-n { font-family: var(--display); font-size: 34pt; line-height:1; color: var(--accento); margin:0 0 2mm; }
+.cop-titolo { font-family: var(--display); font-size: 27pt; line-height: 1.1; margin: 0 0 3mm; font-weight: 500; }
+.cop-sottotitolo { font-family: var(--display); font-size: 13pt; font-style: italic;
+                   color: var(--grafite); margin: 0; font-weight: 400; }
+.cop-intro { font-size: 9.4pt; line-height: 1.62; color: var(--grafite); margin: 7mm 0 0; max-width: 145mm; }
+
+.cop-indice { margin-top: 0; }
+.cop-indice-tit { font-family: var(--dati); font-size: 7.2pt; letter-spacing: .16em;
+                  text-transform: uppercase; color: var(--grafite); margin: 0 0 4mm;
+                  border-bottom: .5pt solid var(--linea); padding-bottom: 2mm; }
+.cop-voce { display: grid; grid-template-columns: 12mm 1fr auto; gap: 3mm;
+            padding: 2.4mm 0; border-bottom: .5pt solid var(--linea-fine); align-items: baseline; }
+.cop-voce-n { font-family: var(--dati); font-size: 9pt; color: var(--accento); }
+.cop-voce-nome { font-family: var(--display); font-size: 11.5pt; }
+.cop-voce-riga { display:block; font-family: var(--testo); font-size: 8.4pt; color: var(--grafite);
+                 line-height:1.45; margin-top: .8mm; }
+.cop-voce-meta { font-family: var(--dati); font-size: 7.4pt; color: var(--tenue); white-space: nowrap; }
+
+.legenda { margin-top: 12mm; padding-top: 6mm; border-top: .5pt solid var(--linea); }
+.legenda-tit { font-family: var(--dati); font-size: 7.2pt; letter-spacing: .16em;
+               text-transform: uppercase; color: var(--grafite); margin: 0 0 3mm; }
+.legenda-corpo { columns: 2; column-gap: 8mm; font-size: 8.2pt; line-height: 1.5; color: var(--grafite); }
+.legenda-corpo p { margin: 0 0 1.6mm; break-inside: avoid; }
+.legenda-corpo b { color: var(--inchiostro); font-family: var(--dati); font-size: 7.6pt; }
+
+/* ---- scheda ---- */
+/* Le schede scorrono di seguito: nessun salto di pagina forzato, così non
+   restano pagine mezze bianche. A separarle è il filetto spesso della testata,
+   che non può restare orfano in fondo alla pagina. */
+.scheda { margin-top: 9mm; }
+.scheda:first-of-type { margin-top: 0; }
+
+.sk-testa { border-top: 2.5pt solid var(--accento); padding-top: 3mm; margin-bottom: 4mm;
+            break-inside: avoid; break-after: avoid; }
+.sk-occhiello { font-family: var(--dati); font-size: 7pt; letter-spacing: .16em;
+                text-transform: uppercase; color: var(--grafite); margin: 0 0 1.5mm;
+                display: flex; justify-content: space-between; }
+.sk-nome { font-family: var(--display); font-size: 20pt; line-height: 1.12; margin: 0 0 2mm; font-weight: 500; }
+.sk-unariga { font-size: 9.6pt; line-height: 1.5; color: var(--grafite); margin: 0 0 3mm; max-width: 155mm; }
+.sk-coord { display: flex; flex-wrap: wrap; gap: 0 6mm; font-family: var(--dati); font-size: 7.6pt;
+            color: var(--grafite); border-top: .5pt solid var(--linea-fine);
+            border-bottom: .5pt solid var(--linea-fine); padding: 1.8mm 0; }
+.sk-coord b { color: var(--accento); font-weight: 500; }
+
+/* blocco: etichetta a sinistra, contenuto a destra.
+   I blocchi scorrono liberamente fra le pagine: a non spezzarsi sono le unità
+   atomiche (una voce, un esponente, un esperimento, un errore). Così non restano
+   pagine mezze vuote per far stare un blocco intero. */
+.blocco { padding: 3mm 0; border-bottom: .5pt solid var(--linea-fine); break-inside: auto; overflow: hidden; }
+.bl-eti { float: left; width: 26mm; font-family: var(--dati); font-size: 7pt; letter-spacing: .1em;
+          text-transform: uppercase; color: var(--accento); line-height: 1.4; padding-top: .6mm; }
+.bl-eti span { display: block; color: var(--tenue); font-size: 6.4pt; letter-spacing: .06em; }
+.bl-corpo { margin-left: 30mm; }
+.bl-corpo > *:first-child { margin-top: 0; }
+.bl-corpo > *:last-child { margin-bottom: 0; }
+.bl-corpo p { margin: 0 0 2mm; }
+.bl-vuoto { color: var(--tenue); font-family: var(--dati); font-size: 8pt; }
+
+.formula { font-family: var(--display); font-size: 11pt; line-height: 1.45;
+           border-left: 2pt solid var(--accento); padding: 1mm 0 1mm 4mm; margin: 0 0 2.5mm; }
+.glossa { font-size: 8.8pt; line-height: 1.55; color: var(--grafite); margin: 0 0 2mm; }
+
+ul.punti { margin: 0 0 2mm; padding-left: 4.5mm; }
+ul.punti li { margin-bottom: 1.4mm; line-height: 1.5; }
+ul.punti li::marker { color: var(--accento); }
+
+.voce { break-inside: avoid; margin-bottom: 3mm; padding-bottom: 2.5mm;
+        border-bottom: .4pt dotted var(--linea); }
+.voce:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.voce-tit { font-family: var(--display); font-size: 11pt; font-weight: 500; margin: 0 0 1mm; }
+.voce-meta { font-family: var(--dati); font-size: 7.2pt; color: var(--tenue); margin: 0 0 1.4mm; }
+.voce-testo { margin: 0 0 1.5mm; line-height: 1.5; }
+
+.esponente { break-inside: avoid; margin-bottom: 4mm; padding: 2.5mm 3mm;
+             background: var(--fondo); border-left: 1.5pt solid var(--accento); }
+.esp-testa { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 3mm; margin-bottom: 1.2mm; }
+.esp-nome { font-family: var(--display); font-size: 11.5pt; font-weight: 500; }
+.esp-anni { font-family: var(--dati); font-size: 7.4pt; color: var(--tenue); }
+.esp-ruolo { font-family: var(--dati); font-size: 7.2pt; color: var(--accento);
+             text-transform: uppercase; letter-spacing: .06em; }
+.esp-chie { font-size: 9pt; line-height: 1.5; margin: 0 0 1.8mm; }
+.esp-sub { font-family: var(--dati); font-size: 6.6pt; letter-spacing: .12em; text-transform: uppercase;
+           color: var(--grafite); margin: 2mm 0 1mm; }
+.esp-nota { font-size: 8.4pt; line-height: 1.5; color: var(--grafite);
+            border-top: .4pt solid var(--linea); padding-top: 1.5mm; margin-top: 2mm; }
+
+.esperimento { break-inside: avoid; margin-bottom: 3.5mm; }
+.exp-nome { font-family: var(--display); font-size: 11pt; font-weight: 500; margin: 0 0 1.2mm; }
+.exp-riga { display: grid; grid-template-columns: 18mm 1fr; gap: 3mm; margin-bottom: 1.2mm; align-items: baseline; }
+.exp-eti { font-family: var(--dati); font-size: 6.6pt; letter-spacing: .1em; text-transform: uppercase;
+           color: var(--tenue); }
+.exp-riga ol { margin: 0; padding-left: 4.5mm; }
+.exp-riga ol li { margin-bottom: .8mm; }
+
+.terna { display: grid; gap: 2mm; }
+.terna-voce { display: grid; grid-template-columns: 16mm 1fr; gap: 3mm; align-items: baseline; }
+.terna-eti { font-family: var(--dati); font-size: 6.8pt; letter-spacing: .1em; text-transform: uppercase;
+             color: var(--accento); }
+
+table.griglia { width: 100%; border-collapse: collapse; font-size: 8.6pt; margin: 0 0 2mm; }
+table.griglia th { font-family: var(--dati); font-size: 6.8pt; letter-spacing: .1em;
+                   text-transform: uppercase; color: var(--grafite); text-align: left;
+                   border-bottom: .8pt solid var(--linea); padding: 1.5mm 2mm 1.5mm 0; vertical-align: bottom; }
+table.griglia td { padding: 1.8mm 2mm 1.8mm 0; border-bottom: .4pt solid var(--linea-fine);
+                   vertical-align: top; line-height: 1.45; }
+table.griglia tr:last-child td { border-bottom: none; }
+
+.errori { display: grid; gap: 1.8mm; }
+.err { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; break-inside: avoid;
+       padding-bottom: 1.8mm; border-bottom: .4pt dotted var(--linea); }
+.err:last-child { border-bottom: none; }
+.err-no  { color: var(--segnale); font-size: 8.8pt; line-height: 1.45; }
+.err-si  { font-size: 8.8pt; line-height: 1.45; }
+.err-no::before { content: "✗ "; font-family: var(--dati); }
+.err-si::before { content: "✓ "; font-family: var(--dati); color: var(--accento); }
+
+.contrasto { background: var(--fondo); border: .5pt solid var(--linea); padding: 3mm;
+             font-size: 9pt; line-height: 1.55; margin-top: 3mm; break-inside: avoid; }
+.chiuditura { margin-top: 4mm; padding-top: 3mm; border-top: 1.5pt solid var(--accento);
+              font-size: 9pt; line-height: 1.6; color: var(--grafite); break-inside: avoid; }
+</style></head><body>
+
+<div class="copertina">
+  <div class="cop-alto">
+    <p class="cop-corso">Psicologia Generale · SFO_PGE · Lezioni 8-13</p>
+    <p class="cop-n">V</p>
+    <h1 class="cop-titolo">Le basi biologiche del comportamento</h1>
+    <p class="cop-sottotitolo">Dal neurone alla plasticità: il substrato materiale della mente</p>
+  </div>
+
+  <div class="cop-indice">
+    <p class="cop-indice-tit">Le 8 schede</p>
+    <div class="cop-voce">
+      <span class="cop-voce-n">01</span>
+      <span><span class="cop-voce-nome">Il neurone: la struttura</span>
+        <span class="cop-voce-riga">La cellula che non si rigenera ma si riorganizza, e che da sola non fa niente: ogni elemento della sua anatomia esiste per una funzione precisa.</span></span>
+      <span class="cop-voce-meta">L08</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">02</span>
+      <span><span class="cop-voce-nome">L'attività elettrica e la sinapsi</span>
+        <span class="cop-voce-riga">Un dispositivo digitale nell'ampiezza e analogico nella frequenza, il cui messaggio diventa chimico esattamente una volta: nel salto fra due cellule.</span></span>
+      <span class="cop-voce-meta">L08</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">03</span>
+      <span><span class="cop-voce-nome">L'architettura del sistema nervoso</span>
+        <span class="cop-voce-riga">Un criterio anatomico — la protezione ossea — divide tutto; e la terminologia non è decorazione, è il modo in cui si dice dove sta una cosa.</span></span>
+      <span class="cop-voce-meta">L09</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">04</span>
+      <span><span class="cop-voce-nome">Il cervello primitivo</span>
+        <span class="cop-voce-riga">Sotto ciò che serve a vivere, sopra ciò che serve a pensare — e proprio per questo un danno alle strutture arcaiche è più grave di uno alla corteccia frontale.</span></span>
+      <span class="cop-voce-meta">L09</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">05</span>
+      <span><span class="cop-voce-nome">La corteccia cerebrale</span>
+        <span class="cop-voce-riga">Un foglio piegato in cui la posizione è funzione, la quantità di spazio è importanza, e la stessa colonna di un millimetro fa tutto — cambiando solo lo spessore dei suoi sei strati.</span></span>
+      <span class="cop-voce-meta">L10</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">06</span>
+      <span><span class="cop-voce-nome">I metodi di indagine del cervello</span>
+        <span class="cop-voce-riga">Ogni metodo compra una cosa e ne paga un'altra: la lesione dà causalità ma non la sceglie, l'EEG dà il tempo ma non lo spazio, la fMRI legge il sangue e non i neuroni — e la TMS, stimolando, spegne.</span></span>
+      <span class="cop-voce-meta">L11</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">07</span>
+      <span><span class="cop-voce-nome">Evoluzione, geni ed ereditarietà</span>
+        <span class="cop-voce-riga">L'evoluzione non cambia gli individui ma la frequenza dei loro caratteri; e l'ereditabilità è una proprietà delle popolazioni, mai delle persone.</span></span>
+      <span class="cop-voce-meta">XIX sec. (Darwin, Mendel) · L12</span>
+    </div><div class="cop-voce">
+      <span class="cop-voce-n">08</span>
+      <span><span class="cop-voce-nome">Epigenetica e plasticità cerebrale</span>
+        <span class="cop-voce-riga">I geni fissano il campo, l'ambiente decide dove ci si ferma dentro il campo, e il temperamento — che è genetico — decide quale campo si finisce per abitare.</span></span>
+      <span class="cop-voce-meta">L13</span>
+    </div>
+  </div>
+</div>
+
+<section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 1</span><span>S501</span></p>
+      <h2 class="sk-nome">Il neurone: la struttura</h2>
+      <p class="sk-unariga">La cellula che non si rigenera ma si riorganizza, e che da sola non fa niente: ogni elemento della sua anatomia esiste per una funzione precisa.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L08</span>
+        <span><b>Manuale</b> cap. C22</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>La <strong>rivoluzione neuroscientifica</strong> ha reso possibile studiare l'<strong>unità mente-cervello</strong> e non più la mente separata dal cervello. Ma studiare quell'unità richiede di sapere <strong>grazie a che cosa</strong> la mente funziona.</p><div class="formula">Si parte dal <strong>costituente base</strong> perché il modulo procede per <strong>scale crescenti</strong>: cellula → sistema → corteccia → metodi → origine e cambiamento.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Le due tipologie cellulari del SN</p>
+      <p class="voce-meta">criterio anatomico</p>
+      <p class="voce-testo">Il funzionamento del sistema nervoso dipende da <strong>cellule gliali</strong> e <strong>neuroni</strong>. Le gliali sono <strong>10 volte più numerose</strong>.</p></div><div class="voce">
+      <p class="voce-tit">La struttura prototipica</p>
+      <p class="voce-meta">principio</p>
+      <p class="voce-testo">A prescindere dalla tipologia, <strong>tutti</strong> i neuroni hanno le stesse caratteristiche strutturali che ne permettono il funzionamento: <strong>membrana plasmatica</strong>, <strong>citoscheletro</strong>, e le tre parti.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Le cellule gliali</strong></td><td>Macroglia e microglia</td><td>Non sono accessorie: sono la <strong>maggior parte</strong> del tessuto. <strong>Astrociti</strong> = funzione strutturale; <strong>oligodendrociti</strong> = producono la <strong>guaina mielinica</strong></td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">Il neurone è l'<strong>unità base</strong> del sistema nervoso: elabora e trasmette l'informazione che regola il comportamento attraverso messaggi di tipo <strong>elettrochimico</strong>.</div><p class="glossa"><strong>Le due funzioni della glia</strong>: <em>strutturale</em> — impalcatura che tiene i neuroni <em>in situ</em>; <em>metabolica</em> — a sua volta duplice: <strong>fornisce sostanze trofiche</strong> ed <strong>elimina detriti</strong> e sostanze tossiche.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Tre parti, ciascuna con una funzione: <strong>corpo cellulare</strong> (sintetizza) → <strong>dendriti</strong> (captano) → <strong>assone</strong> (genera e trasmette).</div>
+     <p class="glossa">La <strong>membrana plasmatica</strong> non è un involucro: <strong>cambia composizione</strong> a seconda della zona, ed è la protagonista della fisiologia (scheda S502).</p>
+     <ul class="punti"><li><strong>Corpo cellulare</strong> (soma, pirenoforo) — ~20 μm. Contiene il <strong>nucleo</strong> con il <strong>DNA</strong>; nel <strong>citosol</strong> galleggiano gli organelli.</li><li><strong>La catena della sintesi</strong>: DNA nel <strong>nucleo</strong> → <strong>trascrizione</strong> in RNA → l'<strong>RNA messaggero</strong> esce dai pori → nel <strong>citoplasma</strong> avviene la <strong>traduzione</strong> → amminoacidi → proteine. <em>Trascrizione dentro, traduzione fuori.</em></li><li><strong>Dendriti</strong> — le <strong>antenne</strong>: <strong>captano</strong> dal neurone precedente. Portano <strong>recettori</strong> e <strong>spine dendritiche</strong>, che aumentano la superficie ricettiva.</li><li><strong>Assone</strong> — <strong>cono di emergenza</strong> (qui si <strong>genera</strong> il messaggio), filamento, <strong>terminali assonici</strong> → <strong>bottoni sinaptici</strong>. Fino a <strong>1 metro</strong>.</li><li><strong>La velocità dipende da due fattori</strong>: il <strong>diametro</strong> dell'assone e la <strong>guaina mielinica</strong>, interrotta dai <strong>nodi di Ranvier</strong> → <strong>conduzione saltatoria</strong>.</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Le quattro caratteristiche distintive del neurone</p>
+      <p class="voce-testo"><strong>1.</strong> Eccitabili e trasmettono informazione. <strong>2.</strong> Migliaia di miliardi. <strong>3.</strong> Comunicano anche a distanze molto lunghe. <strong>4.</strong> <strong>Non si rigenerano</strong>, ma <strong>possono modificare alcune loro caratteristiche nel corso della vita</strong>.</p>
+      <p class="glossa">La <strong>seconda metà del punto 4 non è una concessione retorica</strong>: è l'intero programma della plasticità (scheda S508) compresso in una riga. Il modulo si apre e si chiude sulla stessa affermazione.</p></div><div class="voce">
+      <p class="voce-tit">La conseguenza clinica della non-rigenerazione</p>
+      <p class="voce-testo">Un neurone morto <strong>non viene sostituito</strong>: se si fa un buco nel cervello, quel buco non viene ricoperto da altri neuroni.</p>
+      <p class="glossa">È per questo che nelle <strong>malattie neurodegenerative</strong> — dove la morte neuronale è progressiva — <strong>non c'è cura</strong>. Ma il cervello <strong>recupera comunque</strong> i danni: non per rigenerazione, per <strong>riorganizzazione</strong> — è il <strong>recupero vicario</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Le tre classificazioni delle tipologie neuronali</p>
+      <p class="voce-testo">Per <strong>processi</strong>: bipolare, unipolare, multipolare. Per <strong>forma dei dendriti</strong>: stellate, piramidali (dendriti apicali e basali). Per <strong>spine</strong>: spinosi e non spinosi.</p>
+      <p class="glossa">Non restano astratte: lo <strong>pseudounipolare</strong> è il tipico neurone <strong>sensoriale</strong> (S503); le <strong>piramidali</strong> sono i neuroni di <strong>proiezione</strong> della corteccia e le <strong>stellate</strong> i suoi interneuroni eccitatori (S505).</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Definisce l'unità funzionale su cui poggia tutto il resto del modulo, e stabilisce il <strong>principio del gruppo</strong>: la complessità non è nel singolo elemento ma nell'organizzazione.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>È dichiaratamente una <strong>schematizzazione molto semplificata</strong>: ogni meccanismo nominato sarà approfondito in esami curriculari successivi.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Fornisce il vocabolario anatomico che rende leggibile la fisiologia (S502) e, più avanti, l'organizzazione microscopica della corteccia (S505).</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>L'attività elettrica (S502)</strong> — la <strong>membrana</strong>, il <strong>cono di emergenza</strong> e la <strong>mielina</strong> qui descritti sono i tre elementi che spiegano la fisiologia</li><li><strong>La plasticità (S508)</strong> — le <strong>spine dendritiche</strong> qui introdotte diventeranno un <strong>parametro di misura</strong> della neuroplasticità</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">«I neuroni non si rigenerano, ma possono modificare alcune loro caratteristiche.»</div><div class="formula">«Un neurone da solo non fa niente»: funzionano soltanto in gruppi.</div><div class="formula">Presinaptico e post-sinaptico sono posizioni relative, non etichette fisse.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Le cellule gliali sostengono i neuroni»</div><div class="err-si">Le funzioni sono <strong>due</strong>, e la seconda (metabolica) è a sua volta <strong>duplice</strong>: nutrire ed eliminare</div></div><div class="err">
+      <div class="err-no">Dire trascrizione e traduzione senza dire dove</div><div class="err-si"><strong>Trascrizione nel nucleo</strong>, <strong>traduzione nel citoplasma</strong>: è lì che si perde il punto</div></div><div class="err">
+      <div class="err-no">Confondere reticolo rugoso e apparato del Golgi</div><div class="err-si"><strong>Reticolo rugoso</strong> = proteine che <strong>restano</strong>; <strong>Golgi</strong> = proteine che <strong>escono</strong></div></div><div class="err">
+      <div class="err-no">«Il potenziale si genera nel soma»</div><div class="err-si">Si genera nel <strong>cono di emergenza</strong>, dove la membrana ha composizione diversa</div></div><div class="err">
+      <div class="err-no">Fermarsi a «non si rigenerano»</div><div class="err-si">La frase ha una <strong>seconda metà</strong>, ed è quella che apre alla neuroplasticità</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 2</span><span>S502</span></p>
+      <h2 class="sk-nome">L'attività elettrica e la sinapsi</h2>
+      <p class="sk-unariga">Un dispositivo digitale nell'ampiezza e analogico nella frequenza, il cui messaggio diventa chimico esattamente una volta: nel salto fra due cellule.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L08</span>
+        <span><b>Manuale</b> cap. C23</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>La struttura del neurone (S501) non spiega da sola <strong>come</strong> l'informazione viaggi. Serve una fisiologia, e serve capire perché il segnale si chiami <strong>elettrochimico</strong> e non solo elettrico.</p><div class="formula">Il segnale elettrico <strong>diventa chimico</strong> per poi <strong>ridiventare elettrico</strong>: esattamente <strong>una volta per sinapsi</strong>.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">La membrana come filtro semipermeabile</p>
+      <p class="voce-meta">biofisica</p>
+      <p class="voce-testo">Il <strong>doppio strato fosfolipidico</strong> — teste <strong>idrofile</strong> verso i due ambienti acquosi, code <strong>idrofobe</strong> a contatto — <strong>sarebbe impermeabile</strong>. Non lo è perché contiene proteine che formano <strong>passaggi</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Il gradiente elettrochimico</p>
+      <p class="voce-meta">principio fisico</p>
+      <p class="voce-testo">Ha <strong>due componenti</strong>: il <strong>gradiente chimico</strong> (dagli ioni più concentrati ai meno concentrati) e la <strong>forza elettrica</strong> (i <strong>cationi</strong> verso il negativo, gli <strong>anioni</strong> verso il positivo).</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>La struttura del neurone (S501)</strong></td><td>Lezione 8, prima parte</td><td>Fornisce i tre luoghi della fisiologia: <strong>dendriti</strong> (dove si sommano i graduati), <strong>cono di emergenza</strong> (dove nasce il potenziale d'azione), <strong>bottoni sinaptici</strong> (dove diventa chimico)</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">L'<strong>attività elettrica</strong> del neurone: tre fasi — <strong>riposo</strong>, <strong>potenziale d'azione</strong>, <strong>ritorno al riposo</strong> — e il passaggio del messaggio da un neurone all'altro.</div><p class="glossa"><strong>Il potenziale di membrana a riposo</strong> è la differenza di potenziale fra ambiente <strong>intra-</strong> ed <strong>extracellulare</strong>. Fuori prevalgono <strong>Na⁺</strong> e <strong>Cl⁻</strong>; dentro <strong>K⁺</strong> e grossi <strong>anioni proteici</strong>. Il neurone è <strong>polarizzato</strong>, con l'interno negativo.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Canali</strong> e <strong>pompe</strong>: due meccanismi di passaggio con logica opposta.</div>
+     <p class="glossa"><strong>Canale</strong> = passaggio, <strong>segue</strong> il gradiente, gratis. <strong>Pompa</strong> = trasporto attivo, <strong>contro</strong> il gradiente, costa <strong>ATP</strong>.</p>
+     <ul class="punti"><li><strong>Canali passivi</strong> — sempre <strong>aperti</strong>; lasciano passare gli ioni secondo il gradiente elettrochimico.</li><li><strong>Canali voltaggio-dipendenti</strong> — normalmente <strong>chiusi</strong>; si aprono quando il <strong>potenziale</strong> cambia. Sono sull'<strong>assone</strong>.</li><li><strong>Canali ligando-dipendenti</strong> — si aprono quando una <strong>molecola chimica si lega</strong>. Sono sui <strong>dendriti</strong>.</li><li><strong>Pompa sodio-potassio</strong> — capta <strong>3 Na⁺</strong> interni, consuma <strong>1 ATP</strong>, li <strong>espelle</strong>, e fa entrare <strong>2 K⁺</strong>. <em>Tre fuori, due dentro</em>: contribuisce anche direttamente alla negatività interna.</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">La legge del tutto o nulla</p>
+      <p class="voce-testo">Raggiunta la <strong>soglia</strong>, si scatena un potenziale d'azione <strong>identico a tutti gli altri</strong>. <strong>O c'è o non c'è</strong>; e se c'è, si propaga <strong>necessariamente per tutto l'assone</strong>.</p>
+      <p class="glossa"><strong>La domanda che segue sempre</strong>: se è sempre uguale, come si codifica l'<strong>intensità</strong>? <strong>Con la FREQUENZA, non con l'ampiezza.</strong> Pressione leggera → scariche meno frequenti; pressione intensa → più frequenti.</p></div><div class="voce">
+      <p class="voce-tit">Il periodo refrattario e l'unidirezionalità</p>
+      <p class="voce-testo">Durante l'<strong>iperpolarizzazione</strong> quella porzione di assone <strong>non è eccitabile</strong>, perché i canali voltaggio-dipendenti per il Na⁺ sono in <strong>refrattarietà</strong>.</p>
+      <p class="glossa"><strong>A che serve un meccanismo che sembra uno spreco</strong>: garantisce che il potenziale si propaghi <strong>solo in una direzione</strong>. La porzione appena attivata è refrattaria, quindi la depolarizzazione <strong>non può tornare indietro</strong>.</p></div><div class="voce">
+      <p class="voce-tit">I potenziali graduati e l'integrazione</p>
+      <p class="voce-testo">Nei <strong>dendriti</strong> non si generano potenziali d'azione, perché manca la densità di canali voltaggio-dipendenti. Si generano <strong>potenziali graduati</strong>, che si propagano <strong>passivamente</strong> e si <strong>sommano</strong>.</p>
+      <p class="glossa">È qui che il neurone <strong>calcola</strong>; è nell'assone che <strong>decide</strong>. Il bilancio fra potenziali eccitatori e inibitori determina se il potenziale d'azione <strong>avvenga o non avvenga</strong>.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Spiega con un meccanismo <strong>elementare</strong> — flussi ionici attraverso una membrana selettiva — una funzione complessa, e fornisce il modello di come l'informazione sia <strong>codificata</strong> nel sistema nervoso.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Tratta soltanto le <strong>sinapsi chimiche</strong>: quelle <strong>elettriche</strong> esistono ma non sono affrontate in questa sede.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>La coppia <strong>glutammato/GABA</strong> qui introdotta ritorna con un ruolo <strong>architettonico</strong> nella corteccia (S505): eccitatorio = porta fuori, inibitorio = modula dentro.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>L'organizzazione corticale (S505)</strong> — i <strong>neuroni piramidali</strong> sono glutammatergici, gli <strong>interneuroni</strong> principali GABAergici</li><li><strong>L'elettrofisiologia come metodo (S506)</strong> — microelettrodi, <strong>EEG</strong> e <strong>potenziali evocati</strong> registrano proprio l'attività qui descritta</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">«Tre fuori, due dentro» — la pompa sodio-potassio.</div><div class="formula">«O c'è o non c'è»: l'intensità è frequenza, non ampiezza.</div><div class="formula">I cinque passaggi: sintesi · vescicole · rilascio · legame · disattivazione.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Entra sodio ed esce potassio», senza altro</div><div class="err-si">Vanno detti <strong>quali canali</strong> si aprono in quale fase: voltaggio-dipendenti per il <strong>Na⁺</strong> nella depolarizzazione, per il <strong>K⁺</strong> nella ripolarizzazione</div></div><div class="err">
+      <div class="err-no">Saltare l'iperpolarizzazione</div><div class="err-si">Senza di essa non si può spiegare il <strong>periodo refrattario</strong>, e quindi l'<strong>unidirezionalità</strong></div></div><div class="err">
+      <div class="err-no">Enunciare il tutto o nulla e fermarsi</div><div class="err-si">Segue sempre la domanda sull'<strong>intensità</strong>: la risposta è la <strong>frequenza</strong></div></div><div class="err">
+      <div class="err-no">«Nei dendriti si genera il potenziale d'azione»</div><div class="err-si">Nei dendriti si generano <strong>potenziali graduati</strong>, che si propagano <strong>passivamente</strong></div></div><div class="err">
+      <div class="err-no">Elencare quattro passaggi della sinapsi</div><div class="err-si">Sono <strong>cinque</strong>: il quinto è la <strong>disattivazione</strong> (reuptake o degradazione enzimatica) — ed è quello su cui agiscono molti farmaci</div></div><div class="err">
+      <div class="err-no">Confondere neurotrasmettitore e neuromodulatore</div><div class="err-si">Il <strong>neurotrasmettitore porta</strong> il messaggio; il <strong>neuromodulatore</strong> cambia quanto il ricevente è <strong>sensibile</strong> a quel messaggio (es. <strong>endorfine</strong>)</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 3</span><span>S503</span></p>
+      <h2 class="sk-nome">L'architettura del sistema nervoso</h2>
+      <p class="sk-unariga">Un criterio anatomico — la protezione ossea — divide tutto; e la terminologia non è decorazione, è il modo in cui si dice dove sta una cosa.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L09</span>
+        <span><b>Manuale</b> cap. C24</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>La scheda S501 si chiude su un'affermazione: <strong>un neurone da solo non fa niente</strong>. Dare senso ai neuroni significa parlare delle <strong>strutture che li contengono</strong>.</p><div class="formula">Il sistema nervoso è il <strong>centro del controllo del corpo</strong>: una rete di neuroni che veicola l'informazione elettrochimica in tutto il corpo.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">I tre livelli di elaborazione</p>
+      <p class="voce-meta">principio funzionale</p>
+      <p class="voce-testo"><strong>Afferente</strong> (input) → <strong>elaborazione intermedia</strong> → <strong>efferente</strong> (output). A ciascuno corrisponde una categoria: <strong>neuroni sensoriali</strong>, <strong>interneuroni</strong>, <strong>motoneuroni</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Il criterio anatomico «geografico»</p>
+      <p class="voce-meta">criterio di classificazione</p>
+      <p class="voce-testo">Ciò che separa <strong>SNP</strong> e <strong>SNC</strong> è <strong>una sola cosa</strong>: la presenza o assenza di una <strong>protezione ossea</strong>. Non è un criterio funzionale.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Il neurone pseudounipolare</strong></td><td>Scheda S501, tipologie</td><td>È il tipico neurone <strong>sensoriale</strong>: nessun dendrite, un <strong>processo che si biforca</strong>, con <strong>recettori</strong> in periferia. Il suo <strong>soma sta FUORI</strong> dal SNC — dettaglio che ritorna parlando di sostanza grigia (S504)</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">L'organizzazione del <strong>sistema nervoso periferico</strong> (somatico e autonomo), la <strong>terminologia anatomica</strong> del sistema nervoso centrale, e le sue <strong>protezioni</strong>.</div><p class="glossa"><strong>SNP</strong> = strutture <strong>prive</strong> di protezione ossea, divise in <strong>somatico</strong> e <strong>autonomo</strong>. <strong>SNC</strong> = strutture lungo l'asse mediano <strong>protette dalle ossa</strong>: <strong>midollo spinale</strong> ed <strong>encefalo</strong>.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">La <strong>terminologia</strong> è il contenuto: la docente lo dice esplicitamente.</div>
+     <p class="glossa">L'asse è <strong>caudo-rostrale</strong>, e vale <strong>due volte</strong>: <strong>ontogeneticamente</strong> (lo sviluppo individuale va dal caudale al rostrale) e <strong>filogeneticamente</strong> (il caudale è il più arcaico).</p>
+     <ul class="punti"><li><strong>La deflessione</strong> — con la <strong>stazione eretta</strong> l'asse si è <strong>piegato</strong> a livello del <strong>mesencefalo</strong>, perché gli occhi dovevano guardare avanti. Conseguenza: i termini anatomici <strong>cambiano</strong> sopra e sotto quel punto.</li><li><strong>I tre assi</strong> — antero-posteriore (ventro-dorsale), rostro-caudale, medio-laterale.</li><li><strong>Rispetto alla linea mediana</strong> — <strong>mediale</strong>/prossimale (vicino), <strong>laterale</strong>/distale (lontano), <strong>ipsilaterale</strong> (stesso lato), <strong>controlaterale</strong> (lato opposto).</li><li><strong>Visioni vs sezioni</strong> — la <strong>visione</strong> guarda senza tagliare (dorsale, ventrale, laterale, <strong>mediale</strong>); la <strong>sezione</strong> taglia, secondo i piani <strong>frontale</strong>/coronale, <strong>orizzontale</strong>, <strong>sagittale</strong>.</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">La reciprocità di simpatico e parasimpatico</p>
+      <p class="voce-testo">Se uno è attivo, l'altro <strong>deve</strong> diminuire. <strong>Non possono essere attivi entrambi né spenti entrambi</strong>: il grado di attività di uno dipende dall'altro.</p>
+      <p class="glossa"><strong>Simpatico = attivante</strong>: midriasi, broncodilatazione, tachicardia, inibizione intestinale, vasocostrizione — <strong>prepara il corpo alla reazione</strong>. <strong>Parasimpatico = rilassante</strong>, garantisce l'<strong>omeostasi</strong>. <em>Il modo per non sbagliare: pensa a te stesso spaventato.</em></p></div><div class="voce">
+      <p class="voce-tit">Il liquor e le sue tre funzioni</p>
+      <p class="voce-testo">Prodotto dai <strong>plessi corioidei</strong> nei ventricoli laterali, riassorbito dai <strong>villi aracnoidei</strong>, in <strong>ricircolo continuo</strong> attraverso i quattro ventricoli e lo spazio subaracnoideo.</p>
+      <p class="glossa"><strong>1.</strong> <strong>Ridurre il peso</strong> dell'encefalo (1-2 kg). <strong>2.</strong> <strong>Proteggere</strong> dagli urti. <strong>3.</strong> <strong>Controllare le modificazioni chimiche</strong> dell'ambiente interno. Un'<strong>ostruzione</strong> produce <strong>idrocefalo</strong>: nei bambini testa grande, negli adulti <strong>disfunzioni comportamentali</strong> da compressione.</p></div><div class="voce">
+      <p class="voce-tit">La visione mediale non è una sezione</p>
+      <p class="voce-testo">Il SNC è <strong>bilateralmente simmetrico</strong>: due metà <strong>giustapposte</strong>, unite dal <strong>corpo calloso</strong>. Resezionando quelle fibre gli emisferi <strong>si separano da soli</strong>.</p>
+      <p class="glossa"><strong>[N.d.R.]</strong> La lezione descrive il corpo calloso come «un fascetto molto sottile». È la <strong>più grande commissura</strong> del cervello umano (~200 milioni di assoni): sottile <em>in rapporto al volume degli emisferi</em>, non in assoluto.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Fornisce il <strong>vocabolario</strong> senza cui le schede successive sono illeggibili, e stabilisce che la divisione fondamentale del sistema nervoso è <strong>anatomica</strong>, non funzionale.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Il sistema nervoso periferico è trattato per <strong>conoscenze basilari</strong>: l'attenzione del corso si concentra sul centrale, che media le funzioni mentali.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>La <strong>gerarchia caudo-rostrale</strong> qui introdotta è il principio che ordina le strutture nella scheda successiva.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Il cervello primitivo (S504)</strong> — l'<strong>asse caudo-rostrale</strong> diventa il principio della <strong>gerarchia anatomica e funzionale</strong></li><li><strong>La corteccia (S505)</strong> — i termini <strong>controlaterale</strong>, <strong>mediale</strong> e <strong>visione mediale</strong> sono presupposti da lateralizzazione e vie crociate</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Il criterio SNP/SNC è uno solo: la protezione ossea.</div><div class="formula">L'asse caudo-rostrale vale due volte: ontogenesi e filogenesi.</div><div class="formula">Visione ≠ sezione: la mediale non taglia nulla.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«Il criterio SNP/SNC è funzionale»</div><div class="err-si">È <strong>anatomico</strong> e «geografico»: la <strong>protezione ossea</strong></div></div><div class="err">
+      <div class="err-no">Elencare due componenti del sistema autonomo</div><div class="err-si">Sono <strong>tre</strong>: simpatico, parasimpatico ed <strong>enterico</strong> (plesso di <strong>Auerbach</strong> e di <strong>Meissner</strong>)</div></div><div class="err">
+      <div class="err-no">Invertire simpatico e parasimpatico su un distretto</div><div class="err-si">Il <strong>simpatico attiva</strong>: pupilla dilatata, cuore accelerato, intestino inibito, vasi ristretti</div></div><div class="err">
+      <div class="err-no">«La deflessione è avvenuta per l'evoluzione del cervello»</div><div class="err-si">È avvenuta per la <strong>stazione eretta</strong>: gli occhi dovevano guardare avanti</div></div><div class="err">
+      <div class="err-no">Chiamare «sezione» la visione mediale</div><div class="err-si">Gli emisferi sono <strong>giustapposti</strong>: non si taglia, si separa il corpo calloso</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 4</span><span>S504</span></p>
+      <h2 class="sk-nome">Il cervello primitivo</h2>
+      <p class="sk-unariga">Sotto ciò che serve a vivere, sopra ciò che serve a pensare — e proprio per questo un danno alle strutture arcaiche è più grave di uno alla corteccia frontale.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L09</span>
+        <span><b>Manuale</b> cap. C25</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>L'encefalo non è un pezzo unico. Serve un <strong>principio</strong> che ordini le sue strutture, altrimenti restano un elenco di nomi.</p><div class="formula"><strong>A una gerarchia anatomica corrisponde una gerarchia funzionale.</strong></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">L'organizzazione gerarchica</p>
+      <p class="voce-meta">principio</p>
+      <p class="voce-testo">Le strutture <strong>più caudali</strong> sono le più <strong>arcaiche</strong> (filo- e ontogeneticamente) e costituiscono le <strong>fondamenta</strong> su cui poggiano le più recenti. Le arcaiche mediano funzioni <strong>di sopravvivenza</strong>; le recenti, funzioni <strong>complesse</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Il paradosso della gravità dei danni</p>
+      <p class="voce-meta">corollario</p>
+      <p class="voce-testo">Proprio perché mediano funzioni basilari, un danno alle strutture <strong>arcaiche è più grave</strong>: il tronco <strong>uccide</strong>, il midollo <strong>paralizza</strong>; un danno alla corteccia frontale produce <strong>deficit cognitivi</strong> ma consente di vivere normalmente dal punto di vista organico.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>L'asse caudo-rostrale (S503)</strong></td><td>Terminologia anatomica</td><td>Fornisce la <strong>direzione</strong> lungo cui leggere la gerarchia: caudale = arcaico = vitale</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">Il <strong>cervello primitivo</strong> (o nucleo centrale): <strong>midollo spinale</strong>, <strong>tronco dell'encefalo</strong>, <strong>cervelletto</strong>, <strong>diencefalo</strong>. Si contrappone al <strong>neoencefalo</strong>.</div><p class="glossa">Più i sistemi <strong>endocrino</strong> e <strong>immunitario</strong>, che pur essendo distinti dal SN <strong>interagiscono fortemente</strong> con esso — tanto che i tre insieme sono detti <em>body-mind</em>.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Le strutture si leggono <strong>dal basso verso l'alto</strong>, e per ciascuna si dice che cosa media.</div>
+     <p class="glossa"><strong>La regola cromatica</strong>: <strong>sostanza bianca = fibre</strong> (assoni mielinizzati); <strong>sostanza grigia = somi</strong> (corpi cellulari).</p>
+     <ul class="punti"><li><strong>Midollo spinale</strong> — il <strong>più arcaico</strong>; <strong>già formato alla nascita</strong>, non cresce: nell'adulto finisce alle <strong>vertebre lombari</strong>. Organizzazione <strong>segmentale</strong>: un <strong>paio</strong> di nervi per segmento.</li><li><strong>Corno dorsale</strong> → <strong>radice dorsale</strong> → afferenze <strong>sensitive</strong>. <strong>Corno ventrale</strong> → <strong>radice ventrale</strong> → efferenze <strong>motorie</strong>. L'<strong>appaiamento</strong> forma il <strong>nervo spinale</strong>.</li><li><strong>Cauda equina</strong> — solo assoni, <strong>niente sostanza grigia</strong>: per questo è la sede dell'<strong>anestesia epidurale</strong>.</li><li><strong>Tronco dell'encefalo</strong> — <strong>bulbo · ponte · mesencefalo</strong>. Pressione, respirazione, sonno; afferenze gustative, uditive, dell'equilibrio. Da qui escono i <strong>nervi cranici</strong>.</li><li><strong>Cervelletto</strong> — dorsale al ponte; <strong>coordinazione motoria</strong>, tono muscolare, equilibrio.</li><li><strong>Diencefalo</strong> — <strong>talamo</strong> (dorsale) e <strong>ipotalamo</strong> (ventrale), attorno al <strong>terzo ventricolo</strong>.</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Il circuito del riflesso</p>
+      <p class="voce-testo">recettore → <strong>neurone sensitivo primario</strong> → <strong>radice dorsale</strong> → <strong>interneurone</strong> → <strong>motoneurone</strong> → <strong>radice ventrale</strong> → muscolo.</p>
+      <p class="glossa"><strong>Senza alcuna mediazione della consapevolezza</strong>: è tutto mediato a livello midollare. Ecco perché la mano si ritrae <strong>prima</strong> che ce ne accorgiamo.</p></div><div class="voce">
+      <p class="voce-tit">Il paradosso del cervelletto</p>
+      <p class="voce-testo">Pur essendo così arcaico, contiene il <strong>più alto numero di neuroni</strong> di tutte le altre suddivisioni cerebrali, disposti in modo da <strong>replicare lo stesso circuito elementare</strong>.</p>
+      <p class="glossa">Regioni diverse ricevono proiezioni diverse ma <strong>svolgono le stesse operazioni</strong>, dirette a zone diverse. È un'<strong>architettura modulare</strong>, come la colonna corticale (S505). <em>L'alcol lo inibisce</em> → <strong>atassia</strong>.</p></div><div class="voce">
+      <p class="voce-tit">La formazione reticolare</p>
+      <p class="voce-testo">Circuito neuronale <strong>diffuso</strong> nel tronco, che riceve una <strong>sintesi</strong> delle informazioni in arrivo.</p>
+      <p class="glossa">Regola <strong>vigilanza</strong>, <strong>ritmo sonno-veglia</strong>, <strong>attenzione</strong>, <strong>tono muscolare</strong>, <strong>movimento</strong>, <strong>riflessi vitali</strong>. È il ponte diretto verso il modulo su coscienza e attenzione.</p></div><div class="voce">
+      <p class="voce-tit">Talamo e ipotalamo</p>
+      <p class="voce-testo"><strong>Talamo</strong>: <strong>tutte</strong> le vie sensoriali afferenti <strong>fanno tappa</strong> qui prima di raggiungere il cervello. <strong>Ipotalamo</strong>: omeostasi, sistema autonomo, <strong>regolazione ormonale</strong>.</p>
+      <p class="glossa">L'ipotalamo comunica con l'<strong>ipofisi</strong> (ghiandola pituitaria): una vera ghiandola endocrina che però <strong>sta dentro il cervello</strong>. È il punto in cui sistema nervoso e sistema endocrino si toccano fisicamente.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><p class='bl-vuoto'>—</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Il principio gerarchico rende <strong>deducibile</strong> ciò che altrimenti sarebbe da memorizzare: data la posizione di una struttura, se ne può prevedere il tipo di funzione.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>È dichiaratamente una <strong>carrellata</strong>: ogni struttura, per quanto «semplice», è in realtà molto complessa e sarà approfondita altrove.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Prepara il contrasto con la corteccia (S505): là si vedrà una struttura che <strong>non serve a sopravvivere</strong> ma media tutto ciò che è cosciente.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>La corteccia (S505)</strong> — il contrasto <strong>vitale/cognitivo</strong> è ciò che rende comprensibile il caso degli individui nati <strong>senza corteccia</strong></li><li><strong>L'ippocampo e l'amigdala (S505)</strong> — il <strong>sistema limbico</strong> ha origine motivazionale nell'<strong>ipotalamo</strong> qui descritto</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">A una gerarchia anatomica corrisponde una gerarchia funzionale.</div><div class="formula">Bianca = fibre; grigia = somi.</div><div class="formula">Un danno arcaico è più grave di un danno corticale.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">Elencare le strutture senza il principio che le ordina</div><div class="err-si">Il <strong>principio gerarchico</strong> è ciò che rende la lista un ragionamento</div></div><div class="err">
+      <div class="err-no">Invertire corno dorsale e ventrale</div><div class="err-si"><strong>Dorsale</strong> = sensitivo, in ingresso. <strong>Ventrale</strong> = motorio, in uscita</div></div><div class="err">
+      <div class="err-no">Invertire sostanza bianca e grigia</div><div class="err-si">La <strong>mielina</strong> è bianca: dove è bianco ci sono <strong>fibre</strong></div></div><div class="err">
+      <div class="err-no">«Il cervelletto è poco importante perché arcaico»</div><div class="err-si">Ha il <strong>maggior numero di neuroni</strong> di tutte le suddivisioni cerebrali</div></div><div class="err">
+      <div class="err-no">Elencare due funzioni del liquor</div><div class="err-si">Sono <strong>tre</strong>: alleggerire, proteggere, <strong>regolare la chimica interna</strong></div></div><div class="err">
+      <div class="err-no">«L'idrocefalo dà sempre la testa grande»</div><div class="err-si">Nei <strong>bambini</strong> sì; negli <strong>adulti</strong>, con ossa rigide, dà <strong>disfunzioni comportamentali</strong></div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 5</span><span>S505</span></p>
+      <h2 class="sk-nome">La corteccia cerebrale</h2>
+      <p class="sk-unariga">Un foglio piegato in cui la posizione è funzione, la quantità di spazio è importanza, e la stessa colonna di un millimetro fa tutto — cambiando solo lo spessore dei suoi sei strati.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L10</span>
+        <span><b>Manuale</b> cap. C26</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Il cervello primitivo (S504) spiega la sopravvivenza, non il pensiero. Serve la struttura che media le <strong>funzioni mentali superiori</strong>.</p><div class="formula">La corteccia è <strong>lo stadio finale dell'evoluzione</strong>: un sottile strato di tessuto nervoso in cui l'uomo non solo si <strong>adatta</strong> all'ambiente, ma lo <strong>manipola</strong>.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">La terza terminologia</p>
+      <p class="voce-meta">lessico anatomico</p>
+      <p class="voce-testo"><strong>Paleoencefalo</strong> = cervelletto + <strong>romboencefalo</strong> (ponte e bulbo). <strong>Mesencefalo</strong>. <strong>Prosencefalo</strong> = diencefalo + <strong>telencefalo</strong> (gli emisferi). Il <strong>midollo</strong> sta <strong>fuori</strong> da questa terminologia.</p></div><div class="voce">
+      <p class="voce-tit">L'aspetto circonvoluto come espediente evolutivo</p>
+      <p class="voce-meta">morfologia</p>
+      <p class="voce-testo">Un grosso quantitativo di tessuto compresso in un volume cranico piccolo. <strong>Stesa, la corteccia sarebbe un grosso foglio di giornale rettangolare.</strong> I mammiferi più semplici hanno cervelli quasi <strong>lisci</strong>.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>I gangli della base</strong></td><td>Nuclei sottocorticali</td><td><strong>Caudato · putamen · globo pallido</strong>, sotto la porzione <strong>anteriore</strong> dei ventricoli laterali. Regolano <strong>selezione e avvio</strong> dei movimenti volontari — <em>non</em> la coordinazione, che è del cervelletto</td></tr><tr><td><strong>Il sistema limbico</strong></td><td>Parte mesiale degli emisferi</td><td>Bisogni <strong>motivazionali</strong> ed <strong>emotivi</strong> (origine nell'<strong>ipotalamo</strong>); ospita il <strong>circuito del reward</strong> → studiato per l'<strong>addiction</strong>. <strong>Ippocampo</strong> = memoria a lungo termine; <strong>amigdala</strong> = significato emozionale degli stimoli</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Tre funzioni</strong>: stazione <strong>finale</strong> dell'input (processi sensoriali e percettivi), stazione <strong>iniziale</strong> dell'output (motori e comportamentali), e sede delle <strong>funzioni mentali superiori</strong>.</div><p class="glossa"><strong>Le funzioni mentali superiori non sono esclusive dell'uomo</strong>: intese come <strong>funzioni esecutive</strong> le hanno anche primati e roditori. La differenza è che l'uomo <strong>manipola</strong> l'ambiente, non solo vi si adatta.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Anatomia (<strong>scissure e lobi</strong>) e funzione (<strong>aree</strong>) si leggono insieme: la <strong>posizione</strong> predice la funzione.</div>
+     <p class="glossa"><strong>Brodmann</strong>, anatomico tedesco, inizio Novecento: suddivisione su base <strong>cito-architettonica</strong>. Più <strong>semplice</strong> la funzione, più <strong>specializzati</strong> i neuroni; più <strong>complessa</strong>, più <strong>flessibile</strong> la specializzazione.</p>
+     <ul class="punti"><li><strong>Quattro scissure</strong> — <strong>longitudinale</strong> (i due emisferi), <strong>di Rolando</strong> (ant./post.), <strong>di Silvio</strong> (sup./inf.), <strong>parieto-occipitale</strong>.</li><li><strong>Cinque lobi</strong> — <strong>frontale</strong> (motorio + superiori, il più evoluto), <strong>parietale</strong> (tattile, propriocettivo, dolorifico, termico), <strong>temporale</strong> (uditivo, vestibolare, linguaggio), <strong>occipitale</strong> (visivo), <strong>insula</strong> (il più arcaico: motivazione ed emozione).</li><li><strong>Quattro classi di aree</strong> — <strong>primarie</strong>, <strong>secondarie</strong>, <strong>terziarie</strong>, <strong>associative</strong>: queste ultime sono <strong>tre quarti</strong> di tutta la corteccia.</li><li><strong>La direzione si inverte</strong> — in ingresso primaria → secondaria → terziaria → associativa; in uscita <strong>associativa → terziaria → secondaria → primaria</strong>.</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Le due regole dell'elaborazione</p>
+      <p class="voce-testo"><strong>1. Le vie sono crociate</strong>: le vie ascendenti <strong>decussano</strong> — ciò che viene da sinistra finisce nell'emisfero destro, e viceversa; vale anche in uscita. <strong>2. L'omuncolo</strong>: la quantità di corteccia è proporzionale a una grandezza, ma <strong>il criterio cambia</strong>.</p>
+      <p class="glossa"><strong>Omuncolo sensoriale</strong> → criterio: la <strong>sensibilità</strong> della regione (densità di recettori). <strong>Omuncolo motorio</strong> → criterio: la <strong>ricchezza e complessità dei movimenti</strong>, <strong>non il volume</strong>. Il <strong>dito</strong> ha più corteccia della <strong>gamba</strong>. Ricavato dal neurochirurgo <strong>Penfield</strong>.</p></div><div class="voce">
+      <p class="voce-tit">La corteccia non è necessaria alla sopravvivenza</p>
+      <p class="voce-testo">Esistono individui <strong>nati senza corteccia cerebrale</strong>: dormono e vegliano, reagiscono alla fame, hanno riflessi, muovono occhi e muscoli facciali, percepiscono sapori e odori, piangono, sorridono, emettono suoni indistinti.</p>
+      <p class="glossa">Tutto ciò è <strong>non cosciente e non volontario</strong>, e basta a far sopravvivere un individuo. È la prova più netta della gerarchia enunciata in S504.</p></div><div class="voce">
+      <p class="voce-tit">La colonna corticale</p>
+      <p class="voce-testo">Un cilindretto di corteccia <strong>spesso un millimetro</strong>, definito dalle connessioni fra i neuroni dei <strong>sei strati</strong>. È l'<strong>unità elementare di elaborazione</strong>.</p>
+      <p class="glossa"><strong>La regola che rende leggibili gli strati</strong>: gli <strong>esterni</strong> fanno parlare la corteccia <strong>con altre aree corticali</strong>; gli <strong>interni</strong> con <strong>strutture fuori</strong> dalla corteccia. Da cui: motoria primaria → strato <strong>V</strong>; sensitiva primaria → strato <strong>IV</strong>; associative → <strong>strati superiori</strong>. <em>Si deduce, non si memorizza.</em></p></div><div class="voce">
+      <p class="voce-tit">La lateralizzazione emisferica</p>
+      <p class="voce-testo"><strong>Emisfero SINISTRO</strong>: verbale e linguistico, logico-matematico, analitico, <strong>sequenziale</strong>. <strong>Emisfero DESTRO</strong>: creativo, immaginativo, musicale, <strong>spaziale</strong>, globale, <em>insight</em>.</p>
+      <p class="glossa"><strong>[N.d.R.] — punto critico.</strong> A metà lezione la docente enuncia l'attribuzione <strong>invertita</strong>, e la corregge nel <strong>riepilogo</strong>. <strong>Vale il riepilogo</strong>: <strong>Broca</strong> e <strong>Wernicke</strong> sono a <strong>sinistra</strong>, e l'esperimento <em>split brain</em> funziona <strong>solo</strong> con questa attribuzione.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Brodmann</span>
+        <span class="esp-anni">inizio XX sec.</span>
+        <span class="esp-ruolo">Anatomico</span>
+      </div>
+      <p class="voce-meta">Germania</p>
+      <p class="esp-chie">Suddivise la corteccia in aree sulla base delle caratteristiche <strong>cito-architettoniche</strong>.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Le <strong>aree di Brodmann</strong>, ciascuna corrispondente a una funzione più o meno complessa</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>La regola di specializzazione</strong> — Più <strong>semplice</strong> la funzione mediata da un'area, più i suoi neuroni sono <strong>specializzati</strong> e rispondono a caratteristiche molto specifiche; più <strong>complessa</strong> la funzione, più <strong>flessibile</strong> la specializzazione.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Penfield</span>
+        <span class="esp-anni">XX sec.</span>
+        <span class="esp-ruolo">Neurochirurgo</span>
+      </div>
+      <p class="voce-meta">Canada</p>
+      <p class="esp-chie">Da cui deriva la rappresentazione schematica del corpo in corteccia.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>L'<strong>omuncolo</strong> sensoriale e motorio</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Il principio dell'omuncolo</strong> — La quantità di corteccia dedicata a una regione è <strong>proporzionale</strong> — alla <strong>sensibilità</strong> nell'omuncolo sensoriale, alla <strong>complessità dei movimenti</strong> (non al volume) in quello motorio.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Broca e Wernicke</span>
+        <span class="esp-anni">XIX sec.</span>
+        <span class="esp-ruolo">Pionieri dello studio delle lesioni</span>
+      </div>
+      <p class="voce-meta">Francia · Germania</p>
+      <p class="esp-chie">Identificarono le due aree del linguaggio studiando pazienti con <strong>afasie opposte</strong>.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li><strong>Area di Broca</strong> — lobo <strong>frontale</strong>, <strong>produzione</strong>, area <em>motoria</em> del linguaggio</li><li><strong>Area di Wernicke</strong> — lobo <strong>temporale</strong>, <strong>comprensione</strong>, area <em>sensoriale</em> del linguaggio</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Due funzioni che collaborano</strong> — Produzione e comprensione sono funzioni <strong>diverse</strong>, mediate da aree <strong>distinte</strong>, che <strong>collaborano</strong> nella capacità linguistica: lo dimostrano le due afasie <strong>opposte</strong>.</li></ul>
+      
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">L'esperimento sui pazienti split brain</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li><strong>Chi sono</strong>: pazienti a cui è stato <strong>resezionato il corpo calloso</strong> (<strong>commissurotomia</strong>) per il trattamento dell'<strong>epilessia</strong>; i due emisferi lavorano ciascuno per conto proprio.</li><li><strong>1.</strong> Si proietta una <strong>spazzola</strong> nell'<strong>emicampo visivo SINISTRO</strong> → l'informazione arriva all'emisfero <strong>DESTRO</strong>.</li><li><strong>2.</strong> Si chiede <em>«che cosa hai visto?»</em> → <strong>non sa rispondere</strong>: il linguaggio è a sinistra e il corpo calloso reciso impedisce il trasferimento.</li><li><strong>3.</strong> Si chiede di <strong>prendere l'oggetto con la mano SINISTRA</strong> (controllata dall'emisfero destro) da dietro uno schermo → <strong>ci riesce</strong>.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>L'emisfero destro <strong>ha riconosciuto</strong> l'oggetto ma <strong>non può dirlo</strong>.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>È la dimostrazione più pulita della <strong>lateralizzazione</strong>: elaborazione <strong>spaziale</strong> a destra, <strong>linguistica</strong> a sinistra. Ed è la ragione per cui l'attribuzione degli emisferi <strong>non può essere invertita</strong>.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Mostra che la corteccia è un'<strong>architettura modulare</strong>: uno stesso circuito di un millimetro, replicato ovunque, che cambia funzione soltanto variando lo <strong>spessore relativo</strong> dei suoi sei strati.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>La docente lo dice esplicitamente: <strong>non siamo ancora riusciti a capirne tutti i misteri</strong>. E le tre quarti della corteccia sono aree <strong>associative</strong>, cioè quelle meno mappabili in modo semplice.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Pone la domanda a cui risponde la scheda successiva: <strong>come si è arrivati a sapere tutto questo?</strong></div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>I metodi di indagine (S506)</strong> — le <strong>afasie di Broca e Wernicke</strong> e i pazienti <strong>split brain</strong> sono i casi con cui si studieranno lesioni e dissociazioni</li><li><strong>La plasticità (S508)</strong> — la <strong>rappresentazione corticale</strong> della mano nei musicisti è la stessa mappa qui descritta, modificata dall'esperienza</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Stesa, la corteccia sarebbe un foglio di giornale.</div><div class="formula">Sensoriale = sensibilità; motorio = complessità del movimento, non volume.</div><div class="formula">Strati esterni parlano con la corteccia, interni con il fuori.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">Invertire l'attribuzione degli emisferi</div><div class="err-si"><strong>Sinistro</strong> = verbale, logico-matematico, analitico. <strong>Destro</strong> = creativo, spaziale, musicale. <em>È l'errore più costoso del modulo</em></div></div><div class="err">
+      <div class="err-no">Usare lo stesso criterio per i due omuncoli</div><div class="err-si"><strong>Sensoriale</strong> = sensibilità; <strong>motorio</strong> = complessità dei movimenti, <strong>non il volume</strong></div></div><div class="err">
+      <div class="err-no">«Le funzioni mentali superiori sono esclusive dell'uomo»</div><div class="err-si">Le hanno anche <strong>primati e roditori</strong>: la differenza è che l'uomo <strong>manipola</strong> l'ambiente</div></div><div class="err">
+      <div class="err-no">«I gangli della base coordinano il movimento»</div><div class="err-si">Fanno <strong>selezione e avvio</strong>; la <strong>coordinazione</strong> è del cervelletto</div></div><div class="err">
+      <div class="err-no">Confondere Broca e Wernicke</div><div class="err-si"><strong>Broca</strong> = frontale, <strong>produzione</strong>. <strong>Wernicke</strong> = temporale, <strong>comprensione</strong></div></div><div class="err">
+      <div class="err-no">Dire che tutti gli interneuroni corticali sono inibitori</div><div class="err-si">Le <strong>cellule stellate</strong> (granulari) sono interneuroni <strong>ECCITATORI</strong>: è l'eccezione da citare</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 6</span><span>S506</span></p>
+      <h2 class="sk-nome">I metodi di indagine del cervello</h2>
+      <p class="sk-unariga">Ogni metodo compra una cosa e ne paga un'altra: la lesione dà causalità ma non la sceglie, l'EEG dà il tempo ma non lo spazio, la fMRI legge il sangue e non i neuroni — e la TMS, stimolando, spegne.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L11</span>
+        <span><b>Manuale</b> cap. C27</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Come siamo arrivati all'attuale stato di conoscenza della struttura e delle funzioni del cervello? E perché la ricerca recente ha accelerato tanto rispetto al passato?</p><div class="formula">Conoscere i metodi non serve a elencarli: serve a <strong>leggere la letteratura scientifica</strong> — capire perché è stato usato quell'impianto, che cosa consente e quali sono i suoi limiti.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Il presupposto dello studio delle lesioni</p>
+      <p class="voce-meta">principio metodologico</p>
+      <p class="voce-testo">Per comprendere il funzionamento <strong>fisiologico</strong> di un processo è molto più utile capire <strong>quando quel processo non funziona</strong>. La branca è la <strong>neuropsicologia cognitiva</strong>.</p></div><div class="voce">
+      <p class="voce-tit">La simmetria fra lesione e stimolazione</p>
+      <p class="voce-meta">struttura del campo</p>
+      <p class="voce-testo">Le categorie <strong>1</strong> e <strong>4</strong> sono <strong>opposte</strong>: la lesione <strong>disattiva</strong>, la stimolazione <strong>attiva</strong>. <strong>Tranne la TMS</strong>, che stimolando ottiene l'effetto di <strong>disattivare</strong>.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Broca e Wernicke</strong></td><td>Scheda S505</td><td>I <strong>pionieri</strong> del metodo delle lesioni: due sedi diverse, due deficit <strong>opposti</strong>, due funzioni che collaborano</td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>Quattro categorie</strong>: studio delle <strong>lesioni</strong>, registrazione dell'<strong>attività elettrica</strong>, <strong>neuroimmagini</strong>, <strong>stimolazione</strong>.</div><p class="glossa">L'obiettivo storico era osservare il cervello <strong>in vivo</strong>, <em>mentre</em> il soggetto esegue un comportamento. Prima tutto era <strong>dedotto</strong> e messo in correlazione: mancava la <strong>simultaneità</strong>; e l'anatomia si vedeva solo <strong>post mortem</strong>.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">Per ciascun metodo si dice <strong>che cosa consente</strong> e <strong>che cosa no</strong>.</div>
+     <p class="glossa"><strong>Le due condizioni</strong> dell'inferenza da lesione spontanea: <strong>1.</strong> comportamento <strong>inusuale</strong> (normalità <strong>statistica</strong>); <strong>2.</strong> <strong>evidenza neurologica chiara</strong>. La prima da sola dà una stranezza senza sede; la seconda una sede senza conseguenze.</p>
+     <ul class="punti"><li><strong>Lesioni spontanee</strong> — ictus, tumori, neurodegenerative, infettive. Strumento: i <strong>test neuropsicologici</strong>. <em>Limite</em>: non si sceglie dove né quando.</li><li><strong>Lesioni terapeutiche</strong> — tumori ed <strong>epilessia</strong> (attività <strong>parossistica</strong> con <strong>capacità propagatoria</strong> da una regione <em>trigger</em>). Due tecniche: <strong>asportazione</strong> del trigger o <strong>commissurotomia</strong>.</li><li><strong>Lesioni artificiali</strong> — <strong>apparato stereotassico</strong> con coordinate e atlante; tecniche: asportazione, ablazione, aspirazione, elettrolitica, <strong>tossica selettiva</strong>. Valutazione con <strong>labirinti</strong>; <strong>analisi post-mortem</strong> anche per verificare la lesione.</li><li><strong>Le quattro regole etiche</strong> — <strong>comitato etico</strong> preventivo; <strong>anestesia</strong> sempre; <strong>analgesia post-operatoria</strong>; deve essere l'<strong>unico metodo disponibile</strong>, altrimenti il ricercatore è <strong>obbligato</strong> all'alternativa.</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">La dissociazione funzionale</p>
+      <p class="voce-testo">Nello <strong>stesso paziente</strong>, con un determinato danno, <strong>una funzione è preservata e l'altra è compromessa</strong>.</p>
+      <p class="glossa">Non è un aneddoto clinico: è il principio con cui si analizza la <strong>multicomponenzialità</strong> dei processi cognitivi. «La memoria» non è una cosa sola, ma un processo fatto di componenti <strong>discrete e separabili</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Singola vs doppia: il bias e la sua soluzione</p>
+      <p class="voce-testo">La <strong>singola</strong> (un paziente, due compiti) non esclude che i due compiti abbiano <strong>difficoltà diversa</strong>. La <strong>doppia</strong> (due pazienti, stesse prove, dissociazioni <strong>opposte</strong>) lo esclude.</p>
+      <p class="glossa"><strong>Perché funziona</strong>: entrambi riescono bene in <strong>uno</strong> dei due compiti, ma <strong>non lo stesso</strong>. Se la differenza fosse di difficoltà, produrrebbe lo <strong>stesso</strong> effetto in entrambi. <em>La doppia non aggiunge un dato: elimina un'ipotesi rivale — come il gruppo di controllo nel metodo sperimentale.</em></p></div><div class="voce">
+      <p class="voce-tit">Il principio comune all'imaging funzionale</p>
+      <p class="voce-testo">Le aree attivate richiedono <strong>più energia</strong> → l'energia è fornita da un <strong>maggiore afflusso di sangue</strong> → <strong>le tecniche rilevano il flusso ematico</strong>.</p>
+      <p class="glossa"><strong>La conseguenza da esplicitare</strong>: l'imaging funzionale <strong>non misura direttamente l'attività neuronale</strong>, ma un suo <strong>correlato metabolico</strong>.</p></div><div class="voce">
+      <p class="voce-tit">La lesione virtuale della TMS</p>
+      <p class="voce-testo">Un <strong>manipolo a otto</strong> percorso da corrente elevata genera un <strong>campo magnetico focalizzato</strong> che <strong>perturba</strong> il <em>pattern</em> circuitale di una popolazione, compromettendone la funzione.</p>
+      <p class="glossa"><strong>Il paradosso</strong>: è una tecnica di <strong>stimolazione</strong> usata per ottenere l'effetto di una <strong>lesione</strong>. È l'unico modo per <strong>scegliere</strong> dove studiare una disattivazione — impossibile con le lesioni spontanee.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Phineas Gage</span>
+        <span class="esp-anni">1848</span>
+        <span class="esp-ruolo">Caso clinico</span>
+      </div>
+      <p class="voce-meta">Vermont, USA</p>
+      <p class="esp-chie">Un'esplosione gli sparò una <strong>sbarra di ferro</strong> attraverso il cranio, passando per i <strong>lobi frontali</strong>. <strong>[N.d.R.]</strong> Era <strong>caposquadra in un cantiere ferroviario</strong>, non minatore; la sbarra entrò <strong>sotto lo zigomo sinistro</strong> e uscì dalla <strong>sommità del cranio</strong>.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Diede avvio alle ricerche sulla <strong>fisiologia dei lobi frontali</strong></li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>La corteccia non è essenziale alla sopravvivenza</strong> — Gage <strong>sopravvisse</strong> e visse per anni: la corteccia e in generale la parte <strong>rostrale</strong> del SNC non sono necessarie a vivere.</li><li><strong>Non solo aree, ma connessioni</strong> — La lesione distrusse <strong>aree</strong> ma anche <strong>fasci assonali</strong> che le collegavano ad aree <strong>sottocorticali</strong>.</li><li><strong>I tre deficit dei lobi frontali</strong> — <strong>Regolazione emotiva</strong>, <strong>progettazione dell'azione</strong>, <strong>presa di decisione</strong> — nessuno dei quali interferiva con la sopravvivenza.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Il paziente H.M.</span>
+        <span class="esp-anni">XX sec.</span>
+        <span class="esp-ruolo">Caso clinico</span>
+      </div>
+      
+      <p class="esp-chie">Asportazione delle <strong>regioni mediali dei lobi temporali</strong> per il trattamento dell'epilessia.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Stabilì che quelle regioni sono implicate nei <strong>processi di memoria</strong></li><li>Rivelò le <strong>dissociazioni funzionali</strong></li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>La dissociazione di H.M.</strong> — <strong>Non</strong> riusciva più a memorizzare <strong>stimoli nuovi</strong> dopo l'operazione, <strong>ma rievocava</strong> senza problemi le cose accadute in passato: una funzione compromessa, l'altra preservata.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Hubel e Wiesel</span>
+        <span class="esp-anni">XX sec.</span>
+        <span class="esp-ruolo">Elettrofisiologia</span>
+      </div>
+      
+      <p class="esp-chie">Studi classici con <strong>microelettrodi</strong> sui neuroni della <strong>corteccia occipitale</strong> dei gatti.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Registrazione dell'attività di <strong>singoli neuroni</strong> mentre l'animale osservava stimoli visivi</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>La risoluzione a singolo neurone</strong> — Con i <strong>microelettrodi</strong> e un adeguato sistema di <strong>amplificazione</strong> è possibile misurare le minime variazioni elettriche nei <strong>singoli potenziali d'azione</strong>.</li></ul>
+      
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">La dissociazione doppia fra Broca e Wernicke</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Due pazienti (o gruppi) sottoposti alle <strong>stesse due prove</strong>: un compito di <strong>produzione</strong> e uno di <strong>comprensione</strong>.</li><li><strong>Paziente di Broca</strong>: produzione <strong>deficitaria</strong>, comprensione <strong>normale</strong>.</li><li><strong>Paziente di Wernicke</strong>: produzione <strong>normale</strong>, comprensione <strong>deficitaria</strong>.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Ciascuno riesce bene in <strong>uno</strong> dei due compiti, ma <strong>non lo stesso</strong>.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div><strong>Esclude</strong> la spiegazione della differenza di difficoltà, ed è la prova più significativa dell'esistenza di <strong>due sistemi anatomici separati</strong> e <strong>due moduli cognitivi</strong> compromettibili singolarmente.</div></div>
+    </div><div class="esperimento">
+      <p class="exp-nome">La connettività funzionale a riposo e il default mode network</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Evoluzione della <strong>fMRI</strong>: si misura l'attività cerebrale <strong>quando il soggetto NON è impegnato in compiti</strong>.</li><li>Le regioni con attività <strong>altamente correlata</strong> sono ritenute <strong>altamente connesse</strong>.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Scoperta del <strong>circuito della modalità di default</strong>: un circuito delle zone <strong>prefrontali</strong> che si attiva <strong>in assenza di compito</strong>, responsabile di immaginazione, programmazione, ragionamento — e, a livello patologico, della <strong>ruminazione</strong>.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Nessuna tecnica basata su «dai un compito e guarda cosa si accende» avrebbe potuto trovarlo: serviva una tecnica capace di guardare <strong>l'assenza di compito</strong>. Il metodo non ha misurato meglio: ha reso <strong>pensabile</strong> un oggetto nuovo.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Costruisce un criterio di <strong>lettura critica</strong>: per ogni tecnica, che cosa consente, che cosa costa, e quale ipotesi alternativa lascia aperta.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>È una <strong>carrellata</strong>: non una disamina di tutte le tecniche esistenti, ma un raggruppamento per categorie.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Fornisce gli strumenti con cui saranno studiati genetica comportamentale (S507) e plasticità (S508): <strong>lesioni artificiali</strong>, <strong>labirinti</strong>, <strong>neuroimaging</strong>.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>La genetica sperimentale (S507)</strong> — le <strong>regole etiche</strong> e i <strong>compiti comportamentali</strong> nei roditori valgono identici</li><li><strong>Lo studio della plasticità (S508)</strong> — i <strong>cinque livelli</strong> di analisi della neuroplasticità usano proprio queste tecniche</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">Per capire come funziona, guarda quando non funziona.</div><div class="formula">La doppia dissociazione non aggiunge un dato: elimina un'ipotesi.</div><div class="formula">L'imaging funzionale legge il sangue, non i neuroni.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">Elencare le tecniche senza dirne limiti</div><div class="err-si">La domanda chiede <strong>potenzialità e limiti</strong>: l'elenco da solo non risponde</div></div><div class="err">
+      <div class="err-no">«La doppia dissociazione conferma la singola»</div><div class="err-si">La doppia <strong>esclude un'ipotesi alternativa</strong> — quella della difficoltà diversa dei compiti</div></div><div class="err">
+      <div class="err-no">«La TAC visualizza su tre assi»</div><div class="err-si">La TAC è <strong>solo assiale</strong>; i <strong>tre assi</strong> sono della <strong>risonanza</strong></div></div><div class="err">
+      <div class="err-no">«PET e fMRI misurano allo stesso modo»</div><div class="err-si">La PET usa una <strong>sostanza radioattiva</strong>; la fMRI l'<strong>ossigenazione dell'emoglobina</strong>, senza radioattività e più rapidamente</div></div><div class="err">
+      <div class="err-no">«La TMS è una tecnica di lesione»</div><div class="err-si">È di <strong>stimolazione</strong>: produce una lesione <strong>virtuale</strong>, non invasiva, su soggetti <strong>sani</strong></div></div><div class="err">
+      <div class="err-no">«Gage lavorava in miniera»</div><div class="err-si"><strong>[N.d.R.]</strong> Cantiere <strong>ferroviario</strong>; ma il dato d'esame — lobi frontali, sopravvivenza, tre deficit — resta identico</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 7</span><span>S507</span></p>
+      <h2 class="sk-nome">Evoluzione, geni ed ereditarietà</h2>
+      <p class="sk-unariga">L'evoluzione non cambia gli individui ma la frequenza dei loro caratteri; e l'ereditabilità è una proprietà delle popolazioni, mai delle persone.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> XIX sec. (Darwin, Mendel)</span>
+        <span><b>Luogo</b> Galápagos · Brno</span>
+        <span><b>Lezione</b> L12</span>
+        <span><b>Manuale</b> cap. C28</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>Il dilemma <strong>natura o cultura</strong>: che cosa rende unica una persona? Il sistema nervoso è materia organica, quindi determinato da fattori <strong>biologici</strong>; ma non funzionerebbe fuori da un'<strong>interazione continua</strong> con l'ambiente.</p><div class="formula">Le due componenti, in <strong>interazione circolare</strong>, rendono ogni individuo <strong>unico</strong>. Questa scheda copre la <strong>natura</strong>; la S508 copre l'<strong>interazione</strong>.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">La teoria dell'evoluzione</p>
+      <p class="voce-meta">biologia evoluzionistica</p>
+      <p class="voce-testo"><strong>Filogenesi</strong> = storia evolutiva della specie. <strong>Evoluzione</strong> = cambiamento progressivo nella <strong>frequenza</strong> con cui certe caratteristiche si manifestano <strong>in una popolazione</strong>. <em>È una definizione statistica, non individuale.</em></p></div><div class="voce">
+      <p class="voce-tit">La selezione naturale</p>
+      <p class="voce-meta">meccanismo</p>
+      <p class="voce-testo">L'<strong>adattamento all'ambiente</strong> permette ad alcuni membri di <strong>riprodursi con maggiore successo</strong>: le caratteristiche vantaggiose diventano <strong>più comuni</strong>, le altre <strong>meno frequenti</strong> fino a estinguersi. Presuppone <strong>variabilità genetica</strong>.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>I fringuelli delle Galápagos</strong></td><td>Osservazione sul campo</td><td>Un <strong>antenato comune</strong>, isole con <strong>risorse diverse</strong> (insetti, cactus, bacche e semi) → <strong>forme di becco diverse</strong>, perché su ciascuna isola sopravvivevano gli individui adatti a <strong>quell'</strong>ambiente</td></tr><tr><td><strong>La genetica di Mendel</strong></td><td>Esperimenti sulla pianta di pisello</td><td>Da una generazione all'altra si trasmettono <strong>fattori organici</strong>, alcuni <strong>visibili</strong>, altri <strong>latenti</strong>, che si rendono visibili nelle <strong>generazioni successive</strong></td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula"><strong>GENOTIPO + AMBIENTE = FENOTIPO.</strong> Il <strong>genotipo</strong> è il corredo genetico presente <strong>dal concepimento</strong>; il <strong>fenotipo</strong> l'insieme dei <strong>caratteri manifesti</strong>.</div><p class="glossa"><strong>La scala del materiale genetico</strong>: base azotata → <strong>nucleotide</strong> (fosfato + desossiribosio + base) → <strong>codone</strong> (3 nucleotidi = 1 amminoacido) → <strong>gene</strong> (= 1 proteina) → <strong>cromosoma</strong> → <strong>cariotipo</strong> (<strong>23 coppie</strong>: 22 autosomi + 1 sessuale). Le basi sono <strong>quattro</strong>: adenina, timina, citosina, guanina.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">La <strong>genetica del comportamento</strong> studia come ereditarietà e ambiente influenzano le <strong>caratteristiche psicologiche</strong>, sulla base della <strong>concordanza</strong>.</div>
+     <p class="glossa"><strong>Concordanza</strong> = la <strong>compresenza</strong> di una caratteristica in persone diverse. Se è <strong>più elevata</strong> in persone con stretti legami familiari, il contributo maggiore è della <strong>genetica</strong> — specialmente se hanno vissuto in <strong>ambienti diversi</strong>.</p>
+     <ul class="punti"><li><strong>Studi di famiglia</strong> — confrontano membri della stessa famiglia, che condividono il patrimonio genetico a <strong>gradi diversi</strong>.</li><li><strong>Studi sulle adozioni</strong> — <strong>separano</strong> geni e ambiente: genitori <strong>biologici</strong> = geni senza ambiente; <strong>adottivi</strong> = ambiente senza geni. Se l'adottato è più simile ai <strong>biologici</strong>, prevalgono i fattori genetici. <em>Contributi importanti sulla schizofrenia.</em></li><li><strong>Studi sui gemelli</strong> — <strong>omozigoti</strong>: un solo zigote che si divide, patrimonio <strong>identico</strong>. <strong>Eterozigoti</strong>: due fecondazioni, come <strong>fratelli normali</strong>. Se gli omozigoti sono <strong>più simili</strong>, c'è una componente genetica.</li><li><strong>I gemelli separati alla nascita</strong> — servono a <strong>escludere</strong> che la maggiore somiglianza degli omozigoti dipenda da un <strong>ambiente più simile</strong>. <em>Stesso movimento logico della dissociazione doppia (S506).</em></li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Le tre forme di adattamento della nostra specie</p>
+      <p class="voce-testo"><strong>1. Bipedismo</strong> → <strong>deflessione</strong> del SNC; arti liberi → <strong>utensili</strong> e <strong>azione sull'ambiente</strong>; nuovi ambienti e risorse. <strong>2. Encefalizzazione</strong> → l'<em>Homo sapiens</em> ha un cervello <strong>triplicato</strong> rispetto all'<em>erectus</em>. <strong>3. Comparsa del linguaggio</strong> → inizio dell'<strong>evoluzione culturale</strong>.</p>
+      <p class="glossa"><strong>La domanda-trabocchetto</strong>: un cervello grande significa più intelligenza? <strong>No.</strong> L'<strong>uomo di Neanderthal</strong> aveva un cervello di <strong>dimensioni simili</strong> al sapiens, ma <strong>si è estinto</strong>. Forse la differenza fu proprio il <strong>linguaggio</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Dominante, recessivo, poligenico</p>
+      <p class="voce-testo">Il carattere <strong>dominante</strong> si manifesta <strong>sia</strong> in <strong>omozigosi</strong> (BB) <strong>sia</strong> in <strong>eterozigosi</strong> (Bb). Il <strong>recessivo</strong> <strong>soltanto in omozigosi</strong> (bb).</p>
+      <p class="glossa">È questo che spiega l'osservazione di Mendel sui caratteri <strong>latenti</strong>. Ma la <strong>maggior parte</strong> dei caratteri è <strong>poligenica</strong>: il <strong>colore degli occhi</strong> è l'esempio da citare, perché la semplificazione «chiari recessivi/scuri dominanti» è <strong>riduttiva</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Il coefficiente di ereditabilità</p>
+      <p class="voce-testo">Stima statistica (<strong>da 0 a 1</strong>) della misura in cui la <strong>varianza</strong> di una caratteristica fenotipica <strong>in un gruppo</strong> è attribuibile a <strong>differenze genetiche</strong>.</p>
+      <p class="glossa"><strong>L'errore concettuale da non fare</strong>: dice quanta parte della <strong>variabilità FRA individui in una popolazione</strong> è genetica. <strong>NON</strong> dice quanta parte di quella caratteristica, in un <strong>singolo individuo</strong>, sia «dovuta ai geni». <em>Esempio: gli atteggiamenti verso la religione hanno ereditabilità ≈ 0.</em></p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Charles Darwin</span>
+        <span class="esp-anni">XIX sec.</span>
+        <span class="esp-ruolo">Padre della teoria evolutiva</span>
+      </div>
+      <p class="voce-meta">Galápagos</p>
+      <p class="esp-chie">Elaborò la teoria dell'evoluzione dopo una serie di viaggi e osservazioni metodologicamente rigorose.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>La teoria dell'<strong>evoluzione</strong> e il meccanismo della <strong>selezione naturale</strong></li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>L'evoluzione come fatto statistico</strong> — Il cambiamento riguarda la <strong>frequenza</strong> con cui i caratteri si manifestano in una <strong>popolazione</strong>, <strong>non</strong> gli individui. È una definizione di popolazione, non individuale.</li><li><strong>I fringuelli delle Galápagos</strong> — Un <strong>antenato comune</strong>; isole con <strong>risorse diverse</strong> — insetti, cactus, bacche e semi — e quindi <strong>forme di becco diverse</strong>, perché su ciascuna isola sopravvivevano gli individui adatti a <strong>quell'</strong>ambiente.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Gregor Mendel</span>
+        <span class="esp-anni">metà XIX sec.</span>
+        <span class="esp-ruolo">Fondatore della genetica</span>
+      </div>
+      <p class="voce-meta">Monastero, Europa centrale</p>
+      <p class="esp-chie">Monaco botanico; esperimenti metodologicamente molto ordinati sulla <strong>pianta di pisello coltivata</strong>.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Diede origine alla <strong>genetica</strong></li><li>Da lui deriva la distinzione <strong>genotipo/fenotipo</strong>, formulata dai genetisti all'inizio del XX secolo</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>I fattori visibili e latenti</strong> — Da una generazione all'altra si trasmettono <strong>fattori organici</strong>: alcuni <strong>immediatamente visibili</strong>, altri <strong>latenti</strong>, che riemergono nelle <strong>generazioni successive</strong>. Sono i caratteri <strong>recessivi</strong> portati in eterozigosi.</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Tryon</span>
+        <span class="esp-anni">1940</span>
+        <span class="esp-ruolo">Genetica sperimentale</span>
+      </div>
+      
+      <p class="esp-chie">Esperimento di <strong>selezione artificiale</strong> sull'abilità di apprendere.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Dimostrò che un tratto <strong>comportamentale</strong> viene <strong>trasmesso alla progenie</strong></li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Il principio della selezione artificiale</strong> — Agisce con lo <strong>stesso meccanismo</strong> della selezione naturale, ma i caratteri fenotipici incrociati sono <strong>decisi dall'uomo</strong>.</li><li><strong>L'esperimento del 1940, in quattro passaggi</strong> — Ratti in un labirinto apprendono <strong>per prove ed errori</strong> → alcuni con <strong>più errori</strong>, altri con <strong>meno</strong> → Tryon <strong>isola i due estremi</strong> e li incrocia <strong>fra loro</strong> → nelle generazioni successive emergono differenze nelle abilità di apprendimento <strong>che all'inizio non si vedevano</strong>.</li></ul>
+      
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">Lo Human Genome Project</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Grande progetto di <strong>mappatura del DNA umano</strong> del <strong>NIH</strong> americano, <strong>avviato nel 1990</strong>.</li><li>Reso possibile dall'interazione di più discipline e da tecnologie di <strong>ingegneria genetica</strong> capaci di «srotolare» il DNA.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Dal <strong>2003</strong> è disponibile la mappatura: circa <strong>25 000 geni</strong>, <strong>molti meno</strong> di quanti previsti. Uguaglianza fra <strong>etnie umane</strong> = <strong>99,9%</strong>; uguaglianza con il <strong>topo</strong> = <strong>99%</strong>; circa l'<strong>80%</strong> dei geni umani e murini si attiva <strong>in qualche punto del cervello</strong>.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Due conseguenze. Le <strong>differenze genetiche interindividuali sono irrisorie</strong>. E il 99% col topo è <strong>la</strong> giustificazione dell'uso dei roditori negli studi sulle funzioni cerebrali umane (S506, S508).</div></div>
+    </div><div class="esperimento">
+      <p class="exp-nome">Gli animali transgenici</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Si modificano segmenti di DNA <strong>in vitro</strong> e si producono cellule con <strong>DNA modificato</strong>.</li><li>Due procedure: <strong>knock-out</strong> — <strong>inattiva</strong> geni; <strong>knock-in</strong> — <strong>inserisce</strong> nuovi geni.</li><li>Si iniettano in una <strong>femmina di roditore</strong>, che avrà corredo <strong>ibrido</strong>; nelle generazioni successive si <strong>selezionano</strong> gli animali che esprimono il gene modificato in <strong>omozigosi</strong>.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Gli effetti si studiano <strong>nella progenie</strong> che presenta la mutazione oggetto dello studio.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Consente di determinare l'influenza di <strong>geni specifici</strong> su caratteristiche psicologiche e comportamentali.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Fornisce il vocabolario e i metodi per porre in modo <strong>misurabile</strong> una domanda che altrimenti resterebbe filosofica: quanto conta la genetica in una caratteristica psicologica.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Il <strong>coefficiente di ereditabilità</strong> è facilissimo da interpretare male, e la sua interpretazione errata è all'origine di gran parte della cattiva divulgazione su genetica e intelligenza.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Lascia aperta la domanda decisiva: <strong>come</strong> genotipo e ambiente interagiscono concretamente. È l'oggetto della scheda S508.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Epigenetica e plasticità (S508)</strong> — il <strong>«+»</strong> della formula <em>genotipo + ambiente</em> riceve lì un <strong>meccanismo</strong></li><li><strong>Il range di reazione (S508)</strong> — mostrerà <strong>perché</strong> l'ereditabilità non determina il destino di nessun individuo</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">GENOTIPO + AMBIENTE = FENOTIPO.</div><div class="formula">L'evoluzione cambia le frequenze, non gli individui.</div><div class="formula">L'ereditabilità è una proprietà delle popolazioni, mai delle persone.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">«L'evoluzione è il cambiamento degli individui»</div><div class="err-si">È il cambiamento della <strong>frequenza</strong> di una caratteristica <strong>in una popolazione</strong></div></div><div class="err">
+      <div class="err-no">Raccontare la giraffa in modo lamarckiano</div><div class="err-si">Sopravvivevano gli individui che <strong>GIÀ avevano</strong> il collo più lungo: la variazione <strong>preesiste</strong> e l'ambiente <strong>seleziona</strong>. <strong>[N.d.R.]</strong> Le giraffe hanno <strong>sette</strong> vertebre cervicali come tutti i mammiferi: sono le vertebre a essersi <strong>allungate</strong></div></div><div class="err">
+      <div class="err-no">«Un cervello più grande è più intelligente»</div><div class="err-si">Il <strong>Neanderthal</strong> aveva un cervello simile al sapiens e <strong>si è estinto</strong></div></div><div class="err">
+      <div class="err-no">«Il fenotipo è determinato dal genotipo»</div><div class="err-si">Dal genotipo <strong>e</strong> dalla sua <strong>interazione con l'ambiente</strong></div></div><div class="err">
+      <div class="err-no">«Il carattere recessivo si manifesta in eterozigosi»</div><div class="err-si"><strong>Soltanto in omozigosi</strong>: serve che <strong>entrambi</strong> gli alleli lo esprimano</div></div><div class="err">
+      <div class="err-no">Leggere l'ereditabilità come proprietà della persona</div><div class="err-si">Riguarda la <strong>variabilità FRA individui</strong> in una popolazione</div></div></div></div>
+  </div>
+    
+  </section><section class="scheda">
+    <div class="sk-testa">
+      <p class="sk-occhiello"><span>Scheda 8</span><span>S508</span></p>
+      <h2 class="sk-nome">Epigenetica e plasticità cerebrale</h2>
+      <p class="sk-unariga">I geni fissano il campo, l'ambiente decide dove ci si ferma dentro il campo, e il temperamento — che è genetico — decide quale campo si finisce per abitare.</p>
+      <div class="sk-coord">
+        <span><b>Anno</b> —</span>
+        <span><b>Luogo</b> —</span>
+        <span><b>Lezione</b> L13</span>
+        <span><b>Manuale</b> cap. C29</span>
+      </div>
+    </div>
+    <div class="blocco">
+    <div class="bl-eti">1. Perché nasce<span>l'esigenza teorica</span></div>
+    <div class="bl-corpo"><p>La formula <strong>genotipo + ambiente = fenotipo</strong> (S507) non dice <strong>come</strong> funzioni quel «+». E soprattutto non dice che <strong>non funziona in una sola direzione</strong>.</p><div class="formula"><strong>Due direzioni.</strong> <strong>A</strong>: l'ambiente influenza l'espressione dei geni (<strong>range di reazione</strong>). <strong>B</strong>: i geni influenzano <strong>come si vive l'ambiente</strong> (<strong>influenza evocativa</strong>).</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">2. Radici<span>filosofiche e teoriche</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Il range di reazione</p>
+      <p class="voce-meta">genetica del comportamento</p>
+      <p class="voce-testo"><strong>Intervallo di possibilità</strong> — fra un <strong>limite superiore</strong> e uno <strong>inferiore</strong> — consentite dal codice genetico. <strong>I geni fissano il range; l'ambiente decide dove, dentro quel range, la persona si colloca.</strong></p></div><div class="voce">
+      <p class="voce-tit">L'influenza evocativa</p>
+      <p class="voce-meta">psicologia dello sviluppo</p>
+      <p class="voce-testo">Un bambino <strong>introverso</strong> <strong>evoca</strong> negli altri una modalità di interazione <strong>complementare</strong> alla sua chiusura; uno <strong>estroverso</strong> evoca <strong>più interazione</strong>. Il temperamento <strong>modula la modalità in cui si vive l'ambiente</strong>.</p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">3. Precursori<span>da chi eredita</span></div>
+    <div class="bl-corpo"><table class="griglia">
+      <tr><th style="width:32%">Chi</th><th style="width:22%">Da dove</th><th>Che cosa porta</th></tr>
+      <tr><td><strong>Cajal</strong></td><td>Istologia del sistema nervoso</td><td>Scoprì che l'<strong>apprendimento</strong> richiede la <strong>formazione di nuove connessioni</strong> tra neuroni</td></tr><tr><td><strong>Sherrington</strong></td><td>Neurofisiologia</td><td>Diede a quelle nuove connessioni il nome di <strong>sinapsi</strong></td></tr>
+    </table></div>
+  </div><div class="blocco">
+    <div class="bl-eti">4. Oggetto di studio<span>che cosa studia</span></div>
+    <div class="bl-corpo"><div class="formula">La <strong>plasticità cerebrale</strong>: la <strong>capacità esclusiva del cervello di modificarsi continuamente</strong>, dalla <strong>gestazione</strong> alla <strong>morte</strong>, in un continuo processo di adattamento.</div><p class="glossa"><strong>L'epigenetica</strong> studia le <strong>influenze ambientali</strong> che determinano l'<strong>espressione</strong> o la <strong>non-espressione</strong> di un gene — e il <strong>grado</strong> di quell'espressione — <strong>senza alterare la struttura del gene</strong>. È un'area in espansione degli ultimi vent'anni circa.</p></div>
+  </div><div class="blocco">
+    <div class="bl-eti">5. Metodo<span>come lo studia</span></div>
+    <div class="bl-corpo"><div class="formula">La plasticità si studia a <strong>cinque livelli</strong>, con <strong>psicologia comparata</strong> e <strong>neuroimaging</strong>.</div>
+     <p class="glossa"><strong>La regola generale</strong>: tutti i meccanismi neuroplastici sono <strong>fortemente potenziati da un ambiente stimolante</strong> e <strong>fortemente depotenziati da un ambiente deprivato</strong>.</p>
+     <ul class="punti"><li><strong>1. Epigenetico</strong> — metilazione del DNA, rimodellamento della cromatina, RNA non codificanti.</li><li><strong>2. Molecolare</strong> — le <strong>neurotrofine</strong>: <strong>BDNF</strong> e <strong>NGF</strong> (scoperto da <strong>Rita Levi-Montalcini</strong>, <strong>premio Nobel</strong>).</li><li><strong>3. Morfologico</strong> — <strong>estensione dei dendriti</strong>, <strong>numero di spine dendritiche</strong>, <strong>neurogenesi</strong> (specialmente <strong>ippocampale</strong>).</li><li><strong>4. Funzionale</strong> — elettrofisiologia: attivazione di strutture e <em>network</em>.</li><li><strong>5. Comportamentale</strong> — performance in apprendimento, memoria, funzioni superiori.</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">6. Teorie<span>e concetti avanzati</span></div>
+    <div class="bl-corpo"><div class="voce">
+      <p class="voce-tit">Mutazione genetica vs modificazione epigenetica</p>
+      <p class="voce-testo">La <strong>mutazione</strong> <strong>cambia la sequenza</strong> del gene ed è <strong>irreversibile</strong>. La <strong>modificazione epigenetica</strong> <strong>non cambia la sequenza</strong> ed è <strong>reversibile</strong>. <strong>Entrambe sono ereditarie.</strong></p>
+      <p class="glossa"><strong>La distinzione in una riga</strong>: la mutazione <strong>riscrive il codice</strong>; l'epigenetica <strong>cambia quali righe di codice vengono eseguite</strong>, lasciando il codice intatto. La differenza non sta nell'ereditarietà: sta nella <strong>reversibilità</strong>.</p></div><div class="voce">
+      <p class="voce-tit">I due segni epigenetici</p>
+      <p class="voce-testo"><strong>Metilazione del DNA</strong> — addizione di un <strong>gruppo metilico</strong> sulla sequenza di basi: <strong>DISATTIVA</strong>. <strong>Modificazione degli istoni</strong> — modificazioni chimiche alle proteine che <strong>impacchettano</strong> il DNA: può <strong>ATTIVARE O DISATTIVARE</strong>.</p>
+      <p class="glossa"><strong>La differenza da non perdere</strong>: la metilazione <strong>disattiva soltanto</strong>; la modificazione istonica può fare <strong>entrambe</strong> le cose.</p></div><div class="voce">
+      <p class="voce-tit">I periodi critici</p>
+      <p class="voce-testo">Nella primissima fase postnatale le reti sinaptiche sono <strong>estremamente sensibili</strong> agli stimoli. Le informazioni genetiche <strong>esigono un determinato tipo di stimolazione ambientale per potersi esprimere</strong>.</p>
+      <p class="glossa"><strong>L'esempio del linguaggio</strong>: se il bambino <strong>non viene esposto</strong> a quei suoni, <strong>non apprenderà mai a parlare</strong>. È l'esempio che chiarisce meglio che cosa significhi «interazione»: la funzione è <strong>nel genoma</strong>, ma <strong>senza l'ambiente non si accende</strong>.</p></div><div class="voce">
+      <p class="voce-tit">Il costrutto della riserva</p>
+      <p class="voce-testo">Capacità di sviluppare <strong>risorse che riducono il rischio di compromissioni cognitive</strong>. Chi ha grande riserva <strong>sostiene più danno</strong> prima della soglia dei deficit clinici.</p>
+      <p class="glossa"><strong>Riserva CEREBRALE</strong> — strutturale, <strong>passiva</strong>: volume, densità neuronale, connettività. Misura <strong>quanto danno si sostiene</strong>. <strong>Riserva COGNITIVA</strong> — funzionale, <strong>attiva</strong>: efficienza dei circuiti aumentata dall'<strong>uso ripetuto</strong>. Misura <strong>quanto bene si compensa</strong>. <em>La prima è il presupposto, la seconda è il suo uso.</em></p></div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">7. Esponenti<span>chi è, cosa ha fatto</span></div>
+    <div class="bl-corpo"><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Rosenzweig</span>
+        <span class="esp-anni">XX sec.</span>
+        <span class="esp-ruolo">Ideatore del modello</span>
+      </div>
+      
+      <p class="esp-chie">Definì l'<strong>arricchimento ambientale</strong> come <strong>combinazione di una complessa stimolazione inanimata e sociale</strong>.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Il <strong>modello animale dell'arricchimento ambientale</strong>, tuttora paradigma di riferimento</li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>La sinergia dei fattori</strong> — L'aumento di neuroplasticità prodotto dalla stimolazione <strong>complessa</strong> <strong>non è paragonabile</strong> a quello indotto da <strong>un fattore per volta</strong>: l'effetto è <strong>sinergico</strong>, non additivo — e per questo non sarebbe stato prevedibile studiando i fattori separatamente.</li><li><strong>Le quattro variabili manipolate</strong> — <strong>Esercizio fisico</strong> (gabbie grandi e <strong>ruote</strong>) · <strong>attività cognitiva</strong> (<strong>nuovi giochi</strong> ogni giorno) · <strong>attività esplorativa</strong> (<strong>cibo e acqua</strong> spostati di continuo) · <strong>interazioni sociali</strong> (<strong>gruppi molto ampi</strong>).</li></ul>
+      
+    </div><div class="esponente">
+      <div class="esp-testa">
+        <span class="esp-nome">Rita Levi-Montalcini</span>
+        <span class="esp-anni">XX sec.</span>
+        <span class="esp-ruolo">Neurobiologa</span>
+      </div>
+      <p class="voce-meta">Italia</p>
+      <p class="esp-chie">Scoprì l'<strong>NGF</strong>, il <strong>fattore di crescita nervoso</strong>.</p>
+      <p class="esp-sub">Che cosa ha fatto</p><ul class="punti"><li>Per questa scoperta ha vinto il <strong>premio Nobel</strong></li></ul>
+      <p class="esp-sub">Le sue teorie</p><ul class="punti"><li><strong>Il ruolo delle neurotrofine</strong> — Modulano <strong>proliferazione</strong>, <strong>maturazione</strong>, <strong>mantenimento</strong> e <strong>sopravvivenza</strong> dei neuroni. In un ambiente appropriato <strong>supportano</strong> la plasticità; in presenza di fattori ambientali negativi <strong>calano in quantità</strong>, riducendo le capacità neuroplastiche.</li></ul>
+      
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">8. Esperimenti<span>disegno, esito, senso</span></div>
+    <div class="bl-corpo"><div class="esperimento">
+      <p class="exp-nome">L'arricchimento ambientale in condizioni patologiche</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Modello animale di <strong>demenza di Alzheimer</strong>: si fanno degenerare i <strong>neuroni colinergici del prosencefalo basale</strong>.</li><li>Gruppi <strong>lesionati</strong> e <strong>non lesionati</strong>, ciascuno in <strong>arricchimento</strong> o in <strong>condizioni standard</strong>.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Sul piano <strong>comportamentale</strong>, i soggetti <strong>arricchiti mitigavano i deficit</strong> in svariati compiti cognitivi — <strong>a parità di danno neurologico identico</strong>. Sul piano <strong>funzionale</strong>, l'arricchimento <strong>tamponava</strong> l'effetto della lesione sull'assetto neuronale.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div>Da qui il costrutto della <strong>riserva</strong>. Confermato anche sull'uomo: a <strong>parità di danno</strong>, chi era vissuto in ambienti <strong>più stimolanti</strong> mostrava deficit cognitivi <strong>minori</strong>.</div></div>
+    </div><div class="esperimento">
+      <p class="exp-nome">La trasmissione transgenerazionale</p>
+      <div class="exp-riga"><span class="exp-eti">Disegno</span><ol><li>Ratte madri: un gruppo in <strong>arricchimento ambientale</strong>, uno in <strong>condizioni standard</strong>.</li><li>Nelle madri si misurano i comportamenti <strong>diretti ai piccoli</strong> (leccarli, ripulirli, toccarli) e quelli <strong>non diretti</strong> (mangiare, esplorare).</li><li>Nei piccoli si valutano parametri <strong>anatomici</strong> e <strong>comportamentali</strong>.</li></ol></div>
+      <div class="exp-riga"><span class="exp-eti">Risultato</span><div>Nelle madri arricchite i comportamenti <strong>diretti ai piccoli</strong> erano <strong>aumentati</strong>. Nei piccoli: <strong>elevata neurogenesi ippocampale</strong>, <strong>elevati livelli di neurotrofine</strong>, <strong>sviluppo motorio e spaziale più veloce</strong>, <strong>abilità mnesiche e spaziali più performanti</strong>.</div></div>
+      <div class="exp-riga"><span class="exp-eti">Significato</span><div><strong>Il dettaglio decisivo</strong>: quei livelli erano <strong>BASALI</strong> — già presenti <strong>alla nascita</strong>, <strong>prima</strong> dell'interazione con un ambiente postnatale. Non sono quindi solo effetto dell'accudimento: c'è una componente <strong>ereditata</strong>. I meccanismi epigenetici <strong>si ereditano</strong> pur restando <strong>reversibili</strong>.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">9. Validità<span>merito, limite, esito</span></div>
+    <div class="bl-corpo"><div class="terna">
+      <div class="terna-voce"><span class="terna-eti">Merito</span><div>Trasforma l'affermazione generica «geni e ambiente interagiscono» in un <strong>meccanismo</strong> con nomi, misure e reversibilità — e mostra che l'interazione ha <strong>due direzioni</strong>, non una.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Limite</span><div>Gran parte delle evidenze causali viene da <strong>modelli animali</strong>: sull'uomo il costrutto di riserva è ricostruito da <strong>correlazioni</strong> fra stile di vita e deficit a parità di danno.</div></div>
+      <div class="terna-voce"><span class="terna-eti">Esito</span><div>Chiude il modulo tornando all'affermazione con cui si era aperto (S501): i neuroni <strong>non si rigenerano, ma possono modificare alcune loro caratteristiche nel corso della vita</strong>.</div></div>
+    </div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">10. Precorre<span>verso che cosa apre</span></div>
+    <div class="bl-corpo"><ul class="punti"><li><strong>Apprendimento e memoria</strong> — la <strong>plasticità sinaptica</strong> è il substrato dei processi che saranno studiati nel modulo successivo</li><li><strong>L'intero modulo (S501)</strong> — la <strong>seconda metà</strong> della quarta caratteristica del neurone trova qui il suo sviluppo completo</li></ul></div>
+  </div><div class="blocco">
+    <div class="bl-eti">11. Formule<span>alla lettera</span></div>
+    <div class="bl-corpo"><div class="formula">I geni fissano il range, l'ambiente decide dove ci si colloca.</div><div class="formula">La mutazione riscrive il codice; l'epigenetica cambia quali righe si eseguono.</div><div class="formula">Potenziata da un ambiente stimolante, depotenziata da uno deprivato.</div><div class="formula">Riserva cerebrale = quanto danno; riserva cognitiva = quanto bene lo compensi.</div></div>
+  </div><div class="blocco">
+    <div class="bl-eti">12. Errori<span>da non fare</span></div>
+    <div class="bl-corpo"><div class="errori"><div class="err">
+      <div class="err-no">Enunciare una sola direzione dell'interazione</div><div class="err-si">Sono <strong>due</strong>: l'ambiente sui geni (<strong>range di reazione</strong>) e i geni sull'ambiente (<strong>influenza evocativa</strong>)</div></div><div class="err">
+      <div class="err-no">«L'epigenetica cambia i geni»</div><div class="err-si"><strong>Non altera la sequenza</strong>: modula quali geni si <strong>esprimono</strong></div></div><div class="err">
+      <div class="err-no">«La modificazione epigenetica non è ereditaria»</div><div class="err-si"><strong>Lo è</strong>. Ciò che la distingue dalla mutazione è la <strong>reversibilità</strong></div></div><div class="err">
+      <div class="err-no">Attribuire alla metilazione anche l'attivazione</div><div class="err-si">La metilazione <strong>disattiva soltanto</strong>; è la <strong>modificazione istonica</strong> che può fare entrambe</div></div><div class="err">
+      <div class="err-no">Confondere riserva cerebrale e cognitiva</div><div class="err-si"><strong>Cerebrale</strong> = strutturale <strong>passiva</strong>; <strong>cognitiva</strong> = funzionale <strong>attiva</strong></div></div><div class="err">
+      <div class="err-no">Raccontare lo studio transgenerazionale senza «basale»</div><div class="err-si">È il dettaglio che lo rende <strong>conclusivo</strong>: i livelli erano già presenti <strong>alla nascita</strong></div></div><div class="err">
+      <div class="err-no">«I neuroni non si rigenerano mai»</div><div class="err-si">Non c'è <strong>riparazione per rigenerazione</strong>, ma la <strong>neurogenesi</strong> esiste — ippocampale, <strong>anche in età adulta</strong></div></div></div></div>
+  </div>
+    
+  </section>
+
+</body></html>

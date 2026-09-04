@@ -98,7 +98,7 @@ function vistaQuadro() {
   main.innerHTML = `
     <p class="occhiello">Guida allo studio</p>
     <h1>Il tutto è più della somma delle parti</h1>
-    <p class="sommario">Il materiale del corso riorganizzato per concetti anziché per lezioni, e rimesso in forma di manuale: la definizione della disciplina, l'excursus storico con la terna che la docente chiede a ogni scuola — oggetto, metodo, validità — e la metodologia della ricerca, dal metodo scientifico alla pubblicazione. Con quiz, flashcard e allenamento sui nomi per verificare che regga.</p>
+    <p class="sommario">Il materiale del corso riorganizzato per concetti anziché per lezioni, e rimesso in forma di manuale: la definizione della disciplina, l'excursus storico con la terna che la docente chiede a ogni scuola — oggetto, metodo, validità — la metodologia della ricerca e le basi biologiche del comportamento, dal neurone alla plasticità cerebrale. Con quiz, flashcard e allenamento sui nomi per verificare che regga.</p>
 
     <div class="griglia tre" style="margin-bottom:2.5rem">
       <div class="dato"><span class="dato-cifra">${PGE.manuale.capitoli.length}</span><span class="dato-eti">capitoli del manuale</span></div>
@@ -114,6 +114,7 @@ function vistaQuadro() {
         ['#/definizione','La definizione','I sette passaggi per rispondere alla domanda «che cos\'è la psicologia» senza lasciare punti sul tavolo.'],
         ['#/filiazioni','Linee di filiazione','Chi precede chi, in entrambe le direzioni: i punti in cui la docente costruisce i ponti, e i più interrogati.'],
         ['#/manuale/C16','Metodologia della ricerca','Il metodo scientifico e i suoi assunti, il processo di ricerca, le variabili, i metodi descrittivi, il correlazionale, lo sperimentale, la pubblicazione.'],
+        ['#/manuale/C22','Basi biologiche','Il neurone e la sinapsi, l\'architettura del sistema nervoso, la corteccia, i metodi di indagine, geni e plasticità cerebrale.'],
         ['#/argomenti','Come si espone a voce',`${PGE.argomenti.voci.length} esposizioni scritte come si direbbero all'orale, dall'attacco alla chiusura, con le indicazioni di regìa nascondibili.`]
       ].map(([h,t,d]) => `
         <a class="scheda" href="${h}" style="text-decoration:none">

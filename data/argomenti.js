@@ -13,7 +13,8 @@ PGE.argomenti = {
     { id:"K4", nome:"Le due reazioni a Wundt", occhiello:"Gestalt e comportamentismo, e l'evoluzione fino a Hebb" },
     { id:"K5", nome:"Il presente", occhiello:"Cognitivismo, mente embodied, neuroscienze e discipline collaterali" },
     { id:"K6", nome:"Le domande di sintesi", occhiello:"I confronti e la ricostruzione d'insieme: valgono di più e si sbaglia di più" },
-    { id:"K7", nome:"La metodologia della ricerca", occhiello:"Il metodo scientifico, il processo, i metodi e la pubblicazione" }
+    { id:"K7", nome:"La metodologia della ricerca", occhiello:"Il metodo scientifico, il processo, i metodi e la pubblicazione" },
+    { id:"K8", nome:"Le basi biologiche del comportamento", occhiello:"Dal neurone alla plasticità: il substrato materiale della mente" }
   ],
   voci: [
     { id:"D01", cartella:"K1", titolo:"Che cos'è la psicologia",
@@ -102,5 +103,38 @@ PGE.argomenti = {
       domanda:"«Che cos'è una pubblicazione scientifica e che cosa la rende tale? In che cosa consiste la revisione tra pari?»",
       minuti:5, lezione:"L07", capitoli:["C21"],
       perni:["ex ante vs ex post","atti e articolo","il flusso della peer review","la struttura","impact factor","PubMed"] }
+    ,
+    { id:"D21", cartella:"K8", titolo:"Il neurone: che cos'è e com'è fatto",
+      domanda:"«Quali sono le cellule del sistema nervoso? Descriva la struttura del neurone e la funzione delle sue parti.»",
+      minuti:5, lezione:"L08", capitoli:["C22"],
+      perni:["gliali: due funzioni","le quattro caratteristiche","non si rigenerano MA","trascrizione e traduzione","spine dendritiche","cono di emergenza","mielina e Ranvier"] },
+    { id:"D22", cartella:"K8", titolo:"L'attività elettrica del neurone e la sinapsi",
+      domanda:"«Che cosa si intende per attività elettrica del neurone? Descriva il potenziale d'azione e il funzionamento della sinapsi chimica.»",
+      minuti:5, lezione:"L08", capitoli:["C23"],
+      perni:["canale vs pompa","3 fuori 2 dentro","tutto o nulla","la frequenza","periodo refrattario","i cinque passaggi","glutammato e GABA"] },
+    { id:"D23", cartella:"K8", titolo:"L'organizzazione del sistema nervoso",
+      domanda:"«Illustri l'organizzazione del sistema nervoso: i livelli di elaborazione, la distinzione fra centrale e periferico, e le componenti del periferico.»",
+      minuti:5, lezione:"L09", capitoli:["C24"],
+      perni:["tre livelli","la protezione ossea","somatico e autonomo","la reciprocità","la deflessione","visioni e sezioni"] },
+    { id:"D24", cartella:"K8", titolo:"Il cervello primitivo e le protezioni",
+      domanda:"«Descriva le strutture del cosiddetto cervello primitivo e le loro funzioni. Che cosa protegge il sistema nervoso centrale?»",
+      minuti:5, lezione:"L09", capitoli:["C25"],
+      perni:["la gerarchia e il paradosso","corni e radici","bianca e grigia","il riflesso","formazione reticolare","talamo e ipotalamo","meningi e liquor"] },
+    { id:"D25", cartella:"K8", titolo:"La corteccia cerebrale e la lateralizzazione",
+      domanda:"«Che cos'è la corteccia cerebrale? Come è organizzata anatomicamente e funzionalmente? Che cosa si intende per lateralizzazione emisferica?»",
+      minuti:6, lezione:"L10", capitoli:["C26"],
+      perni:["aspetto circonvoluto","le tre funzioni","nati senza corteccia","i cinque lobi","i due omuncoli","la colonna corticale","split brain"] },
+    { id:"D26", cartella:"K8", titolo:"I metodi di indagine del cervello",
+      domanda:"«Quali metodi si usano per studiare la struttura e le funzioni del cervello? Ne illustri potenzialità e limiti.»",
+      minuti:6, lezione:"L11", capitoli:["C27"],
+      perni:["le quattro categorie","le due condizioni","Gage e H.M.","dissociazione doppia","TAC vs risonanza","il principio del sangue","lesione virtuale"] },
+    { id:"D27", cartella:"K8", titolo:"Evoluzione, geni ed ereditarietà",
+      domanda:"«Che cosa si intende per evoluzione della specie e per selezione naturale? Che cos'è la genetica del comportamento e come misura l'influenza genetica?»",
+      minuti:6, lezione:"L12", capitoli:["C28"],
+      perni:["definizione statistica","il tranello di Lamarck","le tre forme di adattamento","genotipo + ambiente","dominante e recessivo","concordanza","ereditabilità: che cosa NON dice"] },
+    { id:"D28", cartella:"K8", titolo:"Epigenetica e plasticità cerebrale",
+      domanda:"«Come interagiscono geni e ambiente nella determinazione delle caratteristiche individuali? Che cos'è l'epigenetica e che cos'è la plasticità cerebrale?»",
+      minuti:6, lezione:"L13", capitoli:["C29"],
+      perni:["le due direzioni","range di reazione","influenza evocativa","reversibile vs irreversibile","i due segni","arricchimento e sinergia","le due riserve","i livelli basali"] }
   ]
 };
