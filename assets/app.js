@@ -74,10 +74,12 @@ function instrada() {
   const cap = percorso.match(/^\/manuale\/([CA]\d+)$/);
   const arg = percorso.match(/^\/argomenti\/(D\d+)$/);
   const fas = percorso.match(/^\/schede\/(F\d+)$/);
+  const alb = percorso.match(/^\/albero(?:\/(.+))?$/);
   if (lez) vistaLezione(lez[1]);
   else if (cap) vistaCapitolo(cap[1]);
   else if (arg) vistaArgomento(arg[1]);
   else if (fas) vistaFascicolo(fas[1]);
+  else if (alb) vistaAlbero(alb[1] ? decodeURIComponent(alb[1]) : null);
   else if (rotte[percorso]) rotte[percorso]();
   else vistaAssente(percorso);
 
@@ -126,6 +128,7 @@ function vistaQuadro() {
     <h2>Allenarsi</h2>
     <div class="griglia due">
       ${[
+        ['#/albero','Albero di studio','Ogni argomento scomposto fino alle domande di base. Le risposte le scrivi tu, a memoria; la correzione dà un voto da 1 a 100 che resta sull\'albero, ramo per ramo.'],
         ['#/quiz','Quiz a crocette', `${PGE.quiz.length} domande a quattro opzioni, con spiegazione dopo ogni risposta. I distrattori sono le risposte di un\'altra scuola: sbagliare qui è informativo.`],
         ['#/flashcard','Flashcard', `${PGE.flashcard.length} carte a tre scatole. Le sbagliate tornano, quelle sapute due volte escono dal giro.`],
         ['#/nomi','Scrivere i nomi', `${PGE.nomi.length} nomi e luoghi, con il confronto lettera per lettera. Titchener, Vygotskij, Wertheimer, von Helmholtz: qui si sbaglia sempre.`],
@@ -859,6 +862,7 @@ function costruisciIndice() {
   PGE.definizione.passaggi.forEach(p => indice.push({ t: p.t, c: p.c.replace(/<[^>]+>/g, '').slice(0, 90), ct: 'Definizione', h: '#/definizione' }));
   PGE.preScientifica.voci.forEach(v => indice.push({ t: v.nome, c: v.contributo.replace(/<[^>]+>/g, '').slice(0, 90), ct: 'Pre-scientifica', h: '#/excursus' }));
   (PGE.manuale && PGE.manuale.capitoli || []).forEach(c => indice.push({ t: c.n + '. ' + c.titolo, c: c.sommario, ct: 'Manuale', h: '#/manuale/' + c.id }));
+  if (window.alAlbero) { const T = alAlbero(); Object.values(T.indice).filter(n => n.figli && n.gen).forEach(n => indice.push({ t: n.titolo, c: 'Albero di studio · ' + (n.gen.titolo || ''), ct: 'Albero', h: '#/albero/' + encodeURIComponent(n.id) })); }
   (PGE.argomenti && PGE.argomenti.voci || []).forEach(v => indice.push({ t: v.titolo, c: 'Esposizione orale · ' + v.minuti + ' min · ' + v.perni.slice(0, 4).join(', '), ct: 'Argomento', h: '#/argomenti/' + v.id }));
   ((PGE.schede && PGE.schede.fascicoli) || []).forEach(f => f.schede.forEach(x => indice.push({ t: x.nome, c: x.identificazione.unaRiga.replace(/<[^>]+>/g, ''), ct: 'Scheda', h: '#/schede/' + f.id })));
   (PGE.nomi || []).forEach(n => indice.push({ t: n.n, c: n.scuola + ' — ' + n.indizio, ct: 'Nome', h: '#/nomi' }));

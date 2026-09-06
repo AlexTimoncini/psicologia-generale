@@ -16,6 +16,7 @@
   --accento:    #1B5E5A;
   --accento-tenue: #1B5E5A18;
   --segnale:    #A63D2A;
+  --ambra:      #B7791F;
   --griglia:    #1B5E5A0D;
   --ombra:      0 1px 2px #161B2208, 0 8px 24px #161B220A;
 
@@ -37,6 +38,7 @@ html[data-tema="sfondo"] {
   --accento:    #5CBFB2;
   --accento-tenue: #5CBFB21F;
   --segnale:    #E4785F;
+  --ambra:      #E0A84A;
   --griglia:    #5CBFB20D;
   --ombra:      0 1px 2px #0006, 0 8px 24px #0004;
 }
@@ -765,4 +767,71 @@ textarea {
   .sk-err { grid-template-columns:1fr; gap:.3rem; }
   .sk-terna > div { grid-template-columns:1fr; gap:.15rem; }
   .fasc-indice { grid-template-columns:1fr; }
+}
+
+
+/* ================= ALBERO DI STUDIO ================= */
+.al-strumenti { margin: 0 0 1.4rem; }
+.al-azioni { display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; margin-top:.8rem; }
+.al-esito { font-family: var(--dati); font-size:.78rem; color: var(--accento); min-height:1.2em; margin:.5rem 0 0; }
+.al-importa { margin-top:.8rem; padding:1rem; border:1px solid var(--linea); border-radius:8px; background: var(--carta-alta); }
+.al-importa textarea { width:100%; font-family: var(--dati); font-size:.8rem; min-height:110px; }
+.al-check { font-size:.85rem; color: var(--grafite); display:flex; gap:.4rem; align-items:center; }
+
+.al-albero { border-top: 1px solid var(--linea); }
+details.al-nodo { border-bottom: 1px solid var(--linea-fine); }
+details.al-nodo > summary {
+  list-style:none; cursor:pointer; display:flex; align-items:center; gap:.8rem;
+  padding:.75rem .4rem .75rem 0; position:relative;
+}
+details.al-nodo > summary::-webkit-details-marker { display:none; }
+details.al-nodo > summary::before {
+  content:''; width:.45em; height:.45em; border-right:1.5px solid var(--grafite); border-bottom:1.5px solid var(--grafite);
+  transform: rotate(-45deg); transition: transform .15s; flex:none; margin: 0 .3rem 0 .2rem;
+}
+details.al-nodo[open] > summary::before { transform: rotate(45deg); }
+details.al-nodo > summary:hover { background: var(--griglia); }
+.al-tit { font-family: var(--display); font-size:1.05rem; flex:1; min-width:0; }
+.al-tit em { font-style:normal; font-family: var(--dati); font-size:.7rem; color: var(--grafite); margin-left:.5rem; }
+details.al-p0 > summary .al-tit { font-size:1.35rem; }
+details.al-p1 > summary .al-tit { font-size:1.15rem; }
+details.al-p3 > summary .al-tit { font-size:1rem; }
+.al-meta { font-family: var(--dati); font-size:.68rem; color: var(--grafite); white-space:nowrap; letter-spacing:.02em; }
+.al-meta b { color: var(--segnale); font-weight:600; }
+.al-figli { padding-left: 1.4rem; border-left: 1px solid var(--linea-fine); margin: 0 0 .6rem .55rem; }
+.al-occhiello { font-size:.9rem; color: var(--grafite); margin:.2rem 0 .6rem 2rem; max-width:70ch; }
+
+.al-voto {
+  font-family: var(--dati); font-size:.8rem; font-weight:600; min-width:2.6em; text-align:center;
+  padding:.18em .45em; border-radius:999px; flex:none; border:1px solid transparent;
+}
+.al-voto.al-vuoto { color: var(--grafite); border-color: var(--linea); font-weight:400; }
+.al-v-basso { background: color-mix(in srgb, var(--segnale) 16%, transparent); color: var(--segnale); border-color: color-mix(in srgb, var(--segnale) 40%, transparent); }
+.al-v-medio { background: color-mix(in srgb, var(--ambra) 18%, transparent); color: var(--ambra); border-color: color-mix(in srgb, var(--ambra) 45%, transparent); }
+.al-v-buono { background: var(--accento-tenue); color: var(--accento); border-color: color-mix(in srgb, var(--accento) 40%, transparent); }
+.al-v-alto  { background: var(--accento); color: var(--carta-alta); border-color: var(--accento); }
+.al-media { opacity:.9; }
+
+.al-foglia { padding:.9rem 0 1rem; border-bottom:1px solid var(--linea-fine); }
+.al-foglia:last-child { border-bottom:none; }
+.al-foglia-testa { display:flex; gap:1rem; align-items:flex-start; justify-content:space-between; }
+.al-domanda { margin:0 0 .55rem; font-size:.95rem; line-height:1.45; }
+.al-domanda strong { display:block; font-family: var(--display); font-size:1.05rem; margin-bottom:.15rem; }
+.al-domanda span { color: var(--grafite); }
+.al-voto-col { display:flex; flex-direction:column; align-items:flex-end; gap:.25rem; flex:none; }
+.al-storico { font-family: var(--dati); font-size:.68rem; color: var(--grafite); letter-spacing:.03em; }
+.al-foglia textarea { width:100%; min-height:5.5em; resize:vertical; font-size:.95rem; line-height:1.5; }
+.al-foglia.al-corretta textarea { border-color: color-mix(in srgb, var(--accento) 35%, var(--linea)); }
+.al-foglia.al-da-correggere textarea { border-color: color-mix(in srgb, var(--ambra) 45%, var(--linea)); }
+.al-piede { display:flex; flex-wrap:wrap; gap:.4rem 1.2rem; justify-content:space-between; margin-top:.35rem; font-family: var(--dati); font-size:.68rem; color: var(--grafite); letter-spacing:.02em; }
+.al-fonte a { color: var(--accento); }
+.al-nota { margin:.6rem 0 0; padding:.6rem .8rem; border-left:2px solid var(--accento); background: var(--griglia); font-size:.9rem; line-height:1.5; }
+.al-nota span { font-family: var(--dati); font-size:.66rem; text-transform:uppercase; letter-spacing:.1em; color: var(--accento); margin-right:.5rem; }
+.al-albero[data-filtro="deboli"] .al-foglia:not([hidden]) .al-domanda strong { color: var(--segnale); }
+
+@media (max-width: 700px) {
+  details.al-nodo > summary { flex-wrap:wrap; }
+  .al-meta { white-space:normal; width:100%; order:3; padding-left:1.2rem; }
+  .al-figli { padding-left:.7rem; margin-left:.3rem; }
+  .al-occhiello { margin-left:1rem; }
 }

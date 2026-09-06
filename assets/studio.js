@@ -886,6 +886,9 @@ function vistaFascicolo(id) {
     const t = document.getElementById(a.getAttribute('href').slice(1));
     if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }));
+  /* #/schede/F2?a=S203 apre il fascicolo direttamente sulla scheda */
+  const a = (location.hash.split('?')[1] || '').match(/(?:^|&)a=(S\d+)/);
+  if (a) { const t = document.getElementById('sk-' + a[1]); if (t) setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80); }
 }
 
 const skVuoto = '<p class="sk-vuoto">—</p>';

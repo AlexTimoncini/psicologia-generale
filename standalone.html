@@ -29,6 +29,7 @@
   --accento:    #1B5E5A;
   --accento-tenue: #1B5E5A18;
   --segnale:    #A63D2A;
+  --ambra:      #B7791F;
   --griglia:    #1B5E5A0D;
   --ombra:      0 1px 2px #161B2208, 0 8px 24px #161B220A;
 
@@ -50,6 +51,7 @@ html[data-tema="sfondo"] {
   --accento:    #5CBFB2;
   --accento-tenue: #5CBFB21F;
   --segnale:    #E4785F;
+  --ambra:      #E0A84A;
   --griglia:    #5CBFB20D;
   --ombra:      0 1px 2px #0006, 0 8px 24px #0004;
 }
@@ -780,6 +782,73 @@ textarea {
   .fasc-indice { grid-template-columns:1fr; }
 }
 
+
+/* ================= ALBERO DI STUDIO ================= */
+.al-strumenti { margin: 0 0 1.4rem; }
+.al-azioni { display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; margin-top:.8rem; }
+.al-esito { font-family: var(--dati); font-size:.78rem; color: var(--accento); min-height:1.2em; margin:.5rem 0 0; }
+.al-importa { margin-top:.8rem; padding:1rem; border:1px solid var(--linea); border-radius:8px; background: var(--carta-alta); }
+.al-importa textarea { width:100%; font-family: var(--dati); font-size:.8rem; min-height:110px; }
+.al-check { font-size:.85rem; color: var(--grafite); display:flex; gap:.4rem; align-items:center; }
+
+.al-albero { border-top: 1px solid var(--linea); }
+details.al-nodo { border-bottom: 1px solid var(--linea-fine); }
+details.al-nodo > summary {
+  list-style:none; cursor:pointer; display:flex; align-items:center; gap:.8rem;
+  padding:.75rem .4rem .75rem 0; position:relative;
+}
+details.al-nodo > summary::-webkit-details-marker { display:none; }
+details.al-nodo > summary::before {
+  content:''; width:.45em; height:.45em; border-right:1.5px solid var(--grafite); border-bottom:1.5px solid var(--grafite);
+  transform: rotate(-45deg); transition: transform .15s; flex:none; margin: 0 .3rem 0 .2rem;
+}
+details.al-nodo[open] > summary::before { transform: rotate(45deg); }
+details.al-nodo > summary:hover { background: var(--griglia); }
+.al-tit { font-family: var(--display); font-size:1.05rem; flex:1; min-width:0; }
+.al-tit em { font-style:normal; font-family: var(--dati); font-size:.7rem; color: var(--grafite); margin-left:.5rem; }
+details.al-p0 > summary .al-tit { font-size:1.35rem; }
+details.al-p1 > summary .al-tit { font-size:1.15rem; }
+details.al-p3 > summary .al-tit { font-size:1rem; }
+.al-meta { font-family: var(--dati); font-size:.68rem; color: var(--grafite); white-space:nowrap; letter-spacing:.02em; }
+.al-meta b { color: var(--segnale); font-weight:600; }
+.al-figli { padding-left: 1.4rem; border-left: 1px solid var(--linea-fine); margin: 0 0 .6rem .55rem; }
+.al-occhiello { font-size:.9rem; color: var(--grafite); margin:.2rem 0 .6rem 2rem; max-width:70ch; }
+
+.al-voto {
+  font-family: var(--dati); font-size:.8rem; font-weight:600; min-width:2.6em; text-align:center;
+  padding:.18em .45em; border-radius:999px; flex:none; border:1px solid transparent;
+}
+.al-voto.al-vuoto { color: var(--grafite); border-color: var(--linea); font-weight:400; }
+.al-v-basso { background: color-mix(in srgb, var(--segnale) 16%, transparent); color: var(--segnale); border-color: color-mix(in srgb, var(--segnale) 40%, transparent); }
+.al-v-medio { background: color-mix(in srgb, var(--ambra) 18%, transparent); color: var(--ambra); border-color: color-mix(in srgb, var(--ambra) 45%, transparent); }
+.al-v-buono { background: var(--accento-tenue); color: var(--accento); border-color: color-mix(in srgb, var(--accento) 40%, transparent); }
+.al-v-alto  { background: var(--accento); color: var(--carta-alta); border-color: var(--accento); }
+.al-media { opacity:.9; }
+
+.al-foglia { padding:.9rem 0 1rem; border-bottom:1px solid var(--linea-fine); }
+.al-foglia:last-child { border-bottom:none; }
+.al-foglia-testa { display:flex; gap:1rem; align-items:flex-start; justify-content:space-between; }
+.al-domanda { margin:0 0 .55rem; font-size:.95rem; line-height:1.45; }
+.al-domanda strong { display:block; font-family: var(--display); font-size:1.05rem; margin-bottom:.15rem; }
+.al-domanda span { color: var(--grafite); }
+.al-voto-col { display:flex; flex-direction:column; align-items:flex-end; gap:.25rem; flex:none; }
+.al-storico { font-family: var(--dati); font-size:.68rem; color: var(--grafite); letter-spacing:.03em; }
+.al-foglia textarea { width:100%; min-height:5.5em; resize:vertical; font-size:.95rem; line-height:1.5; }
+.al-foglia.al-corretta textarea { border-color: color-mix(in srgb, var(--accento) 35%, var(--linea)); }
+.al-foglia.al-da-correggere textarea { border-color: color-mix(in srgb, var(--ambra) 45%, var(--linea)); }
+.al-piede { display:flex; flex-wrap:wrap; gap:.4rem 1.2rem; justify-content:space-between; margin-top:.35rem; font-family: var(--dati); font-size:.68rem; color: var(--grafite); letter-spacing:.02em; }
+.al-fonte a { color: var(--accento); }
+.al-nota { margin:.6rem 0 0; padding:.6rem .8rem; border-left:2px solid var(--accento); background: var(--griglia); font-size:.9rem; line-height:1.5; }
+.al-nota span { font-family: var(--dati); font-size:.66rem; text-transform:uppercase; letter-spacing:.1em; color: var(--accento); margin-right:.5rem; }
+.al-albero[data-filtro="deboli"] .al-foglia:not([hidden]) .al-domanda strong { color: var(--segnale); }
+
+@media (max-width: 700px) {
+  details.al-nodo > summary { flex-wrap:wrap; }
+  .al-meta { white-space:normal; width:100%; order:3; padding-left:1.2rem; }
+  .al-figli { padding-left:.7rem; margin-left:.3rem; }
+  .al-occhiello { margin-left:1rem; }
+}
+
 </style>
 </head>
 <body>
@@ -818,6 +887,7 @@ textarea {
     </div>
     <div class="barra-gruppo">
       <p class="barra-titolo">Allenamento</p>
+      <a href="#/albero">Albero di studio</a>
       <a href="#/quiz">Quiz a crocette</a>
       <a href="#/flashcard">Flashcard</a>
       <a href="#/nomi">Scrivere i nomi</a>
@@ -6920,6 +6990,199 @@ PGE.nomi = [
 
 </script>
 <script>
+/* ALBERO DI STUDIO — ripasso per scrittura attiva.
+
+   Ogni macro-argomento è scomposto in sotto-argomenti, fino a foglie che
+   pongono una DOMANDA. La risposta non è scritta qui: la scrive lo studente
+   nella casella, poi la esporta per la correzione. Il voto (1-100) e la nota
+   della correzione tornano in `voti` e restano visibili sull'albero, così si
+   vede a colpo d'occhio dove ristudiare.
+
+   Due tipi di nodo:
+     { id, titolo, figli:[...] }                   ramo
+     { id, titolo, domanda, fonte:{cap,scheda,arg} } foglia
+     { id, titolo, daScheda:"S203" }               ramo generato a runtime
+                                                    dai blocchi della scheda
+
+   `deve` è la traccia degli elementi attesi usata per la correzione.
+   Non viene mostrata sul sito.
+
+   `voti` — scritto da Claude dopo ogni correzione, chiave = id della foglia:
+     "S203:oggetto": { p:72, d:"2026-09-06", n:"che cosa mancava",
+                       storico:[ { d:"2026-09-04", p:45 } ] }                */
+var PGE = window.PGE = window.PGE || {};
+
+PGE.albero = {
+  intro: "Ogni argomento è scomposto fino alle domande di base. La risposta la scrivi tu, a memoria, come la diresti all'orale; poi la esporti e la passi in chat per la correzione. Il voto da 1 a 100 torna qui e resta sull'albero: quello che è sotto soglia si ristudia e si riscrive.",
+
+  rami: [
+
+    /* ===================== 1. LA DEFINIZIONE ===================== */
+    { id:"def", titolo:"La definizione di psicologia", occhiello:"Dall'etimologia alla definizione attuale, e perché è arrivata tardi",
+      figli:[
+        { id:"def:etim", titolo:"L'etimologia",
+          domanda:"Da dove viene la parola «psicologia» e che cosa significa alla lettera? Perché va liquidata in una frase?",
+          deve:["psyché = anima","lógos = discorso","«discorso sull'anima» = scienza della mente","l'oggetto originario (l'anima) non si lascia misurare: da qui il problema"],
+          fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
+
+        { id:"def:gen", titolo:"La definizione generale",
+          domanda:"Enuncia la definizione generale di psicologia e spiega perché il docente la dichiara volutamente vaga.",
+          deve:["studio scientifico della mente e del comportamento","è generale, non si usa all'esame","non dice il rapporto con l'ambiente né chi è il soggetto"],
+          fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
+
+        { id:"def:termini", titolo:"I due termini: mente e comportamento",
+          figli:[
+            { id:"def:termini:mente", titolo:"La mente",
+              domanda:"Che cos'è la mente, dove si colloca, come vi si accede e che cosa produce?",
+              deve:["esperienza interiore personale: percezioni, pensieri, ricordi, sentimenti","all'interno del soggetto","accesso solo soggettivo: nessuno vede il pensiero di un altro","produce un flusso di coscienza: ciò di cui siamo consapevoli nel qui e ora"],
+              fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
+            { id:"def:termini:comp", titolo:"Il comportamento",
+              domanda:"Che cos'è il comportamento, dove si colloca, come vi si accede? Perché la definizione dice «e degli animali non umani»?",
+              deve:["le azioni degli esseri umani e degli animali non umani nell'ambiente","all'esterno, nell'ambiente","direttamente osservabile da chiunque","mai dire «dell'uomo»: la psicologia comparata è metodo elettivo (Pavlov, Thorndike, Köhler, Watson, Skinner)"],
+              fonte:{cap:"C01",scheda:"S101",arg:"D01"} }
+          ] },
+
+        { id:"def:att", titolo:"La definizione attuale",
+          figli:[
+            { id:"def:att:testo", titolo:"Il testo alla lettera",
+              domanda:"Enuncia la definizione attuale e completa, parola per parola.",
+              deve:["studio scientifico del comportamento e dei processi mentali","dell'essere vivente","nel suo rapporto con l'ambiente","mentre lo esperisce, vi agisce e lo rappresenta"],
+              fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
+            { id:"def:att:elem", titolo:"Gli elementi, uno per uno",
+              figli:[
+                { id:"def:att:elem:sci", titolo:"«Studio scientifico»",
+                  domanda:"Che cosa porta con sé la parola «scientifico» nella definizione?",
+                  deve:["richiama il metodo sperimentale e la verifica empirica","porta con sé l'intero criterio di scientificità"],
+                  fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
+                { id:"def:att:elem:proc", titolo:"«Comportamento e processi mentali»",
+                  domanda:"Perché la definizione dice «processi mentali» e non «mente»? Di quale scuola è l'eredità?",
+                  deve:["non la mente come una cosa ma processi: un insieme di operazioni","eredità del funzionalismo"],
+                  fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
+                { id:"def:att:elem:viv", titolo:"«Dell'essere vivente»",
+                  domanda:"Perché «essere vivente» e non «uomo»? Che cosa rientra così nella definizione?",
+                  deve:["rientrano gli animali non umani","con essi la psicologia comparata, metodo elettivo della disciplina"],
+                  fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
+                { id:"def:att:elem:amb", titolo:"«Nel suo rapporto con l'ambiente»",
+                  domanda:"Perché è l'elemento decisivo, assente nella definizione generale?",
+                  deve:["comportamento e processi mentali non si studiano in isolamento ma in relazione all'ambiente","è ciò che manca alla definizione generale"],
+                  fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
+                { id:"def:att:elem:verbi", titolo:"I tre verbi",
+                  domanda:"Quali sono i tre verbi della definizione, a quale faccia del rapporto corrispondono e a quali scuole rimandano?",
+                  deve:["esperisce: ricettivo — psicofisica, Gestalt","agisce: attivo — funzionalismo, comportamentismo","rappresenta: interno — Vygotskij, Tolman, cognitivismo"],
+                  fonte:{cap:"C01",scheda:"S101",arg:"D01"} }
+              ] }
+          ] },
+
+        { id:"def:sci", titolo:"Che cosa la rende scientifica",
+          domanda:"Che cosa rende «scientifico» lo studio della mente: l'oggetto o il metodo? Qual è la data della svolta?",
+          deve:["non l'oggetto ma il metodo","metodo sperimentale con verifica empirica, contro la speculazione da assiomi indimostrabili","1879"],
+          fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
+
+        { id:"def:rit", titolo:"Il ritardo",
+          figli:[
+            { id:"def:rit:dato", titolo:"Il dato di fatto",
+              domanda:"Quando nascono fisica, chimica, biologia e psicologia scientifica? Quanti anni di psicologia filosofica contro quanti di psicologia scientifica?",
+              deve:["fisica moderna nel Seicento","chimica nel Settecento","biologia nell'Ottocento","psicologia scientifica nel 1879","oltre due millenni contro poco più di 140 anni"],
+              fonte:{cap:"C02",scheda:"S102",arg:"D01"} },
+            { id:"def:rit:metodi", titolo:"Metodo razionalista e metodo sperimentale",
+              domanda:"Che cosa distingue il metodo razionalista dal metodo sperimentale?",
+              deve:["razionalista: speculazione logica, da premesse — spesso assiomi indimostrabili — a conclusioni deduttive, nessuna verifica empirica","sperimentale: osservazione controllata, manipolazione, misura, verifica empirica tangibile, sul modello delle scienze naturali"],
+              fonte:{cap:"C02",scheda:"S102",arg:"D01"} },
+            { id:"def:rit:cause", titolo:"Le tre cause",
+              figli:[
+                { id:"def:rit:cause:1", titolo:"Prima causa: definire l'oggetto",
+                  domanda:"Qual è la prima causa del ritardo e che tipo di ostacolo è?",
+                  deve:["difficoltà di definire l'oggetto: che cosa significa studiare scientificamente un pensiero","ostacolo tecnico: «non so come misurarlo»","un metodo scientifico richiede un oggetto isolabile, manipolabile, misurabile"],
+                  fonte:{cap:"C02",scheda:"S102",arg:"D01"} },
+                { id:"def:rit:cause:2", titolo:"Seconda causa: l'uomo come oggetto",
+                  domanda:"Qual è la seconda causa del ritardo e che tipo di ostacolo è?",
+                  deve:["difficoltà di considerare l'uomo un oggetto di studio scientifico","ostacolo antropologico: «non mi è lecito trattarlo così»","le scienze naturali trattano l'oggetto in modo deterministico; applicarlo all'uomo urta una lunga tradizione"],
+                  fonte:{cap:"C02",scheda:"S102",arg:"D01"} },
+                { id:"def:rit:cause:3", titolo:"Terza causa: la mente trascendentale",
+                  domanda:"Qual è la terza causa del ritardo, la più profonda, e che tipo di ostacolo è?",
+                  deve:["concezione trascendentale della mente: considerata quasi divina per oltre due millenni","ostacolo metafisico: «non ha senso trattarlo così»","non è un problema di strumenti ma di categoria"],
+                  fonte:{cap:"C02",scheda:"S102",arg:"D01"} }
+              ] },
+            { id:"def:rit:posit", titolo:"Perché il positivismo non basta",
+              domanda:"Il ritardo si spiega di solito con il positivismo: perché è una spiegazione vera ma insufficiente, e che cosa la completa?",
+              deve:["il positivismo attribuisce alle scienze naturali il ruolo di unica fonte attendibile di conoscenza","è un'affermazione di principio: dice che la psicologia dovrebbe essere scienza, non dice come","serve la dimostrazione concreta che un fenomeno psichico possa essere misurato: la psicofisica"],
+              fonte:{cap:"C02",scheda:"S102",arg:"D01"} }
+          ] },
+
+        { id:"def:eman", titolo:"La doppia emancipazione",
+          figli:[
+            { id:"def:eman:fil", titolo:"Dalla filosofia",
+              domanda:"Enuncia la formula dell'emancipazione dalla filosofia: da che cosa a che cosa? Che cosa cambia?",
+              deve:["dallo studio della mente sul piano filosofico","allo studio della relazione mente-corpo sul piano naturalistico","cambiano insieme l'oggetto (la relazione con qualcosa di materiale) e il piano (naturalistico, non speculativo)"],
+              fonte:{cap:"C02",scheda:"S102",arg:"D01"} },
+            { id:"def:eman:med", titolo:"Dalla medicina",
+              domanda:"Enuncia la formula dell'emancipazione dalla medicina. Che cosa mancava, se il cervello era già studiato scientificamente?",
+              deve:["dallo studio del cervello sul piano meramente fisiologico","all'unità cervello-mente e alle sue interazioni con l'ambiente","mancava il ponte concettuale: ammettere che la mente possa essere determinata dal funzionamento del cervello"],
+              fonte:{cap:"C02",scheda:"S102",arg:"D01"} },
+            { id:"def:eman:conv", titolo:"Dove convergono",
+              domanda:"Le due traiettorie corrono parallele o convergono? Dove si incontrano, e che cosa c'entrano i tre verbi?",
+              deve:["convergono: la filosofia porta la mente sul piano naturalistico, la medicina porta il cervello a farsi carico della mente","si incontrano nella definizione attuale: l'unità mente-cervello in relazione con l'ambiente","quel rapporto ha tre facce, per questo la definizione ha tre verbi"],
+              fonte:{cap:"C01",scheda:"S101",arg:"D01"} }
+          ] }
+      ] },
+
+    /* ===================== 2. L'EXCURSUS STORICO ===================== */
+    { id:"exc", titolo:"L'excursus storico", occhiello:"Per ogni scuola: perché nasce, radici, precursori, oggetto, metodo, teorie, esponenti, esperimenti, validità",
+      figli:[
+        { id:"exc:pre",    titolo:"La fase pre-scientifica",                         daScheda:"S201" },
+        { id:"exc:ctx",    titolo:"Il contesto della svolta: positivismo e psicofisica", daScheda:"S202" },
+        { id:"exc:wundt",  titolo:"La nascita della psicologia scientifica",         daScheda:"S203" },
+        { id:"exc:strutt", titolo:"Lo strutturalismo",                               daScheda:"S204" },
+        { id:"exc:funz",   titolo:"Il funzionalismo",                                daScheda:"S205" },
+        { id:"exc:rifl",   titolo:"La scuola riflessologica",                        daScheda:"S206" },
+        { id:"exc:stor",   titolo:"La scuola storico-culturale",                     daScheda:"S207" },
+        { id:"exc:din",    titolo:"La psicologia dinamica",                          daScheda:"S208" },
+        { id:"exc:gest",   titolo:"La psicologia della Gestalt",                     daScheda:"S209" },
+        { id:"exc:comp",   titolo:"Il comportamentismo",                             daScheda:"S210" }
+      ] },
+
+    /* ===================== 3. IL PRESENTE ===================== */
+    { id:"pres", titolo:"La psicologia contemporanea", occhiello:"Dal cognitivismo alle discipline collaterali",
+      figli:[
+        { id:"pres:cogn",  titolo:"Il cognitivismo",                                 daScheda:"S301" },
+        { id:"pres:sci",   titolo:"La scienza cognitiva: modularismo e connessionismo", daScheda:"S302" },
+        { id:"pres:emb",   titolo:"La mente embodied e l'approccio biopsicosociale", daScheda:"S303" },
+        { id:"pres:neuro", titolo:"Le neuroscienze comportamentali",                 daScheda:"S304" },
+        { id:"pres:coll",  titolo:"Le discipline collaterali",                       daScheda:"S305" }
+      ] },
+
+    /* ===================== 4. LA METODOLOGIA ===================== */
+    { id:"met", titolo:"La metodologia della ricerca", occhiello:"Dal metodo scientifico alla pubblicazione",
+      figli:[
+        { id:"met:metodo",  titolo:"Il metodo scientifico",                            daScheda:"S401" },
+        { id:"met:proc",    titolo:"Il processo di ricerca",                           daScheda:"S402" },
+        { id:"met:var",     titolo:"Le variabili e la revisione della letteratura",    daScheda:"S403" },
+        { id:"met:descr",   titolo:"I metodi descrittivi",                             daScheda:"S404" },
+        { id:"met:corr",    titolo:"Il metodo correlazionale",                         daScheda:"S405" },
+        { id:"met:sper",    titolo:"Il metodo sperimentale",                           daScheda:"S406" },
+        { id:"met:pubbl",   titolo:"La pubblicazione scientifica",                     daScheda:"S407" }
+      ] },
+
+    /* ===================== 5. LE BASI BIOLOGICHE ===================== */
+    { id:"bio", titolo:"Le basi biologiche del comportamento", occhiello:"Dal neurone alla plasticità",
+      figli:[
+        { id:"bio:neur",   titolo:"Il neurone: la struttura",                         daScheda:"S501" },
+        { id:"bio:elet",   titolo:"L'attività elettrica e la sinapsi",                daScheda:"S502" },
+        { id:"bio:sn",     titolo:"L'architettura del sistema nervoso",               daScheda:"S503" },
+        { id:"bio:prim",   titolo:"Il cervello primitivo",                            daScheda:"S504" },
+        { id:"bio:cort",   titolo:"La corteccia cerebrale",                           daScheda:"S505" },
+        { id:"bio:met",    titolo:"I metodi di indagine del cervello",                daScheda:"S506" },
+        { id:"bio:gen",    titolo:"Evoluzione, geni ed ereditarietà",                 daScheda:"S507" },
+        { id:"bio:plast",  titolo:"Epigenetica e plasticità cerebrale",               daScheda:"S508" }
+      ] }
+  ],
+
+  /* i voti della correzione, chiave = id della foglia */
+  voti: {}
+};
+
+</script>
+<script>
 /* Psicologia Generale — manuale e strumenti di allenamento.
    Caricato prima di app.js: le funzioni sono globali e il router le trova.
    L'unico stato persistente è in localStorage, sotto il prefisso "pge:". */
@@ -7808,6 +8071,9 @@ function vistaFascicolo(id) {
     const t = document.getElementById(a.getAttribute('href').slice(1));
     if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }));
+  /* #/schede/F2?a=S203 apre il fascicolo direttamente sulla scheda */
+  const a = (location.hash.split('?')[1] || '').match(/(?:^|&)a=(S\d+)/);
+  if (a) { const t = document.getElementById('sk-' + a[1]); if (t) setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80); }
 }
 
 const skVuoto = '<p class="sk-vuoto">—</p>';
@@ -7910,6 +8176,418 @@ function schedaConcetto(s, i) {
 
 </script>
 <script>
+/* =========================================================
+   ALBERO DI STUDIO — ripasso per scrittura attiva
+   I nodi `daScheda` vengono espansi a runtime dai blocchi della
+   scheda: perché nasce, radici, precursori, oggetto, metodo,
+   teorie, esponenti (con le loro teorie), esperimenti, validità,
+   precorre, errori, esposizione d'insieme.
+   ========================================================= */
+
+const AL_SOGLIA = 70;   /* sotto questa soglia la voce è "da ristudiare" */
+
+const alHas = a => Array.isArray(a) && a.length > 0;
+const alTesto = s => String(s == null ? '' : s).replace(/<[^>]+>/g, '');
+function alSlug(s) { return sfoltisci(alTesto(s)).split(' ').filter(Boolean).slice(0, 4).join('-') || 'x'; }
+
+/* slug unici all'interno di una lista */
+function alSlugs(lista, campo) {
+  const visti = {};
+  return lista.map(x => {
+    let k = alSlug(campo ? x[campo] : x);
+    if (visti[k]) { visti[k]++; k += '-' + visti[k]; } else visti[k] = 1;
+    return k;
+  });
+}
+
+function alArgomentoPer(cap) {
+  const v = (PGE.argomenti && PGE.argomenti.voci || []).find(v => (v.capitoli || []).includes(cap));
+  return v ? v.id : null;
+}
+
+/* ---------- espansione di una scheda in rami e foglie ---------- */
+function alDaScheda(nodo) {
+  const s = PGE.schede.fascicoli.flatMap(f => f.schede).find(x => x.id === nodo.daScheda);
+  if (!s) return { id: nodo.id, titolo: nodo.titolo, figli: [] };
+  const N = alTesto(s.nome), sid = s.id;
+  const fonte = { cap: s.identificazione.capitolo, scheda: sid, arg: alArgomentoPer(s.identificazione.capitolo) };
+  const F = (id, titolo, domanda, rif) => ({ id, titolo, domanda, fonte, rif });
+  const figli = [];
+
+  if (s.tipo === 'concetto') {
+    (s.definizioni || []).forEach((d, i) => figli.push(F(`${sid}:def:${alSlug(d.termine)}`, alTesto(d.termine),
+      `Enuncia «${alTesto(d.termine)}» e spiegane il senso.`, `${sid} › definizioni[${i}]`)));
+    if (alHas(s.errori)) figli.push(F(`${sid}:errori`, 'Dove si perde il voto',
+      `Quali sono gli errori tipici su «${N}»? Per ciascuno: la formulazione sbagliata e quella corretta.`, `${sid} › errori`));
+    return { id: nodo.id, titolo: nodo.titolo, occhiello: s.identificazione.unaRiga, fonte, figli };
+  }
+
+  if (s.nasceDa) figli.push(F(`${sid}:nasce`, 'Perché nasce',
+    `Da quale problema o esigenza nasce «${N}», e qual è la formula che lo riassume?`, `${sid} › nasceDa`));
+
+  if (alHas(s.radici)) {
+    const k = alSlugs(s.radici, 'nome');
+    figli.push({ id: `${sid}:radici`, titolo: 'Le radici', figli: s.radici.map((r, i) =>
+      F(`${sid}:rad:${k[i]}`, alTesto(r.nome), `Che cos'è «${alTesto(r.nome)}», che tipo di radice è, e quale tesi porta a «${N}»?`, `${sid} › radici[${i}]`)) });
+  }
+  if (alHas(s.precursori)) {
+    const k = alSlugs(s.precursori, 'nome');
+    figli.push({ id: `${sid}:precursori`, titolo: 'I precursori', figli: s.precursori.map((p, i) =>
+      F(`${sid}:prec:${k[i]}`, alTesto(p.nome), `Chi o che cos'è «${alTesto(p.nome)}», da dove viene e qual è il suo apporto a «${N}»?`, `${sid} › precursori[${i}]`)) });
+  }
+  if (s.oggetto) figli.push(F(`${sid}:oggetto`, "L'oggetto di studio", `Qual è l'oggetto di studio di «${N}»? Formula e spiegazione.`, `${sid} › oggetto`));
+  if (s.metodo)  figli.push(F(`${sid}:metodo`,  'Il metodo', `Qual è il metodo di «${N}»? Formula, spiegazione e vincoli.`, `${sid} › metodo`));
+
+  if (alHas(s.teorie)) {
+    const k = alSlugs(s.teorie, 'nome');
+    figli.push({ id: `${sid}:teorie`, titolo: 'Le teorie', figli: s.teorie.map((t, i) =>
+      F(`${sid}:teo:${k[i]}`, alTesto(t.nome), `Enuncia «${alTesto(t.nome)}» e spiegane il senso.`, `${sid} › teorie[${i}]`)) });
+  }
+  if (alHas(s.esponenti)) {
+    const k = alSlugs(s.esponenti, 'nome');
+    figli.push({ id: `${sid}:esponenti`, titolo: 'Gli esponenti', figli: s.esponenti.map((e, i) => {
+      const E = alTesto(e.nome), base = `${sid}:esp:${k[i]}`;
+      const chi = `Chi è ${E}: anni, ruolo, luogo, e che cosa ha fatto per «${N}».`;
+      if (!alHas(e.teorie)) return F(base, E, chi, `${sid} › esponenti[${i}]`);
+      const kt = alSlugs(e.teorie, 'nome');
+      return { id: base, titolo: E, meta: [e.anni, e.ruolo].filter(x => x && x !== '—').join(' · '), figli: [
+        F(`${base}:chi`, 'Chi è e che cosa ha fatto', chi, `${sid} › esponenti[${i}]`),
+        ...e.teorie.map((t, j) => F(`${base}:teo:${kt[j]}`, alTesto(t.nome), `Enuncia «${alTesto(t.nome)}» di ${E} e spiegane il senso.`, `${sid} › esponenti[${i}] › teorie[${j}]`))
+      ] };
+    }) });
+  }
+  if (alHas(s.esperimenti)) {
+    const k = alSlugs(s.esperimenti, 'nome');
+    figli.push({ id: `${sid}:esperimenti`, titolo: 'Gli esperimenti', figli: s.esperimenti.map((x, i) =>
+      F(`${sid}:esper:${k[i]}`, alTesto(x.nome), `Descrivi «${alTesto(x.nome)}»: disegno, risultato e significato.`, `${sid} › esperimenti[${i}]`)) });
+  }
+  if (s.validita) figli.push(F(`${sid}:validita`, 'La validità', `La validità di «${N}»: merito, limite ed esito.`, `${sid} › validita`));
+  if (alHas(s.precorre)) figli.push(F(`${sid}:precorre`, 'Che cosa precorre', `Che cosa precorre «${N}», e in che modo?`, `${sid} › precorre`));
+  if (alHas(s.errori)) figli.push(F(`${sid}:errori`, 'Dove si perde il voto',
+    `Quali sono gli errori tipici su «${N}»? Per ciascuno: la formulazione sbagliata e quella corretta.`, `${sid} › errori`));
+  figli.push(F(`${sid}:orale`, "L'esposizione d'insieme", `Esponi «${N}» per intero, come all'orale, in quattro-cinque minuti.`, `${sid} › intera scheda`));
+
+  return { id: nodo.id, titolo: nodo.titolo, occhiello: s.identificazione.unaRiga, fonte, figli: alSpiana(figli) };
+}
+
+/* un gruppo con un solo elemento non merita un ramo: il figlio sale di livello
+   (stesso id, così i voti restano validi) con un'etichetta al singolare */
+const AL_SINGOLARE = { radici: 'La radice', precursori: 'Il precursore', teorie: 'La teoria', esponenti: "L'esponente", esperimenti: "L'esperimento" };
+function alSpiana(figli) {
+  return figli.map(g => {
+    if (!g.figli || g.figli.length !== 1) return g;
+    const tipo = g.id.split(':').pop(), unico = g.figli[0];
+    if (!AL_SINGOLARE[tipo]) return g;
+    if (unico.figli) return { ...unico, titolo: `${AL_SINGOLARE[tipo]}: ${unico.titolo}` };
+    return { ...unico, titolo: `${AL_SINGOLARE[tipo]}: ${unico.titolo}` };
+  });
+}
+
+/* ---------- albero completo, con genitori e indice ---------- */
+let AL_CACHE = null;
+function alAlbero() {
+  if (AL_CACHE) return AL_CACHE;
+  const indice = {}, foglie = [];
+  const visita = (n, gen) => {
+    const m = n.daScheda ? alDaScheda(n) : { ...n };
+    m.gen = gen; indice[m.id] = m;
+    if (m.figli) m.figli = m.figli.map(f => visita(f, m));
+    else foglie.push(m);
+    return m;
+  };
+  AL_CACHE = { rami: PGE.albero.rami.map(r => visita(r, null)), indice, foglie };
+  return AL_CACHE;
+}
+
+/* ---------- stato: risposte e voti ---------- */
+const alRisposte = () => MEM.get('albero.risposte', {});
+
+function alVoti() {
+  const repo = PGE.albero.voti || {}, loc = MEM.get('albero.voti', {}), out = {};
+  new Set([...Object.keys(repo), ...Object.keys(loc)]).forEach(id => {
+    const a = repo[id], b = loc[id];
+    const v = !a ? b : !b ? a : (String(b.d) >= String(a.d) ? b : a);
+    const st = {};
+    [a, b].forEach(x => { if (!x) return; (x.storico || []).forEach(h => st[h.d] = h.p); st[x.d] = x.p; });
+    out[id] = { ...v, storico: Object.keys(st).sort().map(d => ({ d, p: st[d] })) };
+  });
+  return out;
+}
+
+function alFascia(p) { return p == null ? '' : p < 50 ? 'basso' : p < AL_SOGLIA ? 'medio' : p < 90 ? 'buono' : 'alto'; }
+
+/* corretta = il voto si riferisce proprio a questa versione della risposta */
+function alStato(id, R, V) {
+  const r = R[id], v = V[id], scritta = r && r.t && r.t.trim();
+  if (v && (!scritta || v.r === r.d || (!v.r && String(r.d).slice(0, 10) <= String(v.d).slice(0, 10)))) return 'corretta';
+  return scritta ? 'da-correggere' : 'da-scrivere';
+}
+
+function alAggrega(n, R, V) {
+  if (!n.figli) {
+    const v = V[n.id], st = alStato(n.id, R, V);
+    return { foglie: 1, scritte: st !== 'da-scrivere' ? 1 : 0, corrette: v ? 1 : 0, somma: v ? v.p : 0, daCorreggere: st === 'da-correggere' ? 1 : 0, deboli: v && v.p < AL_SOGLIA ? 1 : 0 };
+  }
+  const t = { foglie: 0, scritte: 0, corrette: 0, somma: 0, daCorreggere: 0, deboli: 0 };
+  n.figli.forEach(f => { const a = alAggrega(f, R, V); Object.keys(t).forEach(k => t[k] += a[k]); });
+  return t;
+}
+const alMedia = a => a.corrette ? Math.round(a.somma / a.corrette) : null;
+
+const alData = d => { try { return new Date(d).toLocaleDateString('it-IT', { day: 'numeric', month: 'short' }); } catch (e) { return d; } };
+const alFasc = sid => '#/schede/F' + String(sid).charAt(1) + '?a=' + sid;
+
+/* ---------- rendering ---------- */
+function alVoto(p, cls) {
+  return p == null ? '' : `<span class="al-voto al-v-${alFascia(p)} ${cls || ''}">${p}</span>`;
+}
+
+function alRendiFoglia(f, R, V, prof) {
+  const r = R[f.id] || {}, v = V[f.id], st = alStato(f.id, R, V);
+  const fo = f.fonte || {};
+  const link = [
+    fo.scheda ? `<a href="${alFasc(fo.scheda)}">scheda ${fo.scheda}</a>` : '',
+    fo.cap ? `<a href="#/manuale/${fo.cap}">cap. ${parseInt(fo.cap.slice(1), 10) || fo.cap}</a>` : '',
+    fo.arg ? `<a href="#/argomenti/${fo.arg}">esposizione</a>` : ''
+  ].filter(Boolean).join(' · ');
+  const storico = v && v.storico && v.storico.length > 1
+    ? `<span class="al-storico">${v.storico.map(h => h.p).join(' → ')}</span>` : '';
+  const stato = st === 'corretta' ? `corretta il ${alData(v.d)}`
+              : st === 'da-correggere' ? `scritta il ${alData(r.d)} · da correggere`
+              : 'da scrivere';
+  return `<div class="al-foglia al-${st}" data-id="${f.id}" id="al-${f.id}">
+    <div class="al-foglia-testa">
+      <p class="al-domanda"><strong>${esc(f.titolo)}</strong> <span>${esc(f.domanda || '')}</span></p>
+      <div class="al-voto-col">${alVoto(v && v.p)}${storico}</div>
+    </div>
+    <textarea rows="4" placeholder="Scrivi qui, a memoria, quello che diresti all'orale…" spellcheck="false">${esc(r.t || '')}</textarea>
+    <div class="al-piede">
+      <span class="al-stato">${stato}</span>
+      ${link ? `<span class="al-fonte">ristudia: ${link}</span>` : ''}
+    </div>
+    ${v && v.n ? `<p class="al-nota"><span>correzione</span> ${v.n}</p>` : ''}
+  </div>`;
+}
+
+function alRendiNodo(n, R, V, prof, aperti) {
+  if (!n.figli) return alRendiFoglia(n, R, V, prof);
+  const a = alAggrega(n, R, V), m = alMedia(a);
+  const aperto = aperti ? aperti.has(n.id) : prof === 0;
+  const meta = [
+    `${a.foglie} ${a.foglie === 1 ? 'domanda' : 'domande'}`,
+    a.scritte ? `${a.scritte} scritte` : '',
+    a.corrette ? `${a.corrette} corrette` : '',
+    a.deboli ? `<b>${a.deboli} sotto ${AL_SOGLIA}</b>` : ''
+  ].filter(Boolean).join(' · ');
+  return `<details class="al-nodo al-p${Math.min(prof, 3)}" data-id="${n.id}" id="al-${n.id}"${aperto ? ' open' : ''}>
+    <summary>
+      <span class="al-tit">${esc(n.titolo)}${n.meta ? ` <em>${esc(n.meta)}</em>` : ''}</span>
+      <span class="al-meta">${meta}</span>
+      ${m != null ? alVoto(m, 'al-media') : '<span class="al-voto al-vuoto">—</span>'}
+    </summary>
+    ${n.occhiello && prof > 0 ? `<p class="al-occhiello">${n.occhiello}</p>` : ''}
+    <div class="al-figli">${n.figli.map(f => alRendiNodo(f, R, V, prof + 1, aperti)).join('')}</div>
+  </details>`;
+}
+
+function vistaAlbero(vai) {
+  const T = alAlbero(), R = alRisposte(), V = alVoti();
+  const salvati = MEM.get('albero.aperti', null);
+  const aperti = salvati ? new Set(salvati) : null;
+  const tot = alAggrega({ figli: T.rami }, R, V), media = alMedia(tot);
+  const filtro = MEM.get('albero.filtro', 'tutte');
+
+  main.innerHTML = `
+    <p class="occhiello">Allenamento</p>
+    <h1>Albero di studio</h1>
+    <p class="sommario">${PGE.albero.intro}</p>
+
+    <div class="griglia tre" style="margin-bottom:1.6rem">
+      <div class="dato"><span class="dato-cifra">${tot.foglie}</span><span class="dato-eti">domande sull'albero</span></div>
+      <div class="dato"><span class="dato-cifra">${tot.scritte}</span><span class="dato-eti">risposte scritte · ${tot.daCorreggere} da correggere</span></div>
+      <div class="dato"><span class="dato-cifra">${media != null ? media : '—'}</span><span class="dato-eti">media delle ${tot.corrette} corrette · ${tot.deboli} sotto ${AL_SOGLIA}</span></div>
+    </div>
+
+    <div class="al-strumenti">
+      <div class="filtri" id="alFiltri">
+        ${[['tutte', 'Tutte'], ['da-scrivere', 'Da scrivere'], ['da-correggere', 'Da correggere'], ['deboli', `Sotto ${AL_SOGLIA}`], ['corretta', 'Corrette']]
+          .map(([k, e]) => `<button class="chip${filtro === k ? ' attivo' : ''}" data-filtro="${k}">${e}</button>`).join('')}
+      </div>
+      <div class="al-azioni">
+        <button class="bottone vuoto" id="alProssima">Vai alla prima da scrivere</button>
+        <button class="bottone vuoto" id="alChiudi">Chiudi tutto</button>
+        <button class="bottone" id="alEsporta">Copia le risposte per la correzione</button>
+        <button class="bottone vuoto" id="alImportaApri">Incolla i voti</button>
+      </div>
+      <p class="al-esito" id="esito"></p>
+      <div class="al-importa" id="alImporta" hidden>
+        <p class="nota">Incolla qui il blocco di voti restituito dalla correzione (un oggetto JSON con chiave l'id della domanda). I voti vengono salvati in questo browser e uniti a quelli pubblicati sul sito.</p>
+        <textarea rows="5" id="alImportaTesto" spellcheck="false" placeholder='{ "def:etim": { "p": 80, "d": "2026-09-06", "n": "…" } }'></textarea>
+        <div class="al-azioni"><button class="bottone" id="alImportaVai">Importa</button><label class="al-check"><input type="checkbox" id="alTutte"> nell'esportazione includi anche le già corrette</label></div>
+      </div>
+    </div>
+
+    <div class="al-albero" id="alAlbero" data-filtro="${filtro}">
+      ${T.rami.map(r => alRendiNodo(r, R, V, 0, aperti)).join('')}
+    </div>
+
+    <div class="scheda" style="margin-top:2rem">
+      <h3 style="margin-top:0">Come si usa</h3>
+      <ol style="margin:0;padding-left:1.2rem;font-size:.93rem;color:var(--grafite)">
+        <li>Apri un ramo, leggi la domanda, scrivi la risposta <strong>senza guardare</strong>. Si salva da sola mentre scrivi.</li>
+        <li>Quando hai scritto un blocco, premi <em>Copia le risposte</em> e incolla il testo in chat: la correzione dà un <strong>voto da 1 a 100</strong> e una nota su che cosa mancava.</li>
+        <li>I voti tornano sull'albero — pubblicati nel sito o incollati qui con <em>Incolla i voti</em>. Il ramo mostra la <strong>media</strong> delle sue domande.</li>
+        <li>Filtra <em>Sotto ${AL_SOGLIA}</em>: sono le voci da ristudiare. Riscrivile dopo aver riletto la scheda: il voto nuovo si aggiunge allo storico (<span class="al-storico">45 → 78</span>).</li>
+      </ol>
+    </div>`;
+
+  alCollega(T);
+  alApplicaFiltro();
+  if (vai) alApriPercorso(vai, true);
+}
+
+/* ---------- interazione ---------- */
+const AL_TIMER = {};
+function alCollega(T) {
+  const albero = $('#alAlbero');
+
+  /* salvataggio automatico delle risposte */
+  albero.addEventListener('input', e => {
+    const ta = e.target; if (ta.tagName !== 'TEXTAREA') return;
+    const f = ta.closest('.al-foglia'), id = f.dataset.id;
+    clearTimeout(AL_TIMER[id]);
+    AL_TIMER[id] = setTimeout(() => {
+      const R = alRisposte();
+      if (ta.value.trim()) R[id] = { t: ta.value, d: new Date().toISOString() }; else delete R[id];
+      MEM.set('albero.risposte', R);
+      alAggiornaFoglia(f);
+    }, 400);
+  });
+
+  /* memoria dei rami aperti */
+  albero.addEventListener('toggle', e => {
+    const d = e.target; if (!d.classList || !d.classList.contains('al-nodo')) return;
+    const s = new Set(MEM.get('albero.aperti', T.rami.map(r => r.id)));
+    d.open ? s.add(d.dataset.id) : s.delete(d.dataset.id);
+    MEM.set('albero.aperti', [...s]);
+  }, true);
+
+  $('#alFiltri .chip').forEach(b => b.addEventListener('click', () => {
+    $('#alFiltri .chip').forEach(x => x.classList.toggle('attivo', x === b));
+    albero.dataset.filtro = b.dataset.filtro; MEM.set('albero.filtro', b.dataset.filtro);
+    alApplicaFiltro();
+  }));
+
+  $('#alChiudi').addEventListener('click', () => { $('#alAlbero details').forEach(d => d.open = false); MEM.set('albero.aperti', []); });
+  $('#alProssima').addEventListener('click', () => {
+    const f = $('#alAlbero .al-foglia.al-da-scrivere').find(x => !x.hidden);
+    if (!f) { $('#esito').textContent = 'Non c\'è nulla da scrivere con questo filtro.'; return; }
+    alApriPercorso(f.dataset.id, true);
+  });
+  $('#alEsporta').addEventListener('click', () => {
+    const t = alEsportazione($('#alTutte').checked);
+    if (!t) { $('#esito').textContent = 'Nessuna risposta da correggere: scrivine qualcuna prima.'; return; }
+    copia(t);
+  });
+  $('#alImportaApri').addEventListener('click', () => { const b = $('#alImporta'); b.hidden = !b.hidden; if (!b.hidden) $('#alImportaTesto').focus(); });
+  $('#alImportaVai').addEventListener('click', () => alImporta($('#alImportaTesto').value));
+}
+
+/* riaggiorna stato e contatori senza ridisegnare tutto */
+function alAggiornaFoglia(f) {
+  const R = alRisposte(), V = alVoti(), id = f.dataset.id, st = alStato(id, R, V);
+  f.className = 'al-foglia al-' + st;
+  const r = R[id] || {}, v = V[id];
+  $('.al-stato', f).textContent = st === 'corretta' ? `corretta il ${alData(v.d)}` : st === 'da-correggere' ? `scritta il ${alData(r.d)} · da correggere` : 'da scrivere';
+  /* contatori dei rami che la contengono */
+  const T = alAlbero();
+  let n = T.indice[id] && T.indice[id].gen;
+  while (n) {
+    const d = document.getElementById('al-' + n.id);
+    if (d) { const a = alAggrega(n, R, V), m = alMedia(a);
+      $('.al-meta', d).innerHTML = [`${a.foglie} ${a.foglie === 1 ? 'domanda' : 'domande'}`, a.scritte ? `${a.scritte} scritte` : '', a.corrette ? `${a.corrette} corrette` : '', a.deboli ? `<b>${a.deboli} sotto ${AL_SOGLIA}</b>` : ''].filter(Boolean).join(' · ');
+      const vv = $('summary .al-voto', d); if (vv) vv.outerHTML = m != null ? alVoto(m, 'al-media') : '<span class="al-voto al-vuoto">—</span>'; }
+    n = n.gen;
+  }
+  const tot = alAggrega({ figli: T.rami }, R, V);
+  const cifre = $('.dato-cifra'); if (cifre[1]) cifre[1].textContent = tot.scritte;
+  const eti = $('.dato-eti'); if (eti[1]) eti[1].textContent = `risposte scritte · ${tot.daCorreggere} da correggere`;
+}
+
+function alApplicaFiltro() {
+  const albero = $('#alAlbero'), fil = albero.dataset.filtro || 'tutte';
+  const V = alVoti();
+  $('.al-foglia', albero).forEach(f => {
+    const v = V[f.dataset.id];
+    const ok = fil === 'tutte' ? true
+      : fil === 'deboli' ? !!(v && v.p < AL_SOGLIA)
+      : f.classList.contains('al-' + fil);
+    f.hidden = !ok;
+  });
+  /* i rami senza foglie visibili spariscono */
+  $('details.al-nodo', albero).reverse().forEach(d => {
+    d.hidden = ![...d.querySelectorAll('.al-foglia')].some(f => !f.hidden);
+  });
+}
+
+function alApriPercorso(id, focus) {
+  const T = alAlbero(); let n = T.indice[id]; if (!n) return;
+  const s = new Set(MEM.get('albero.aperti', T.rami.map(r => r.id)));
+  for (let g = n.gen; g; g = g.gen) { const d = document.getElementById('al-' + g.id); if (d) { d.open = true; d.hidden = false; s.add(g.id); } }
+  MEM.set('albero.aperti', [...s]);
+  const el = document.getElementById('al-' + id); if (!el) return;
+  el.hidden = false;
+  setTimeout(() => { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); if (focus) { const ta = $('textarea', el); if (ta) ta.focus(); } }, 60);
+}
+
+/* ---------- esportazione per la correzione ---------- */
+function alEsportazione(tutte) {
+  const T = alAlbero(), R = alRisposte(), V = alVoti();
+  const percorso = f => { const p = []; for (let g = f.gen; g; g = g.gen) p.unshift(g.titolo); return p.join(' › '); };
+  const voci = T.foglie.filter(f => { const st = alStato(f.id, R, V); return st === 'da-correggere' || (tutte && st === 'corretta'); });
+  if (!voci.length) return '';
+  const righe = [
+    'ALBERO DI STUDIO — risposte da correggere',
+    `Data: ${new Date().toLocaleDateString('it-IT')}`,
+    'Corso: Psicologia Generale (SFO_PGE)',
+    '',
+    `Per ogni voce dai un voto da 1 a 100 su quello che avrei dovuto dire (traccia: campo «deve» in data/albero.js, oppure il blocco della scheda indicato in «rif»), con una nota breve su che cosa mancava. Aggiorna PGE.albero.voti nel sito e restituiscimi il JSON da incollare in «Incolla i voti». Conserva il campo r: è la versione della risposta corretta.`,
+    '', '———', ''
+  ];
+  voci.forEach(f => {
+    const r = R[f.id], v = V[f.id];
+    righe.push(`[${f.id}] ${percorso(f)} › ${f.titolo}`, `Domanda: ${f.domanda || ''}`, `rif: ${f.rif || (f.fonte && f.fonte.scheda ? f.fonte.scheda : '')} · scritta: ${r.d}`);
+    if (v) righe.push(`Voto precedente: ${v.p} (${v.d})`);
+    righe.push('RISPOSTA:', r.t.trim(), '', '———', '');
+  });
+  return righe.join('\n');
+}
+
+/* ---------- importazione dei voti ---------- */
+function alImporta(testo) {
+  let dati;
+  try { dati = JSON.parse(testo.trim()); } catch (e) { $('#esito').textContent = 'Non è un JSON valido.'; return; }
+  if (dati && dati.voti) dati = dati.voti;
+  const T = alAlbero(), loc = MEM.get('albero.voti', {});
+  let n = 0, ignorati = 0;
+  Object.keys(dati || {}).forEach(id => {
+    const v = dati[id]; if (!T.indice[id] || !v || typeof v.p !== 'number') { ignorati++; return; }
+    const prec = loc[id];
+    const storico = {};
+    if (prec) { (prec.storico || []).forEach(h => storico[h.d] = h.p); storico[prec.d] = prec.p; }
+    (v.storico || []).forEach(h => storico[h.d] = h.p);
+    const d = v.d || new Date().toISOString().slice(0, 10);
+    delete storico[d];
+    loc[id] = { p: Math.max(1, Math.min(100, Math.round(v.p))), d, n: v.n || '', r: v.r || '', storico: Object.keys(storico).sort().map(k => ({ d: k, p: storico[k] })) };
+    n++;
+  });
+  MEM.set('albero.voti', loc);
+  vistaAlbero();
+  $('#esito').textContent = `Importati ${n} voti${ignorati ? `, ${ignorati} ignorati (id sconosciuto o voto mancante)` : ''}.`;
+}
+
+</script>
+<script>
 /* Psicologia Generale — guida allo studio
    Applicazione statica: routing a hash, nessun backend, nessuno storage. */
 
@@ -7986,10 +8664,12 @@ function instrada() {
   const cap = percorso.match(/^\/manuale\/([CA]\d+)$/);
   const arg = percorso.match(/^\/argomenti\/(D\d+)$/);
   const fas = percorso.match(/^\/schede\/(F\d+)$/);
+  const alb = percorso.match(/^\/albero(?:\/(.+))?$/);
   if (lez) vistaLezione(lez[1]);
   else if (cap) vistaCapitolo(cap[1]);
   else if (arg) vistaArgomento(arg[1]);
   else if (fas) vistaFascicolo(fas[1]);
+  else if (alb) vistaAlbero(alb[1] ? decodeURIComponent(alb[1]) : null);
   else if (rotte[percorso]) rotte[percorso]();
   else vistaAssente(percorso);
 
@@ -8038,6 +8718,7 @@ function vistaQuadro() {
     <h2>Allenarsi</h2>
     <div class="griglia due">
       ${[
+        ['#/albero','Albero di studio','Ogni argomento scomposto fino alle domande di base. Le risposte le scrivi tu, a memoria; la correzione dà un voto da 1 a 100 che resta sull\'albero, ramo per ramo.'],
         ['#/quiz','Quiz a crocette', `${PGE.quiz.length} domande a quattro opzioni, con spiegazione dopo ogni risposta. I distrattori sono le risposte di un\'altra scuola: sbagliare qui è informativo.`],
         ['#/flashcard','Flashcard', `${PGE.flashcard.length} carte a tre scatole. Le sbagliate tornano, quelle sapute due volte escono dal giro.`],
         ['#/nomi','Scrivere i nomi', `${PGE.nomi.length} nomi e luoghi, con il confronto lettera per lettera. Titchener, Vygotskij, Wertheimer, von Helmholtz: qui si sbaglia sempre.`],
@@ -8771,6 +9452,7 @@ function costruisciIndice() {
   PGE.definizione.passaggi.forEach(p => indice.push({ t: p.t, c: p.c.replace(/<[^>]+>/g, '').slice(0, 90), ct: 'Definizione', h: '#/definizione' }));
   PGE.preScientifica.voci.forEach(v => indice.push({ t: v.nome, c: v.contributo.replace(/<[^>]+>/g, '').slice(0, 90), ct: 'Pre-scientifica', h: '#/excursus' }));
   (PGE.manuale && PGE.manuale.capitoli || []).forEach(c => indice.push({ t: c.n + '. ' + c.titolo, c: c.sommario, ct: 'Manuale', h: '#/manuale/' + c.id }));
+  if (window.alAlbero) { const T = alAlbero(); Object.values(T.indice).filter(n => n.figli && n.gen).forEach(n => indice.push({ t: n.titolo, c: 'Albero di studio · ' + (n.gen.titolo || ''), ct: 'Albero', h: '#/albero/' + encodeURIComponent(n.id) })); }
   (PGE.argomenti && PGE.argomenti.voci || []).forEach(v => indice.push({ t: v.titolo, c: 'Esposizione orale · ' + v.minuti + ' min · ' + v.perni.slice(0, 4).join(', '), ct: 'Argomento', h: '#/argomenti/' + v.id }));
   ((PGE.schede && PGE.schede.fascicoli) || []).forEach(f => f.schede.forEach(x => indice.push({ t: x.nome, c: x.identificazione.unaRiga.replace(/<[^>]+>/g, ''), ct: 'Scheda', h: '#/schede/' + f.id })));
   (PGE.nomi || []).forEach(n => indice.push({ t: n.n, c: n.scuola + ' — ' + n.indizio, ct: 'Nome', h: '#/nomi' }));
