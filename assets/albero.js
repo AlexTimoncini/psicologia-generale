@@ -238,15 +238,27 @@ function vistaAlbero(vai) {
       <div class="al-azioni">
         <button class="bottone vuoto" id="alProssima">Vai alla prima da scrivere</button>
         <button class="bottone vuoto" id="alChiudi">Chiudi tutto</button>
-        <button class="bottone" id="alEsporta">Copia le risposte per la correzione</button>
-        <button class="bottone vuoto" id="alImportaApri">Incolla i voti</button>
+        <button class="bottone" id="alEsporta">Copia tutte le risposte per la correzione</button>
+        <button class="bottone vuoto" id="alScarica">Scarica come file</button>
+        <label class="al-check"><input type="checkbox" id="alTutte"> anche le già corrette</label>
       </div>
       <p class="al-esito" id="esito"></p>
-      <div class="al-importa" id="alImporta" hidden>
-        <p class="nota">Incolla qui il blocco di voti restituito dalla correzione (un oggetto JSON con chiave l'id della domanda). I voti vengono salvati in questo browser e uniti a quelli pubblicati sul sito.</p>
-        <textarea rows="5" id="alImportaTesto" spellcheck="false" placeholder='{ "def:etim": { "p": 80, "d": "2026-09-06", "n": "…" } }'></textarea>
-        <div class="al-azioni"><button class="bottone" id="alImportaVai">Importa</button><label class="al-check"><input type="checkbox" id="alTutte"> nell'esportazione includi anche le già corrette</label></div>
-      </div>
+      <details class="al-blocco">
+        <summary>Lavorare in blocco: scrivere tutto in un documento solo, incollare voti</summary>
+        <div class="al-importa">
+          <p class="nota">Il <strong>questionario</strong> è un unico testo con tutte le domande visibili (segue il filtro) e uno spazio sotto ogni <em>RISPOSTA:</em>. Compilalo dove vuoi, poi incollalo qui sotto: le risposte finiscono nelle caselle giuste — le voci lasciate vuote non toccano quello che c'era.</p>
+          <div class="al-azioni">
+            <button class="bottone vuoto" id="alQuestionario">Copia il questionario</button>
+            <button class="bottone vuoto" id="alQuestionarioFile">Scarica il questionario</button>
+          </div>
+          <textarea rows="6" id="alBloccoTesto" spellcheck="false" placeholder="Incolla qui il questionario compilato, oppure il JSON dei voti."></textarea>
+          <div class="al-azioni">
+            <button class="bottone" id="alBloccoRisposte">Importa le risposte</button>
+            <button class="bottone vuoto" id="alImportaVai">Importa i voti (JSON)</button>
+          </div>
+          <p class="nota">I voti arrivano comunque da soli: dopo la correzione vengono pubblicati nel sito e compaiono al prossimo caricamento. Incollarli serve solo per vederli subito.</p>
+        </div>
+      </details>
     </div>
 
     <div class="al-albero" id="alAlbero" data-filtro="${filtro}">
@@ -306,13 +318,64 @@ function alCollega(T) {
     if (!f) { $('#esito').textContent = 'Non c\'è nulla da scrivere con questo filtro.'; return; }
     alApriPercorso(f.dataset.id, true);
   });
+  const giorno = () => new Date().toISOString().slice(0, 10);
   $('#alEsporta').addEventListener('click', () => {
     const t = alEsportazione($('#alTutte').checked);
     if (!t) { $('#esito').textContent = 'Nessuna risposta da correggere: scrivine qualcuna prima.'; return; }
     copia(t);
   });
-  $('#alImportaApri').addEventListener('click', () => { const b = $('#alImporta'); b.hidden = !b.hidden; if (!b.hidden) $('#alImportaTesto').focus(); });
-  $('#alImportaVai').addEventListener('click', () => alImporta($('#alImportaTesto').value));
+  $('#alScarica').addEventListener('click', () => {
+    const t = alEsportazione($('#alTutte').checked);
+    if (!t) { $('#esito').textContent = 'Nessuna risposta da correggere: scrivine qualcuna prima.'; return; }
+    scarica(t, `albero-risposte-${giorno()}.txt`);
+    $('#esito').textContent = 'Scaricato. In chat basta dire «correggi l\'albero».';
+  });
+  $('#alQuestionario').addEventListener('click', () => copia(alQuestionario()));
+  $('#alQuestionarioFile').addEventListener('click', () => { scarica(alQuestionario(), `albero-questionario-${giorno()}.txt`); $('#esito').textContent = 'Questionario scaricato.'; });
+  $('#alBloccoRisposte').addEventListener('click', () => alImportaRisposte($('#alBloccoTesto').value));
+  $('#alImportaVai').addEventListener('click', () => alImporta($('#alBloccoTesto').value));
+}
+
+/* ---------- questionario: tutte le domande visibili in un testo solo ---------- */
+function alQuestionario() {
+  const T = alAlbero(), R = alRisposte();
+  const percorso = f => { const p = []; for (let g = f.gen; g; g = g.gen) p.unshift(g.titolo); return p.join(' › '); };
+  const visibili = new Set($$('#alAlbero .al-foglia').filter(x => !x.hidden).map(x => x.dataset.id));
+  const righe = [
+    'ALBERO DI STUDIO — questionario',
+    `Data: ${new Date().toLocaleDateString('it-IT')}`,
+    '',
+    'Scrivi ogni risposta sotto la riga RISPOSTA:, a memoria. Poi incolla tutto il testo in «Importa le risposte» sul sito, oppure passalo direttamente in chat per la correzione.',
+    '', '———', ''
+  ];
+  T.foglie.filter(f => visibili.has(f.id)).forEach(f => {
+    righe.push(`[${f.id}] ${percorso(f)} › ${f.titolo}`, `Domanda: ${f.domanda || ''}`, 'RISPOSTA:', (R[f.id] && R[f.id].t || '').trim(), '', '———', '');
+  });
+  return righe.join('\n');
+}
+
+/* legge un questionario compilato (o un'esportazione) e riempie le caselle */
+function alImportaRisposte(testo) {
+  const T = alAlbero(), R = alRisposte();
+  const righe = String(testo || '').split(/\r?\n/);
+  let id = null, dentro = false, buf = [], n = 0, ignorati = 0;
+  const chiudi = () => {
+    if (id) { const t = buf.join('\n').trim(); if (t) { if (T.indice[id] && !T.indice[id].figli) { R[id] = { t, d: new Date().toISOString() }; n++; } else ignorati++; } }
+    id = null; dentro = false; buf = [];
+  };
+  righe.forEach(l => {
+    const m = l.match(/^\[([A-Za-z0-9:_-]+)\]/);
+    if (m) { chiudi(); id = m[1]; return; }
+    if (!id) return;
+    if (/^———+\s*$/.test(l)) { chiudi(); return; }
+    if (!dentro) { if (/^RISPOSTA:\s*$/.test(l)) dentro = true; return; }
+    buf.push(l);
+  });
+  chiudi();
+  if (!n && !ignorati) { $('#esito').textContent = 'Non ho trovato risposte: serve il formato del questionario, con [id] e RISPOSTA:.'; return; }
+  MEM.set('albero.risposte', R);
+  vistaAlbero();
+  $('#esito').textContent = `Importate ${n} risposte${ignorati ? `, ${ignorati} ignorate (id sconosciuto)` : ''}.`;
 }
 
 /* riaggiorna stato e contatori senza ridisegnare tutto */

@@ -29,13 +29,8 @@ PGE.albero = {
     { id:"def", titolo:"La definizione di psicologia", occhiello:"Dall'etimologia alla definizione attuale, e perché è arrivata tardi",
       figli:[
         { id:"def:etim", titolo:"L'etimologia",
-          domanda:"Da dove viene la parola «psicologia» e che cosa significa alla lettera? Perché va liquidata in una frase?",
-          deve:["psyché = anima","lógos = discorso","«discorso sull'anima» = scienza della mente","l'oggetto originario (l'anima) non si lascia misurare: da qui il problema"],
-          fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
-
-        { id:"def:gen", titolo:"La definizione generale",
-          domanda:"Enuncia la definizione generale di psicologia e spiega perché il docente la dichiara volutamente vaga.",
-          deve:["studio scientifico della mente e del comportamento","è generale, non si usa all'esame","non dice il rapporto con l'ambiente né chi è il soggetto"],
+          domanda:"Da dove viene la parola «psicologia» e che cosa significa alla lettera?",
+          deve:["psyché = anima","lógos = discorso","«discorso sull'anima» = scienza della mente"],
           fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
 
         { id:"def:termini", titolo:"I due termini: mente e comportamento",
@@ -71,12 +66,8 @@ PGE.albero = {
                   deve:["rientrano gli animali non umani","con essi la psicologia comparata, metodo elettivo della disciplina"],
                   fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
                 { id:"def:att:elem:amb", titolo:"«Nel suo rapporto con l'ambiente»",
-                  domanda:"Perché è l'elemento decisivo, assente nella definizione generale?",
-                  deve:["comportamento e processi mentali non si studiano in isolamento ma in relazione all'ambiente","è ciò che manca alla definizione generale"],
-                  fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
-                { id:"def:att:elem:verbi", titolo:"I tre verbi",
-                  domanda:"Quali sono i tre verbi della definizione, a quale faccia del rapporto corrispondono e a quali scuole rimandano?",
-                  deve:["esperisce: ricettivo — psicofisica, Gestalt","agisce: attivo — funzionalismo, comportamentismo","rappresenta: interno — Vygotskij, Tolman, cognitivismo"],
+                  domanda:"Perché «nel suo rapporto con l'ambiente» è l'elemento decisivo della definizione?",
+                  deve:["comportamento e processi mentali non si studiano in isolamento ma in relazione all'ambiente"],
                   fonte:{cap:"C01",scheda:"S101",arg:"D01"} }
               ] }
           ] },
@@ -128,8 +119,8 @@ PGE.albero = {
               deve:["dallo studio del cervello sul piano meramente fisiologico","all'unità cervello-mente e alle sue interazioni con l'ambiente","mancava il ponte concettuale: ammettere che la mente possa essere determinata dal funzionamento del cervello"],
               fonte:{cap:"C02",scheda:"S102",arg:"D01"} },
             { id:"def:eman:conv", titolo:"Dove convergono",
-              domanda:"Le due traiettorie corrono parallele o convergono? Dove si incontrano, e che cosa c'entrano i tre verbi?",
-              deve:["convergono: la filosofia porta la mente sul piano naturalistico, la medicina porta il cervello a farsi carico della mente","si incontrano nella definizione attuale: l'unità mente-cervello in relazione con l'ambiente","quel rapporto ha tre facce, per questo la definizione ha tre verbi"],
+              domanda:"Le due traiettorie corrono parallele o convergono? Dove si incontrano?",
+              deve:["convergono: la filosofia porta la mente sul piano naturalistico, la medicina porta il cervello a farsi carico della mente","si incontrano nella definizione attuale: l'unità mente-cervello in relazione con l'ambiente"],
               fonte:{cap:"C01",scheda:"S101",arg:"D01"} }
           ] }
       ] },

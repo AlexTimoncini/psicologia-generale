@@ -11,7 +11,7 @@ Nessun database, nessuna dipendenza da installare.
 | **Schede** | 32 schede con struttura rigida e ripetuta — 12 blocchi identici per ogni voce: perché nasce, radici, precursori, oggetto, metodo, teorie, esponenti, esperimenti, validità, precorre, formule, errori. Consultabili a schermo e scaricabili come **cinque fascicoli PDF stampabili** |
 | **Argomenti** | 28 esposizioni orali (~48.000 parole, 133 minuti di parlato) organizzate in otto cartelle: ogni argomento scritto **come si direbbe a voce**, con indicazioni di regìa nascondibili |
 | **Excursus storico** | 14 scuole raggruppate in cinque fasi, con filtri, tavola sinottica e la terna oggetto–metodo–validità per ciascuna |
-| **Albero di studio** | 573 domande, generate scomponendo ogni macro-argomento fino alle definizioni di base: la risposta la scrive lo studente a memoria, la esporta per la correzione, e il voto da 1 a 100 resta sull'albero con la media per ramo |
+| **Albero di studio** | 571 domande, generate scomponendo ogni macro-argomento fino alle definizioni di base: la risposta la scrive lo studente a memoria, la esporta per la correzione, e il voto da 1 a 100 resta sull'albero con la media per ramo |
 | **Quiz a crocette** | 276 domande a quattro opzioni con spiegazione; ripasso automatico delle sbagliate |
 | **Flashcard** | 375 carte a tre scatole (Leitner), con avanzamento salvato nel browser |
 | **Scrivere i nomi** | 101 nomi e luoghi, confronto lettera per lettera e nota sulla trappola ortografica |
@@ -98,7 +98,7 @@ contenuti/mappe/        mappe concettuali in Mermaid
 
 ## L'albero di studio
 
-`#/albero` scompone il programma in rami sempre più fini, fino a **573 domande**. Il ramo della
+`#/albero` scompone il programma in rami sempre più fini, fino a **571 domande**. Il ramo della
 definizione è scritto a mano in `data/albero.js`; tutti gli altri sono **generati a runtime dalle
 schede** (`daScheda`): per ogni scheda diventano rami «Perché nasce», «Le radici», «I precursori»,
 «L'oggetto», «Il metodo», «Le teorie», «Gli esponenti» (ciascuno con le proprie teorie), «Gli
@@ -109,8 +109,11 @@ nella scheda cambia l'id e orfana il voto.
 Il ciclo:
 
 1. lo studente scrive la risposta nella casella — si salva in `localStorage` mentre scrive;
-2. *Copia le risposte per la correzione* produce un blocco di testo con id, domanda, riferimento
-   alla scheda e risposta, da incollare in chat;
+2. *Copia tutte le risposte per la correzione* produce un unico blocco di testo con id, domanda,
+   riferimento alla scheda e risposta, da incollare in chat — oppure *Scarica come file*, e in chat
+   basta chiedere la correzione. Chi preferisce scrivere in un solo documento copia il
+   *questionario* (tutte le domande visibili con lo spazio per la risposta) e lo reincolla in
+   *Importa le risposte*;
 3. la correzione restituisce un JSON di voti, che si può incollare in *Incolla i voti* (salvato nel
    browser) e viene anche pubblicato in `PGE.albero.voti`;
 4. i due insiemi di voti si fondono per data; ogni foglia conserva lo **storico** (`45 → 78`).

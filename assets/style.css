@@ -17,6 +17,7 @@
   --accento-tenue: #1B5E5A18;
   --segnale:    #A63D2A;
   --ambra:      #B7791F;
+  --al-c0: #1B5E5A; --al-c1: #2F5FA8; --al-c2: #6B4FA3; --al-c3: #A65E2A;
   --griglia:    #1B5E5A0D;
   --ombra:      0 1px 2px #161B2208, 0 8px 24px #161B220A;
 
@@ -39,6 +40,7 @@ html[data-tema="sfondo"] {
   --accento-tenue: #5CBFB21F;
   --segnale:    #E4785F;
   --ambra:      #E0A84A;
+  --al-c0: #5CBFB2; --al-c1: #86B3F0; --al-c2: #BBA3E6; --al-c3: #E9A272;
   --griglia:    #5CBFB20D;
   --ombra:      0 1px 2px #0006, 0 8px 24px #0004;
 }
@@ -774,32 +776,49 @@ textarea {
 .al-strumenti { margin: 0 0 1.4rem; }
 .al-azioni { display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; margin-top:.8rem; }
 .al-esito { font-family: var(--dati); font-size:.78rem; color: var(--accento); min-height:1.2em; margin:.5rem 0 0; }
+.al-blocco { margin-top:.8rem; }
+.al-blocco > summary { cursor:pointer; font-family: var(--dati); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color: var(--grafite); }
+.al-blocco > summary:hover { color: var(--accento); }
 .al-importa { margin-top:.8rem; padding:1rem; border:1px solid var(--linea); border-radius:8px; background: var(--carta-alta); }
 .al-importa textarea { width:100%; font-family: var(--dati); font-size:.8rem; min-height:110px; }
 .al-check { font-size:.85rem; color: var(--grafite); display:flex; gap:.4rem; align-items:center; }
 
-.al-albero { border-top: 1px solid var(--linea); }
+.al-albero { }
+/* ogni livello ha un colore: barra e titolo del ramo, filo dei figli, pallino delle foglie */
+details.al-p0 { --c: var(--al-c0); }
+details.al-p1 { --c: var(--al-c1); }
+details.al-p2 { --c: var(--al-c2); }
+details.al-p3 { --c: var(--al-c3); }
 details.al-nodo { border-bottom: 1px solid var(--linea-fine); }
+details.al-p0 { border: 1px solid var(--linea); border-radius: 10px; margin: 0 0 .8rem; overflow:hidden; background: var(--carta-alta); }
 details.al-nodo > summary {
   list-style:none; cursor:pointer; display:flex; align-items:center; gap:.8rem;
-  padding:.75rem .4rem .75rem 0; position:relative;
+  padding:.7rem .6rem .7rem .7rem; position:relative;
+  border-left: 4px solid var(--c);
+  background: color-mix(in srgb, var(--c) 7%, transparent);
 }
+details.al-nodo[open] > summary { background: color-mix(in srgb, var(--c) 14%, transparent); }
+details.al-nodo > summary:hover { background: color-mix(in srgb, var(--c) 20%, transparent); }
+details.al-p0 > summary { padding: 1rem .8rem; }
 details.al-nodo > summary::-webkit-details-marker { display:none; }
 details.al-nodo > summary::before {
-  content:''; width:.45em; height:.45em; border-right:1.5px solid var(--grafite); border-bottom:1.5px solid var(--grafite);
-  transform: rotate(-45deg); transition: transform .15s; flex:none; margin: 0 .3rem 0 .2rem;
+  content:''; width:.45em; height:.45em; border-right:2px solid var(--c); border-bottom:2px solid var(--c);
+  transform: rotate(-45deg); transition: transform .15s; flex:none; margin: 0 .3rem 0 .1rem;
 }
 details.al-nodo[open] > summary::before { transform: rotate(45deg); }
-details.al-nodo > summary:hover { background: var(--griglia); }
-.al-tit { font-family: var(--display); font-size:1.05rem; flex:1; min-width:0; }
+.al-tit { font-family: var(--display); font-size:1.05rem; flex:1; min-width:0; color: var(--c); }
 .al-tit em { font-style:normal; font-family: var(--dati); font-size:.7rem; color: var(--grafite); margin-left:.5rem; }
-details.al-p0 > summary .al-tit { font-size:1.35rem; }
-details.al-p1 > summary .al-tit { font-size:1.15rem; }
+details.al-p0 > summary .al-tit { font-size:1.4rem; }
+details.al-p1 > summary .al-tit { font-size:1.18rem; }
 details.al-p3 > summary .al-tit { font-size:1rem; }
 .al-meta { font-family: var(--dati); font-size:.68rem; color: var(--grafite); white-space:nowrap; letter-spacing:.02em; }
 .al-meta b { color: var(--segnale); font-weight:600; }
-.al-figli { padding-left: 1.4rem; border-left: 1px solid var(--linea-fine); margin: 0 0 .6rem .55rem; }
-.al-occhiello { font-size:.9rem; color: var(--grafite); margin:.2rem 0 .6rem 2rem; max-width:70ch; }
+.al-figli { padding-left: 1.1rem; margin: .3rem 0 .8rem .9rem; border-left: 2px solid color-mix(in srgb, var(--c) 55%, transparent); }
+details.al-p0 > .al-figli { margin-left: 1rem; margin-right: .6rem; }
+.al-occhiello { font-size:.9rem; color: var(--grafite); margin:.5rem .6rem .4rem 1.2rem; max-width:70ch; }
+/* la foglia porta il colore del ramo che la contiene */
+.al-foglia { position:relative; }
+.al-foglia::before { content:''; position:absolute; left:0; top:1.2rem; width:.5rem; height:.5rem; border-radius:50%; background: var(--c, var(--grafite)); }
 
 .al-voto {
   font-family: var(--dati); font-size:.8rem; font-weight:600; min-width:2.6em; text-align:center;
@@ -812,7 +831,9 @@ details.al-p3 > summary .al-tit { font-size:1rem; }
 .al-v-alto  { background: var(--accento); color: var(--carta-alta); border-color: var(--accento); }
 .al-media { opacity:.9; }
 
-.al-foglia { padding:.9rem 0 1rem; border-bottom:1px solid var(--linea-fine); }
+.al-foglia { padding:.9rem 0 1rem 1rem; border-bottom:1px solid var(--linea-fine); }
+.al-foglia.al-corretta::before { background: var(--accento); }
+.al-foglia.al-da-correggere::before { background: var(--ambra); }
 .al-foglia:last-child { border-bottom:none; }
 .al-foglia-testa { display:flex; gap:1rem; align-items:flex-start; justify-content:space-between; }
 .al-domanda { margin:0 0 .55rem; font-size:.95rem; line-height:1.45; }
@@ -832,6 +853,7 @@ details.al-p3 > summary .al-tit { font-size:1rem; }
 @media (max-width: 700px) {
   details.al-nodo > summary { flex-wrap:wrap; }
   .al-meta { white-space:normal; width:100%; order:3; padding-left:1.2rem; }
-  .al-figli { padding-left:.7rem; margin-left:.3rem; }
-  .al-occhiello { margin-left:1rem; }
+  .al-figli { padding-left:.6rem; margin-left:.4rem; }
+  details.al-p0 > .al-figli { margin-left:.4rem; margin-right:.3rem; }
+  .al-occhiello { margin-left:.8rem; }
 }

@@ -30,6 +30,7 @@
   --accento-tenue: #1B5E5A18;
   --segnale:    #A63D2A;
   --ambra:      #B7791F;
+  --al-c0: #1B5E5A; --al-c1: #2F5FA8; --al-c2: #6B4FA3; --al-c3: #A65E2A;
   --griglia:    #1B5E5A0D;
   --ombra:      0 1px 2px #161B2208, 0 8px 24px #161B220A;
 
@@ -52,6 +53,7 @@ html[data-tema="sfondo"] {
   --accento-tenue: #5CBFB21F;
   --segnale:    #E4785F;
   --ambra:      #E0A84A;
+  --al-c0: #5CBFB2; --al-c1: #86B3F0; --al-c2: #BBA3E6; --al-c3: #E9A272;
   --griglia:    #5CBFB20D;
   --ombra:      0 1px 2px #0006, 0 8px 24px #0004;
 }
@@ -787,32 +789,49 @@ textarea {
 .al-strumenti { margin: 0 0 1.4rem; }
 .al-azioni { display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; margin-top:.8rem; }
 .al-esito { font-family: var(--dati); font-size:.78rem; color: var(--accento); min-height:1.2em; margin:.5rem 0 0; }
+.al-blocco { margin-top:.8rem; }
+.al-blocco > summary { cursor:pointer; font-family: var(--dati); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color: var(--grafite); }
+.al-blocco > summary:hover { color: var(--accento); }
 .al-importa { margin-top:.8rem; padding:1rem; border:1px solid var(--linea); border-radius:8px; background: var(--carta-alta); }
 .al-importa textarea { width:100%; font-family: var(--dati); font-size:.8rem; min-height:110px; }
 .al-check { font-size:.85rem; color: var(--grafite); display:flex; gap:.4rem; align-items:center; }
 
-.al-albero { border-top: 1px solid var(--linea); }
+.al-albero { }
+/* ogni livello ha un colore: barra e titolo del ramo, filo dei figli, pallino delle foglie */
+details.al-p0 { --c: var(--al-c0); }
+details.al-p1 { --c: var(--al-c1); }
+details.al-p2 { --c: var(--al-c2); }
+details.al-p3 { --c: var(--al-c3); }
 details.al-nodo { border-bottom: 1px solid var(--linea-fine); }
+details.al-p0 { border: 1px solid var(--linea); border-radius: 10px; margin: 0 0 .8rem; overflow:hidden; background: var(--carta-alta); }
 details.al-nodo > summary {
   list-style:none; cursor:pointer; display:flex; align-items:center; gap:.8rem;
-  padding:.75rem .4rem .75rem 0; position:relative;
+  padding:.7rem .6rem .7rem .7rem; position:relative;
+  border-left: 4px solid var(--c);
+  background: color-mix(in srgb, var(--c) 7%, transparent);
 }
+details.al-nodo[open] > summary { background: color-mix(in srgb, var(--c) 14%, transparent); }
+details.al-nodo > summary:hover { background: color-mix(in srgb, var(--c) 20%, transparent); }
+details.al-p0 > summary { padding: 1rem .8rem; }
 details.al-nodo > summary::-webkit-details-marker { display:none; }
 details.al-nodo > summary::before {
-  content:''; width:.45em; height:.45em; border-right:1.5px solid var(--grafite); border-bottom:1.5px solid var(--grafite);
-  transform: rotate(-45deg); transition: transform .15s; flex:none; margin: 0 .3rem 0 .2rem;
+  content:''; width:.45em; height:.45em; border-right:2px solid var(--c); border-bottom:2px solid var(--c);
+  transform: rotate(-45deg); transition: transform .15s; flex:none; margin: 0 .3rem 0 .1rem;
 }
 details.al-nodo[open] > summary::before { transform: rotate(45deg); }
-details.al-nodo > summary:hover { background: var(--griglia); }
-.al-tit { font-family: var(--display); font-size:1.05rem; flex:1; min-width:0; }
+.al-tit { font-family: var(--display); font-size:1.05rem; flex:1; min-width:0; color: var(--c); }
 .al-tit em { font-style:normal; font-family: var(--dati); font-size:.7rem; color: var(--grafite); margin-left:.5rem; }
-details.al-p0 > summary .al-tit { font-size:1.35rem; }
-details.al-p1 > summary .al-tit { font-size:1.15rem; }
+details.al-p0 > summary .al-tit { font-size:1.4rem; }
+details.al-p1 > summary .al-tit { font-size:1.18rem; }
 details.al-p3 > summary .al-tit { font-size:1rem; }
 .al-meta { font-family: var(--dati); font-size:.68rem; color: var(--grafite); white-space:nowrap; letter-spacing:.02em; }
 .al-meta b { color: var(--segnale); font-weight:600; }
-.al-figli { padding-left: 1.4rem; border-left: 1px solid var(--linea-fine); margin: 0 0 .6rem .55rem; }
-.al-occhiello { font-size:.9rem; color: var(--grafite); margin:.2rem 0 .6rem 2rem; max-width:70ch; }
+.al-figli { padding-left: 1.1rem; margin: .3rem 0 .8rem .9rem; border-left: 2px solid color-mix(in srgb, var(--c) 55%, transparent); }
+details.al-p0 > .al-figli { margin-left: 1rem; margin-right: .6rem; }
+.al-occhiello { font-size:.9rem; color: var(--grafite); margin:.5rem .6rem .4rem 1.2rem; max-width:70ch; }
+/* la foglia porta il colore del ramo che la contiene */
+.al-foglia { position:relative; }
+.al-foglia::before { content:''; position:absolute; left:0; top:1.2rem; width:.5rem; height:.5rem; border-radius:50%; background: var(--c, var(--grafite)); }
 
 .al-voto {
   font-family: var(--dati); font-size:.8rem; font-weight:600; min-width:2.6em; text-align:center;
@@ -825,7 +844,9 @@ details.al-p3 > summary .al-tit { font-size:1rem; }
 .al-v-alto  { background: var(--accento); color: var(--carta-alta); border-color: var(--accento); }
 .al-media { opacity:.9; }
 
-.al-foglia { padding:.9rem 0 1rem; border-bottom:1px solid var(--linea-fine); }
+.al-foglia { padding:.9rem 0 1rem 1rem; border-bottom:1px solid var(--linea-fine); }
+.al-foglia.al-corretta::before { background: var(--accento); }
+.al-foglia.al-da-correggere::before { background: var(--ambra); }
 .al-foglia:last-child { border-bottom:none; }
 .al-foglia-testa { display:flex; gap:1rem; align-items:flex-start; justify-content:space-between; }
 .al-domanda { margin:0 0 .55rem; font-size:.95rem; line-height:1.45; }
@@ -845,8 +866,9 @@ details.al-p3 > summary .al-tit { font-size:1rem; }
 @media (max-width: 700px) {
   details.al-nodo > summary { flex-wrap:wrap; }
   .al-meta { white-space:normal; width:100%; order:3; padding-left:1.2rem; }
-  .al-figli { padding-left:.7rem; margin-left:.3rem; }
-  .al-occhiello { margin-left:1rem; }
+  .al-figli { padding-left:.6rem; margin-left:.4rem; }
+  details.al-p0 > .al-figli { margin-left:.4rem; margin-right:.3rem; }
+  .al-occhiello { margin-left:.8rem; }
 }
 
 </style>
@@ -7021,13 +7043,8 @@ PGE.albero = {
     { id:"def", titolo:"La definizione di psicologia", occhiello:"Dall'etimologia alla definizione attuale, e perché è arrivata tardi",
       figli:[
         { id:"def:etim", titolo:"L'etimologia",
-          domanda:"Da dove viene la parola «psicologia» e che cosa significa alla lettera? Perché va liquidata in una frase?",
-          deve:["psyché = anima","lógos = discorso","«discorso sull'anima» = scienza della mente","l'oggetto originario (l'anima) non si lascia misurare: da qui il problema"],
-          fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
-
-        { id:"def:gen", titolo:"La definizione generale",
-          domanda:"Enuncia la definizione generale di psicologia e spiega perché il docente la dichiara volutamente vaga.",
-          deve:["studio scientifico della mente e del comportamento","è generale, non si usa all'esame","non dice il rapporto con l'ambiente né chi è il soggetto"],
+          domanda:"Da dove viene la parola «psicologia» e che cosa significa alla lettera?",
+          deve:["psyché = anima","lógos = discorso","«discorso sull'anima» = scienza della mente"],
           fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
 
         { id:"def:termini", titolo:"I due termini: mente e comportamento",
@@ -7063,12 +7080,8 @@ PGE.albero = {
                   deve:["rientrano gli animali non umani","con essi la psicologia comparata, metodo elettivo della disciplina"],
                   fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
                 { id:"def:att:elem:amb", titolo:"«Nel suo rapporto con l'ambiente»",
-                  domanda:"Perché è l'elemento decisivo, assente nella definizione generale?",
-                  deve:["comportamento e processi mentali non si studiano in isolamento ma in relazione all'ambiente","è ciò che manca alla definizione generale"],
-                  fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
-                { id:"def:att:elem:verbi", titolo:"I tre verbi",
-                  domanda:"Quali sono i tre verbi della definizione, a quale faccia del rapporto corrispondono e a quali scuole rimandano?",
-                  deve:["esperisce: ricettivo — psicofisica, Gestalt","agisce: attivo — funzionalismo, comportamentismo","rappresenta: interno — Vygotskij, Tolman, cognitivismo"],
+                  domanda:"Perché «nel suo rapporto con l'ambiente» è l'elemento decisivo della definizione?",
+                  deve:["comportamento e processi mentali non si studiano in isolamento ma in relazione all'ambiente"],
                   fonte:{cap:"C01",scheda:"S101",arg:"D01"} }
               ] }
           ] },
@@ -7120,8 +7133,8 @@ PGE.albero = {
               deve:["dallo studio del cervello sul piano meramente fisiologico","all'unità cervello-mente e alle sue interazioni con l'ambiente","mancava il ponte concettuale: ammettere che la mente possa essere determinata dal funzionamento del cervello"],
               fonte:{cap:"C02",scheda:"S102",arg:"D01"} },
             { id:"def:eman:conv", titolo:"Dove convergono",
-              domanda:"Le due traiettorie corrono parallele o convergono? Dove si incontrano, e che cosa c'entrano i tre verbi?",
-              deve:["convergono: la filosofia porta la mente sul piano naturalistico, la medicina porta il cervello a farsi carico della mente","si incontrano nella definizione attuale: l'unità mente-cervello in relazione con l'ambiente","quel rapporto ha tre facce, per questo la definizione ha tre verbi"],
+              domanda:"Le due traiettorie corrono parallele o convergono? Dove si incontrano?",
+              deve:["convergono: la filosofia porta la mente sul piano naturalistico, la medicina porta il cervello a farsi carico della mente","si incontrano nella definizione attuale: l'unità mente-cervello in relazione con l'ambiente"],
               fonte:{cap:"C01",scheda:"S101",arg:"D01"} }
           ] }
       ] },
@@ -8416,15 +8429,27 @@ function vistaAlbero(vai) {
       <div class="al-azioni">
         <button class="bottone vuoto" id="alProssima">Vai alla prima da scrivere</button>
         <button class="bottone vuoto" id="alChiudi">Chiudi tutto</button>
-        <button class="bottone" id="alEsporta">Copia le risposte per la correzione</button>
-        <button class="bottone vuoto" id="alImportaApri">Incolla i voti</button>
+        <button class="bottone" id="alEsporta">Copia tutte le risposte per la correzione</button>
+        <button class="bottone vuoto" id="alScarica">Scarica come file</button>
+        <label class="al-check"><input type="checkbox" id="alTutte"> anche le già corrette</label>
       </div>
       <p class="al-esito" id="esito"></p>
-      <div class="al-importa" id="alImporta" hidden>
-        <p class="nota">Incolla qui il blocco di voti restituito dalla correzione (un oggetto JSON con chiave l'id della domanda). I voti vengono salvati in questo browser e uniti a quelli pubblicati sul sito.</p>
-        <textarea rows="5" id="alImportaTesto" spellcheck="false" placeholder='{ "def:etim": { "p": 80, "d": "2026-09-06", "n": "…" } }'></textarea>
-        <div class="al-azioni"><button class="bottone" id="alImportaVai">Importa</button><label class="al-check"><input type="checkbox" id="alTutte"> nell'esportazione includi anche le già corrette</label></div>
-      </div>
+      <details class="al-blocco">
+        <summary>Lavorare in blocco: scrivere tutto in un documento solo, incollare voti</summary>
+        <div class="al-importa">
+          <p class="nota">Il <strong>questionario</strong> è un unico testo con tutte le domande visibili (segue il filtro) e uno spazio sotto ogni <em>RISPOSTA:</em>. Compilalo dove vuoi, poi incollalo qui sotto: le risposte finiscono nelle caselle giuste — le voci lasciate vuote non toccano quello che c'era.</p>
+          <div class="al-azioni">
+            <button class="bottone vuoto" id="alQuestionario">Copia il questionario</button>
+            <button class="bottone vuoto" id="alQuestionarioFile">Scarica il questionario</button>
+          </div>
+          <textarea rows="6" id="alBloccoTesto" spellcheck="false" placeholder="Incolla qui il questionario compilato, oppure il JSON dei voti."></textarea>
+          <div class="al-azioni">
+            <button class="bottone" id="alBloccoRisposte">Importa le risposte</button>
+            <button class="bottone vuoto" id="alImportaVai">Importa i voti (JSON)</button>
+          </div>
+          <p class="nota">I voti arrivano comunque da soli: dopo la correzione vengono pubblicati nel sito e compaiono al prossimo caricamento. Incollarli serve solo per vederli subito.</p>
+        </div>
+      </details>
     </div>
 
     <div class="al-albero" id="alAlbero" data-filtro="${filtro}">
@@ -8484,13 +8509,64 @@ function alCollega(T) {
     if (!f) { $('#esito').textContent = 'Non c\'è nulla da scrivere con questo filtro.'; return; }
     alApriPercorso(f.dataset.id, true);
   });
+  const giorno = () => new Date().toISOString().slice(0, 10);
   $('#alEsporta').addEventListener('click', () => {
     const t = alEsportazione($('#alTutte').checked);
     if (!t) { $('#esito').textContent = 'Nessuna risposta da correggere: scrivine qualcuna prima.'; return; }
     copia(t);
   });
-  $('#alImportaApri').addEventListener('click', () => { const b = $('#alImporta'); b.hidden = !b.hidden; if (!b.hidden) $('#alImportaTesto').focus(); });
-  $('#alImportaVai').addEventListener('click', () => alImporta($('#alImportaTesto').value));
+  $('#alScarica').addEventListener('click', () => {
+    const t = alEsportazione($('#alTutte').checked);
+    if (!t) { $('#esito').textContent = 'Nessuna risposta da correggere: scrivine qualcuna prima.'; return; }
+    scarica(t, `albero-risposte-${giorno()}.txt`);
+    $('#esito').textContent = 'Scaricato. In chat basta dire «correggi l\'albero».';
+  });
+  $('#alQuestionario').addEventListener('click', () => copia(alQuestionario()));
+  $('#alQuestionarioFile').addEventListener('click', () => { scarica(alQuestionario(), `albero-questionario-${giorno()}.txt`); $('#esito').textContent = 'Questionario scaricato.'; });
+  $('#alBloccoRisposte').addEventListener('click', () => alImportaRisposte($('#alBloccoTesto').value));
+  $('#alImportaVai').addEventListener('click', () => alImporta($('#alBloccoTesto').value));
+}
+
+/* ---------- questionario: tutte le domande visibili in un testo solo ---------- */
+function alQuestionario() {
+  const T = alAlbero(), R = alRisposte();
+  const percorso = f => { const p = []; for (let g = f.gen; g; g = g.gen) p.unshift(g.titolo); return p.join(' › '); };
+  const visibili = new Set($('#alAlbero .al-foglia').filter(x => !x.hidden).map(x => x.dataset.id));
+  const righe = [
+    'ALBERO DI STUDIO — questionario',
+    `Data: ${new Date().toLocaleDateString('it-IT')}`,
+    '',
+    'Scrivi ogni risposta sotto la riga RISPOSTA:, a memoria. Poi incolla tutto il testo in «Importa le risposte» sul sito, oppure passalo direttamente in chat per la correzione.',
+    '', '———', ''
+  ];
+  T.foglie.filter(f => visibili.has(f.id)).forEach(f => {
+    righe.push(`[${f.id}] ${percorso(f)} › ${f.titolo}`, `Domanda: ${f.domanda || ''}`, 'RISPOSTA:', (R[f.id] && R[f.id].t || '').trim(), '', '———', '');
+  });
+  return righe.join('\n');
+}
+
+/* legge un questionario compilato (o un'esportazione) e riempie le caselle */
+function alImportaRisposte(testo) {
+  const T = alAlbero(), R = alRisposte();
+  const righe = String(testo || '').split(/\r?\n/);
+  let id = null, dentro = false, buf = [], n = 0, ignorati = 0;
+  const chiudi = () => {
+    if (id) { const t = buf.join('\n').trim(); if (t) { if (T.indice[id] && !T.indice[id].figli) { R[id] = { t, d: new Date().toISOString() }; n++; } else ignorati++; } }
+    id = null; dentro = false; buf = [];
+  };
+  righe.forEach(l => {
+    const m = l.match(/^\[([A-Za-z0-9:_-]+)\]/);
+    if (m) { chiudi(); id = m[1]; return; }
+    if (!id) return;
+    if (/^———+\s*$/.test(l)) { chiudi(); return; }
+    if (!dentro) { if (/^RISPOSTA:\s*$/.test(l)) dentro = true; return; }
+    buf.push(l);
+  });
+  chiudi();
+  if (!n && !ignorati) { $('#esito').textContent = 'Non ho trovato risposte: serve il formato del questionario, con [id] e RISPOSTA:.'; return; }
+  MEM.set('albero.risposte', R);
+  vistaAlbero();
+  $('#esito').textContent = `Importate ${n} risposte${ignorati ? `, ${ignorati} ignorate (id sconosciuto)` : ''}.`;
 }
 
 /* riaggiorna stato e contatori senza ridisegnare tutto */
