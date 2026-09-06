@@ -60,7 +60,7 @@ PGE.schede.fascicoli.push({
     titolo:"La definizione attuale, elemento per elemento",
     voci:[
       { chiave:"«Studio scientifico»", valore:"Richiama il <strong>metodo sperimentale</strong> e la verifica empirica. È la parola che porta con sé l'intero criterio di scientificità." },
-      { chiave:"«Comportamento e processi mentali»", valore:"Non più «mente» al singolare, come se fosse una cosa, ma <strong>processi</strong>: la mente non è un oggetto da descrivere, è un insieme di operazioni. È l'eredità del <strong>funzionalismo</strong>." },
+      { chiave:"«Comportamento e processi mentali»", valore:"Non più «mente» al singolare, come se fosse una cosa, ma <strong>processi</strong>: la mente non è un oggetto da descrivere, è un insieme di operazioni." },
       { chiave:"«Dell'essere vivente»", valore:"Non «dell'uomo». Rientrano gli animali non umani, e con essi la <strong>psicologia comparata</strong>, che è un metodo elettivo della disciplina." },
       { chiave:"«Nel suo rapporto con l'ambiente»", valore:"È l'elemento decisivo, assente nella definizione generale: comportamento e processi mentali non si studiano in isolamento ma <strong>in relazione</strong>. Eredità congiunta di Darwin, del funzionalismo e dell'ambientalismo comportamentista." },
       { chiave:"«Lo esperisce»", valore:"Il versante <strong>ricettivo</strong>: sensazione e percezione. Viene dalla psicofisica, da Wundt, dalla Gestalt." },

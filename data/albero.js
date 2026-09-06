@@ -58,8 +58,8 @@ PGE.albero = {
                   deve:["richiama il metodo sperimentale e la verifica empirica","porta con sé l'intero criterio di scientificità"],
                   fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
                 { id:"def:att:elem:proc", titolo:"«Comportamento e processi mentali»",
-                  domanda:"Perché la definizione dice «processi mentali» e non «mente»? Di quale scuola è l'eredità?",
-                  deve:["non la mente come una cosa ma processi: un insieme di operazioni","eredità del funzionalismo"],
+                  domanda:"Perché la definizione dice «processi mentali» e non «mente»?",
+                  deve:["non la mente come una cosa ma processi: un insieme di operazioni, non un oggetto da descrivere"],
                   fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
                 { id:"def:att:elem:viv", titolo:"«Dell'essere vivente»",
                   domanda:"Perché «essere vivente» e non «uomo»? Che cosa rientra così nella definizione?",
@@ -117,11 +117,7 @@ PGE.albero = {
             { id:"def:eman:med", titolo:"Dalla medicina",
               domanda:"Enuncia la formula dell'emancipazione dalla medicina. Che cosa mancava, se il cervello era già studiato scientificamente?",
               deve:["dallo studio del cervello sul piano meramente fisiologico","all'unità cervello-mente e alle sue interazioni con l'ambiente","mancava il ponte concettuale: ammettere che la mente possa essere determinata dal funzionamento del cervello"],
-              fonte:{cap:"C02",scheda:"S102",arg:"D01"} },
-            { id:"def:eman:conv", titolo:"Dove convergono",
-              domanda:"Le due traiettorie corrono parallele o convergono? Dove si incontrano?",
-              deve:["convergono: la filosofia porta la mente sul piano naturalistico, la medicina porta il cervello a farsi carico della mente","si incontrano nella definizione attuale: l'unità mente-cervello in relazione con l'ambiente"],
-              fonte:{cap:"C01",scheda:"S101",arg:"D01"} }
+              fonte:{cap:"C02",scheda:"S102",arg:"D01"} }
           ] }
       ] },
 
@@ -177,5 +173,23 @@ PGE.albero = {
   ],
 
   /* i voti della correzione, chiave = id della foglia */
-  voti: {}
+  voti: {
+    "def:etim":         { p:95, d:"2026-09-06", r:"2026-09-06T13:48:53.110Z", n:"Completa: psyché, lógos, «discorso sull'anima» = scienza della mente." },
+    "def:termini:mente":{ p:82, d:"2026-09-06", r:"2026-09-06T13:59:48.094Z", n:"Bene. Mancano i <strong>ricordi</strong> fra i contenuti e la precisazione sul flusso di coscienza: ciò di cui siamo consapevoli <strong>nel qui e ora</strong>." },
+    "def:termini:comp": { p:60, d:"2026-09-06", r:"2026-09-06T14:00:57.196Z", n:"Definizione giusta, ma manca la seconda metà della domanda: «animali non umani» perché la <strong>psicologia comparata è metodo elettivo</strong> della disciplina — senza gli animali non si spiegano Pavlov, Thorndike, Köhler, Watson, Skinner." },
+    "def:att:testo":    { p:68, d:"2026-09-06", r:"2026-09-06T14:01:37.508Z", n:"Era chiesta parola per parola. Manca proprio l'elemento decisivo, «<strong>nel suo rapporto con l'ambiente</strong>» («nell'ambiente in cui» non è la stessa cosa), e i verbi sono «<strong>mentre</strong> lo esperisce, vi agisce e lo rappresenta»." },
+    "def:att:elem:sci": { p:55, d:"2026-09-06", r:"2026-09-06T14:01:51.821Z", n:"Troppo poco: «scientifico» richiama il <strong>metodo sperimentale</strong> e la <strong>verifica empirica</strong>, ed è la parola che porta con sé l'intero criterio di scientificità." },
+    "def:att:elem:proc":{ p:62, d:"2026-09-06", r:"2026-09-06T14:03:40.054Z", n:"Il punto è che la mente <strong>non è una cosa da descrivere ma un insieme di operazioni</strong>: «processi» al plurale dice questo. «Si è evoluto durante il percorso storico» è vago. Il riferimento al funzionalismo è stato tolto come chiesto." },
+    "def:att:elem:viv": { p:85, d:"2026-09-06", r:"2026-09-06T14:04:35.259Z", n:"Bene. Aggiungi che la psicologia comparata è un <strong>metodo elettivo</strong>, non solo un'occasione." },
+    "def:att:elem:amb": { p:85, d:"2026-09-06", r:"2026-09-06T14:05:30.098Z", n:"Bene, e il rimando bio-psico-sociale è un valore aggiunto. Di' esplicitamente «<strong>non in isolamento</strong> ma in relazione»." },
+    "def:sci":          { p:80, d:"2026-09-06", r:"2026-09-06T14:06:07.703Z", n:"Data e Lipsia ci sono. Manca il contrasto che la domanda chiede: <strong>non l'oggetto ma il metodo</strong> — verifica empirica contro speculazione da assiomi indimostrabili." },
+    "def:rit:dato":     { p:45, d:"2026-09-06", r:"2026-09-06T14:08:51.642Z", n:"Mancano proprio i dati: fisica moderna nel <strong>Seicento</strong>, chimica nel <strong>Settecento</strong>, biologia nell'<strong>Ottocento</strong>, psicologia nel 1879; <strong>oltre due millenni</strong> di psicologia filosofica contro poco più di <strong>140 anni</strong> di scientifica. La trapanazione è di un'altra domanda." },
+    "def:rit:metodi":   { p:80, d:"2026-09-06", r:"2026-09-06T14:10:00.625Z", n:"Giusto. Per lo sperimentale elenca le operazioni: <strong>osservazione controllata, manipolazione, misura</strong>, sul modello delle scienze naturali; per il razionalista di' che è <strong>deduttivo</strong> da premesse." },
+    "def:rit:cause:1":  { p:65, d:"2026-09-06", r:"2026-09-06T14:14:17.149Z", n:"Causa giusta. Manca il tipo di ostacolo, che era chiesto: <strong>tecnico</strong> — «non so come misurarlo» — perché un metodo scientifico vuole un oggetto <strong>isolabile, manipolabile, misurabile</strong>." },
+    "def:rit:cause:2":  { p:60, d:"2026-09-06", r:"2026-09-06T14:13:48.096Z", n:"Manca il tipo: ostacolo <strong>antropologico</strong> — «non mi è lecito trattarlo così» — perché le scienze naturali trattano l'oggetto in modo <strong>deterministico</strong>, e applicarlo all'uomo urta una lunga tradizione." },
+    "def:rit:cause:3":  { p:62, d:"2026-09-06", r:"2026-09-06T14:14:47.812Z", n:"Manca il tipo: ostacolo <strong>metafisico</strong> — «non ha senso trattarlo così»: non un problema di strumenti ma di <strong>categoria</strong>, e per <strong>oltre due millenni</strong>." },
+    "def:rit:posit":    { p:88, d:"2026-09-06", r:"2026-09-06T14:17:43.661Z", n:"La migliore del blocco: Comte, Fechner, la misurabilità delle sensazioni. Formula anche il limite: il positivismo è un'<strong>affermazione di principio</strong> — dice che la psicologia dovrebbe essere scienza, non dice come." },
+    "def:eman:fil":     { p:62, d:"2026-09-06", r:"2026-09-06T14:19:25.336Z", n:"La formula è: dallo studio della mente sul <strong>piano filosofico</strong> allo studio della <strong>relazione mente-corpo sul piano naturalistico</strong>. Cambiano <strong>due</strong> cose insieme: l'oggetto (la relazione con qualcosa di materiale) e il piano. «Unità mente-cervello in relazione all'ambiente» è il punto d'arrivo della definizione, non questa formula." },
+    "def:eman:med":     { p:74, d:"2026-09-06", r:"2026-09-06T14:21:04.763Z", n:"Impianto giusto. Completa la formula: all'unità cervello-mente <strong>e alle sue interazioni con l'ambiente</strong>; e nomina ciò che mancava, il <strong>ponte concettuale</strong>: ammettere che la mente possa essere determinata dal funzionamento del cervello." }
+  }
 };
