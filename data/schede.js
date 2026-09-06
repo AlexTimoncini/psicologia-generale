@@ -86,7 +86,7 @@ PGE.schede.fascicoli.push({
   identificazione:{ anno:"—", luogo:"—", lezione:"L01", capitolo:"C02",
     unaRiga:"Oltre due millenni di psicologia filosofica contro poco più di 140 anni di psicologia scientifica: perché, e da chi la disciplina ha dovuto separarsi." },
   definizioni:[
-    { termine:"Il dato di fatto", testo:"La fisica moderna nasce nel Seicento, la chimica nel Settecento, la biologia nell'Ottocento. La <strong>psicologia scientifica nel 1879</strong>.",
+    { termine:"Il dato di fatto", testo:"Oltre due millenni di psicologia filosofica contro poco più di 140 anni di psicologia scientifica: la svolta è il <strong>1879</strong>, molto dopo le altre scienze naturali.",
       glossa:"Non si tratta di disinteresse: la mente è uno degli oggetti più discussi del pensiero occidentale. Si tratta del fatto che per tutto quel tempo se ne parlava con un <strong>altro metodo</strong>." },
     { termine:"Metodo razionalista", testo:"Speculazione logica: da premesse — spesso <strong>assiomi indimostrabili</strong> — si traggono conclusioni per via deduttiva. <strong>Nessuna verifica empirica</strong>.",
       glossa:"È il metodo con cui la mente è stata studiata per due millenni, ed è il criterio che squalifica come non scientifica ogni concezione pre-1879." },
@@ -95,11 +95,11 @@ PGE.schede.fascicoli.push({
   ],
   articolazione:{
     titolo:"Le tre cause del ritardo, in scala crescente di profondità",
-    colonne:["", "Causa", "Che tipo di ostacolo è"],
+    colonne:["", "Causa", "Perché è un ostacolo"],
     righe:[
-      ["1","Difficoltà di <strong>definire l'oggetto</strong>: che cosa significa studiare scientificamente un pensiero?","<strong>Tecnica</strong> — «non so come misurarlo». Un metodo scientifico richiede che l'oggetto sia isolabile, manipolabile e misurabile"],
-      ["2","Difficoltà di considerare l'<strong>uomo</strong> un oggetto di studio scientifico","<strong>Antropologica</strong> — «non mi è lecito trattarlo così». Le scienze naturali trattano il loro oggetto in modo deterministico; applicarlo all'uomo urta contro una lunga tradizione"],
-      ["3","<strong>Concezione trascendentale della mente</strong>: considerata quasi divina per oltre due millenni","<strong>Metafisica</strong> — «non ha senso trattarlo così». Non è un problema di strumenti mancanti, è un problema di categorie"]
+      ["1","Difficoltà di <strong>definire l'oggetto</strong>: che cosa significa studiare scientificamente un pensiero?","Un metodo scientifico richiede che l'oggetto sia <strong>isolabile, manipolabile e misurabile</strong>: un pensiero non lo è"],
+      ["2","Difficoltà di considerare l'<strong>uomo</strong> un oggetto di studio scientifico","Le scienze naturali trattano il loro oggetto in modo <strong>deterministico</strong>; applicarlo all'uomo urta contro una lunga tradizione culturale e religiosa"],
+      ["3","<strong>Concezione trascendentale della mente</strong>: considerata quasi divina per oltre due millenni","Non è un problema di strumenti mancanti: un oggetto <strong>divino</strong> non si può nemmeno pensare come oggetto di scienza"]
     ]
   },
   scomposizione:{
