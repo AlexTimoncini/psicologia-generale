@@ -40,8 +40,8 @@ PGE.albero = {
               deve:["esperienza interiore personale: percezioni, pensieri, ricordi, sentimenti","all'interno del soggetto","accesso solo soggettivo: nessuno vede il pensiero di un altro","produce un flusso di coscienza: ciò di cui siamo consapevoli nel qui e ora"],
               fonte:{cap:"C01",scheda:"S101",arg:"D01"} },
             { id:"def:termini:comp", titolo:"Il comportamento",
-              domanda:"Che cos'è il comportamento, dove si colloca, come vi si accede? Perché la definizione dice «e degli animali non umani»?",
-              deve:["le azioni degli esseri umani e degli animali non umani nell'ambiente","all'esterno, nell'ambiente","direttamente osservabile da chiunque","mai dire «dell'uomo»: la psicologia comparata è metodo elettivo (Pavlov, Thorndike, Köhler, Watson, Skinner)"],
+              domanda:"Che cos'è il comportamento, dove si colloca, come vi si accede?",
+              deve:["le azioni dell'essere vivente nell'ambiente","all'esterno, nell'ambiente","direttamente osservabile da chiunque","mai dire «dell'uomo»: la psicologia comparata è metodo elettivo (Pavlov, Thorndike, Köhler, Watson, Skinner)"],
               fonte:{cap:"C01",scheda:"S101",arg:"D01"} }
           ] },
 
@@ -1308,22 +1308,269 @@ PGE.albero = {
 
   /* i voti della correzione, chiave = id della foglia */
   voti: {
-    "def:etim":         { p:95, d:"2026-09-06", r:"2026-09-06T13:48:53.110Z", n:"Completa: psyché, lógos, «discorso sull'anima» = scienza della mente." },
-    "def:termini:mente":{ p:82, d:"2026-09-06", r:"2026-09-06T13:59:48.094Z", n:"Bene. Mancano i <strong>ricordi</strong> fra i contenuti e la precisazione sul flusso di coscienza: ciò di cui siamo consapevoli <strong>nel qui e ora</strong>." },
-    "def:termini:comp": { p:60, d:"2026-09-06", r:"2026-09-06T14:00:57.196Z", n:"Definizione giusta, ma manca la seconda metà della domanda: «animali non umani» perché la <strong>psicologia comparata è metodo elettivo</strong> della disciplina — senza gli animali non si spiegano Pavlov, Thorndike, Köhler, Watson, Skinner." },
-    "def:att:testo":    { p:68, d:"2026-09-06", r:"2026-09-06T14:01:37.508Z", n:"Era chiesta parola per parola. Manca proprio l'elemento decisivo, «<strong>nel suo rapporto con l'ambiente</strong>» («nell'ambiente in cui» non è la stessa cosa), e i verbi sono «<strong>mentre</strong> lo esperisce, vi agisce e lo rappresenta»." },
-    "def:att:elem:sci": { p:55, d:"2026-09-06", r:"2026-09-06T14:01:51.821Z", n:"Troppo poco: «scientifico» richiama il <strong>metodo sperimentale</strong> e la <strong>verifica empirica</strong>, ed è la parola che porta con sé l'intero criterio di scientificità." },
-    "def:att:elem:proc":{ p:62, d:"2026-09-06", r:"2026-09-06T14:03:40.054Z", n:"Il punto è che la mente <strong>non è una cosa da descrivere ma un insieme di operazioni</strong>: «processi» al plurale dice questo. «Si è evoluto durante il percorso storico» è vago. Il riferimento al funzionalismo è stato tolto come chiesto." },
-    "def:att:elem:viv": { p:85, d:"2026-09-06", r:"2026-09-06T14:04:35.259Z", n:"Bene. Aggiungi che la psicologia comparata è un <strong>metodo elettivo</strong>, non solo un'occasione." },
-    "def:att:elem:amb": { p:85, d:"2026-09-06", r:"2026-09-06T14:05:30.098Z", n:"Bene, e il rimando bio-psico-sociale è un valore aggiunto. Di' esplicitamente «<strong>non in isolamento</strong> ma in relazione»." },
-    "def:sci":          { p:80, d:"2026-09-06", r:"2026-09-06T14:06:07.703Z", n:"Data e Lipsia ci sono. Manca il contrasto che la domanda chiede: <strong>non l'oggetto ma il metodo</strong> — verifica empirica contro speculazione da assiomi indimostrabili." },
-    "def:rit:dato":     { p:85, d:"2026-09-06", r:"2026-09-06T14:08:51.642Z", n:"C'è tutto: 1879, Wundt, il ritardo rispetto alle altre scienze. La trapanazione appartiene a un'altra domanda." },
-    "def:rit:metodi":   { p:80, d:"2026-09-06", r:"2026-09-06T14:10:00.625Z", n:"Giusto. Per lo sperimentale elenca le operazioni: <strong>osservazione controllata, manipolazione, misura</strong>, sul modello delle scienze naturali; per il razionalista di' che è <strong>deduttivo</strong> da premesse." },
-    "def:rit:cause:1":  { p:85, d:"2026-09-06", r:"2026-09-06T14:14:17.149Z", n:"Giusta. Il perché, in una formula: un metodo scientifico vuole un oggetto <strong>isolabile, manipolabile, misurabile</strong>." },
-    "def:rit:cause:2":  { p:82, d:"2026-09-06", r:"2026-09-06T14:13:48.096Z", n:"Giusta, con il contrasto culturale e religioso. Aggiungi che le scienze naturali trattano l'oggetto in modo <strong>deterministico</strong>: è questo che urta." },
-    "def:rit:cause:3":  { p:85, d:"2026-09-06", r:"2026-09-06T14:14:47.812Z", n:"Giusta. Sottolinea che è la più profonda: non mancano strumenti, un oggetto divino <strong>non si può pensare</strong> come oggetto di scienza." },
-    "def:rit:posit":    { p:88, d:"2026-09-06", r:"2026-09-06T14:17:43.661Z", n:"La migliore del blocco: Comte, Fechner, la misurabilità delle sensazioni. Formula anche il limite: il positivismo è un'<strong>affermazione di principio</strong> — dice che la psicologia dovrebbe essere scienza, non dice come." },
-    "def:eman:fil":     { p:62, d:"2026-09-06", r:"2026-09-06T14:19:25.336Z", n:"La formula è: dallo studio della mente sul <strong>piano filosofico</strong> allo studio della <strong>relazione mente-corpo sul piano naturalistico</strong>. Cambiano <strong>due</strong> cose insieme: l'oggetto (la relazione con qualcosa di materiale) e il piano. «Unità mente-cervello in relazione all'ambiente» è il punto d'arrivo della definizione, non questa formula." },
-    "def:eman:med":     { p:74, d:"2026-09-06", r:"2026-09-06T14:21:04.763Z", n:"Impianto giusto. Completa la formula: all'unità cervello-mente <strong>e alle sue interazioni con l'ambiente</strong>; e nomina ciò che mancava, il <strong>ponte concettuale</strong>: ammettere che la mente possa essere determinata dal funzionamento del cervello." }
+      "def:etim": {
+          "p": 95,
+          "d": "2026-09-06",
+          "r": "2026-09-06T13:48:53.110Z",
+          "n": "Completa: psyché, lógos, «discorso sull'anima» = scienza della mente."
+      },
+      "def:termini:mente": {
+          "p": 95,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:41:05.999Z",
+          "n": "Completa: contenuti, soggettività, flusso di coscienza nel qui e ora. Bene.",
+          "storico": [
+              {
+                  "d": "2026-09-06",
+                  "p": 82
+              }
+          ]
+      },
+      "def:termini:comp": {
+          "p": 95,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:42:20.988Z",
+          "n": "Azioni nell'ambiente, osservabili dall'esterno: c'è tutto. Tolta dalla domanda la parte sugli animali, che resta nella foglia «Dell'essere vivente».",
+          "storico": [
+              {
+                  "d": "2026-09-06",
+                  "p": 60
+              }
+          ]
+      },
+      "def:att:testo": {
+          "p": 88,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:42:59.156Z",
+          "n": "Tutti gli elementi ci sono. Solo l'ordine: la lezione dice «del <strong>comportamento e dei processi mentali</strong>».",
+          "storico": [
+              {
+                  "d": "2026-09-06",
+                  "p": 68
+              }
+          ]
+      },
+      "def:att:elem:sci": {
+          "p": 75,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:43:59.967Z",
+          "n": "Metodo e verifica empirica ci sono. Manca il punto: «scientifico» porta con sé <strong>l'intero criterio di scientificità</strong>, non è un aggettivo qualsiasi.",
+          "storico": [
+              {
+                  "d": "2026-09-06",
+                  "p": 55
+              }
+          ]
+      },
+      "def:att:elem:proc": {
+          "p": 90,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:45:12.478Z",
+          "n": "Giusto: processi come insieme di operazioni, non un oggetto da descrivere.",
+          "storico": [
+              {
+                  "d": "2026-09-06",
+                  "p": 62
+              }
+          ]
+      },
+      "def:att:elem:viv": {
+          "p": 92,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:45:26.790Z",
+          "n": "Animali non umani e psicologia comparata come metodo elettivo: completa.",
+          "storico": [
+              {
+                  "d": "2026-09-06",
+                  "p": 85
+              }
+          ]
+      },
+      "def:att:elem:amb": {
+          "p": 92,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:45:45.370Z",
+          "n": "Non in isolamento ma in relazione all'ambiente: è il punto. Il biopsicosociale è un'aggiunta corretta (lezione 3).",
+          "storico": [
+              {
+                  "d": "2026-09-06",
+                  "p": 85
+              }
+          ]
+      },
+      "def:sci": {
+          "p": 80,
+          "d": "2026-09-06",
+          "r": "2026-09-06T14:06:07.703Z",
+          "n": "Data e Lipsia ci sono. Manca il contrasto che la domanda chiede: <strong>non l'oggetto ma il metodo</strong> — verifica empirica contro speculazione da assiomi indimostrabili."
+      },
+      "def:rit:dato": {
+          "p": 85,
+          "d": "2026-09-06",
+          "r": "2026-09-06T14:08:51.642Z",
+          "n": "C'è tutto: 1879, Wundt, il ritardo rispetto alle altre scienze. La trapanazione appartiene a un'altra domanda."
+      },
+      "def:rit:metodi": {
+          "p": 80,
+          "d": "2026-09-06",
+          "r": "2026-09-06T14:10:00.625Z",
+          "n": "Giusto. Per lo sperimentale elenca le operazioni: <strong>osservazione controllata, manipolazione, misura</strong>, sul modello delle scienze naturali; per il razionalista di' che è <strong>deduttivo</strong> da premesse."
+      },
+      "def:rit:cause:1": {
+          "p": 85,
+          "d": "2026-09-06",
+          "r": "2026-09-06T14:14:17.149Z",
+          "n": "Giusta. Il perché, in una formula: un metodo scientifico vuole un oggetto <strong>isolabile, manipolabile, misurabile</strong>."
+      },
+      "def:rit:cause:2": {
+          "p": 82,
+          "d": "2026-09-06",
+          "r": "2026-09-06T14:13:48.096Z",
+          "n": "Giusta, con il contrasto culturale e religioso. Aggiungi che le scienze naturali trattano l'oggetto in modo <strong>deterministico</strong>: è questo che urta."
+      },
+      "def:rit:cause:3": {
+          "p": 85,
+          "d": "2026-09-06",
+          "r": "2026-09-06T14:14:47.812Z",
+          "n": "Giusta. Sottolinea che è la più profonda: non mancano strumenti, un oggetto divino <strong>non si può pensare</strong> come oggetto di scienza."
+      },
+      "def:rit:posit": {
+          "p": 88,
+          "d": "2026-09-06",
+          "r": "2026-09-06T14:17:43.661Z",
+          "n": "La migliore del blocco: Comte, Fechner, la misurabilità delle sensazioni. Formula anche il limite: il positivismo è un'<strong>affermazione di principio</strong> — dice che la psicologia dovrebbe essere scienza, non dice come."
+      },
+      "def:eman:fil": {
+          "p": 62,
+          "d": "2026-09-06",
+          "r": "2026-09-06T14:19:25.336Z",
+          "n": "La formula è: dallo studio della mente sul <strong>piano filosofico</strong> allo studio della <strong>relazione mente-corpo sul piano naturalistico</strong>. Cambiano <strong>due</strong> cose insieme: l'oggetto (la relazione con qualcosa di materiale) e il piano. «Unità mente-cervello in relazione all'ambiente» è il punto d'arrivo della definizione, non questa formula."
+      },
+      "def:eman:med": {
+          "p": 74,
+          "d": "2026-09-06",
+          "r": "2026-09-06T14:21:04.763Z",
+          "n": "Impianto giusto. Completa la formula: all'unità cervello-mente <strong>e alle sue interazioni con l'ambiente</strong>; e nomina ciò che mancava, il <strong>ponte concettuale</strong>: ammettere che la mente possa essere determinata dal funzionamento del cervello."
+      },
+      "exc:pre:guaritori": {
+          "p": 85,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:04:10.408Z",
+          "n": "Trapanazione e spiriti: bene. Manca che <strong>spesso causava la morte</strong>."
+      },
+      "exc:pre:ippocrate": {
+          "p": 60,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:04:56.456Z",
+          "n": "Approccio filosofico e razionalista giusto, ma Ippocrate si interessa della <strong>personalità</strong>: i quattro <strong>temperamenti</strong>, non «comportamenti»."
+      },
+      "exc:pre:cartesio": {
+          "p": 90,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:06:58.142Z",
+          "n": "Dualismo, tubi, ghiandola pineale: completa. Rendi esplicita la conseguenza: i fenomeni psichici sono dell'anima e <strong>non si possono studiare</strong>. (res <em>cogitans</em>.)"
+      },
+      "exc:pre:gall": {
+          "p": 92,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:09:02.987Z",
+          "n": "Localizzazione, protuberanze, non scientifica, criminologia: c'è tutto. Manca solo che Gall è un <strong>medico</strong> e l'idea di primo abbozzo dell'<strong>unità mente-cervello</strong>."
+      },
+      "exc:ctx:comte": {
+          "p": 82,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:10:27.874Z",
+          "n": "Bene la tesi e la conseguenza. Precisa: <strong>le scienze naturali</strong> sono l'unica fonte attendibile, quindi <strong>ogni disciplina</strong> deve avere base scientifica per produrre conoscenza."
+      },
+      "exc:ctx:psicofisica": {
+          "p": 88,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:12:39.772Z",
+          "n": "Definizione ed esponenti giusti. Il perché precursore: fenomeni psicologici già studiati col <strong>metodo sperimentale</strong> prima di Wundt."
+      },
+      "exc:ctx:fechner": {
+          "p": 98,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:13:28.929Z",
+          "n": "Completa."
+      },
+      "exc:ctx:helmholtz": {
+          "p": 97,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:16:11.032Z",
+          "n": "Completa: fisiologia sensoriale, percezione costruttiva, esperienza pregressa, processo inconsapevole."
+      },
+      "exc:wundt:chi": {
+          "p": 90,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:18:09.627Z",
+          "n": "Lipsia 1879, primo laboratorio, metodo sperimentale: bene. Il perché: studiare <strong>i contenuti psichici</strong> col metodo sperimentale."
+      },
+      "exc:wundt:oggetto": {
+          "p": 75,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:19:08.497Z",
+          "n": "Esperienza immediata e atomi della mente ci sono. Mancano l'<strong>analogia con la chimica</strong> e la <strong>variazione dell'esperienza cosciente al variare dello stimolo</strong>."
+      },
+      "exc:wundt:metodo": {
+          "p": 70,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:23:53.110Z",
+          "n": "Descrizione verbale e tempi di reazione: bene. Mancano gli <strong>studenti addestrati</strong> a descrivere con criteri elementistici (colore: brillantezza, intensità…) e la distinzione <strong>esperienza immediata vs interpretazione</strong>: dire «una parola» è già interpretare."
+      },
+      "exc:strutt:titchener": {
+          "p": 72,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:24:58.674Z",
+          "n": "Allievo di Wundt, America, 1892: bene. Mancano la <strong>Cornell</strong>, il fatto che dà un <strong>nome</strong> alla scuola wundtiana, e la distinzione <strong>mente</strong> (somma dei processi della vita) / <strong>coscienza</strong> (quelli del qui e ora)."
+      },
+      "exc:strutt:oggetto": {
+          "p": 88,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:26:15.737Z",
+          "n": "Bene. Diciamolo per intero: la <strong>struttura della mente e della coscienza</strong> nei suoi elementi irriducibili."
+      },
+      "exc:strutt:metodo": {
+          "p": 75,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:27:03.813Z",
+          "n": "Introspezione e vocabolario: giusto. Manca che <strong>il soggetto sperimentale è lo sperimentatore stesso</strong>."
+      },
+      "exc:strutt:validita": {
+          "p": 92,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:29:45.311Z",
+          "n": "Molto bene: merito, invalidità, incoerenza, morte di Titchener. La parola della lezione: l'introspezione è in realtà <strong>retrospezione</strong>."
+      },
+      "exc:funz:esigenza": {
+          "p": 78,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:31:10.547Z",
+          "n": "Funzioni al posto dei contenuti: giusto. Manca il perché: la mente va vista <strong>nell'ambiente in cui l'individuo vive</strong>, e l'interrogativo è <strong>a che cosa servono</strong> i processi mentali e come funzionano."
+      },
+      "exc:funz:darwin": {
+          "p": 85,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:32:53.586Z",
+          "n": "Selezione naturale e adattamento: bene. Manca l'<strong>esempio della giraffa</strong> che fa il docente."
+      },
+      "exc:funz:james": {
+          "p": 92,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:36:12.952Z",
+          "n": "Stream of consciousness, mente come effetto dell'adattamento, critica allo strutturalismo: completa. Dettagli: aveva lavorato con Wundt; Harvard; è <strong>precursore, non caposcuola</strong>."
+      },
+      "exc:funz:chicago": {
+          "p": 95,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:38:42.768Z",
+          "n": "Completa: caposcuola, manifesto, oggetto, metodo eclettico."
+      },
+      "exc:funz:thorndike": {
+          "p": 85,
+          "d": "2026-09-06",
+          "r": "2026-09-06T15:40:20.104Z",
+          "n": "Legge dell'effetto e sui generis: bene. Il «connessionista» va spiegato: i processi psichici sono <strong>connessioni fra situazione e risposta</strong>. Columbia."
+      }
   }
 };
