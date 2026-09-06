@@ -11,7 +11,7 @@ Nessun database, nessuna dipendenza da installare.
 | **Schede** | 32 schede con struttura rigida e ripetuta — 12 blocchi identici per ogni voce: perché nasce, radici, precursori, oggetto, metodo, teorie, esponenti, esperimenti, validità, precorre, formule, errori. Consultabili a schermo e scaricabili come **cinque fascicoli PDF stampabili** |
 | **Argomenti** | 28 esposizioni orali (~48.000 parole, 133 minuti di parlato) organizzate in otto cartelle: ogni argomento scritto **come si direbbe a voce**, con indicazioni di regìa nascondibili |
 | **Excursus storico** | 14 scuole raggruppate in cinque fasi, con filtri, tavola sinottica e la terna oggetto–metodo–validità per ciascuna |
-| **Albero di studio** | 426 domande, generate scomponendo ogni macro-argomento fino alle definizioni di base: la risposta la scrive lo studente a memoria, la esporta per la correzione, e il voto da 1 a 100 resta sull'albero con la media per ramo |
+| **Albero di studio** | 188 domande, scritte sulle sole trascrizioni delle lezioni, scomponendo ogni macro-argomento fino alle definizioni di base: la risposta la scrive lo studente a memoria, la esporta per la correzione, e il voto da 1 a 100 resta sull'albero con la media per ramo |
 | **Quiz a crocette** | 276 domande a quattro opzioni con spiegazione; ripasso automatico delle sbagliate |
 | **Flashcard** | 375 carte a tre scatole (Leitner), con avanzamento salvato nel browser |
 | **Scrivere i nomi** | 101 nomi e luoghi, confronto lettera per lettera e nota sulla trappola ortografica |
@@ -98,13 +98,11 @@ contenuti/mappe/        mappe concettuali in Mermaid
 
 ## L'albero di studio
 
-`#/albero` scompone il programma in rami sempre più fini, fino a **426 domande**. Il ramo della
-definizione è scritto a mano in `data/albero.js`; tutti gli altri sono **generati a runtime dalle
-schede** (`daScheda`): per ogni scheda diventano rami «Perché nasce», «Le radici», «I precursori»,
-«L'oggetto», «Il metodo», «Le teorie», «Gli esponenti» (ciascuno con le proprie teorie), «Gli
-esperimenti», «La validità», «Che cosa precorre», «Dove si perde il voto», «L'esposizione d'insieme».
-Gli id delle foglie sono stabili (`S204:esp:titchener:chi`): rinominare una teoria o un esponente
-nella scheda cambia l'id e orfana il voto.
+`#/albero` scompone il programma in rami sempre più fini, fino a **188 domande**, tutte scritte a mano sulle trascrizioni. Il ramo della
+definizione e tutti gli altri stanno in `data/albero.js`; ogni domanda ha una traccia `deve` presa
+parola per parola dalla lezione. Resta disponibile la generazione automatica dalle schede (`daScheda`)
+per eventuali rami futuri, ma non è usata: le schede aggiungono contenuto editoriale che non è nella
+lezione.
 
 Il ciclo:
 
