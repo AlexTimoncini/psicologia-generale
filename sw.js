@@ -1,7 +1,7 @@
 /* Service worker — generato da build.js a partire da sw.template.js.
    Precache di tutto il sito (tranne i PDF, messi in cache alla prima apertura),
    cache-first sui file locali, rete con riserva in cache per i font. */
-const VERSIONE = '4e2e985a4d';
+const VERSIONE = 'e80cdb5a19';
 const CACHE = 'pge-' + VERSIONE;
 const PRECACHE = [
  "index.html",
@@ -12,6 +12,7 @@ const PRECACHE = [
  "assets/pills.js",
  "assets/studio.js",
  "assets/style.css",
+ "assets/tutor.js",
  "data/albero.js",
  "data/argomenti.js",
  "data/corso.js",

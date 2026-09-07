@@ -16,6 +16,7 @@
   ],
   "shortcuts": [
     { "name": "Pills", "url": "./index.html#/pills", "icons": [{ "src": "icone/icona-192.png", "sizes": "192x192" }] },
+    { "name": "Tutor vocale", "url": "./index.html#/tutor" },
     { "name": "Albero di studio", "url": "./index.html#/albero" },
     { "name": "Domande d'esame", "url": "./index.html#/esame" }
   ]
