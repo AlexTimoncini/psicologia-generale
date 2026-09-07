@@ -857,3 +857,13 @@ details.al-p0 > .al-figli { margin-left: 1rem; margin-right: .6rem; }
   details.al-p0 > .al-figli { margin-left:.4rem; margin-right:.3rem; }
   .al-occhiello { margin-left:.8rem; }
 }
+
+/* ---------- Domande d'esame ---------- */
+.es-domanda { border: 1px solid var(--linea); border-radius: 6px; background: var(--carta-alta); margin: 0 0 .8rem; }
+.es-domanda > summary { cursor: pointer; padding: .85rem 1rem; display: flex; gap: .8rem; align-items: baseline; font-family: var(--display); font-size: 1.08rem; font-weight: 600; list-style: none; }
+.es-domanda > summary::-webkit-details-marker { display: none; }
+.es-domanda[open] > summary { border-bottom: 1px solid var(--linea); }
+.es-eti { font-family: var(--dati); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accento); border: 1px solid currentColor; border-radius: 3px; padding: .1rem .4rem; white-space: nowrap; }
+.es-testo { margin: .9rem 1rem .3rem; font-style: italic; color: var(--grafite); }
+.es-risposta { padding: 0 1rem 1rem; }
+.es-risposta p { margin: .6rem 0; }
