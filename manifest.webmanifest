@@ -1,0 +1,22 @@
+{
+  "name": "Psicologia Generale — Guida allo studio",
+  "short_name": "PGE",
+  "description": "Manuale, albero di studio, domande d'esame, quiz, flashcard e pills per Psicologia Generale (SFO_PGE).",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#12161C",
+  "theme_color": "#1B5E5A",
+  "lang": "it",
+  "icons": [
+    { "src": "icone/icona-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icone/icona-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icone/icona-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Pills", "url": "./index.html#/pills", "icons": [{ "src": "icone/icona-192.png", "sizes": "192x192" }] },
+    { "name": "Albero di studio", "url": "./index.html#/albero" },
+    { "name": "Domande d'esame", "url": "./index.html#/esame" }
+  ]
+}

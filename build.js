@@ -37,6 +37,16 @@ locali.forEach(([tag, src], i) => {
 
 fs.writeFileSync('standalone.html', html);
 
+/* --- 4. service worker: elenco dei file da mettere in cache e versione --- */
+const crypto = require('crypto');
+const cammina = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? cammina(path.join(d, e.name)) : [path.join(d, e.name)]);
+const precache = ['index.html', 'manifest.webmanifest', ...cammina('assets'), ...cammina('data'), ...cammina('contenuti'), ...cammina('icone')]
+  .filter(f => !/\.DS_Store$/.test(f)).map(f => f.split(path.sep).join('/'));
+const versione = crypto.createHash('sha1').update(precache.map(f => leggi(f)).join('\n')).digest('hex').slice(0, 10);
+const swTpl = leggi('sw.template.js');
+fs.writeFileSync('sw.js', swTpl.replace('__VERSIONE__', versione).replace('__PRECACHE__', JSON.stringify(precache, null, 1)));
+console.log('sw.js generato — versione ' + versione + ', ' + precache.length + ' file in cache');
+
 const kb = n => (n / 1024).toFixed(0) + ' KB';
 console.log('standalone.html generato — ' + kb(Buffer.byteLength(html)));
 console.log('  script incorporati : ' + locali.length);

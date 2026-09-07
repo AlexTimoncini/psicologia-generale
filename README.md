@@ -177,3 +177,7 @@ sono segnalati come **[N.d.R.]** invece di essere propagati. Il caso più import
 lezione 10: la docente enuncia la **lateralizzazione emisferica invertita** a metà lezione e
 la corregge nel riepilogo conclusivo — vale il riepilogo, ed è segnalato in ogni punto in cui
 il tema compare.
+
+## Installare sul telefono (PWA)
+
+Il sito è una Progressive Web App: da Chrome (Android) o Safari (iPhone) si aggiunge alla schermata Home e funziona offline. `sw.js` è generato da `build.js` da `sw.template.js`.

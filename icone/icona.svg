@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#1B5E5A"/>
+  <text x="256" y="300" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="150" font-weight="700" fill="#EDEFEA" letter-spacing="8">PGE</text>
+  <rect x="120" y="360" width="272" height="10" rx="5" fill="#5CBFB2"/>
+</svg>
