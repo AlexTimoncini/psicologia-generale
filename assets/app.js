@@ -60,6 +60,7 @@ const rotte = {
   '/programma':         vistaProgramma,
   '/sintagmi':          vistaSintagmi,
   '/errori':            vistaErrori,
+  '/pills':             vistaPills,
   '/esame':             vistaEsame,
   '/esame/simulazione': vistaSimulazione,
   '/esame/allenamento': vistaAllenamento,
@@ -69,6 +70,8 @@ const rotte = {
 function instrada() {
   const percorso = (location.hash.slice(1) || '/').split('?')[0];
   main.innerHTML = '';
+  main.classList.remove('pl-piena');
+  if ('speechSynthesis' in window) speechSynthesis.cancel();
   fermaTimer();
 
   const lez = percorso.match(/^\/lezioni\/(L\d+)$/);
@@ -133,6 +136,7 @@ function vistaQuadro() {
       ${[
         ['#/albero','Albero di studio','Ogni argomento scomposto fino alle domande di base. Le risposte le scrivi tu, a memoria; la correzione dà un voto da 1 a 100 che resta sull\'albero, ramo per ramo.'],
         ['#/esame','Domande d\'esame','Le domande che ricorrono negli appelli degli anni passati, modulo per modulo, ciascuna con la risposta da 30 e lode: un tema intero in una pagina scarsa.'],
+        ['#/pills','Pills','Un feed da telefono: scorri una schermata alla volta fra pillole che si raccontano riga per riga, con lettura vocale, e minigiochi: crocette, vero o falso, chi sono, cronologia, elenco.'],
         ['#/quiz','Quiz a crocette', `${PGE.quiz.length} domande a quattro opzioni, con spiegazione dopo ogni risposta. I distrattori sono le risposte di un\'altra scuola: sbagliare qui è informativo.`],
         ['#/flashcard','Flashcard', `${PGE.flashcard.length} carte a tre scatole. Le sbagliate tornano, quelle sapute due volte escono dal giro.`],
         ['#/nomi','Scrivere i nomi', `${PGE.nomi.length} nomi e luoghi, con il confronto lettera per lettera. Titchener, Vygotskij, Wertheimer, von Helmholtz: qui si sbaglia sempre.`],

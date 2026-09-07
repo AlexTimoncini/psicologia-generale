@@ -11,6 +11,7 @@ Nessun database, nessuna dipendenza da installare.
 | **Schede** | 32 schede con struttura rigida e ripetuta — 12 blocchi identici per ogni voce: perché nasce, radici, precursori, oggetto, metodo, teorie, esponenti, esperimenti, validità, precorre, formule, errori. Consultabili a schermo e scaricabili come **cinque fascicoli PDF stampabili** |
 | **Argomenti** | 28 esposizioni orali (~48.000 parole, 133 minuti di parlato) organizzate in otto cartelle: ogni argomento scritto **come si direbbe a voce**, con indicazioni di regìa nascondibili |
 | **Excursus storico** | 14 scuole raggruppate in cinque fasi, con filtri, tavola sinottica e la terna oggetto–metodo–validità per ciascuna |
+| **Pills** | Feed verticale da telefono, una schermata alla volta: pillole che si raccontano riga per riga (con lettura vocale) e minigiochi — crocette, vero o falso, chi sono, cronologia, elenco — generati dai dati già presenti. `#/pills` |
 | **Albero di studio** | 152 domande, scritte sulle sole trascrizioni delle lezioni, scomponendo ogni macro-argomento fino alle definizioni di base: la risposta la scrive lo studente a memoria, la esporta per la correzione, e il voto da 1 a 100 resta sull'albero con la media per ramo |
 | **Quiz a crocette** | 276 domande a quattro opzioni con spiegazione; ripasso automatico delle sbagliate |
 | **Flashcard** | 375 carte a tre scatole (Leitner), con avanzamento salvato nel browser |
