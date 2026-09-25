@@ -54,7 +54,7 @@ PGE.lezioni = [
     argomenti:["Il sonno","I disturbi del sonno","I sogni"], letture:["Zha et al., 2024","Carskadon & Dement, 2011"] },
   { id:"L16", modulo:"M3", titolo:"Sensazione e percezione (I)", sottotitolo:"La sensazione", stato:"pronta",
     argomenti:["I processi sensoriali","I sistemi sensoriali: la vista"], letture:[] },
-  { id:"L17", modulo:"M3", titolo:"Sensazione e percezione (II)", sottotitolo:"La percezione", stato:"attesa",
+  { id:"L17", modulo:"M3", titolo:"Sensazione e percezione (II)", sottotitolo:"La percezione", stato:"pronta",
     argomenti:["Realtà fisica e realtà percepita","L'organizzazione percettiva"], letture:["Wagemans et al., 2012"] },
   { id:"L18", modulo:"M3", titolo:"Apprendimento", sottotitolo:"Il ruolo dell'esperienza", stato:"attesa",
     argomenti:["Definire l'apprendimento","Gli apprendimenti associativi","Gli apprendimenti cognitivi"], letture:["Rizzolatti & Craighero, 2004"] },
