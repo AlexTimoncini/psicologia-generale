@@ -14016,7 +14016,7 @@ function vistaMappe(idMacro) {
   const macro = mpPrepara(PGE.mappe.macro.find(m => m.id === idMacro) ||
     PGE.mappe.macro.find(m => m.id === MEM.get('mappe.ultima', 'def')) || PGE.mappe.macro[0]);
   MEM.set('mappe.ultima', macro.id);
-  main.classList.add('pl-piena');
+  main.classList.add('mp-full');
 
   const stretto = window.matchMedia('(max-width: 900px)').matches;
   const st = {
@@ -14775,7 +14775,7 @@ const rotte = {
 function instrada() {
   const percorso = (location.hash.slice(1) || '/').split('?')[0];
   main.innerHTML = '';
-  main.classList.remove('pl-piena');
+  main.classList.remove('pl-piena', 'mp-full');
   document.body.classList.remove('atl-immersivo');
   if ('speechSynthesis' in window) speechSynthesis.cancel();
   fermaTimer();

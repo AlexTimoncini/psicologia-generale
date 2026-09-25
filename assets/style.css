@@ -1212,6 +1212,20 @@ html[data-tema="sfondo"] .atl-test { background:#232A32; }
    trascina e si ingrandisce. Ogni ramo di primo livello
    ha la sua tinta, e la passa a tutti i discendenti.
    ========================================================= */
+
+/* A differenza di .pl-piena (Pills, Tutor, Atlante), qui il contenuto
+   NON è un unico blocco che gestisce da sé lo scroll: è una pagina
+   normale — titolo, sommario, filtri, poi la mappa/elenco — che deve
+   scorrere come tutte le altre. .pl-piena impone altezza fissa e
+   overflow:hidden su <main>: bene per un canvas a schermo intero, ma
+   qui taglierebbe via tutto sotto la piega e azzererebbe il respiro
+   dei margini. Stessa idea di .pl-piena — via il tetto di larghezza —
+   senza l'altezza fissa. */
+main.mp-full {
+  max-width: none;
+  padding: clamp(1.4rem, 3vw, 2.5rem) clamp(1.1rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem);
+}
+
 /* I rami non usano né verde né giallo: quelli significano
    «elemento finale» e «superfluo», e non devono confondersi. */
 :root {

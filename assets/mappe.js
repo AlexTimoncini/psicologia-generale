@@ -110,7 +110,7 @@ function vistaMappe(idMacro) {
   const macro = mpPrepara(PGE.mappe.macro.find(m => m.id === idMacro) ||
     PGE.mappe.macro.find(m => m.id === MEM.get('mappe.ultima', 'def')) || PGE.mappe.macro[0]);
   MEM.set('mappe.ultima', macro.id);
-  main.classList.add('pl-piena');
+  main.classList.add('mp-full');
 
   const stretto = window.matchMedia('(max-width: 900px)').matches;
   const st = {
