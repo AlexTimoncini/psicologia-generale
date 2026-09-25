@@ -61,6 +61,8 @@ const rotte = {
   '/sintagmi':          vistaSintagmi,
   '/errori':            vistaErrori,
   '/pills':             vistaPills,
+  '/atlante':           vistaAtlante,
+  '/mappe':             vistaMappe,
   '/tutor':             vistaTutor,
   '/esame':             vistaEsame,
   '/esame/simulazione': vistaSimulazione,
@@ -72,6 +74,7 @@ function instrada() {
   const percorso = (location.hash.slice(1) || '/').split('?')[0];
   main.innerHTML = '';
   main.classList.remove('pl-piena');
+  document.body.classList.remove('atl-immersivo');
   if ('speechSynthesis' in window) speechSynthesis.cancel();
   fermaTimer();
 
@@ -80,12 +83,16 @@ function instrada() {
   const arg = percorso.match(/^\/argomenti\/(D\d+)$/);
   const fas = percorso.match(/^\/schede\/(F\d+)$/);
   const alb = percorso.match(/^\/albero(?:\/(.+))?$/);
+  const atl = percorso.match(/^\/atlante(?:\/([a-z]+))?(?:\/([a-z0-9.]+))?$/);
+  const mpp = percorso.match(/^\/mappe\/([a-z]+)$/);
   const esa = percorso.match(/^\/esame\/(E\d+)$/);
   if (lez) vistaLezione(lez[1]);
   else if (cap) vistaCapitolo(cap[1]);
   else if (arg) vistaArgomento(arg[1]);
   else if (fas) vistaFascicolo(fas[1]);
   else if (alb) vistaAlbero(alb[1] ? decodeURIComponent(alb[1]) : null);
+  else if (atl && (atl[1] || percorso === '/atlante')) vistaAtlante(atl[1], atl[2]);
+  else if (mpp) vistaMappe(mpp[1]);
   else if (esa) vistaEsame(esa[1]);
   else if (rotte[percorso]) rotte[percorso]();
   else vistaAssente(percorso);
@@ -135,6 +142,7 @@ function vistaQuadro() {
     <h2>Allenarsi</h2>
     <div class="griglia due">
       ${[
+        ['#/atlante/encefalo','Atlante 3D','Encefalo, neurone e sistema nervoso periferico in un portale 3D: si clicca una struttura, si legge la scheda della lezione, si seziona, si esplode, e poi si dà il nome.'],
         ['#/albero','Albero di studio','Ogni argomento scomposto fino alle domande di base. Le risposte le scrivi tu, a memoria; la correzione dà un voto da 1 a 100 che resta sull\'albero, ramo per ramo.'],
         ['#/esame','Domande d\'esame','Le domande che ricorrono negli appelli degli anni passati, modulo per modulo, ciascuna con la risposta da 30 e lode: un tema intero in una pagina scarsa.'],
         ['#/pills','Pills','Un feed da telefono: scorri una schermata alla volta fra pillole che si raccontano riga per riga, con lettura vocale, e minigiochi: crocette, vero o falso, chi sono, cronologia, elenco.'],

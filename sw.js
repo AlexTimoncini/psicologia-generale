@@ -1,25 +1,36 @@
 /* Service worker — generato da build.js a partire da sw.template.js.
    Precache di tutto il sito (tranne i PDF, messi in cache alla prima apertura),
    cache-first sui file locali, rete con riserva in cache per i font. */
-const VERSIONE = 'e80cdb5a19';
+const VERSIONE = '7ff83ce827';
 const CACHE = 'pge-' + VERSIONE;
 const PRECACHE = [
  "index.html",
  "manifest.webmanifest",
  "assets/albero.js",
  "assets/app.js",
+ "assets/atlante.js",
+ "assets/atlante3d.js",
  "assets/esame.js",
+ "assets/mappe.js",
  "assets/pills.js",
  "assets/studio.js",
  "assets/style.css",
  "assets/tutor.js",
+ "assets/vendor/BufferGeometryUtils.js",
+ "assets/vendor/GLTFLoader.js",
+ "assets/vendor/OrbitControls.js",
+ "assets/vendor/RoomEnvironment.js",
+ "assets/vendor/three.core.min.js",
+ "assets/vendor/three.module.js",
  "data/albero.js",
  "data/argomenti.js",
+ "data/atlante.js",
  "data/corso.js",
  "data/esame.js",
  "data/esami.js",
  "data/flashcard.js",
  "data/manuale.js",
+ "data/mappe.js",
  "data/nomi.js",
  "data/quiz.js",
  "data/schede.js",

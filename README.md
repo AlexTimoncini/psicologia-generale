@@ -13,6 +13,8 @@ Nessun database, nessuna dipendenza da installare.
 | **Excursus storico** | 14 scuole raggruppate in cinque fasi, con filtri, tavola sinottica e la terna oggetto–metodo–validità per ciascuna |
 | **Pills** | Feed verticale da telefono, una schermata alla volta: pillole che si raccontano riga per riga (con lettura vocale) e minigiochi — crocette, vero o falso, chi sono, cronologia, elenco — generati dai dati già presenti. `#/pills` |
 | **Tutor vocale** | Orale a voce sul telefono: domanda dell'albero, riconoscimento vocale, il tutor ferma gli errori (distrattori del quiz), suggerisce i punti mancanti, rispiega e fa ripetere; voto salvato. Cervello locale gratuito, oppure Claude con la chiave API dell'utente (solo nel browser). `#/tutor` |
+| **Mappe concettuali** | 5 mappe, una per macro-argomento, 468 nodi dalla radice alle definizioni di base (fino a 7 livelli: *Basi biologiche → La struttura neuronale → Il neurone → Corpo cellulare → Nucleo → DNA → I geni*). La descrizione di un nodo compare solo su richiesta; vista a mappa trascinabile o a elenco annidato, ricerca, e 60 nodi anatomici che si aprono nell'atlante 3D. `#/mappe` |
+| **Atlante 3D** | Neurone, encefalo e sistema nervoso periferico in 3D, con le schede delle lezioni 8–10 a schema fisso e la modalità «Come si chiama?». `#/atlante` |
 | **Albero di studio** | 152 domande, scritte sulle sole trascrizioni delle lezioni, scomponendo ogni macro-argomento fino alle definizioni di base: la risposta la scrive lo studente a memoria, la esporta per la correzione, e il voto da 1 a 100 resta sull'albero con la media per ramo |
 | **Quiz a crocette** | 276 domande a quattro opzioni con spiegazione; ripasso automatico delle sbagliate |
 | **Flashcard** | 375 carte a tre scatole (Leitner), con avanzamento salvato nel browser |
@@ -52,7 +54,9 @@ Il file `.nojekyll` serve a impedire che GitHub processi la cartella con Jekyll:
 | Nomi da allenare | `data/nomi.js` |
 | Trascrizione di una nuova lezione | `contenuti/L14_trascrizione.md` |
 | Appunti di una nuova lezione | `contenuti/L14_appunti.md` |
-| Mappa concettuale | `contenuti/mappe/L14.mmd` (sintassi Mermaid) |
+| Mappa concettuale di una lezione | `contenuti/mappe/L14.mmd` (sintassi Mermaid) |
+| Un nodo delle mappe per macro-argomento | `data/mappe.js`: campi `t`, `d`, `f`, `atl`, `figli` (schema in testa al file) |
+| Una parte dell'atlante 3D | `data/atlante.js`; per l'encefalo anche `blender/atlante.py`, che rigenera `modelli/encefalo.glb` |
 | Stato della lezione | in `data/corso.js`, cambia `stato:"attesa"` in `stato:"pronta"` |
 | Nuove scuole, sintagmi, errori | `data/corso.js` |
 | Domande d'esame | `data/esami.js`, array `PGE.domande` |
@@ -95,7 +99,9 @@ data/nomi.js            nomi, indizi e trappole ortografiche
 contenuti/              trascrizioni e appunti in Markdown
 contenuti/manuale/      i capitoli del manuale in Markdown
 contenuti/argomenti/    le esposizioni orali in Markdown, una per file
-contenuti/mappe/        mappe concettuali in Mermaid
+contenuti/mappe/        mappe concettuali per lezione, in Mermaid
+data/mappe.js           mappe concettuali per macro-argomento, da esplorare scendendo
+assets/mappe.js         la pagina delle mappe: vista a mappa, vista a elenco, ricerca
 ```
 
 ## L'albero di studio

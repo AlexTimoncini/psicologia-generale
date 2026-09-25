@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v=18">
 </head>
 <body>
 
@@ -50,11 +50,13 @@
       <p class="barra-titolo">Studio</p>
       <a href="#/manuale">Manuale</a>
       <a href="#/argomenti">Argomenti — come si espone</a>
+      <a href="#/mappe">Mappe concettuali</a>
       <a href="#/schede">Schede e PDF stampabili</a>
     </div>
     <div class="barra-gruppo">
       <p class="barra-titolo">Allenamento</p>
       <a href="#/albero">Albero di studio</a>
+      <a href="#/atlante">Atlante 3D</a>
       <a href="#/pills">Pills</a>
       <a href="#/tutor">Tutor vocale</a>
       <a href="#/quiz">Quiz a crocette</a>
@@ -101,16 +103,21 @@
 <script src="data/flashcard.js"></script>
 <script src="data/nomi.js"></script>
 <script src="data/albero.js"></script>
+<script src="data/atlante.js?v=20"></script>
 <script src="data/esame.js"></script>
+<script src="data/mappe.js"></script>
 <script src="assets/studio.js"></script>
 <script src="assets/albero.js"></script>
 <script src="assets/esame.js"></script>
 <script src="assets/pills.js"></script>
+<script src="assets/atlante.js?v=18"></script>
+<script src="assets/mappe.js"></script>
 <script src="assets/tutor.js"></script>
 <script src="assets/app.js"></script>
 <script>
 /* PWA: registra il service worker (cache offline) e ricarica quando arriva una versione nuova */
-if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+if ('serviceWorker' in navigator && location.protocol !== 'file:'
+    && location.hostname !== '127.0.0.1' && location.hostname !== 'localhost') {
   navigator.serviceWorker.register('sw.js').then(r => {
     r.addEventListener('updatefound', () => {
       const w = r.installing;
