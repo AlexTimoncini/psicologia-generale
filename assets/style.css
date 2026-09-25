@@ -1226,6 +1226,17 @@ main.mp-full {
   padding: clamp(1.4rem, 3vw, 2.5rem) clamp(1.1rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem);
 }
 
+/* Schermo intero: si manda a schermo intero <main> per intero — filtri
+   e attrezzi compresi, non solo la tela — così restano usabili anche
+   lì dentro. Il browser porta l'elemento a riempire lo schermo da
+   solo; qui basta lasciare più spazio verticale a mappa/elenco/pannello,
+   che altrimenti resterebbero limitati al tetto pensato per la finestra
+   normale (clamp fino a 780px). */
+main.mp-full.mp-schermo { overflow-y: auto; }
+main.mp-full.mp-schermo .mp-scena { height: clamp(420px, 82vh, 1400px); }
+main.mp-full.mp-schermo .mp-elenco,
+main.mp-full.mp-schermo .mp-pannello { max-height: clamp(420px, 82vh, 1400px); }
+
 /* I rami non usano né verde né giallo: quelli significano
    «elemento finale» e «superfluo», e non devono confondersi. */
 :root {
@@ -1389,10 +1400,39 @@ html[data-tema="sfondo"] {
 .mp-giu:hover { border-color:var(--tinta); }
 .mp-giu span { font-family:var(--dati); font-size:.6rem; color:var(--grafite); margin-left:.2rem; }
 
+/* --- avviso che si sta guardando una bozza non pubblicata --- */
+.mp-nota-bozza { color:var(--mp-giallo); border-left:2px solid var(--mp-giallo); padding-left:.9rem; }
+
+/* --- la barra di modifica: esporta, scarica, scarta --- */
+.mp-modifica-barra { border:1px solid var(--linea); border-left:2px solid var(--accento); border-radius:4px;
+  background:var(--carta-alta); padding:1rem 1.1rem; margin:0 0 1.2rem; }
+.mp-modifica-barra .nota { margin:0 0 .8rem; }
+.mp-esito { font-family:var(--dati); font-size:.78rem; color:var(--accento); min-height:1.2em; margin:.6rem 0 0; }
+
+/* --- il modulo di modifica, in coda al pannello --- */
+.mp-editor { margin-top:1.3rem; padding-top:1rem; border-top:1px dashed var(--linea); }
+.mp-campo { display:flex; flex-direction:column; gap:.3rem; font-size:.86rem; color:var(--grafite);
+  margin-bottom:.8rem; }
+.mp-campo .nota { font-size:.82em; }
+.mp-campo input[type=text], .mp-campo textarea { font:inherit; font-size:.9rem; color:var(--inchiostro);
+  background:var(--carta); border:1px solid var(--linea); border-radius:3px; padding:.5rem .65rem;
+  resize:vertical; }
+.mp-campo input[type=text]:focus, .mp-campo textarea:focus { outline:none; border-color:var(--accento); }
+.mp-check { display:flex; align-items:center; gap:.45rem; font-size:.86rem; color:var(--grafite);
+  margin-bottom:.9rem; }
+.mp-check input { accent-color:var(--accento); }
+.mp-editor-azioni { display:flex; flex-wrap:wrap; gap:.5rem; }
+.mp-editor-azioni .bottone, .mp-editor-azioni .bottone.vuoto { padding:.5rem .9rem; font-size:.84rem; }
+.mp-elimina.bottone.vuoto { color:var(--segnale); border-color:var(--segnale); }
+.mp-elimina.bottone.vuoto:hover { background:color-mix(in srgb, var(--segnale) 10%, transparent); }
+
 @media (max-width: 900px) {
   .mp-banco { grid-template-columns:1fr; }
   .mp-pannello { position:static; max-height:none; }
   .mp-scena { height:min(64vh, 520px); }
   .mp-elenco { max-height:none; }
   .mp-cerca { margin-left:0; max-width:none; }
+  main.mp-full.mp-schermo .mp-scena { height:min(72vh, 900px); }
+  main.mp-full.mp-schermo .mp-elenco,
+  main.mp-full.mp-schermo .mp-pannello { max-height:min(72vh, 900px); }
 }

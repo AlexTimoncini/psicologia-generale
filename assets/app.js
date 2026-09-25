@@ -73,7 +73,7 @@ const rotte = {
 function instrada() {
   const percorso = (location.hash.slice(1) || '/').split('?')[0];
   main.innerHTML = '';
-  main.classList.remove('pl-piena', 'mp-full');
+  main.classList.remove('pl-piena', 'mp-full', 'mp-schermo');
   document.body.classList.remove('atl-immersivo');
   if ('speechSynthesis' in window) speechSynthesis.cancel();
   fermaTimer();

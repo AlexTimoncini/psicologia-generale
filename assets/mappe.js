@@ -38,6 +38,21 @@ function mpParteAtlante(id) {
 
 function mpPrepara(macro) {
   if (macro._pronta) return macro;
+  /* la lettura della bozza avviene UNA VOLTA SOLA per macro in tutta la
+     sessione (al primo caricamento): _pronta viene rimesso a false a ogni
+     modifica per rifare gli id, ma senza questa guardia ogni ripreparazione
+     rileggerebbe da localStorage la bozza salvata un passo prima — cioè
+     PRIMA della modifica appena fatta — e la modifica sparirebbe subito
+     dopo averla salvata. */
+  if (!macro._inizializzata) {
+    macro._inizializzata = true;
+    /* fotografia della versione pubblicata, prima di applicare la bozza:
+       serve a «Scarta le modifiche» */
+    macro._pulitoPubblicato = mpPulisci(macro.radice);
+    const bozza = MEM.get('mappe.bozza.' + macro.id, null);
+    macro._daBozza = !!bozza;
+    if (bozza) macro.radice = bozza;
+  }
   const indice = {};
   function visita(n, genitore, liv, ramo, f) {
     const base = genitore ? genitore.id + '/' + mpSlug(n.t) : macro.id;
@@ -63,6 +78,29 @@ function mpPrepara(macro) {
 }
 
 function mpPercorso(n) { const p = []; while (n) { p.unshift(n); n = n.genitore; } return p; }
+
+/* Solo i campi autorati (t, d, f, es, atl, figli): esattamente la forma
+   con cui i nodi sono scritti a mano in data/mappe.js. Usata sia per
+   fotografare la versione pubblicata al primo caricamento, sia per
+   salvare la bozza in locale, sia per l'esportazione. */
+function mpPulisci(n) {
+  const o = { t: n.t };
+  if (n.d) o.d = n.d;
+  if (n.f) o.f = n.f;
+  if (n.es) o.es = true;
+  if (n.atl) o.atl = n.atl;
+  if (n.figli && n.figli.length) o.figli = n.figli.map(mpPulisci);
+  return o;
+}
+
+/* Il testo pronto da incollare in data/mappe.js al posto del campo
+   "radice" di questa voce — o da passare in chat perché lo faccia. */
+function mpTestoEsportazione(macro) {
+  const quando = new Date().toLocaleString('it-IT');
+  return `/* Mappa "${macro.titolo}" (id:"${macro.id}") — bozza esportata da #/mappe/${macro.id}
+   il ${quando}. Sostituisce il campo "radice" della voce corrispondente
+   in data/mappe.js. */\n` + JSON.stringify(mpPulisci(macro.radice), null, 2);
+}
 
 /* ---------------- il pannello: la descrizione su richiesta ---------------- */
 function mpPannello(macro, n, nascondi) {
@@ -118,12 +156,14 @@ function vistaMappe(idMacro) {
     vista: MEM.get('mappe.vista', stretto ? 'elenco' : 'mappa'),
     descr: MEM.get('mappe.descr', false),
     nascondi: MEM.get('mappe.nascondi', false),
+    modifica: false, /* non si ricorda da una sessione all'altra: si riparte in lettura */
     aperti: new Set(MEM.get('mappe.aperti.' + macro.id, [macro.radice.id])),
     scelto: MEM.get('mappe.scelto.' + macro.id, null),
     trovati: [], iTrovato: -1,
     tx: 0, ty: 0, s: 1, pos: {}, vivo: true, animazione: 0
   };
   if (!macro._indice[st.scelto] || (st.nascondi && macro._indice[st.scelto]._es)) st.scelto = null;
+  const puoSchermoIntero = !!(document.fullscreenEnabled);
 
   /* i figli che si vedono: con «Nascondi il superfluo» i nodi gialli spariscono */
   const figliDi = n => st.nascondi ? n.figli.filter(c => !c._es) : n.figli;
@@ -138,6 +178,7 @@ function vistaMappe(idMacro) {
   main.innerHTML = `
     <p class="occhiello">Studio · Mappe concettuali</p>
     <h1>${esc(macro.titolo)}</h1>
+    ${macro._daBozza ? `<p class="nota mp-nota-bozza">Stai vedendo una <strong>bozza modificata in questo browser</strong>, non ancora pubblicata.</p>` : ''}
     <p class="sommario">${nodi} nodi, dalla radice fino alle definizioni di base: ${quantiFinali} elementi finali da sapere e ${quantiSuperflui} superflui. Apri i rami che ti servono; la descrizione compare quando la chiedi.</p>
 
     <div class="filtri">${PGE.mappe.macro.map(m => `<a class="chip${m.id === macro.id ? ' attivo' : ''}" href="#/mappe/${m.id}">${esc(m.titolo)}</a>`).join('')}</div>
@@ -147,14 +188,26 @@ function vistaMappe(idMacro) {
         <button role="tab" data-vista="mappa" class="${st.vista === 'mappa' ? 'attivo' : ''}">Mappa</button>
         <button role="tab" data-vista="elenco" class="${st.vista === 'elenco' ? 'attivo' : ''}">Elenco</button>
       </div>
+      ${puoSchermoIntero ? `<button class="bottone vuoto" id="mpSchermo">Schermo intero</button>` : ''}
       <button class="bottone vuoto" id="mpApriTutto">Espandi tutto</button>
       <button class="bottone vuoto" id="mpChiudiTutto">Comprimi</button>
       <label class="atl-spunta"><input type="checkbox" id="mpDescr" ${st.descr ? 'checked' : ''}> Descrizioni nella mappa</label>
       <label class="atl-spunta"><input type="checkbox" id="mpNascondi" ${st.nascondi ? 'checked' : ''}> Nascondi il superfluo</label>
+      <label class="atl-spunta"><input type="checkbox" id="mpModifica"> Modalità modifica</label>
       <div class="mp-cerca">
         <input type="search" id="mpCerca" placeholder="Cerca un concetto…" autocomplete="off" aria-label="Cerca nella mappa">
         <span id="mpConta" class="mp-conta" aria-live="polite"></span>
       </div>
+    </div>
+
+    <div class="mp-modifica-barra" id="mpModificaBarra" hidden>
+      <p class="nota">La modifica resta <strong>solo in questo browser</strong> — una bozza salvata in locale, come le risposte dell'Albero di studio. Per farla vedere a tutti bisogna <strong>esportarla</strong> e incollarla in <code>data/mappe.js</code> al posto del campo <code>radice</code> di questa voce, poi ricostruire e pubblicare il sito — oppure incollarla in chat e chiedere di farlo.</p>
+      <div class="al-azioni">
+        <button class="bottone" id="mpEsporta">Copia questa mappa modificata</button>
+        <button class="bottone vuoto" id="mpEsportaFile">Scarica come file</button>
+        <button class="bottone vuoto" id="mpScarta">Scarta le modifiche di questa mappa</button>
+      </div>
+      <p class="mp-esito" id="esito"></p>
     </div>
 
     <p class="mp-legenda" aria-label="Legenda dei colori">
@@ -163,7 +216,7 @@ function vistaMappe(idMacro) {
       <span class="mp-leg mp-leg-ramo">ramo intermedio, nel colore del suo ramo</span>
     </p>
 
-    <div class="mp-banco">
+    <div class="mp-banco" id="mpBanco">
       <div class="mp-scena${st.vista === 'mappa' ? '' : ' mp-nascosta'}" id="mpScena" tabindex="-1">
         <div class="mp-tela" id="mpTela"><svg class="mp-rami" id="mpRami" aria-hidden="true"></svg></div>
         <div class="mp-zoom">
@@ -185,6 +238,95 @@ function vistaMappe(idMacro) {
     MEM.set('mappe.scelto.' + macro.id, st.scelto);
   }
 
+  /* il pannello di lettura, più — in modalità modifica — il modulo
+     di modifica sotto: due funzioni separate, una sola chiamata */
+  function mostraPannello(n) {
+    pannello.innerHTML = mpPannello(macro, n, st.nascondi) + (st.modifica ? mpModuloModifica(n) : '');
+  }
+
+  /* ================= MODIFICA ================= */
+  function mpModuloModifica(n) {
+    if (!n) return `<div class="mp-editor">
+      <p class="mp-eti">Modifica</p>
+      <p class="nota">Seleziona un nodo per modificarlo, oppure aggiungi un primo ramo alla radice.</p>
+      <div class="mp-editor-azioni"><button class="bottone vuoto" id="mpAggiungi">Aggiungi un ramo alla radice</button></div>
+    </div>`;
+    const radice = n.liv === 0;
+    return `<div class="mp-editor">
+      <p class="mp-eti">Modifica questo nodo</p>
+      <label class="mp-campo">Titolo
+        <input type="text" id="mpCT" value="${esc(n.t)}">
+      </label>
+      <label class="mp-campo">Descrizione <span class="nota">— HTML: &lt;strong&gt;, &lt;em&gt;, &lt;br&gt;…</span>
+        <textarea id="mpCD" rows="5" spellcheck="false">${esc(n.d || '')}</textarea>
+      </label>
+      ${n._atl ? `<p class="nota">Questo nodo prende anche la scheda dell'atlante (<code>atl:"${esc(n.atl)}"</code>): la descrizione qui sopra si aggiunge, non la sostituisce.</p>` : ''}
+      <label class="mp-campo">Lezione di riferimento <span class="nota">— vuoto = eredita da sopra</span>
+        <input type="text" id="mpCF" value="${esc(n.f || '')}" placeholder="es. L08">
+      </label>
+      <label class="mp-check"><input type="checkbox" id="mpCE" ${n.es ? 'checked' : ''}> Superfluo — esempio, esperimento illustrativo o aneddoto</label>
+      <div class="mp-editor-azioni">
+        <button class="bottone" id="mpSalva">Salva le modifiche</button>
+        <button class="bottone vuoto" id="mpAggiungi">Aggiungi un nodo sotto</button>
+        ${!radice ? `<button class="bottone vuoto" id="mpSu">Sposta su</button>
+        <button class="bottone vuoto" id="mpGiu">Sposta giù</button>
+        <button class="bottone vuoto mp-elimina" id="mpElimina">Elimina questo nodo</button>` : ''}
+      </div>
+    </div>`;
+  }
+
+  function mpContaSotto(n) { return (n.figli || []).reduce((s, c) => s + 1 + mpContaSotto(c), 0); }
+
+  /* Ogni operazione che cambia titoli o struttura passa da qui: rifà
+     gli id (dipendono dal percorso dei titoli), tiene aperto e
+     selezionato il nodo su cui si stava lavorando, salva la bozza. */
+  function mpRipreparaEPersisti(nodoRif) {
+    const eraAperto = st.aperti.has(nodoRif.id);
+    macro._pronta = false;
+    mpPrepara(macro);
+    if (eraAperto) st.aperti.add(nodoRif.id);
+    if (nodoRif.genitore) st.aperti.add(nodoRif.genitore.id);
+    st.scelto = nodoRif.id;
+    MEM.set('mappe.bozza.' + macro.id, mpPulisci(macro.radice));
+    salva();
+    mostraPannello(nodoRif);
+    ridisegna(nodoRif.id);
+  }
+
+  function mpAggiungiFiglio(genitore) {
+    const nuovo = { t: 'Nuovo nodo', d: '' };
+    (genitore.figli = genitore.figli || []).push(nuovo);
+    st.aperti.add(genitore.id);
+    mpRipreparaEPersisti(nuovo);
+  }
+
+  function mpElimina(n) {
+    if (!n.genitore) return;
+    const sotto = mpContaSotto(n);
+    if (!confirm(`Eliminare «${n.t}»${sotto ? ` e i suoi ${sotto} sotto-nodi` : ''}? Resta solo in questo browser finché non pubblichi la mappa.`)) return;
+    const g = n.genitore;
+    g.figli = g.figli.filter(x => x !== n);
+    mpRipreparaEPersisti(g);
+  }
+
+  function mpSposta(n, delta) {
+    const g = n.genitore; if (!g) return;
+    const arr = g.figli, i = arr.indexOf(n), j = i + delta;
+    if (j < 0 || j >= arr.length) return;
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+    mpRipreparaEPersisti(n);
+  }
+
+  function mpScartaBozza() {
+    if (!confirm(`Scartare tutte le modifiche di «${macro.titolo}» e tornare alla versione pubblicata? Non si può annullare.`)) return;
+    MEM.del('mappe.bozza.' + macro.id);
+    MEM.del('mappe.aperti.' + macro.id);
+    MEM.del('mappe.scelto.' + macro.id);
+    macro.radice = mpPulisci(macro._pulitoPubblicato);
+    macro._pronta = false;
+    vistaMappe(macro.id);
+  }
+
   /* ================= SELEZIONE ================= */
   function seleziona(id, opz) {
     opz = opz || {};
@@ -193,7 +335,7 @@ function vistaMappe(idMacro) {
     /* per vedere un nodo bisogna che i suoi antenati siano aperti */
     mpPercorso(n).slice(0, -1).forEach(a => st.aperti.add(a.id));
     if (opz.apri && n.figli.length) st.aperti.add(id);
-    pannello.innerHTML = mpPannello(macro, n, st.nascondi);
+    mostraPannello(n);
     salva();
     ridisegna(opz.centra !== false ? id : null);
     if (opz.focus) {
@@ -218,6 +360,24 @@ function vistaMappe(idMacro) {
     /* chi apre il modello da una mappa vuole studiare quella parte:
        se l'atlante era rimasto in modalità test, il quiz la coprirebbe */
     if (e.target.closest('.mp-3d')) MEM.set('atlante.modo', 'studio');
+    if (!st.modifica) return;
+
+    if (e.target.closest('#mpAggiungi')) { mpAggiungiFiglio(macro._indice[st.scelto] || macro.radice); return; }
+    const n = macro._indice[st.scelto];
+    if (!n) return;
+    if (e.target.closest('#mpSalva')) {
+      const titolo = $('#mpCT', pannello).value.trim();
+      if (!titolo) { $('#esito').textContent = 'Il titolo non può restare vuoto.'; return; }
+      n.t = titolo;
+      n.d = $('#mpCD', pannello).value;
+      if ($('#mpCE', pannello).checked) n.es = true; else delete n.es;
+      const lez = $('#mpCF', pannello).value.trim();
+      if (lez) n.f = lez; else delete n.f;
+      mpRipreparaEPersisti(n);
+      $('#esito').textContent = 'Salvato in questo browser.';
+    } else if (e.target.closest('#mpSu')) mpSposta(n, -1);
+    else if (e.target.closest('#mpGiu')) mpSposta(n, 1);
+    else if (e.target.closest('#mpElimina')) mpElimina(n);
   });
 
   function ridisegna(centraSu, ancora) {
@@ -471,7 +631,7 @@ function vistaMappe(idMacro) {
     const v = e.target.closest('[data-voce]');
     if (!v) return;
     /* nell'elenco il clic sul nodo già scelto richiude la sua descrizione */
-    if (v.dataset.voce === st.scelto) { st.scelto = null; salva(); pannello.innerHTML = mpPannello(macro, null, st.nascondi); disegnaElenco(); return; }
+    if (v.dataset.voce === st.scelto) { st.scelto = null; salva(); mostraPannello(null); disegnaElenco(); return; }
     seleziona(v.dataset.voce, { apri: true, centra: false });
   });
 
@@ -499,9 +659,39 @@ function vistaMappe(idMacro) {
     if (st.nascondi && st.scelto && macro._indice[st.scelto]._es) {
       st.scelto = macro._indice[st.scelto].genitore ? macro._indice[st.scelto].genitore.id : null; salva();
     }
-    pannello.innerHTML = mpPannello(macro, macro._indice[st.scelto], st.nascondi);
+    mostraPannello(macro._indice[st.scelto]);
     ridisegna(st.scelto);
   };
+
+  $('#mpModifica').onchange = e => {
+    st.modifica = e.target.checked;
+    $('#mpModificaBarra').hidden = !st.modifica;
+    mostraPannello(macro._indice[st.scelto]);
+  };
+  $('#mpEsporta').onclick = () => copia(mpTestoEsportazione(macro));
+  $('#mpEsportaFile').onclick = () => {
+    scarica(mpTestoEsportazione(macro), `mappa-${macro.id}-${new Date().toISOString().slice(0, 10)}.js`);
+    $('#esito').textContent = 'Scaricato.';
+  };
+  $('#mpScarta').onclick = mpScartaBozza;
+
+  /* ---- schermo intero: tutta la pagina (barra dei filtri e attrezzi
+     comprese, non solo la mappa), per non perdere i controlli ---- */
+  const btnSchermo = $('#mpSchermo');
+  if (btnSchermo) {
+    const suFullscreen = () => {
+      const attivo = document.fullscreenElement === main;
+      btnSchermo.textContent = attivo ? 'Esci da schermo intero' : 'Schermo intero';
+      main.classList.toggle('mp-schermo', attivo);
+      if (st.vista === 'mappa') { st.pos = {}; ridisegna(st.scelto); if (!st.scelto) adatta(); }
+    };
+    document.addEventListener('fullscreenchange', suFullscreen);
+    st.suFullscreen = suFullscreen;
+    btnSchermo.onclick = () => {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else main.requestFullscreen().catch(() => {});
+    };
+  }
 
   /* ---- ricerca: apre i rami che contengono i risultati ---- */
   let attesa = 0;
@@ -526,7 +716,7 @@ function vistaMappe(idMacro) {
   });
 
   /* ================= AVVIO ================= */
-  pannello.innerHTML = mpPannello(macro, macro._indice[st.scelto], st.nascondi);
+  mostraPannello(macro._indice[st.scelto]);
   ridisegna();
   if (st.vista === 'mappa') {
     if (st.scelto) centra(st.scelto);
@@ -541,6 +731,8 @@ function mpChiudi() {
   MP_STATO.vivo = false;
   cancelAnimationFrame(MP_STATO.animazione);
   window.removeEventListener('resize', MP_STATO.ridimensiona);
+  if (MP_STATO.suFullscreen) document.removeEventListener('fullscreenchange', MP_STATO.suFullscreen);
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
   MP_STATO = null;
 }
 window.addEventListener('hashchange', () => { if (location.hash.indexOf('#/mappe') !== 0) mpChiudi(); });
