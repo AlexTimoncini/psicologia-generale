@@ -21,7 +21,6 @@ temaBtn.addEventListener('click', () => {
   const r = location.hash;
   if (r.includes('/lezioni/')) instrada();
 });
-if (window.matchMedia('(prefers-color-scheme: dark)').matches) applicaTema('sfondo');
 
 function configuraMermaid() {
   const s = getComputedStyle(document.documentElement);
