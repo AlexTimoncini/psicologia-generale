@@ -13989,6 +13989,9 @@ function mpPercorso(n) { const p = []; while (n) { p.unshift(n); n = n.genitore;
    con cui i nodi sono scritti a mano in data/mappe.js. Usata sia per
    fotografare la versione pubblicata al primo caricamento, sia per
    salvare la bozza in locale, sia per l'esportazione. */
+const MP_ICONA_SCHERMO = '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1.5 5.5v-4h4M10.5 1.5h4v4M14.5 10.5v4h-4M5.5 14.5h-4v-4"/></svg>';
+const MP_ICONA_ESCI = '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5.5 1.5v4h-4M14.5 5.5h-4v-4M10.5 14.5v-4h4M1.5 10.5h4v4"/></svg>';
+
 function mpPulisci(n) {
   const o = { t: n.t };
   if (n.d) o.d = n.d;
@@ -14094,7 +14097,6 @@ function vistaMappe(idMacro) {
         <button role="tab" data-vista="mappa" class="${st.vista === 'mappa' ? 'attivo' : ''}">Mappa</button>
         <button role="tab" data-vista="elenco" class="${st.vista === 'elenco' ? 'attivo' : ''}">Elenco</button>
       </div>
-      ${puoSchermoIntero ? `<button class="bottone vuoto" id="mpSchermo">Schermo intero</button>` : ''}
       <button class="bottone vuoto" id="mpApriTutto">Espandi tutto</button>
       <button class="bottone vuoto" id="mpChiudiTutto">Comprimi</button>
       <label class="atl-spunta"><input type="checkbox" id="mpDescr" ${st.descr ? 'checked' : ''}> Descrizioni nella mappa</label>
@@ -14126,6 +14128,7 @@ function vistaMappe(idMacro) {
       <div class="mp-scena${st.vista === 'mappa' ? '' : ' mp-nascosta'}" id="mpScena" tabindex="-1">
         <div class="mp-tela" id="mpTela"><svg class="mp-rami" id="mpRami" aria-hidden="true"></svg></div>
         <div class="mp-zoom">
+          ${puoSchermoIntero ? `<button id="mpSchermo" aria-label="Schermo intero" title="Schermo intero">${MP_ICONA_SCHERMO}</button>` : ''}
           <button id="mpPiu" aria-label="Ingrandisci">+</button>
           <button id="mpMeno" aria-label="Rimpicciolisci">−</button>
           <button id="mpAdatta" aria-label="Adatta alla finestra">⤢</button>
@@ -14581,21 +14584,21 @@ function vistaMappe(idMacro) {
   };
   $('#mpScarta').onclick = mpScartaBozza;
 
-  /* ---- schermo intero: tutta la pagina (barra dei filtri e attrezzi
-     comprese, non solo la mappa), per non perdere i controlli ---- */
   const btnSchermo = $('#mpSchermo');
   if (btnSchermo) {
     const suFullscreen = () => {
-      const attivo = document.fullscreenElement === main;
-      btnSchermo.textContent = attivo ? 'Esci da schermo intero' : 'Schermo intero';
-      main.classList.toggle('mp-schermo', attivo);
+      const attivo = document.fullscreenElement === scena;
+      const etichetta = attivo ? 'Esci da schermo intero' : 'Schermo intero';
+      btnSchermo.setAttribute('aria-label', etichetta);
+      btnSchermo.title = etichetta;
+      btnSchermo.innerHTML = attivo ? MP_ICONA_ESCI : MP_ICONA_SCHERMO;
       if (st.vista === 'mappa') { st.pos = {}; ridisegna(st.scelto); if (!st.scelto) adatta(); }
     };
     document.addEventListener('fullscreenchange', suFullscreen);
     st.suFullscreen = suFullscreen;
     btnSchermo.onclick = () => {
       if (document.fullscreenElement) document.exitFullscreen();
-      else main.requestFullscreen().catch(() => {});
+      else scena.requestFullscreen().catch(() => {});
     };
   }
 
@@ -14967,7 +14970,7 @@ const rotte = {
 function instrada() {
   const percorso = (location.hash.slice(1) || '/').split('?')[0];
   main.innerHTML = '';
-  main.classList.remove('pl-piena', 'mp-full', 'mp-schermo');
+  main.classList.remove('pl-piena', 'mp-full');
   document.body.classList.remove('atl-immersivo');
   if ('speechSynthesis' in window) speechSynthesis.cancel();
   fermaTimer();

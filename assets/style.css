@@ -1226,17 +1226,6 @@ main.mp-full {
   padding: clamp(1.4rem, 3vw, 2.5rem) clamp(1.1rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem);
 }
 
-/* Schermo intero: si manda a schermo intero <main> per intero — filtri
-   e attrezzi compresi, non solo la tela — così restano usabili anche
-   lì dentro. Il browser porta l'elemento a riempire lo schermo da
-   solo; qui basta lasciare più spazio verticale a mappa/elenco/pannello,
-   che altrimenti resterebbero limitati al tetto pensato per la finestra
-   normale (clamp fino a 780px). */
-main.mp-full.mp-schermo { overflow-y: auto; }
-main.mp-full.mp-schermo .mp-scena { height: clamp(420px, 82vh, 1400px); }
-main.mp-full.mp-schermo .mp-elenco,
-main.mp-full.mp-schermo .mp-pannello { max-height: clamp(420px, 82vh, 1400px); }
-
 /* I rami non usano né verde né giallo: quelli significano
    «elemento finale» e «superfluo», e non devono confondersi. */
 :root {
@@ -1312,6 +1301,8 @@ html[data-tema="sfondo"] {
     linear-gradient(90deg, var(--griglia) 1px, transparent 1px) 0 0/22px 22px,
     var(--carta); }
 .mp-scena.mp-trascina { cursor:grabbing; }
+.mp-scena:fullscreen { border:0; border-radius:0; }
+.mp-zoom button svg { display:block; margin:auto; }
 .mp-scena:focus { outline:none; }
 .mp-tela { position:absolute; top:0; left:0; transform-origin:0 0; will-change:transform; }
 .mp-rami { position:absolute; top:0; left:0; overflow:visible; pointer-events:none; }
@@ -1432,7 +1423,4 @@ html[data-tema="sfondo"] {
   .mp-scena { height:min(64vh, 520px); }
   .mp-elenco { max-height:none; }
   .mp-cerca { margin-left:0; max-width:none; }
-  main.mp-full.mp-schermo .mp-scena { height:min(72vh, 900px); }
-  main.mp-full.mp-schermo .mp-elenco,
-  main.mp-full.mp-schermo .mp-pannello { max-height:min(72vh, 900px); }
 }
