@@ -1,0 +1,54 @@
+graph TD
+    SON["IL SONNO<br/>STATO ALTERATO DI COSCIENZA<br/>l'esperienza soggettiva sembra cessare<br/>ma nei SOGNI si riaccende"]
+
+    SON ==> CIR["I RITMI CIRCADIANI<br/>circa + dies · ~24 ore<br/>temperatura · ormoni · vigilanza"]
+    CIR --> NSC["NUCLEI SOPRACHIASMATICI<br/>dell'IPOTALAMO = l'orologio<br/>→ EPIFISI → MELATONINA<br/>(effetto rilassante)"]
+    CIR --> AMB["NATURA + AMBIENTE<br/>al buio: ciclo spontaneo di 24,2 h<br/>la luce lo tara su 24"]
+    CIR --> CRO["CRONOTIPO<br/>ALLODOLA mattutina<br/>GUFO serotino<br/>il mattutino rende meglio"]
+    CIR --> ALT["ALTERAZIONI<br/>JET LAG: verso OVEST meglio<br/>LAVORO NOTTURNO<br/>DISTURBO AFFETTIVO STAGIONALE"]
+
+    CIR ==> CON["GLI STATI DI CONFINE<br/>IPNAGOGICO prima del sonno<br/>IPNOPOMPICO prima del risveglio<br/>SPASMI IPNICI: cadere nel vuoto"]
+
+    CON ==> PSG["POLISONNOGRAFIA<br/>EEG cervello · EOG occhi<br/>EMG muscoli (mandibola)<br/>onde: AMPIEZZA (µV) e FREQUENZA (Hz)"]
+
+    PSG ==> NREM["LE 4 FASI NON REM"]
+    NREM --> VEG["VEGLIA: BETA (e gamma)<br/>VEGLIA RILASSATA: ALFA"]
+    NREM --> F12["FASE 1: THETA · ipnagogico<br/>FASE 2: FUSI DEL SONNO<br/>e COMPLESSI K"]
+    NREM --> F34["FASE 3: compaiono le DELTA<br/>FASE 4: DELTA prevalenti<br/>SONNO A ONDE LENTE<br/>il più profondo"]
+
+    NREM ==> REM["IL SONNO REM<br/>Rapid Eye Movement · 20% del sonno<br/>EEG come in VEGLIA<br/>attivazione generale<br/>muscoli ATONICI<br/>= SONNO PARADOSSO<br/>sogni più vividi"]
+
+    REM ==> CIC["IL CICLO<br/>4 non REM + 1 REM · ~90 minuti<br/>prima parte della notte: sonno PROFONDO<br/>ultima parte: sonno REM"]
+
+    CIC ==> DUR["LA DURATA<br/>adulto ~8 ore, molto variabile<br/>cala con l'età<br/>il REM cala di più<br/>neonato: quasi 8 ore di REM"]
+
+    DUR ==> REG["LA REGOLAZIONE<br/>nessun centro unico<br/>BILANCIA VEGLIA/SONNO"]
+    REG --> PCI["PROCESSO CIRCADIANO<br/>NSC dell'ipotalamo"]
+    REG --> POM["PROCESSO OMEOSTATICO<br/>il bisogno di sonno cresce<br/>durante il giorno<br/>prosencefalo basale +<br/>formazione reticolare"]
+    POM --> PON["FORMAZIONE RETICOLARE DEL PONTE<br/>proiezioni inibitorie ai motoneuroni<br/>→ PARALISI DEL SONNO REM"]
+
+    REG ==> CER["IL CERVELLO IN REM<br/>↑ SISTEMA LIMBICO: emozioni<br/>↑ CORTECCIA VISIVA: vividezza<br/>↑ CORTECCIA MOTORIA: bloccata dal ponte<br/>↓ PREFRONTALE: niente logica"]
+    PON -.-> CER
+
+    CER ==> FUN["LE FUNZIONI<br/>studi di DEPRIVAZIONE"]
+    FUN --> DEP["PILCHER E HUFFCUTT 1996<br/>totale breve · totale lunga · parziale<br/>↓ umore ↓ cognizione ↓ fisico<br/>INSONNIA FAMILIARE FATALE → morte"]
+    FUN --> SEL["DEPRIVAZIONE SELETTIVA<br/>onde lente → effetti FISICI<br/>REM → effetti PSICOLOGICI<br/>memoria · aggressività"]
+    SEL --> REB["EFFETTO REBOUND<br/>dopo deprivazione, più REM<br/>il sonno perso non si recupera<br/>il REM sì"]
+    FUN --> CIN["LE 5 FUNZIONI<br/>PROTEGGE (nicchia ecologica)<br/>RECUPERA (neurotossine)<br/>CONSOLIDA i ricordi<br/>PENSIERO CREATIVO<br/>CRESCITA: IPOFISI, non epifisi"]
+
+    FUN ==> DIS["I DISTURBI<br/>da 1/3 a 1/4 della popolazione"]
+    DIS --> INS["INSONNIA · 10-40%<br/>cronica · cause multiple<br/>i farmaci alterano il REM<br/>elettiva la CBT-I<br/>circolo vizioso · igiene del sonno"]
+    DIS --> NAR["NARCOLESSIA<br/>genetica · attacchi di sonno<br/>CATAPLESSIA da emozioni forti"]
+    DIS --> RBD["DISTURBO COMPORTAMENTALE<br/>DEL SONNO REM<br/>manca l'atonia: si agiscono i sogni<br/>primario o secondario (Parkinson)"]
+    DIS --> SNB["SONNAMBULISMO · fasi 3-4<br/>20% bambini · 5% adulti<br/>nessun ricordo"]
+    DIS --> PAV["PAVOR NOCTURNUS · fasi 3-4<br/>6% bambini · 1-2% adulti<br/>incubi invece in REM"]
+    DIS --> APN["APNEA DEL SONNO<br/>ostruzione delle vie aeree<br/>uomini in sovrappeso<br/>chirurgia o CPAP"]
+
+    DIS ==> SOG["I SOGNI<br/>immagini e suoni che sembrano reali<br/>in tutte le fasi, soprattutto REM<br/>REM 85% vividi · non REM 15%"]
+    SOG --> CNT["CHE COSA SI SOGNA<br/>meno bizzarro dello stereotipo<br/>contenuti NEGATIVI frequenti<br/>uomini sognano altri maschi<br/>cultura e preoccupazioni"]
+    SOG ==> TEO["LE TEORIE"]
+    TEO --> FRD["FREUD<br/>appagamento dei desideri inconsci<br/>MANIFESTO · LATENTE<br/>LAVORO ONIRICO"]
+    TEO --> ATS["ATTIVAZIONE-SINTESI<br/>Hobson e McCarley 1977<br/>il tronco spara input CASUALI<br/>la corteccia li INTERPRETA<br/>spiega la bizzarria"]
+    TEO --> PSO["PROBLEM SOLVING ONIRICO<br/>Cartwright · soluzioni creative<br/>molto dibattuto"]
+    TEO --> PCO["PROCESSI COGNITIVI ONIRICI<br/>Foulkes · stessi sistemi<br/>dei pensieri coscienti<br/>bizzarria = ricostruzione"]
+    TEO ==> INT["VERSO L'INTEGRAZIONE<br/>nessun modello condiviso<br/>processi percettivi, motivazionali,<br/>cognitivi · teorie neurocognitive"]

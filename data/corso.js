@@ -50,7 +50,7 @@ PGE.lezioni = [
     letture:["Petrosini et al., 2009 — approfondimento sull'arricchimento ambientale"] },
   { id:"L14", modulo:"M3", titolo:"Coscienza e attenzione (I)", sottotitolo:"La coscienza e l'attenzione", stato:"pronta",
     argomenti:["La coscienza","L'attenzione"], letture:["Simons & Chabris, 1999","Stroop, 1935"] },
-  { id:"L15", modulo:"M3", titolo:"Coscienza e attenzione (II)", sottotitolo:"Stati alterati: sonno e sogni", stato:"attesa",
+  { id:"L15", modulo:"M3", titolo:"Coscienza e attenzione (II)", sottotitolo:"Stati alterati: sonno e sogni", stato:"pronta",
     argomenti:["Il sonno","I disturbi del sonno","I sogni"], letture:["Zha et al., 2024","Carskadon & Dement, 2011"] },
   { id:"L16", modulo:"M3", titolo:"Sensazione e percezione (I)", sottotitolo:"La sensazione", stato:"attesa",
     argomenti:["I processi sensoriali","I sistemi sensoriali: la vista"], letture:[] },
