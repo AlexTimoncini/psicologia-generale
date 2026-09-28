@@ -62,7 +62,7 @@ PGE.lezioni = [
     argomenti:["Cos'è la memoria","I processi di memoria","Quando la memoria fallisce"], letture:["Rubin & Talarico, 2009"] },
   { id:"L20", modulo:"M3", titolo:"Pensiero", sottotitolo:"Categorizzazione, ragionamento, problem solving", stato:"pronta",
     argomenti:["La categorizzazione","Le forme del pensiero","Il ragionamento","Il problem solving"], letture:["Kharkhurin, 2014"] },
-  { id:"L21", modulo:"M3", titolo:"Comunicazione e linguaggio", sottotitolo:"", stato:"attesa",
+  { id:"L21", modulo:"M3", titolo:"Comunicazione e linguaggio", sottotitolo:"La comunicazione e il linguaggio umano", stato:"pronta",
     argomenti:["Comunicazione e linguaggio","Il linguaggio umano"], letture:[] },
   { id:"L22", modulo:"M3", titolo:"Intelligenza", sottotitolo:"", stato:"attesa",
     argomenti:["Definizione e teorie","La valutazione dell'intelligenza"], letture:[] },
