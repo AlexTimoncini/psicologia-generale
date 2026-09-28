@@ -58,7 +58,7 @@ PGE.lezioni = [
     argomenti:["Realtà fisica e realtà percepita","L'organizzazione percettiva"], letture:["Wagemans et al., 2012"] },
   { id:"L18", modulo:"M3", titolo:"Apprendimento", sottotitolo:"Il ruolo dell'esperienza", stato:"pronta",
     argomenti:["Definire l'apprendimento","Gli apprendimenti associativi","Gli apprendimenti cognitivi"], letture:["Rizzolatti & Craighero, 2004"] },
-  { id:"L19", modulo:"M3", titolo:"Memoria", sottotitolo:"", stato:"attesa",
+  { id:"L19", modulo:"M3", titolo:"Memoria", sottotitolo:"Magazzini, processi e fallimenti della memoria", stato:"pronta",
     argomenti:["Cos'è la memoria","I processi di memoria","Quando la memoria fallisce"], letture:["Rubin & Talarico, 2009"] },
   { id:"L20", modulo:"M3", titolo:"Pensiero", sottotitolo:"Categorizzazione, ragionamento, problem solving", stato:"pronta",
     argomenti:["La categorizzazione","Le forme del pensiero","Il ragionamento","Il problem solving"], letture:["Kharkhurin, 2014"] },

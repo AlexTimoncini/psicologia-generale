@@ -1,7 +1,7 @@
 /* Service worker — generato da build.js a partire da sw.template.js.
    Precache di tutto il sito (tranne i PDF, messi in cache alla prima apertura),
    cache-first sui file locali, rete con riserva in cache per i font. */
-const VERSIONE = '3ca093ece1';
+const VERSIONE = 'd30332dcf7';
 const CACHE = 'pge-' + VERSIONE;
 const PRECACHE = [
  "index.html",
@@ -70,6 +70,8 @@ const PRECACHE = [
  "contenuti/L17_trascrizione.md",
  "contenuti/L18_appunti.md",
  "contenuti/L18_trascrizione.md",
+ "contenuti/L19_appunti.md",
+ "contenuti/L19_trascrizione.md",
  "contenuti/L20_appunti.md",
  "contenuti/L20_trascrizione.md",
  "contenuti/L21_appunti.md",
@@ -157,6 +159,7 @@ const PRECACHE = [
  "contenuti/mappe/L16.mmd",
  "contenuti/mappe/L17.mmd",
  "contenuti/mappe/L18.mmd",
+ "contenuti/mappe/L19.mmd",
  "contenuti/mappe/L20.mmd",
  "contenuti/mappe/L21.mmd",
  "contenuti/mappe/L22.mmd",
