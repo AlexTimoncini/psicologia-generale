@@ -60,7 +60,7 @@ PGE.lezioni = [
     argomenti:["Definire l'apprendimento","Gli apprendimenti associativi","Gli apprendimenti cognitivi"], letture:["Rizzolatti & Craighero, 2004"] },
   { id:"L19", modulo:"M3", titolo:"Memoria", sottotitolo:"", stato:"attesa",
     argomenti:["Cos'è la memoria","I processi di memoria","Quando la memoria fallisce"], letture:["Rubin & Talarico, 2009"] },
-  { id:"L20", modulo:"M3", titolo:"Pensiero", sottotitolo:"", stato:"attesa",
+  { id:"L20", modulo:"M3", titolo:"Pensiero", sottotitolo:"Categorizzazione, ragionamento, problem solving", stato:"pronta",
     argomenti:["La categorizzazione","Le forme del pensiero","Il ragionamento","Il problem solving"], letture:["Kharkhurin, 2014"] },
   { id:"L21", modulo:"M3", titolo:"Comunicazione e linguaggio", sottotitolo:"", stato:"attesa",
     argomenti:["Comunicazione e linguaggio","Il linguaggio umano"], letture:[] },
