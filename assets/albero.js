@@ -87,7 +87,7 @@ function alDaScheda(nodo) {
   if (alHas(s.precorre)) figli.push(F(`${sid}:precorre`, 'Che cosa precorre', `Che cosa precorre «${N}», e in che modo?`, `${sid} › precorre`));
   if (alHas(s.errori)) figli.push(F(`${sid}:errori`, 'Dove si perde il voto',
     `Quali sono gli errori tipici su «${N}»? Per ciascuno: la formulazione sbagliata e quella corretta.`, `${sid} › errori`));
-  figli.push(F(`${sid}:orale`, "L'esposizione d'insieme", `Esponi «${N}» per intero, come all'orale, in quattro-cinque minuti.`, `${sid} › intera scheda`));
+  figli.push(F(`${sid}:orale`, "L'esposizione d'insieme", `Esponi «${N}» per intero, come nella risposta d'esame: una pagina scarsa, mezz'ora.`, `${sid} › intera scheda`));
 
   return { id: nodo.id, titolo: nodo.titolo, occhiello: s.identificazione.unaRiga, fonte, figli: alSpiana(figli) };
 }
@@ -182,7 +182,7 @@ function alRendiFoglia(f, R, V, prof) {
       <p class="al-domanda"><strong>${esc(f.titolo)}</strong> <span>${esc(f.domanda || '')}</span></p>
       <div class="al-voto-col">${alVoto(v && v.p)}${storico}</div>
     </div>
-    <textarea rows="4" placeholder="Scrivi qui, a memoria, quello che diresti all'orale…" spellcheck="false">${esc(r.t || '')}</textarea>
+    <textarea rows="4" placeholder="Scrivi qui, a memoria, quello che scriveresti all'esame…" spellcheck="false">${esc(r.t || '')}</textarea>
     <div class="al-piede">
       <span class="al-stato">${stato}</span>
       ${link ? `<span class="al-fonte">ristudia: ${link}</span>` : ''}

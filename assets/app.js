@@ -130,7 +130,7 @@ function vistaQuadro() {
         ['#/filiazioni','Linee di filiazione','Chi precede chi, in entrambe le direzioni: i punti in cui la docente costruisce i ponti, e i più interrogati.'],
         ['#/manuale/C16','Metodologia della ricerca','Il metodo scientifico e i suoi assunti, il processo di ricerca, le variabili, i metodi descrittivi, il correlazionale, lo sperimentale, la pubblicazione.'],
         ['#/manuale/C22','Basi biologiche','Il neurone e la sinapsi, l\'architettura del sistema nervoso, la corteccia, i metodi di indagine, geni e plasticità cerebrale.'],
-        ['#/argomenti','Come si espone a voce',`${PGE.argomenti.voci.length} esposizioni scritte come si direbbero all'orale, dall'attacco alla chiusura, con le indicazioni di regìa nascondibili.`]
+        ['#/argomenti','Come si espone a voce',`${PGE.argomenti.voci.length} esposizioni distese, da leggere come un discorso, dall'attacco alla chiusura, con le indicazioni di regìa nascondibili.`]
       ].map(([h,t,d]) => `
         <a class="scheda" href="${h}" style="text-decoration:none">
           <h3 style="margin-top:0">${t}</h3>
@@ -145,7 +145,7 @@ function vistaQuadro() {
         ['#/albero','Albero di studio','Ogni argomento scomposto fino alle domande di base. Le risposte le scrivi tu, a memoria; la correzione dà un voto da 1 a 100 che resta sull\'albero, ramo per ramo.'],
         ['#/esame','Domande d\'esame','Le domande che ricorrono negli appelli degli anni passati, modulo per modulo, ciascuna con la risposta da 30 e lode: un tema intero in una pagina scarsa.'],
         ['#/pills','Pills','Un feed da telefono: scorri una schermata alla volta fra pillole che si raccontano riga per riga, con lettura vocale, e minigiochi: crocette, vero o falso, chi sono, cronologia, elenco.'],
-        ['#/tutor','Tutor vocale','Un orale a voce col telefono: il tutor fa la domanda, ascolta, ti ferma se sbagli, suggerisce ciò che manca, rispiega e ti fa ripetere. Gratis e offline; con la tua chiave API diventa Claude.'],
+        ['#/tutor','Tutor vocale','Un’interrogazione a voce col telefono: il tutor fa la domanda, ascolta, ti ferma se sbagli, suggerisce ciò che manca, rispiega e ti fa ripetere. Gratis e offline; con la tua chiave API diventa Claude.'],
         ['#/quiz','Quiz a crocette', `${PGE.quiz.length} domande a quattro opzioni, con spiegazione dopo ogni risposta. I distrattori sono le risposte di un\'altra scuola: sbagliare qui è informativo.`],
         ['#/flashcard','Flashcard', `${PGE.flashcard.length} carte a tre scatole. Le sbagliate tornano, quelle sapute due volte escono dal giro.`],
         ['#/nomi','Scrivere i nomi', `${PGE.nomi.length} nomi e luoghi, con il confronto lettera per lettera. Titchener, Vygotskij, Wertheimer, von Helmholtz: qui si sbaglia sempre.`],
@@ -418,7 +418,7 @@ function vistaSintagmi() {
   main.innerHTML = `
     <p class="occhiello">Strumenti</p>
     <h1>I sintagmi da memorizzare</h1>
-    <p class="sommario">Sono ${PGE.sintagmi.length}. Vanno imparati alla lettera, non parafrasati: è esattamente il punto in cui all'orale si scivola. Ripetili ad alta voce, non rileggendoli.</p>
+    <p class="sommario">Sono ${PGE.sintagmi.length}. Vanno imparati alla lettera, non parafrasati: è esattamente il punto in cui allo scritto si perdono punti. Ripetili ad alta voce, non rileggendoli.</p>
     ${PGE.sintagmi.map((s, i) => `
       <div style="display:grid;grid-template-columns:2.2rem 1fr;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--linea-fine)">
         <div style="font-family:var(--dati);font-size:.75rem;color:var(--accento)">${String(i+1).padStart(2,'0')}</div>

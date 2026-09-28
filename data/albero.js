@@ -21,7 +21,7 @@
 var PGE = window.PGE = window.PGE || {};
 
 PGE.albero = {
-  intro: "Ogni argomento è scomposto fino alle domande di base. La risposta la scrivi tu, a memoria, come la diresti all'orale; poi la esporti e la passi in chat per la correzione. Il voto da 1 a 100 torna qui e resta sull'albero: quello che è sotto soglia si ristudia e si riscrive.",
+  intro: "Ogni argomento è scomposto fino alle domande di base. La risposta la scrivi tu, a memoria, come la scriveresti all'esame; poi la esporti e la passi in chat per la correzione. Il voto da 1 a 100 torna qui e resta sull'albero: quello che è sotto soglia si ristudia e si riscrive.",
 
   rami: [
 

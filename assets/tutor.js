@@ -96,7 +96,7 @@ function tuCervelloLocale(f) {
 /* ---- cervello Claude (chiave dell'utente, salvata solo sul dispositivo) ---- */
 function tuCervelloClaude(f, capitolo) {
   const chiave = MEM.get('tutor.chiave', ''), modello = MEM.get('tutor.modello', 'claude-haiku-4-5-20251001');
-  const sistema = `Sei il tutor personale di uno studente di Psicologia Generale (Unimarconi) che si prepara all'esame orale. Parlate in italiano, a voce: frasi brevi, niente elenchi, niente markdown, tono diretto e cordiale.
+  const sistema = `Sei il tutor personale di uno studente di Psicologia Generale (Unimarconi) che si prepara all'esame scritto. Parlate in italiano, a voce: frasi brevi, niente elenchi, niente markdown, tono diretto e cordiale.
 Argomento di oggi: «${f.titolo}». Domanda: «${f.domanda}».
 Punti che la risposta DEVE contenere (presi dalla lezione, sono l'unica fonte ammessa):
 ${f.deve.map(d => '- ' + d).join('\n')}
@@ -138,7 +138,7 @@ function vistaTutor() {
       <button class="chip tu-imp" id="tuImp" title="Impostazioni">⚙︎</button>
     </div>
     <div class="tu-chat" id="tuChat">
-      <div class="tu-msg tutor"><p>Sono il tuo tutor. Ti faccio una domanda, tu rispondi a voce come all'orale: ti fermo se sbagli, ti suggerisco ciò che manca e ti faccio ripetere. Di' <em>«spiegamelo»</em> per farmi rispiegare, <em>«prossima»</em> per cambiare domanda, <em>«basta»</em> per il voto.</p>
+      <div class="tu-msg tutor"><p>Sono il tuo tutor. Ti faccio una domanda, tu rispondi a voce come scriveresti all'esame: ti fermo se sbagli, ti suggerisco ciò che manca e ti faccio ripetere. Di' <em>«spiegamelo»</em> per farmi rispiegare, <em>«prossima»</em> per cambiare domanda, <em>«basta»</em> per il voto.</p>
       ${!Ric ? '<p class="tu-avviso">Questo browser non ha il riconoscimento vocale: usa Chrome su Android o Safari su iPhone. Puoi comunque scrivere le risposte.</p>' : ''}
       <p class="tu-nota">Cervello: <b>${modo === 'claude' ? 'Claude (la tua chiave)' : 'locale, gratuito'}</b> · ${TU_VOCE.voci().length} voci italiane sul dispositivo</p></div>
     </div>

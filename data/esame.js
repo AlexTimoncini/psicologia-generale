@@ -8,11 +8,11 @@
 var PGE = window.PGE = window.PGE || {};
 
 PGE.esame = {
-  intro: "Allo scritto tre domande aperte in 90 minuti; all'orale un colloquio di venti. Il criterio dichiarato dal docente: sintesi e pertinenza sono merito, la prolissità è penalizzata. Qui ci sono le domande che ricorrono negli appelli degli anni passati e, per ognuna, la risposta che vale il massimo: un tema intero in una pagina scarsa, tutti i punti principali, nessuno approfondito a scapito degli altri.",
+  intro: "L'esame è uno scritto: tre domande aperte in 90 minuti. Il criterio dichiarato dal docente: sintesi e pertinenza sono merito, la prolissità è penalizzata. Qui ci sono le domande che ricorrono negli appelli degli anni passati e, per ognuna, la risposta che vale il massimo: un tema intero in una pagina scarsa, tutti i punti principali, nessuno approfondito a scapito degli altri.",
   fonti: [
     ["Skuola.net — Domande Psicologia generale, prof. Petrucci, Unimarconi (2021-22, rev. 07/2026)", "https://www.skuola.net/universita/appunti/domande-psicologia-generale-1"],
     ["Docsity — Domande e risposte complete Psicologia Generale Unimarconi, prof. De Bartolo (L-24)", "https://www.docsity.com/it/docs/domande-e-risposte-complete-psicologia-generale-unimarconi/12505976/"],
-    ["Infopoint Unimarconi — scheda Psicologia Generale: scritto 90', orale 20'", "https://unimarconirieti.it/insegnamenti/psicologia-generale/"]
+    ["Infopoint Unimarconi — scheda Psicologia Generale: scritto 90'", "https://unimarconirieti.it/insegnamenti/psicologia-generale/"]
   ],
   moduli: [
     { id: "M1", titolo: "Modulo 1 — Fondamenti e metodologia", domande: [

@@ -839,7 +839,7 @@ PGE.quiz = [
      "Fondare un laboratorio sperimentale",
      "Rifiutare il metodo introspettivo",
      "Applicare la psicologia agli animali"],
-  sp:"Prima si fa ricerca, poi qualcuno la battezza e ne fissa i confini. Notare il parallelismo all'orale dimostra di aver colto un pattern e non due elenchi di nomi.",
+  sp:"Prima si fa ricerca, poi qualcuno la battezza e ne fissa i confini. Notare il parallelismo nella risposta dimostra di aver colto un pattern e non due elenchi di nomi.",
   a:"Excursus", l:"L01", c:"C07", d:3 },
 
 { q:"Quale delle seguenti affermazioni sull'excursus è corretta?",
@@ -1025,7 +1025,7 @@ PGE.quiz = [
      "Sì: entrambi descrivono connessioni fra stimolo e risposta",
      "Sì: Thorndike è considerato il fondatore del connessionismo cognitivo",
      "No: Thorndike parla di reti neurali, la scienza cognitiva di associazioni"],
-  sp:"Stessa parola, mezzo secolo e due paradigmi di distanza. È uno degli errori più facili da commettere all'orale.",
+  sp:"Stessa parola, mezzo secolo e due paradigmi di distanza. È uno degli errori più facili da commettere all'esame.",
   a:"Cognitivismo", l:"L03", c:"C13", d:2 },
 
 /* ---------- PSICOLOGIA CONTEMPORANEA (L03) ---------- */

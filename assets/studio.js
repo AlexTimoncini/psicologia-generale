@@ -163,7 +163,7 @@ function vistaNomi() {
   main.innerHTML = `
     <p class="occhiello">Allenamento</p>
     <h1>Scrivere i nomi</h1>
-    <p class="sommario">All'orale un nome sbagliato si sente; allo scritto si vede. Qui compare l'indizio, tu scrivi il nome. Il controllo è sulle <strong>lettere</strong>: le varianti di traslitterazione e i segni diacritici sono accettati, ma vengono segnalati.</p>
+    <p class="sommario">Allo scritto un nome sbagliato si vede subito. Qui compare l'indizio, tu scrivi il nome. Il controllo è sulle <strong>lettere</strong>: le varianti di traslitterazione e i segni diacritici sono accettati, ma vengono segnalati.</p>
 
     <div class="pannello-avvio">
       <label>Che cosa allenare

@@ -12,7 +12,7 @@ function vistaEsame(vai) {
     <div class="griglia tre" style="margin-bottom:1.6rem">
       <div class="dato"><span class="dato-cifra">${n}</span><span class="dato-eti">domande, ${trovate} uscite negli anni passati</span></div>
       <div class="dato"><span class="dato-cifra">3</span><span class="dato-eti">domande aperte allo scritto, in 90 minuti</span></div>
-      <div class="dato"><span class="dato-cifra">20'</span><span class="dato-eti">il colloquio orale</span></div>
+      <div class="dato"><span class="dato-cifra">30'</span><span class="dato-eti">per risposta: una pagina scarsa</span></div>
     </div>
     <div class="azioni" style="margin-bottom:1.5rem">
       <button class="bottone vuoto" id="esApri">Apri tutte le risposte</button>
