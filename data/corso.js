@@ -68,7 +68,7 @@ PGE.lezioni = [
     argomenti:["Definizione e teorie","La valutazione dell'intelligenza"], letture:[] },
   { id:"L23", modulo:"M4", titolo:"Le condotte motivate", sottotitolo:"Prospettive e teorie della motivazione; la fame", stato:"pronta",
     argomenti:["Definizione, prospettive e teorie","Applicazione delle prospettive"], letture:["Galeb, 2024"] },
-  { id:"L24", modulo:"M4", titolo:"Le emozioni", sottotitolo:"", stato:"attesa",
+  { id:"L24", modulo:"M4", titolo:"Le emozioni", sottotitolo:"La natura delle emozioni e le loro componenti", stato:"pronta",
     argomenti:["La natura delle emozioni","Le componenti delle emozioni"], letture:["Coppini et al., 2024"] }
 ];
 

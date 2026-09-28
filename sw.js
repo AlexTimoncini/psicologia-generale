@@ -1,7 +1,7 @@
 /* Service worker — generato da build.js a partire da sw.template.js.
    Precache di tutto il sito (tranne i PDF, messi in cache alla prima apertura),
    cache-first sui file locali, rete con riserva in cache per i font. */
-const VERSIONE = 'aea9664b95';
+const VERSIONE = '3ca093ece1';
 const CACHE = 'pge-' + VERSIONE;
 const PRECACHE = [
  "index.html",
@@ -78,6 +78,8 @@ const PRECACHE = [
  "contenuti/L22_trascrizione.md",
  "contenuti/L23_appunti.md",
  "contenuti/L23_trascrizione.md",
+ "contenuti/L24_appunti.md",
+ "contenuti/L24_trascrizione.md",
  "contenuti/argomenti/D01.md",
  "contenuti/argomenti/D02.md",
  "contenuti/argomenti/D03.md",
@@ -159,6 +161,7 @@ const PRECACHE = [
  "contenuti/mappe/L21.mmd",
  "contenuti/mappe/L22.mmd",
  "contenuti/mappe/L23.mmd",
+ "contenuti/mappe/L24.mmd",
  "contenuti/schema_integrato.md",
  "icone/apple-touch-icon.png",
  "icone/icona-192.png",
