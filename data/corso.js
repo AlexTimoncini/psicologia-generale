@@ -56,7 +56,7 @@ PGE.lezioni = [
     argomenti:["I processi sensoriali","I sistemi sensoriali: la vista"], letture:[] },
   { id:"L17", modulo:"M3", titolo:"Sensazione e percezione (II)", sottotitolo:"La percezione", stato:"pronta",
     argomenti:["Realtà fisica e realtà percepita","L'organizzazione percettiva"], letture:["Wagemans et al., 2012"] },
-  { id:"L18", modulo:"M3", titolo:"Apprendimento", sottotitolo:"Il ruolo dell'esperienza", stato:"attesa",
+  { id:"L18", modulo:"M3", titolo:"Apprendimento", sottotitolo:"Il ruolo dell'esperienza", stato:"pronta",
     argomenti:["Definire l'apprendimento","Gli apprendimenti associativi","Gli apprendimenti cognitivi"], letture:["Rizzolatti & Craighero, 2004"] },
   { id:"L19", modulo:"M3", titolo:"Memoria", sottotitolo:"", stato:"attesa",
     argomenti:["Cos'è la memoria","I processi di memoria","Quando la memoria fallisce"], letture:["Rubin & Talarico, 2009"] },
